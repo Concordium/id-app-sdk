@@ -1,102 +1,110 @@
-// interface IDAppSDKConfig {
-//   projectId: string;
-//   metadata: {
-//     name: string;
-//     description: string;
-//     url: string;
-//     icons: string[];
-//   };
-//   relayUrl?: string;
-// }
-
-// interface IDAppCrypto {
-//   derivation_path: string
-// }
-
-export interface CCDBalance {
-  amount: string;
-  denom: string;
-  token: string;
-}
-
-export interface CCDAccount {
-  public_key: string;
-  account_address: string;
-  transaction_sequence_number: number;
-  balances: CCDBalance[];
-}
-
-export interface RecoverAccountCreationResponse {
-  status: string;
-  account?: CCDAccount;
-}
-
-export interface CreateAccountCreationResponse {
-  status: string;
-  account?: CCDAccount;
-  createAccountCredentialTx: string;
-}
-
-export interface CreateAccountCreationRequestMessage {
-  public_key: string;
-  reason: string;
-}
-
-export interface CCDTxResponse {
-  status: string;
-  transactionHash: string;
-}
-
-export interface RecoverAccountCreationRequestMessage {
-  public_key: string;
-}
-
-export const IDAppSDKMethods = {
-  CREATE_ACCOUNT: 'create_account',
-  RECOVER_ACCOUNT: 'recover_account',
-} as const;
-export type IDAppSDKMethods =
-  (typeof IDAppSDKMethods)[keyof typeof IDAppSDKMethods];
+import {  ConcordiumGRPCWebClient, ConcordiumHdWallet, getAccountAddress, serializeCredentialDeploymentPayload, signCredentialTransaction, TransactionHash, type CredentialDeploymentTransaction, type HexString, type Network } from "@concordium/web-sdk";
+import type {    
+  CCDAccountKeyPair,
+  CreateAccountRequestMessage,
+  RecoverAccountRequestMessage,
+  SignedCredentialDeploymentTransaction,
+} from "./types";
+import { validateMnemonic } from "@scure/bip39";
+import { wordlist } from "@scure/bip39/wordlists/english";
+import { getNetworkConfiguration } from "./utils";
+import { GRPCTIMEOUT } from "./constants";
 
 export class IDAppSDK {
-  public static chainId: string = 'concordium:919';
-  public static getCreateAccountCreationRequest(
-    public_key: string,
-    reason: string = 'Create account'
-  ): CreateAccountCreationRequestMessage {
+
+  /**
+   * 
+   * @param seed Seed phrase to generate the account
+   * @param network Network to use for the account
+   * @param accountIndex Account index to use for the account 
+   * @returns 
+   */
+  public static generateAccountWithSeed(
+    seed: string,
+    network: Network,
+    accountIndex: number = 0
+  ): CCDAccountKeyPair {
+    if (!validateMnemonic(seed, wordlist)) {
+      throw new Error("Invalid seed phrase");
+    }
+    const wallet = ConcordiumHdWallet.fromSeedPhrase(seed, network);
+    // Identity Provider Index is set to 0 and Identity Index is set to 0 because identity is being manged by the Ipapp
+    const publicKey = wallet
+      .getAccountPublicKey(0, 0, accountIndex)
+      .toString("hex");
+    const signingKey = wallet
+      .getAccountSigningKey(0, 0, accountIndex)
+      .toString("hex");
     return {
-      public_key: public_key,
-      reason,
+      publicKey,
+      signingKey
     };
   }
 
-  public static getRecoverAccountRecoveryRequest(
-    public_key: string
-  ): RecoverAccountCreationRequestMessage {
+  /**
+   * 
+   * @param publicKey Public key to use for the account
+   * @param description Description of the use of this public key
+   */
+  public static getCreateAccountCreationRequest(publicKey: string, description:string="Generate accountCredential tranaction using the provided account public key"): CreateAccountRequestMessage {
     return {
-      public_key: public_key,
+      publicKey,
+      description
     };
+
   }
 
-  public static getAccountByAccountAddress(
-    account_address: string
-  ): CCDAccount {
+  /**
+   * 
+   * @param credentialDeploymentTransaction Credential deployment transaction to sign
+   * @param signingKey Signing key to use for the account
+   * @returns Signed credential deployment transaction
+   */
+  public static async signCredentialTransaction(credentialDeploymentTransaction:CredentialDeploymentTransaction,signingKey:HexString):Promise<SignedCredentialDeploymentTransaction> {
+    const signature=await signCredentialTransaction(credentialDeploymentTransaction,signingKey);
+    // Todo: Account address is derived from the credential id 
+    // This might be redundant as account address is already returned from the IDApp
+    const accountAddress = getAccountAddress(credentialDeploymentTransaction.unsignedCdi.credId);
     return {
-      public_key: '',
-      account_address: account_address,
-      transaction_sequence_number: 0,
-      balances: [],
+      credentialDeploymentTransaction,
+      signature,
+      accountAddress
     };
   }
-
-  public static submitCCDTransaction(
-    signedTransaction: string
-  ): Promise<CCDTxResponse> {
-    console.log('Submitting transaction:', signedTransaction);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ status: 'success', transactionHash: '0x1234567890abcdef' });
-      }, 1000);
+  /**
+   * 
+   * @param credentialDeploymentTransaction Credential deployment transaction to submit
+   * @param signature Signature to use for the account
+   * @param network Network to use for the account
+   * @returns Transaction hash of the submitted transaction
+   */
+  public static  async submitCCDTransaction(credentialDeploymentTransaction:CredentialDeploymentTransaction,signature:HexString,network:Network):Promise<TransactionHash.Type> {
+    const payload=serializeCredentialDeploymentPayload([signature],credentialDeploymentTransaction);
+    const networkConfig=getNetworkConfiguration(network);
+    const ccdGrpcClient= new ConcordiumGRPCWebClient(networkConfig.grpcUrl, networkConfig.grpcPort,{
+      timeout:GRPCTIMEOUT
     });
+    return await ccdGrpcClient.sendCredentialDeploymentTransaction(payload,credentialDeploymentTransaction.expiry);
   }
+
+
+  /**
+   * 
+   * @param publicKey Public key to use for the account
+   * @param description Description of the use of this public key
+   */
+  public static getRecoverAccountRecoveryRequest(publicKey: string, description:string="Recover accountCredntial using the provided account public key"): RecoverAccountRequestMessage {
+    return {
+      publicKey,
+      description
+    };
+
+  }
+
+
+
+
 }
+export  * from "./types";
+export * from "./constants";
+export * from "./utils";
