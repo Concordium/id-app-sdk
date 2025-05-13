@@ -51,7 +51,30 @@ export class IDAppSDK {
       publicKey,
       reason
     };
+  }
 
+
+  /**
+   * 
+   * @param credentialDeploymentTransaction Credential deployment transaction to sign
+   * @param signingKey Signing key to use for the account
+   * @returns Signed credential deployment transaction
+   */
+  public static async signCredentialTransaction(serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentTransaction, signingKey: HexString): Promise<SignedCredentialDeploymentTransaction> {
+    // TODO: Deserialize the credential deployment transaction
+    const credentialDeploymentTransaction: CredentialDeploymentTransaction =  this.deseralized(serializedCredentialDeploymentTransaction) // private
+    
+    
+    const signature = await signCredentialTransaction(credentialDeploymentTransaction, signingKey);
+    
+    // Todo: Account address is derived from the credential id 
+    // This might be redundant as account address is already returned from the IDApp
+    const accountAddress = getAccountAddress(credentialDeploymentTransaction.unsignedCdi.credId);
+    return {
+      credentialDeploymentTransaction,
+      signature,
+      accountAddress
+    };
   }
 
   /**
