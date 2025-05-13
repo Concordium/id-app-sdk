@@ -54,7 +54,23 @@ export class IDAppSDK {
       reason
     };
   }
-
+  
+  /**
+   * 
+   * @param serializedCredentialDeploymentTransaction Serialized credential deployment transaction to deserialize
+   * @returns Credential deployment transaction
+   */
+  private static deserializeCredentialDeploymentTransaction(
+    serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails):CredentialDeploymentDetails{
+      const credentialDeploymentTransaction = {} as CredentialDeploymentDetails;
+      credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
+        serializedCredentialDeploymentTransaction.unsignedCdi
+      );
+      credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
+        serializedCredentialDeploymentTransaction.expiry
+      );
+      return credentialDeploymentTransaction;
+    }
 
   /**
    *
@@ -67,13 +83,8 @@ export class IDAppSDK {
     signingKey: HexString
   ): Promise<SignedCredentialDeploymentTransaction> {
     // Deserialize the credential deployment transaction
-    const credentialDeploymentTransaction = {} as CredentialDeploymentDetails;
-    credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
-      serializedCredentialDeploymentTransaction.unsignedCdi
-    );
-    credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
-      serializedCredentialDeploymentTransaction.expiry
-    );
+   
+    const credentialDeploymentTransaction= IDAppSDK.deserializeCredentialDeploymentTransaction(serializedCredentialDeploymentTransaction)
     
     const signature = await signCredentialTransaction(
       credentialDeploymentTransaction,
