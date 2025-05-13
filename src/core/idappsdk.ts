@@ -88,7 +88,7 @@ export class IDAppSDK {
 
   /**
    *
-   * @param credentialDeploymentTransaction Credential deployment transaction to sign
+   * @param serializedCredentialDeploymentTransaction Credential deployment transaction to sign
    * @param signingKey Signing key to use for the account
    * @returns Signed credential deployment transaction
    */
