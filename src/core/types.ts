@@ -50,7 +50,7 @@ export interface CreateAccountResponse {
 
 export interface CreateAccountRequestMessage {
   publicKey: string;
-  description: string;
+  reason: string;
 }
 
 export interface RecoverAccountRequestMessage {
