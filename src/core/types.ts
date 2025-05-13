@@ -85,3 +85,10 @@ export interface NetworkConfiguration {
   explorerUrl: string;
   ccdScanUrl: string;
 }
+
+
+
+export interface SerializedCredentialDeploymentDetails {
+  expiry: number;
+  unsignedCdi: string; 
+}

@@ -1,14 +1,16 @@
-import { ConcordiumGRPCWebClient, ConcordiumHdWallet, getAccountAddress, serializeCredentialDeploymentPayload, signCredentialTransaction, TransactionHash, type CredentialDeploymentTransaction, type HexString, type Network } from "@concordium/web-sdk";
+import { ConcordiumGRPCWebClient, ConcordiumHdWallet, getAccountAddress, serializeCredentialDeploymentPayload, signCredentialTransaction, TransactionExpiry, TransactionHash, type CredentialDeploymentDetails, type CredentialDeploymentTransaction, type HexString, type Network } from "@concordium/web-sdk";
 import type {
   CCDAccountKeyPair,
   CreateAccountRequestMessage,
   RecoverAccountRequestMessage,
+  SerializedCredentialDeploymentDetails,
   SignedCredentialDeploymentTransaction,
 } from "./types";
 import { validateMnemonic } from "@scure/bip39";
 import { wordlist } from "@scure/bip39/wordlists/english";
 import { getNetworkConfiguration } from "./utils";
 import { GRPCTIMEOUT } from "./constants";
+import JSONbig from "json-bigint";
 
 export class IDAppSDK {
 
@@ -55,25 +57,38 @@ export class IDAppSDK {
 
 
   /**
-   * 
+   *
    * @param credentialDeploymentTransaction Credential deployment transaction to sign
    * @param signingKey Signing key to use for the account
    * @returns Signed credential deployment transaction
    */
-  public static async signCredentialTransaction(serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentTransaction, signingKey: HexString): Promise<SignedCredentialDeploymentTransaction> {
-    // TODO: Deserialize the credential deployment transaction
-    const credentialDeploymentTransaction: CredentialDeploymentTransaction =  this.deseralized(serializedCredentialDeploymentTransaction) // private
+  public static async signCredentialTransaction(
+    serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails,
+    signingKey: HexString
+  ): Promise<SignedCredentialDeploymentTransaction> {
+    // Deserialize the credential deployment transaction
+    const credentialDeploymentTransaction = {} as CredentialDeploymentDetails;
+    credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
+      serializedCredentialDeploymentTransaction.unsignedCdi
+    );
+    credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
+      serializedCredentialDeploymentTransaction.expiry
+    );
     
-    
-    const signature = await signCredentialTransaction(credentialDeploymentTransaction, signingKey);
-    
-    // Todo: Account address is derived from the credential id 
+    const signature = await signCredentialTransaction(
+      credentialDeploymentTransaction,
+      signingKey
+    );
+
+    // Todo: Account address is derived from the credential id
     // This might be redundant as account address is already returned from the IDApp
-    const accountAddress = getAccountAddress(credentialDeploymentTransaction.unsignedCdi.credId);
+    const accountAddress = getAccountAddress(
+      credentialDeploymentTransaction.unsignedCdi.credId
+    );
     return {
       credentialDeploymentTransaction,
       signature,
-      accountAddress
+      accountAddress,
     };
   }
 
