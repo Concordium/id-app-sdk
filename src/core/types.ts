@@ -1,7 +1,6 @@
 import type {
   AccountAddress,
   CredentialDeploymentDetails,
-  CredentialDeploymentTransaction,
   HexString,
 } from "@concordium/web-sdk";
 
@@ -19,7 +18,7 @@ export interface CCDAccount {
 }
 
 export interface CreateAccountResponseMsgType {
-  credentialDeploymentTransaction: CredentialDeploymentTransaction;
+  serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails;
   accountAddress: AccountAddress.Type;
 }
 
@@ -29,7 +28,7 @@ enum Status {
 }
 export interface Error {
   code: number;
-  details: string;
+  details?: string;
 }
 
 interface RecoverAccountMsgType {
@@ -40,12 +39,13 @@ export interface RecoverAccountResponse {
   status: Status;
   message: RecoverAccountMsgType | Error;
 }
-export interface CreateAccountResponse {
+
+export interface CreateAccountCreationResponse {
   status: Status;
   message: CreateAccountResponseMsgType | Error;
 }
 
-export interface CreateAccountRequestMessage {
+export interface CreateAccountCreationRequestMessage {
   publicKey: string;
   reason: string;
 }
@@ -71,7 +71,6 @@ export interface CCDAccountKeyPair {
 export type SignedCredentialDeploymentTransaction = {
   credentialDeploymentTransaction: CredentialDeploymentDetails;
   signature: HexString;
-  accountAddress: AccountAddress.Type;
 };
 
 export interface NetworkConfiguration {
@@ -85,5 +84,5 @@ export interface NetworkConfiguration {
 
 export interface SerializedCredentialDeploymentDetails {
   expiry: number;
-  unsignedCdi: string;
+  unsignedCdiStr: string;
 }

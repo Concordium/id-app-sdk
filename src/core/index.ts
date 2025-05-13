@@ -1,7 +1,6 @@
 import {
   ConcordiumGRPCWebClient,
   ConcordiumHdWallet,
-  getAccountAddress,
   serializeCredentialDeploymentPayload,
   signCredentialTransaction,
   TransactionExpiry,
@@ -13,7 +12,7 @@ import {
 } from "@concordium/web-sdk";
 import type {
   CCDAccountKeyPair,
-  CreateAccountRequestMessage,
+  CreateAccountCreationRequestMessage,
   RecoverAccountRequestMessage,
   SerializedCredentialDeploymentDetails,
   SignedCredentialDeploymentTransaction,
@@ -32,7 +31,7 @@ export class IDAppSDK {
    * @param accountIndex Account index to use for the account
    * @returns
    */
-  public static generateAccountWithSeed(
+  public static generateAccountWithSeedPhrase(
     seed: string,
     network: Network,
     accountIndex: number = 0,
@@ -62,7 +61,7 @@ export class IDAppSDK {
   public static getCreateAccountCreationRequest(
     publicKey: string,
     reason: string = "The account wallet is requesting and Identity to create an account",
-  ): CreateAccountRequestMessage {
+  ): CreateAccountCreationRequestMessage {
     return {
       publicKey,
       reason,
@@ -79,7 +78,7 @@ export class IDAppSDK {
   ): CredentialDeploymentDetails {
     const credentialDeploymentTransaction = {} as CredentialDeploymentDetails;
     credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
-      serializedCredentialDeploymentTransaction.unsignedCdi,
+      serializedCredentialDeploymentTransaction.unsignedCdiStr,
     );
     credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
       serializedCredentialDeploymentTransaction.expiry,
@@ -109,15 +108,9 @@ export class IDAppSDK {
       signingKey,
     );
 
-    // Todo: Account address is derived from the credential id
-    // This might be redundant as account address is already returned from the IDApp
-    const accountAddress = getAccountAddress(
-      credentialDeploymentTransaction.unsignedCdi.credId,
-    );
     return {
       credentialDeploymentTransaction,
       signature,
-      accountAddress,
     };
   }
 
