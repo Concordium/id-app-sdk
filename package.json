@@ -13,5 +13,8 @@
     "prettier": "^3.5.3",
     "typescript": "~5.8.3",
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@concordium/web-sdk": "^9.1.0"
   }
 }
