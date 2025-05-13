@@ -1,7 +1,7 @@
-import './popup.css';
+import "./popup.css";
 
 export function showPopup() {
-  alert('This popup is triggedered by the SDK');
+  alert("This popup is triggedered by the SDK");
   // if (document.getElementById('sdk-popup-wrapper')) return; // prevent duplicates
 
   // const wrapper = document.createElement('div');

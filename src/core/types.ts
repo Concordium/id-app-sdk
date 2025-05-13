@@ -18,8 +18,6 @@ export interface CCDAccount {
   balances: CCDBalance[];
 }
 
-
-
 export interface CreateAccountResponseMsgType {
   credentialDeploymentTransaction: CredentialDeploymentTransaction;
   accountAddress: AccountAddress.Type;
@@ -29,15 +27,14 @@ enum Status {
   SUCCESS = "success",
   ERROR = "error",
 }
-export interface Error{
-  code: number; 
+export interface Error {
+  code: number;
   details: string;
 }
 
-interface RecoverAccountMsgType{
+interface RecoverAccountMsgType {
   accountAddress: AccountAddress.Type;
 }
-
 
 export interface RecoverAccountResponse {
   status: Status;
@@ -86,9 +83,7 @@ export interface NetworkConfiguration {
   ccdScanUrl: string;
 }
 
-
-
 export interface SerializedCredentialDeploymentDetails {
   expiry: number;
-  unsignedCdi: string; 
+  unsignedCdi: string;
 }
