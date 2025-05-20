@@ -24,6 +24,7 @@ export function invokePopup({ onCreateAccount, onRecoverAccount }: { onCreateAcc
     try{
       // start loader 
       const create_acc_resp = await onCreateAccount();
+      console.log(create_acc_resp)
       // finish loader
       // emit event that this process is finisshed
     }catch(e){

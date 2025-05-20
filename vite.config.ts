@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-
+import dts from 'vite-plugin-dts';
 export default defineConfig({
   build: {
     lib: {
@@ -9,4 +9,7 @@ export default defineConfig({
       formats: ['es', 'umd'],
     },
   },
+  plugins: [dts({
+    insertTypesEntry: true // adds `dist/index.d.ts`
+  })],
 });
