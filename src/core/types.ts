@@ -40,6 +40,10 @@ export interface RecoverAccountResponse {
   message: RecoverAccountMsgType | Error;
 }
 
+export interface RecoverAccountCreationRequestMessage {
+  publicKey: string;
+}
+
 export interface CreateAccountCreationResponse {
   status: Status;
   message: CreateAccountResponseMsgType | Error;

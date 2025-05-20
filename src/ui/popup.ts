@@ -1,6 +1,6 @@
 import "./popup.css";
 
-export function invoke({ onCreateAccount, onRecoverAccount }: { onCreateAccount: Function, onRecoverAccount: Function }) {
+export function invokePopup({ onCreateAccount, onRecoverAccount }: { onCreateAccount: Function, onRecoverAccount: Function }) {
   alert("This popup is triggedered by the SDK"); // test
   if (document.getElementById('sdk-popup-wrapper')) return; // prevent duplicates
 
@@ -15,15 +15,25 @@ export function invoke({ onCreateAccount, onRecoverAccount }: { onCreateAccount:
       </div>
     </div>
   `;
+
+  
   document.body.appendChild(wrapper);
 
-  document.getElementById('create-id-btn')?.addEventListener('click', () => {
+  document.getElementById('create-id-btn')?.addEventListener('click', async () => {
     console.log('Create ID Clicked');
-    onCreateAccount();
+    try{
+      // start loader 
+      const create_acc_resp = await onCreateAccount();
+      // finish loader
+      // emit event that this process is finisshed
+    }catch(e){
+      // emit error event 
+    }
   });
-  document.getElementById('recover-id-btn')?.addEventListener('click', () => {
+  document.getElementById('recover-id-btn')?.addEventListener('click', async () => {
     console.log('Recover ID Clicked');
-    onRecoverAccount();
+    await onRecoverAccount();
+    // emit event that this process is finisshed
   });
-  // document.getElementById('close-btn')?.addEventListener('click', closePopup);
+
 }
