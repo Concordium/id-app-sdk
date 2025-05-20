@@ -3,19 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist/idapp-sdk.js",
-  "module": "dist/idapp-sdk.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/idapp-sdk.js",
+  "module": "./dist/idapp-sdk.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
     "build": "tsc && vite build",
     "preview": "vite preview"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts"
-    }
   },
   "devDependencies": {
     "@types/json-bigint": "^1.0.4",

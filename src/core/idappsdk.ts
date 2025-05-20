@@ -5,7 +5,6 @@ import {
   signCredentialTransaction,
   TransactionExpiry,
   TransactionHash,
-  type CredentialDeploymentDetails,
   type CredentialDeploymentTransaction,
   type HexString,
   type Network,
@@ -24,6 +23,7 @@ import { GRPCTIMEOUT } from "./constants";
 import JSONbig from "json-bigint";
 
 export class IDAppSDK {
+  public static chainId = "concordium:919"
   /**
    *
    * @param seed Seed phrase to generate the account
@@ -75,8 +75,8 @@ export class IDAppSDK {
    */
   private static deserializeCredentialDeploymentTransaction(
     serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails,
-  ): CredentialDeploymentDetails {
-    const credentialDeploymentTransaction = {} as CredentialDeploymentDetails;
+  ): CredentialDeploymentTransaction {
+    const credentialDeploymentTransaction = {} as CredentialDeploymentTransaction;
     credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
       serializedCredentialDeploymentTransaction.unsignedCdiStr,
     );
@@ -98,7 +98,7 @@ export class IDAppSDK {
   ): Promise<SignedCredentialDeploymentTransaction> {
     // Deserialize the credential deployment transaction
 
-    const credentialDeploymentTransaction =
+    const credentialDeploymentTransaction: CredentialDeploymentTransaction =
       IDAppSDK.deserializeCredentialDeploymentTransaction(
         serializedCredentialDeploymentTransaction,
       );
