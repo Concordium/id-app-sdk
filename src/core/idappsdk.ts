@@ -83,6 +83,7 @@ export class IDAppSDK {
     credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
       serializedCredentialDeploymentTransaction.expiry,
     );
+    credentialDeploymentTransaction.randomness = serializedCredentialDeploymentTransaction.randomness
     return credentialDeploymentTransaction;
   }
 

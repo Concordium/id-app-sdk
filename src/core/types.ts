@@ -1,5 +1,5 @@
 import type {
-  AccountAddress,
+  CommitmentsRandomness,
   CredentialDeploymentTransaction,
   HexString,
 } from "@concordium/web-sdk";
@@ -19,10 +19,10 @@ export interface CCDAccount {
 
 export interface CreateAccountResponseMsgType {
   serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails;
-  accountAddress: AccountAddress.Type;
+  accountAddress: string;
 }
 
-enum Status {
+export enum Status {
   SUCCESS = "success",
   ERROR = "error",
 }
@@ -31,8 +31,8 @@ export interface IDAppError {
   details?: string;
 }
 
-interface RecoverAccountMsgType {
-  accountAddress: AccountAddress.Type;
+export interface RecoverAccountMsgType {
+  accountAddress: string;
 }
 
 export interface RecoverAccountResponse {
@@ -89,4 +89,6 @@ export interface NetworkConfiguration {
 export interface SerializedCredentialDeploymentDetails {
   expiry: number;
   unsignedCdiStr: string;
+  randomness: CommitmentsRandomness
 }
+
