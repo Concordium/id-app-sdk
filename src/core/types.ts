@@ -27,7 +27,7 @@ export enum Status {
   ERROR = "error",
 }
 export interface IDAppError {
-  code: number;
+  code: IDAppErrorCode;
   details?: string;
 }
 
@@ -90,5 +90,16 @@ export interface SerializedCredentialDeploymentDetails {
   expiry: number;
   unsignedCdiStr: string;
   randomness: CommitmentsRandomness
+}
+
+export enum IDAppErrorCode {
+  AccountNotFound = 1,
+  AccountCreationFailed = 2,
+  NetworkError = 3,
+  InvalidInput = 4,
+  Unauthorized = 5,
+  Timeout = 6,
+  DuplicateAccountCreationRequest = 7,
+  UnknownError = 99
 }
 
