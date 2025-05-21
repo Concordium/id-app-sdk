@@ -30,3 +30,5 @@ export const stagenet: NetworkConfiguration = {
   ccdScanUrl: "https://stagenet.ccdscan.io/",
 };
 export const GRPCTIMEOUT = 15000;
+
+

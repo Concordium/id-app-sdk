@@ -66,6 +66,8 @@ export async function invokePopup({ onCreateAccount, onRecoverAccount }: { onCre
   `;
   
   document.body.appendChild(wrapper);
+  
+  
   const createAccountBtn = document.getElementById('create-id-btn')
   createAccountBtn?.addEventListener('click', async () => {
     console.log('Create ID Clicked');
