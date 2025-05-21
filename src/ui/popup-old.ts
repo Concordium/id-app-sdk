@@ -49,8 +49,44 @@ export function closePopup() {
   }
 }
 
+export async function invokeOpenIDappPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
+  injectPopupStyles();
+  
+  const wrapper = document.createElement('div');
+  wrapper.id = 'sdk-popup-wrapper';
+  wrapper.innerHTML = `
+    <div class="sdk-popup-overlay">
+      <div class="sdk-popup-box">
+        <h3>Welcome</h3>
+        <button id="open-id-app">Open {IDApp}</button>
+        <button @click="closePopup">x</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(wrapper);
+  
+  
+  const createAccountBtn = document.getElementById('open-id-app')
+  createAccountBtn?.addEventListener('click', async () => {
+    console.log('Create ID Clicked');
+    try{
+      // start loader 
+      createAccountBtn.innerText = "Loading...."
+      const create_acc_resp = await onIdAppPopup();
+      console.log(create_acc_resp)
+      createAccountBtn.innerText = "Open {IDApp}"
+      // closePopup()
+      // finish loader
+      // emit event that this process is finisshed
+    }catch(e){
+      // emit error event 
+      console.log(e)
+    }
+  });
+}
+
 export async function invokePopup({ onCreateAccount, onRecoverAccount }: { onCreateAccount: Function, onRecoverAccount: Function }) {
-  alert("This popup is triggedered by the SDK"); // test
   injectPopupStyles();
   
   const wrapper = document.createElement('div');
