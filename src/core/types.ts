@@ -100,6 +100,7 @@ export enum IDAppErrorCode {
   Unauthorized = 5,
   Timeout = 6,
   DuplicateAccountCreationRequest = 7,
+  RequestRejected = 8,
   UnknownError = 99
 }
 

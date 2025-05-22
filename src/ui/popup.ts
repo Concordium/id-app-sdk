@@ -239,14 +239,13 @@ export async function invokePopup({
   const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
   const recoverBtn =
     wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
-  const openOtherBtn =
-    wrapper.querySelector<HTMLButtonElement>("#open-other-btn")!;
 
   // Close handler
   closeBtn.addEventListener("click", () => closePopup());
 
   // Step switch: Create New Account → Step 2
   createBtn.addEventListener("click", async () => {
+    console.log(' createBtn click happeend.....')
     createBtn.textContent = "Loading...";
     try {
       await onCreateAccount();
@@ -261,15 +260,10 @@ export async function invokePopup({
 
   // Recover flow
   recoverBtn.addEventListener("click", async () => {
+    console.log(' recoverBtn click happeend.....')
+    recoverBtn.textContent = "Loading...";
     await onRecoverAccount();
+    closePopup()
     // optionally closePopup() here if you want
-  });
-
-  // These two can fire events, or you can hook them up to more SDK logic:
-  // openAppBtn.addEventListener("click", () => {
-  //   console.log("Open IDApp clicked");
-  // });
-  openOtherBtn.addEventListener("click", () => {
-    console.log("Open on another device clicked");
   });
 }
