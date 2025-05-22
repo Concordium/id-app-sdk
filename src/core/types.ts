@@ -103,4 +103,3 @@ export enum IDAppErrorCode {
   RequestRejected = 8,
   UnknownError = 99
 }
-

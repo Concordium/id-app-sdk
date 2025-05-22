@@ -1,4 +1,4 @@
-export class IdAppPoup {
+export class ConcordiumIDAppPoup {
   private static injectPopupStyles() {
     if (document.getElementById("sdk-popup-styles")) return;
 
@@ -121,7 +121,7 @@ export class IdAppPoup {
   }
 
   static async invokeIdAppDeepLinkPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
-    IdAppPoup.injectPopupStyles();
+    ConcordiumIDAppPoup.injectPopupStyles();
 
     console.log('Inside invokeOpenIDappPopup')
     const wrapper = document.createElement('div');
@@ -163,7 +163,7 @@ export class IdAppPoup {
       wrapper.querySelector<HTMLButtonElement>("#open-idapp-btn")!;
     const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
     document.body.appendChild(wrapper);
-    closeBtn.addEventListener("click", () => IdAppPoup.closePopup());
+    closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     openAppBtn?.addEventListener('click', async () => {
       console.log('Create ID Clicked');
@@ -189,7 +189,7 @@ export class IdAppPoup {
     onCreateAccount: () => Promise<any>;
     onRecoverAccount: () => Promise<any>;
   }) {
-    IdAppPoup.injectPopupStyles();
+    ConcordiumIDAppPoup.injectPopupStyles();
 
     // Build the wrapper
     const wrapper = document.createElement("div");
@@ -232,7 +232,7 @@ export class IdAppPoup {
       wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
 
     // Close handler
-    closeBtn.addEventListener("click", () => IdAppPoup.closePopup());
+    closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     // Step switch: Create New Account → Step 2
     createBtn.addEventListener("click", async () => {
@@ -242,7 +242,7 @@ export class IdAppPoup {
         await onCreateAccount();
         // on success, show Step 2
         // step1.style.display = "none";
-        IdAppPoup.closePopup()
+        ConcordiumIDAppPoup.closePopup()
       } catch (err) {
         console.error(err);
         createBtn.textContent = "Create New Account";
@@ -254,7 +254,7 @@ export class IdAppPoup {
       console.log(' recoverBtn click happeend.....')
       recoverBtn.textContent = "Loading...";
       await onRecoverAccount();
-      IdAppPoup.closePopup()
+      ConcordiumIDAppPoup.closePopup()
       // optionally closePopup() here if you want
     });
   }

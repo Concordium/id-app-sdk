@@ -22,7 +22,7 @@ import { getNetworkConfiguration } from "./utils";
 import { GRPCTIMEOUT } from "./constants";
 import JSONbig from "json-bigint";
 
-export class IDAppSDK {
+export class ConcordiumIDAppSDK {
   public static chainId = "concordium:919"
   /**
    *
@@ -100,7 +100,7 @@ export class IDAppSDK {
     // Deserialize the credential deployment transaction
 
     const credentialDeploymentTransaction: CredentialDeploymentTransaction =
-      IDAppSDK.deserializeCredentialDeploymentTransaction(
+      ConcordiumIDAppSDK.deserializeCredentialDeploymentTransaction(
         serializedCredentialDeploymentTransaction,
       );
 
