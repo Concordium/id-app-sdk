@@ -1,10 +1,10 @@
-// import "./popup.css";
-function injectPopupStyles() {
-  if (document.getElementById("sdk-popup-styles")) return;
+export class IdAppPoup {
+  private static injectPopupStyles() {
+    if (document.getElementById("sdk-popup-styles")) return;
 
-  const style = document.createElement("style");
-  style.id = "sdk-popup-styles";
-  style.innerHTML = `
+    const style = document.createElement("style");
+    style.id = "sdk-popup-styles";
+    style.innerHTML = `
     .sdk-popup-overlay {
       position: fixed;
       inset: 0;
@@ -109,28 +109,25 @@ function injectPopupStyles() {
       display: block;
     }
   `;
-  document.head.appendChild(style);
-}
+    document.head.appendChild(style);
+  }
 
-export function closePopup() {
-  const wrapper = document.getElementById("sdk-popup-wrapper");
-  if (wrapper) wrapper.remove();
+  static closePopup() {
+    const wrapper = document.getElementById("sdk-popup-wrapper");
+    if (wrapper) wrapper.remove();
 
-  const style = document.getElementById("sdk-popup-styles");
-  if (style) style.remove();
-}
+    const style = document.getElementById("sdk-popup-styles");
+    if (style) style.remove();
+  }
 
+  static async invokeIdAppDeepLinkPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
+    IdAppPoup.injectPopupStyles();
 
-export async function invokeOpenIDappPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
-  injectPopupStyles();
-  
-  console.log('Inside invokeOpenIDappPopup')
-  const wrapper = document.createElement('div');
-  
-  
-  
-  wrapper.id = 'sdk-popup-wrapper';
-  wrapper.innerHTML = `
+    console.log('Inside invokeOpenIDappPopup')
+    const wrapper = document.createElement('div');
+
+    wrapper.id = 'sdk-popup-wrapper';
+    wrapper.innerHTML = `
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
        <!-- close icon -->
@@ -162,44 +159,42 @@ export async function invokeOpenIDappPopup({ onIdAppPopup }: { onIdAppPopup: Fun
       </div>
     </div>
   `;
-  const openAppBtn =
-    wrapper.querySelector<HTMLButtonElement>("#open-idapp-btn")!;
-  const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
-  document.body.appendChild(wrapper);
-  closeBtn.addEventListener("click", () => closePopup());
-  
-  openAppBtn?.addEventListener('click', async () => {
-    console.log('Create ID Clicked');
-    try{
-      openAppBtn.innerText = "Loading...."
-      const create_acc_resp = await onIdAppPopup();
-      console.log(create_acc_resp)
-      openAppBtn.innerText = "Open {IDApp}"
-      // closePopup()
-      // finish loader
-      // emit event that this process is finisshed
-    }catch(e){
-      // emit error event 
-      console.log(e)
-    }
-  });
-}
+    const openAppBtn =
+      wrapper.querySelector<HTMLButtonElement>("#open-idapp-btn")!;
+    const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
+    document.body.appendChild(wrapper);
+    closeBtn.addEventListener("click", () => IdAppPoup.closePopup());
 
+    openAppBtn?.addEventListener('click', async () => {
+      console.log('Create ID Clicked');
+      try {
+        openAppBtn.innerText = "Loading...."
+        const create_acc_resp = await onIdAppPopup();
+        console.log(create_acc_resp)
+        openAppBtn.innerText = "Open {IDApp}"
+        // closePopup()
+        // finish loader
+        // emit event that this process is finisshed
+      } catch (e) {
+        // emit error event 
+        console.log(e)
+      }
+    });
+  }
 
+  static async invokeIdAppActionsPopup({
+    onCreateAccount,
+    onRecoverAccount,
+  }: {
+    onCreateAccount: () => Promise<any>;
+    onRecoverAccount: () => Promise<any>;
+  }) {
+    IdAppPoup.injectPopupStyles();
 
-export async function invokePopup({
-  onCreateAccount,
-  onRecoverAccount,
-}: {
-  onCreateAccount: () => Promise<any>;
-  onRecoverAccount: () => Promise<any>;
-}) {
-  injectPopupStyles();
-
-  // Build the wrapper
-  const wrapper = document.createElement("div");
-  wrapper.id = "sdk-popup-wrapper";
-  wrapper.innerHTML = `
+    // Build the wrapper
+    const wrapper = document.createElement("div");
+    wrapper.id = "sdk-popup-wrapper";
+    wrapper.innerHTML = `
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
 
@@ -226,40 +221,42 @@ export async function invokePopup({
       </div>
     </div>
   `;
-  document.body.appendChild(wrapper);
+    document.body.appendChild(wrapper);
 
-  // Element refs
-  const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
-  // const step1 = wrapper.querySelector<HTMLDivElement>(".sdk-step--1")!;
-  
-  const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
-  const recoverBtn =
-    wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
+    // Element refs
+    const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
+    // const step1 = wrapper.querySelector<HTMLDivElement>(".sdk-step--1")!;
 
-  // Close handler
-  closeBtn.addEventListener("click", () => closePopup());
+    const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
+    const recoverBtn =
+      wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
 
-  // Step switch: Create New Account → Step 2
-  createBtn.addEventListener("click", async () => {
-    console.log(' createBtn click happeend.....')
-    createBtn.textContent = "Loading...";
-    try {
-      await onCreateAccount();
-      // on success, show Step 2
-      // step1.style.display = "none";
-      closePopup()
-    } catch (err) {
-      console.error(err);
-      createBtn.textContent = "Create New Account";
-    }
-  });
+    // Close handler
+    closeBtn.addEventListener("click", () => IdAppPoup.closePopup());
 
-  // Recover flow
-  recoverBtn.addEventListener("click", async () => {
-    console.log(' recoverBtn click happeend.....')
-    recoverBtn.textContent = "Loading...";
-    await onRecoverAccount();
-    closePopup()
-    // optionally closePopup() here if you want
-  });
+    // Step switch: Create New Account → Step 2
+    createBtn.addEventListener("click", async () => {
+      console.log(' createBtn click happeend.....')
+      createBtn.textContent = "Loading...";
+      try {
+        await onCreateAccount();
+        // on success, show Step 2
+        // step1.style.display = "none";
+        IdAppPoup.closePopup()
+      } catch (err) {
+        console.error(err);
+        createBtn.textContent = "Create New Account";
+      }
+    });
+
+    // Recover flow
+    recoverBtn.addEventListener("click", async () => {
+      console.log(' recoverBtn click happeend.....')
+      recoverBtn.textContent = "Loading...";
+      await onRecoverAccount();
+      IdAppPoup.closePopup()
+      // optionally closePopup() here if you want
+    });
+  }
+
 }
