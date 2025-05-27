@@ -112,6 +112,9 @@ export class ConcordiumIDAppPoup {
     document.head.appendChild(style);
   }
 
+  /**
+   * Closes the popup and removes styles.
+   */
   static closePopup() {
     const wrapper = document.getElementById("sdk-popup-wrapper");
     if (wrapper) wrapper.remove();
@@ -120,6 +123,11 @@ export class ConcordiumIDAppPoup {
     if (style) style.remove();
   }
 
+  /**
+   * Injects the popup HTML and styles, then invokes the ID App deep link.
+   * This function creates a popup that prompts the user to open the ID App for account activation.
+   * @param param0 
+   */
   static async invokeIdAppDeepLinkPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
     ConcordiumIDAppPoup.injectPopupStyles();
 
@@ -182,6 +190,11 @@ export class ConcordiumIDAppPoup {
     });
   }
 
+  /**
+   * Injects the styles for the popup into the document.
+   * This method is called to ensure that the popup has the necessary styles applied.
+   * @param param0 
+   */
   static async invokeIdAppActionsPopup({
     onCreateAccount,
     onRecoverAccount,
