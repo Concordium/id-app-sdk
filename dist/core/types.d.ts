@@ -1,15 +1,4 @@
 import { CommitmentsRandomness, CredentialDeploymentTransaction, HexString } from '@concordium/web-sdk';
-export interface CCDBalance {
-    amount: string;
-    denom: string;
-    token: string;
-}
-export interface CCDAccount {
-    public_key: string;
-    account_address: string;
-    transaction_sequence_number: number;
-    balances: CCDBalance[];
-}
 export interface CreateAccountResponseMsgType {
     serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails;
     accountAddress: string;
