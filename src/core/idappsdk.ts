@@ -4,7 +4,6 @@ import {
   serializeCredentialDeploymentPayload,
   signCredentialTransaction,
   TransactionExpiry,
-  TransactionHash,
   type CredentialDeploymentTransaction,
   type HexString,
   type Network,
@@ -126,7 +125,7 @@ export class ConcordiumIDAppSDK {
     credentialDeploymentTransaction: CredentialDeploymentTransaction,
     signature: HexString,
     network: Network,
-  ): Promise<TransactionHash.Type> {
+  ): Promise<string> {
     const payload = serializeCredentialDeploymentPayload(
       [signature],
       credentialDeploymentTransaction,
@@ -139,10 +138,11 @@ export class ConcordiumIDAppSDK {
         timeout: GRPCTIMEOUT,
       },
     );
-    return await ccdGrpcClient.sendCredentialDeploymentTransaction(
+    const tx = await ccdGrpcClient.sendCredentialDeploymentTransaction(
       payload,
       credentialDeploymentTransaction.expiry,
     );
+    return tx.toString()
   }
 
   /**
