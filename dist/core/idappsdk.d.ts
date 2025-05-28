@@ -1,4 +1,4 @@
-import { TransactionHash, CredentialDeploymentTransaction, HexString, Network } from '@concordium/web-sdk';
+import { CredentialDeploymentTransaction, HexString, Network } from '@concordium/web-sdk';
 import { CCDAccountKeyPair, CreateAccountCreationRequestMessage, RecoverAccountRequestMessage, SerializedCredentialDeploymentDetails, SignedCredentialDeploymentTransaction } from './types';
 export declare class ConcordiumIDAppSDK {
     static chainId: string;
@@ -36,7 +36,7 @@ export declare class ConcordiumIDAppSDK {
      * @param network Network to use for the account
      * @returns Transaction hash of the submitted transaction
      */
-    static submitCCDTransaction(credentialDeploymentTransaction: CredentialDeploymentTransaction, signature: HexString, network: Network): Promise<TransactionHash.Type>;
+    static submitCCDTransaction(credentialDeploymentTransaction: CredentialDeploymentTransaction, signature: HexString, network: Network): Promise<string>;
     /**
      *
      * @param publicKey Public key to use for the account

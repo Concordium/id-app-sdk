@@ -111,12 +111,20 @@ class ag {
     }
   `, document.head.appendChild(I);
   }
+  /**
+   * Closes the popup and removes styles.
+   */
   static closePopup() {
     const I = document.getElementById("sdk-popup-wrapper");
     I && I.remove();
     const g = document.getElementById("sdk-popup-styles");
     g && g.remove();
   }
+  /**
+   * Injects the popup HTML and styles, then invokes the ID App deep link.
+   * This function creates a popup that prompts the user to open the ID App for account activation.
+   * @param param0 
+   */
   static async invokeIdAppDeepLinkPopup({ onIdAppPopup: I }) {
     ag.injectPopupStyles(), console.log("Inside invokeOpenIDappPopup");
     const g = document.createElement("div");
@@ -164,6 +172,11 @@ class ag {
       }
     });
   }
+  /**
+   * Injects the styles for the popup into the document.
+   * This method is called to ensure that the popup has the necessary styles applied.
+   * @param param0 
+   */
   static async invokeIdAppActionsPopup({
     onCreateAccount: I,
     onRecoverAccount: g
@@ -22159,7 +22172,7 @@ const FQ = class FQ {
       [g],
       I
     ), E = qw(B);
-    return await new Jt(
+    return (await new Jt(
       E.grpcUrl,
       E.grpcPort,
       {
@@ -22168,7 +22181,7 @@ const FQ = class FQ {
     ).sendCredentialDeploymentTransaction(
       Q,
       I.expiry
-    );
+    )).toString();
   }
   /**
    *
