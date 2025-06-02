@@ -181,6 +181,8 @@ class ag {
     onCreateAccount: I,
     onRecoverAccount: g
   }) {
+    if (!I && !g)
+      throw new Error("Atleast one of the handlers must be provided");
     ag.injectPopupStyles();
     const B = document.createElement("div");
     B.id = "sdk-popup-wrapper", B.innerHTML = `
@@ -209,18 +211,20 @@ class ag {
         </div>
       </div>
     </div>
-  `, document.body.appendChild(B);
-    const Q = B.querySelector(".sdk-close-btn"), E = B.querySelector("#create-id-btn"), R = B.querySelector("#recover-id-btn");
-    Q.addEventListener("click", () => ag.closePopup()), E.addEventListener("click", async () => {
-      console.log(" createBtn click happeend....."), E.textContent = "Loading...";
+  `, document.body.appendChild(B), B.querySelector(".sdk-close-btn").addEventListener("click", () => ag.closePopup());
+    const E = B.querySelector("#create-id-btn");
+    I ? E.addEventListener("click", async () => {
+      E.textContent = "Loading...";
       try {
         await I(), ag.closePopup();
       } catch (D) {
         console.error(D), E.textContent = "Create New Account";
       }
-    }), R.addEventListener("click", async () => {
-      console.log(" recoverBtn click happeend....."), R.textContent = "Loading...", await g(), ag.closePopup();
-    });
+    }) : E.style.display = "none";
+    const R = B.querySelector("#recover-id-btn");
+    g ? R.addEventListener("click", async () => {
+      R.textContent = "Loading...", await g(), ag.closePopup();
+    }) : R.style.display = "none";
   }
 }
 var Kw = /* @__PURE__ */ ((A) => (A.SUCCESS = "success", A.ERROR = "error", A))(Kw || {});

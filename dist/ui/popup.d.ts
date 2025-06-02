@@ -18,7 +18,7 @@ export declare class ConcordiumIDAppPoup {
      * @param param0
      */
     static invokeIdAppActionsPopup({ onCreateAccount, onRecoverAccount, }: {
-        onCreateAccount: () => Promise<any>;
-        onRecoverAccount: () => Promise<any>;
+        onCreateAccount?: () => Promise<any>;
+        onRecoverAccount?: () => Promise<any>;
     }): Promise<void>;
 }
