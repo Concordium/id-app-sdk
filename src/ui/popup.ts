@@ -199,9 +199,15 @@ export class ConcordiumIDAppPoup {
     onCreateAccount,
     onRecoverAccount,
   }: {
-    onCreateAccount: () => Promise<any>;
-    onRecoverAccount: () => Promise<any>;
+    onCreateAccount?: () => Promise<any>;
+    onRecoverAccount?: () => Promise<any>;
   }) {
+
+    // Check if atleast one of the handlers is provided
+    if (!onCreateAccount && !onRecoverAccount) {
+      throw new Error("Atleast one of the handlers must be provided");
+    }
+
     ConcordiumIDAppPoup.injectPopupStyles();
 
     // Build the wrapper
@@ -238,38 +244,37 @@ export class ConcordiumIDAppPoup {
 
     // Element refs
     const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
-    // const step1 = wrapper.querySelector<HTMLDivElement>(".sdk-step--1")!;
-
-    const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
-    const recoverBtn =
-      wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
-
-    // Close handler
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     // Step switch: Create New Account → Step 2
-    createBtn.addEventListener("click", async () => {
-      console.log(' createBtn click happeend.....')
-      createBtn.textContent = "Loading...";
-      try {
-        await onCreateAccount();
-        // on success, show Step 2
-        // step1.style.display = "none";
-        ConcordiumIDAppPoup.closePopup()
-      } catch (err) {
-        console.error(err);
-        createBtn.textContent = "Create New Account";
-      }
-    });
+    const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
+    if (onCreateAccount) {
+      createBtn.addEventListener("click", async () => {
+        createBtn.textContent = "Loading...";
+        try {
+          await onCreateAccount();
+          ConcordiumIDAppPoup.closePopup()
+        } catch (err) {
+          console.error(err);
+          createBtn.textContent = "Create New Account";
+        }
+      });
+
+    } else {
+      createBtn.style.display = "none";
+    }
 
     // Recover flow
-    recoverBtn.addEventListener("click", async () => {
-      console.log(' recoverBtn click happeend.....')
-      recoverBtn.textContent = "Loading...";
-      await onRecoverAccount();
-      ConcordiumIDAppPoup.closePopup()
-      // optionally closePopup() here if you want
-    });
+    const recoverBtn = wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
+    if (onRecoverAccount) {
+      recoverBtn.addEventListener("click", async () => {
+        recoverBtn.textContent = "Loading...";
+        await onRecoverAccount();
+        ConcordiumIDAppPoup.closePopup()
+      });
+    } else {
+      recoverBtn.style.display = "none";
+    }
   }
 
 }
