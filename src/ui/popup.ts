@@ -253,7 +253,7 @@ export class ConcordiumIDAppPoup {
         createBtn.textContent = "Loading...";
         try {
           await onCreateAccount();
-          ConcordiumIDAppPoup.closePopup()
+          // ConcordiumIDAppPoup.closePopup()
         } catch (err) {
           console.error(err);
           createBtn.textContent = "Create New Account";
@@ -270,7 +270,7 @@ export class ConcordiumIDAppPoup {
       recoverBtn.addEventListener("click", async () => {
         recoverBtn.textContent = "Loading...";
         await onRecoverAccount();
-        ConcordiumIDAppPoup.closePopup()
+        // ConcordiumIDAppPoup.closePopup()
       });
     } else {
       recoverBtn.style.display = "none";
