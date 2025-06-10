@@ -125,6 +125,23 @@ export class ConcordiumIDAppPoup {
     if (style) style.remove();
   }
 
+  static openIdapp = ({wallectConnectMobileUrl, walletConnectDesktopUrl}: { wallectConnectMobileUrl: string, walletConnectDesktopUrl: string}) => {
+  
+    // On mobile, hand off to the native app:
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      console.log('Opening Idapp on mobile...')
+      window.location.href = wallectConnectMobileUrl;
+    } else {
+      console.log('Opening Idapp on desktop...')
+      // Desktop fallback: show instructions or open a popup for testing
+      const width = 400;
+      const height = 700;
+      const top = 0;
+      const left = window.screen.availWidth - width;
+      window.open(walletConnectDesktopUrl, 'Idapp', `width=${width},height=${height},top=${top},left=${left}`);
+    }
+  }
+
   /**
    * Injects the popup HTML and styles, then invokes the ID App deep link.
    * This function creates a popup that prompts the user to open the ID App for account activation.
@@ -143,7 +160,7 @@ export class ConcordiumIDAppPoup {
     ConcordiumIDAppPoup.injectPopupStyles();
 
     const wallectConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
-    // const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
+    const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
 
     console.log('Inside invokeOpenIDappPopup')
     const wrapper = document.createElement('div');
@@ -193,9 +210,7 @@ export class ConcordiumIDAppPoup {
     const renderQRCode = () => {
       const qrContainer = document.getElementById("sdk-qr-code");
       if (qrContainer && (window as any).QRCode) {
-        qrContainer.style.display = "flex";
-        qrContainer.style.justifyContent = "center";
-        qrContainer.style.alignItems = "center";
+        qrContainer.style = "display: flex;justify-content: center;margin: 1.0rem 0;"
         new (window as any).QRCode(qrContainer, {
           text: wallectConnectMobileUrl,
           width: 160,
@@ -220,7 +235,8 @@ export class ConcordiumIDAppPoup {
     openAppBtn?.addEventListener('click', async () => {
       console.log('Create ID Clicked');
       try {
-        window.location.href = wallectConnectMobileUrl;
+        // window.location.href = wallectConnectMobileUrl;
+        ConcordiumIDAppPoup.openIdapp({ wallectConnectMobileUrl, walletConnectDesktopUrl})
       } catch (e) {
         // emit error event 
         console.log(e)
