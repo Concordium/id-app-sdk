@@ -4,6 +4,10 @@ export declare class ConcordiumIDAppPoup {
      * Closes the popup and removes styles.
      */
     static closePopup(): void;
+    static openIdapp: ({ wallectConnectMobileUrl, walletConnectDesktopUrl }: {
+        wallectConnectMobileUrl: string;
+        walletConnectDesktopUrl: string;
+    }) => void;
     /**
      * Injects the popup HTML and styles, then invokes the ID App deep link.
      * This function creates a popup that prompts the user to open the ID App for account activation.

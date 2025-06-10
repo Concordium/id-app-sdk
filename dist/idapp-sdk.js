@@ -1,59 +1,59 @@
-var yw = Object.defineProperty;
-var ew = (A, I, g) => I in A ? yw(A, I, { enumerable: !0, configurable: !0, writable: !0, value: g }) : A[I] = g;
-var BE = (A, I, g) => ew(A, typeof I != "symbol" ? I + "" : I, g);
-var Kw = /* @__PURE__ */ ((A) => (A.SUCCESS = "success", A.ERROR = "error", A))(Kw || {});
-const Ht = {
+var Kw = Object.defineProperty;
+var Hw = (A, I, g) => I in A ? Kw(A, I, { enumerable: !0, configurable: !0, writable: !0, value: g }) : A[I] = g;
+var LQ = (A, I, g) => Hw(A, typeof I != "symbol" ? I + "" : I, g);
+var nw = /* @__PURE__ */ ((A) => (A.SUCCESS = "success", A.ERROR = "error", A))(nw || {});
+const nt = {
   CREATE_ACCOUNT: "create_account",
   RECOVER_ACCOUNT: "recover_account"
 };
-var Hw = /* @__PURE__ */ ((A) => (A[A.AccountNotFound = 1] = "AccountNotFound", A[A.AccountCreationFailed = 2] = "AccountCreationFailed", A[A.NetworkError = 3] = "NetworkError", A[A.InvalidInput = 4] = "InvalidInput", A[A.Unauthorized = 5] = "Unauthorized", A[A.Timeout = 6] = "Timeout", A[A.DuplicateAccountCreationRequest = 7] = "DuplicateAccountCreationRequest", A[A.RequestRejected = 8] = "RequestRejected", A[A.UnknownError = 99] = "UnknownError", A))(Hw || {});
-const nw = {
+var rw = /* @__PURE__ */ ((A) => (A[A.AccountNotFound = 1] = "AccountNotFound", A[A.AccountCreationFailed = 2] = "AccountCreationFailed", A[A.NetworkError = 3] = "NetworkError", A[A.InvalidInput = 4] = "InvalidInput", A[A.Unauthorized = 5] = "Unauthorized", A[A.Timeout = 6] = "Timeout", A[A.DuplicateAccountCreationRequest = 7] = "DuplicateAccountCreationRequest", A[A.RequestRejected = 8] = "RequestRejected", A[A.UnknownError = 99] = "UnknownError", A))(rw || {});
+const Lw = {
   genesisHash: "9dd9ca4d19e9393877d2c44b70f89acbfc0883c2243e5eeaecc0d1cd0503f478",
   name: "Concordium Mainnet",
   explorerUrl: "https://wallet-proxy.mainnet.concordium.software",
   grpcPort: 2e4,
   grpcUrl: "https://grpc.mainnet.concordium.software",
   ccdScanUrl: "https://ccdscan.io/"
-}, rw = {
+}, qw = {
   genesisHash: "4221332d34e1694168c2a0c0b3fd0f273809612cb13d000d5c2e00e85f50f796",
   name: "Concordium Testnet",
   explorerUrl: "https://wallet-proxy.testnet.concordium.com",
   grpcPort: 2e4,
   grpcUrl: "https://grpc.testnet.concordium.com",
   ccdScanUrl: "https://testnet.ccdscan.io/"
-}, nt = {
+}, rt = {
   genesisHash: "38bf770b4c247f09e1b62982bb71000c516480c5a2c5214dadac6da4b1ad50e5",
   name: "Concordium Stagenet",
   explorerUrl: "https://wallet-proxy.stagenet.concordium.com",
   grpcPort: 2e4,
   grpcUrl: "https://grpc.stagenet.concordium.com",
   ccdScanUrl: "https://stagenet.ccdscan.io/"
-}, Lw = 15e3, qw = {
+}, dw = 15e3, QE = {
   mobile: "concordiumidapp://",
   web: "http://localhost:5173/"
-}, dw = (A) => {
+}, pw = (A) => {
   switch (A) {
     case "Mainnet":
-      return nw;
+      return Lw;
     case "Testnet":
-      return rw;
+      return qw;
     default:
       throw new Error("Invalid network");
   }
 };
-function YC(A) {
+function SC(A) {
   return A && A.__esModule && Object.prototype.hasOwnProperty.call(A, "default") ? A.default : A;
 }
-var dI = {}, $A = {}, NI = {}, LQ = {}, bg = {}, QE;
-function pw() {
-  return QE || (QE = 1, Object.defineProperty(bg, "__esModule", { value: !0 }), bg.crypto = void 0, bg.crypto = typeof globalThis == "object" && "crypto" in globalThis ? globalThis.crypto : void 0), bg;
+var dI = {}, $A = {}, NI = {}, qQ = {}, jg = {}, CE;
+function Vw() {
+  return CE || (CE = 1, Object.defineProperty(jg, "__esModule", { value: !0 }), jg.crypto = void 0, jg.crypto = typeof globalThis == "object" && "crypto" in globalThis ? globalThis.crypto : void 0), jg;
 }
-var CE;
-function $D() {
-  return CE || (CE = 1, function(A) {
+var EE;
+function Ii() {
+  return EE || (EE = 1, function(A) {
     /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
     Object.defineProperty(A, "__esModule", { value: !0 }), A.wrapXOFConstructorWithOpts = A.wrapConstructorWithOpts = A.wrapConstructor = A.Hash = A.nextTick = A.swap32IfBE = A.byteSwapIfBE = A.swap8IfBE = A.isLE = void 0, A.isBytes = g, A.anumber = B, A.abytes = Q, A.ahash = E, A.aexists = R, A.aoutput = D, A.u8 = i, A.u32 = a, A.clean = c, A.createView = M, A.rotr = e, A.rotl = F, A.byteSwap = K, A.byteSwap32 = n, A.bytesToHex = t, A.hexToBytes = y, A.asyncLoop = W, A.utf8ToBytes = IA, A.bytesToUtf8 = _, A.toBytes = T, A.kdfInputToBytes = wA, A.concatBytes = Z, A.checkOpts = m, A.createHasher = DA, A.createOptHasher = EA, A.createXOFer = CA, A.randomBytes = GA;
-    const I = /* @__PURE__ */ pw();
+    const I = /* @__PURE__ */ Vw();
     function g(u) {
       return u instanceof Uint8Array || ArrayBuffer.isView(u) && u.constructor.name === "Uint8Array";
     }
@@ -217,13 +217,13 @@ function $D() {
         return Uint8Array.from(I.crypto.randomBytes(u));
       throw new Error("crypto.getRandomValues must be defined");
     }
-  }(LQ)), LQ;
+  }(qQ)), qQ;
 }
-var EE;
-function Vw() {
-  if (EE) return NI;
-  EE = 1, Object.defineProperty(NI, "__esModule", { value: !0 }), NI.SHA512_IV = NI.SHA384_IV = NI.SHA224_IV = NI.SHA256_IV = NI.HashMD = void 0, NI.setBigUint64 = I, NI.Chi = g, NI.Maj = B;
-  const A = /* @__PURE__ */ $D();
+var DE;
+function lw() {
+  if (DE) return NI;
+  DE = 1, Object.defineProperty(NI, "__esModule", { value: !0 }), NI.SHA512_IV = NI.SHA384_IV = NI.SHA224_IV = NI.SHA256_IV = NI.HashMD = void 0, NI.setBigUint64 = I, NI.Chi = g, NI.Maj = B;
+  const A = /* @__PURE__ */ Ii();
   function I(E, R, D, i) {
     if (typeof E.setBigUint64 == "function")
       return E.setBigUint64(R, D, i);
@@ -341,10 +341,10 @@ function Vw() {
     327033209
   ]), NI;
 }
-var dA = {}, DE;
-function lw() {
-  if (DE) return dA;
-  DE = 1, Object.defineProperty(dA, "__esModule", { value: !0 }), dA.toBig = dA.shrSL = dA.shrSH = dA.rotrSL = dA.rotrSH = dA.rotrBL = dA.rotrBH = dA.rotr32L = dA.rotr32H = dA.rotlSL = dA.rotlSH = dA.rotlBL = dA.rotlBH = dA.add5L = dA.add5H = dA.add4L = dA.add4H = dA.add3L = dA.add3H = void 0, dA.add = l, dA.fromBig = g, dA.split = B;
+var dA = {}, iE;
+function Ww() {
+  if (iE) return dA;
+  iE = 1, Object.defineProperty(dA, "__esModule", { value: !0 }), dA.toBig = dA.shrSL = dA.shrSH = dA.rotrSL = dA.rotrSH = dA.rotrBL = dA.rotrBH = dA.rotr32L = dA.rotr32H = dA.rotlSL = dA.rotlSH = dA.rotlBL = dA.rotlBH = dA.add5L = dA.add5H = dA.add4L = dA.add4H = dA.add3L = dA.add3H = void 0, dA.add = l, dA.fromBig = g, dA.split = B;
   const A = /* @__PURE__ */ BigInt(2 ** 32 - 1), I = /* @__PURE__ */ BigInt(32);
   function g(_, T = !1) {
     return T ? { h: Number(_ & A), l: Number(_ >> I & A) } : { h: Number(_ >> I & A) | 0, l: Number(_ & A) | 0 };
@@ -426,11 +426,11 @@ function lw() {
   };
   return dA.default = IA, dA;
 }
-var iE;
-function Ww() {
-  if (iE) return $A;
-  iE = 1, Object.defineProperty($A, "__esModule", { value: !0 }), $A.sha512_224 = $A.sha512_256 = $A.sha384 = $A.sha512 = $A.sha224 = $A.sha256 = $A.SHA512_256 = $A.SHA512_224 = $A.SHA384 = $A.SHA512 = $A.SHA224 = $A.SHA256 = void 0;
-  const A = /* @__PURE__ */ Vw(), I = /* @__PURE__ */ lw(), g = /* @__PURE__ */ $D(), B = /* @__PURE__ */ Uint32Array.from([
+var oE;
+function mw() {
+  if (oE) return $A;
+  oE = 1, Object.defineProperty($A, "__esModule", { value: !0 }), $A.sha512_224 = $A.sha512_256 = $A.sha384 = $A.sha512 = $A.sha224 = $A.sha256 = $A.SHA512_256 = $A.SHA512_224 = $A.SHA384 = $A.SHA512 = $A.SHA224 = $A.SHA256 = void 0;
+  const A = /* @__PURE__ */ lw(), I = /* @__PURE__ */ Ww(), g = /* @__PURE__ */ Ii(), B = /* @__PURE__ */ Uint32Array.from([
     1116352408,
     1899447441,
     3049323471,
@@ -709,17 +709,17 @@ function Ww() {
   }
   return $A.SHA512_256 = l, $A.sha256 = (0, g.createHasher)(() => new E()), $A.sha224 = (0, g.createHasher)(() => new R()), $A.sha512 = (0, g.createHasher)(() => new e()), $A.sha384 = (0, g.createHasher)(() => new F()), $A.sha512_256 = (0, g.createHasher)(() => new l()), $A.sha512_224 = (0, g.createHasher)(() => new q()), $A;
 }
-var oE;
-function mw() {
-  if (oE) return dI;
-  oE = 1, Object.defineProperty(dI, "__esModule", { value: !0 }), dI.sha224 = dI.SHA224 = dI.sha256 = dI.SHA256 = void 0;
-  const A = /* @__PURE__ */ Ww();
+var wE;
+function Zw() {
+  if (wE) return dI;
+  wE = 1, Object.defineProperty(dI, "__esModule", { value: !0 }), dI.sha224 = dI.SHA224 = dI.sha256 = dI.SHA256 = void 0;
+  const A = /* @__PURE__ */ mw();
   return dI.SHA256 = A.SHA256, dI.sha256 = A.sha256, dI.SHA224 = A.SHA224, dI.sha224 = A.sha224, dI;
 }
-var qQ, wE;
-function Zw() {
-  if (wE) return qQ;
-  wE = 1;
+var dQ, RE;
+function xw() {
+  if (RE) return dQ;
+  RE = 1;
   function A(I) {
     if (I.length >= 255)
       throw new TypeError("Alphabet too long");
@@ -790,18 +790,18 @@ function Zw() {
       decode: F
     };
   }
-  return qQ = A, qQ;
-}
-var dQ, RE;
-function xw() {
-  return RE || (RE = 1, dQ = Zw()("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")), dQ;
+  return dQ = A, dQ;
 }
 var pQ, UE;
 function Tw() {
-  if (UE) return pQ;
-  UE = 1;
-  var A = xw();
-  return pQ = function(I) {
+  return UE || (UE = 1, pQ = xw()("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")), pQ;
+}
+var VQ, NE;
+function fw() {
+  if (NE) return VQ;
+  NE = 1;
+  var A = Tw();
+  return VQ = function(I) {
     function g(R) {
       var D = Uint8Array.from(R), i = I(D), a = D.length + 4, c = new Uint8Array(a);
       return c.set(D, 0), c.set(i.subarray(0, 4), D.length), A.encode(c, a);
@@ -826,24 +826,24 @@ function Tw() {
       decode: E,
       decodeUnsafe: Q
     };
-  }, pQ;
+  }, VQ;
 }
-var VQ, NE;
-function fw() {
-  if (NE) return VQ;
-  NE = 1;
-  var { sha256: A } = /* @__PURE__ */ mw(), I = Tw();
+var lQ, aE;
+function Ow() {
+  if (aE) return lQ;
+  aE = 1;
+  var { sha256: A } = /* @__PURE__ */ Zw(), I = fw();
   function g(B) {
     return A(A(B));
   }
-  return VQ = I(g), VQ;
+  return lQ = I(g), lQ;
 }
-var Ow = fw();
-const SC = /* @__PURE__ */ YC(Ow);
-var lQ = {}, jg = {}, aE;
-function uw() {
-  if (aE) return jg;
-  aE = 1, jg.byteLength = D, jg.toByteArray = a, jg.fromByteArray = e;
+var uw = Ow();
+const JC = /* @__PURE__ */ SC(uw);
+var WQ = {}, zg = {}, GE;
+function bw() {
+  if (GE) return zg;
+  GE = 1, zg.byteLength = D, zg.toByteArray = a, zg.fromByteArray = e;
   for (var A = [], I = [], g = typeof Uint8Array < "u" ? Uint8Array : Array, B = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", Q = 0, E = B.length; Q < E; ++Q)
     A[Q] = B[Q], I[B.charCodeAt(Q)] = Q;
   I[45] = 62, I[95] = 63;
@@ -886,13 +886,13 @@ function uw() {
       A[K >> 10] + A[K >> 4 & 63] + A[K << 2 & 63] + "="
     )), l.join("");
   }
-  return jg;
+  return zg;
 }
 var eB = {};
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
-var GE;
-function bw() {
-  return GE || (GE = 1, eB.read = function(A, I, g, B, Q) {
+var FE;
+function jw() {
+  return FE || (FE = 1, eB.read = function(A, I, g, B, Q) {
     var E, R, D = Q * 8 - B - 1, i = (1 << D) - 1, a = i >> 1, c = -7, M = g ? Q - 1 : 0, e = g ? -1 : 1, F = A[I + M];
     for (M += e, E = F & (1 << -c) - 1, F >>= -c, c += D; c > 0; E = E * 256 + A[I + M], M += e, c -= 8)
       ;
@@ -921,10 +921,10 @@ function bw() {
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
-var FE;
-function jw() {
-  return FE || (FE = 1, function(A) {
-    const I = uw(), g = bw(), B = typeof Symbol == "function" && typeof Symbol.for == "function" ? Symbol.for("nodejs.util.inspect.custom") : null;
+var kE;
+function zw() {
+  return kE || (kE = 1, function(A) {
+    const I = bw(), g = jw(), B = typeof Symbol == "function" && typeof Symbol.for == "function" ? Symbol.for("nodejs.util.inspect.custom") : null;
     A.Buffer = D, A.SlowBuffer = t, A.INSPECT_MAX_BYTES = 50;
     const Q = 2147483647;
     A.kMaxLength = Q, D.TYPED_ARRAY_SUPPORT = E(), !D.TYPED_ARRAY_SUPPORT && typeof console < "u" && typeof console.error == "function" && console.error(
@@ -1860,9 +1860,9 @@ function jw() {
     function V() {
       throw new Error("BigInt not supported");
     }
-  }(lQ)), lQ;
+  }(WQ)), WQ;
 }
-var FA = jw(), oI;
+var FA = zw(), oI;
 (function(A) {
   A.AccountAddress = "ccd_account_address", A.BlockHash = "ccd_block_hash", A.CcdAmount = "ccd_ccd_amount", A.ContractAddress = "ccd_contract_address", A.ContractName = "ccd_contract_name", A.CredentialRegistrationId = "ccd_cred_reg_id", A.DataBlob = "ccd_data_blob", A.Duration = "ccd_duration", A.Energy = "ccd_energy", A.EntrypointName = "ccd_entrypoint_name", A.InitName = "ccd_init_name", A.ModuleReference = "ccd_module_reference", A.Parameter = "ccd_parameter", A.ReceiveName = "ccd_receive_name", A.ReturnValue = "ccd_return_value", A.SequenceNumber = "ccd_sequence_number", A.Timestamp = "ccd_timestamp", A.TransactionExpiry = "ccd_transaction_expiry", A.TransactionHash = "ccd_transaction_hash";
 })(oI || (oI = {}));
@@ -1870,7 +1870,7 @@ var oB;
 (function(A) {
   A.MALFORMED = "MALFORMED", A.WRONG_TYPE = "WRONG_TYPE", A.INVALID_VALUE = "INVALID_VALUE";
 })(oB || (oB = {}));
-class JC extends Error {
+class tC extends Error {
   /**
    * @param {string} message - The error message.
    */
@@ -1881,12 +1881,12 @@ class JC extends Error {
     return `${this._name}.${this.code}`;
   }
 }
-class zw extends JC {
+class Pw extends tC {
   constructor() {
     super(...arguments), this.code = oB.MALFORMED;
   }
 }
-class Pw extends JC {
+class Xw extends tC {
   /**
    * @param {TypedJsonDiscriminator} expected - The discriminator expected by the typed JSON parser.
    * @param {TypedJsonDiscriminator} actual - The discriminator received by the typed JSON parser.
@@ -1895,7 +1895,7 @@ class Pw extends JC {
     super(`Wrong type discriminator found in JSON. Expected "${I}", found "${g}"`), this.expected = I, this.actual = g, this.code = oB.WRONG_TYPE;
   }
 }
-class Xw extends JC {
+class vw extends tC {
   /**
    * @param {string} inner - The original cause of the error.
    */
@@ -1903,23 +1903,23 @@ class Xw extends JC {
     super(`Unable to parse value (${(I == null ? void 0 : I.message) ?? I})`), this.inner = I, this.code = oB.INVALID_VALUE, I instanceof Error && (this.stack = I.stack ?? this.stack);
   }
 }
-function vw(A, I) {
+function _w(A, I) {
   return ({ ["@type"]: g, value: B }) => {
     if (g === void 0 || B === void 0)
-      throw new zw('Expected both "@type" and "value" properties to be available in JSON');
+      throw new Pw('Expected both "@type" and "value" properties to be available in JSON');
     if (A !== g)
-      throw new Pw(A, g);
+      throw new Xw(A, g);
     try {
       return I(B);
     } catch {
-      throw new Xw(B);
+      throw new vw(B);
     }
   };
 }
-const _w = oI.AccountAddress;
-let tC = class {
+const $w = oI.AccountAddress;
+let yC = class {
   constructor(I, g) {
-    this.address = I, this.decodedAddress = g, this.__type = _w;
+    this.address = I, this.decodedAddress = g, this.__type = $w;
   }
   /**
    * Get a string representation of the account address.
@@ -1927,113 +1927,113 @@ let tC = class {
    * @returns {string} The string representation.
    */
   toString() {
-    return kE(this);
+    return ME(this);
   }
   /**
    * Get a JSON-serializable representation of the account address.
    * @returns {Base58String} The JSON-serializable representation.
    */
   toJSON() {
-    return kE(this);
+    return ME(this);
   }
 };
-function Ai(A) {
-  return $w(A);
+function gi(A) {
+  return AR(A);
 }
-function Ii(A) {
-  return A instanceof tC;
+function Bi(A) {
+  return A instanceof yC;
 }
 function kQ(A) {
   if (A.byteLength !== 32)
     throw new Error(`The provided buffer '${A}' is invalid as its length was not 32`);
-  const I = SC.encode(FA.Buffer.concat([Uint8Array.of(1), new Uint8Array(A)]));
-  return new tC(I, new Uint8Array(A));
+  const I = JC.encode(FA.Buffer.concat([Uint8Array.of(1), new Uint8Array(A)]));
+  return new yC(I, new Uint8Array(A));
 }
-function $w(A) {
+function AR(A) {
   if (A.length !== 50)
     throw new Error(`The provided address '${A}' is invalid as its length was not 50`);
-  const I = SC.decode(A);
+  const I = JC.decode(A);
   if (I.at(0) !== 1)
     throw new Error(`The provided address '${A}' does not use version byte with value of 1`);
   const B = I.subarray(1, 33);
-  return new tC(A, new Uint8Array(B));
+  return new yC(A, new Uint8Array(B));
 }
 function fB(A) {
   return A.decodedAddress;
 }
-function kE(A) {
+function ME(A) {
   return A.address;
 }
 function CI(A) {
   return kQ(A.value);
 }
-function yC(A) {
+function eC(A) {
   return {
     value: A.decodedAddress
   };
 }
-const AR = 32, ME = oI.BlockHash;
-let gi = class {
+const IR = 32, cE = oI.BlockHash;
+let Qi = class {
   constructor(I) {
-    this.buffer = I, this.typedJsonType = ME, this.__type = ME;
+    this.buffer = I, this.typedJsonType = cE, this.__type = cE;
   }
   /**
    * Get a string representation of the block hash.
    * @returns {string} The string representation.
    */
   toString() {
-    return cE(this);
+    return hE(this);
   }
   /**
    * Get a JSON-serializable representation of the block hash.
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return cE(this);
+    return hE(this);
   }
 };
-function IR(A) {
-  return A instanceof gi;
-}
 function gR(A) {
-  if (A.byteLength !== AR)
-    throw new Error(`Invalid transaction hash provided: Expected a buffer containing 32 bytes, instead got '${FA.Buffer.from(A).toString("hex")}'.`);
-  return new gi(new Uint8Array(A));
+  return A instanceof Qi;
 }
-function cE(A) {
+function BR(A) {
+  if (A.byteLength !== IR)
+    throw new Error(`Invalid transaction hash provided: Expected a buffer containing 32 bytes, instead got '${FA.Buffer.from(A).toString("hex")}'.`);
+  return new Qi(new Uint8Array(A));
+}
+function hE(A) {
   return FA.Buffer.from(A.buffer).toString("hex");
 }
 function yI(A) {
-  return gR(A.value);
+  return BR(A.value);
 }
-function BR(A) {
+function QR(A) {
   return {
     value: A.buffer
   };
 }
-var QR = 20, CR = 1, mg = 1e6, ER = 1e6, DR = -7, iR = 21, oR = !1, aB = "[big.js] ", sg = aB + "Invalid ", MQ = sg + "decimal places", wR = sg + "rounding mode", Bi = aB + "Division by zero", PA = {}, TI = void 0, RR = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;
-function Qi() {
+var CR = 20, ER = 1, Zg = 1e6, DR = 1e6, iR = -7, oR = 21, wR = !1, aB = "[big.js] ", Yg = aB + "Invalid ", MQ = Yg + "decimal places", RR = Yg + "rounding mode", Ci = aB + "Division by zero", PA = {}, TI = void 0, UR = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;
+function Ei() {
   function A(I) {
     var g = this;
-    if (!(g instanceof A)) return I === TI ? Qi() : new A(I);
+    if (!(g instanceof A)) return I === TI ? Ei() : new A(I);
     if (I instanceof A)
       g.s = I.s, g.e = I.e, g.c = I.c.slice();
     else {
       if (typeof I != "string") {
         if (A.strict === !0 && typeof I != "bigint")
-          throw TypeError(sg + "value");
+          throw TypeError(Yg + "value");
         I = I === 0 && 1 / I < 0 ? "-0" : String(I);
       }
-      UR(g, I);
+      NR(g, I);
     }
     g.constructor = A;
   }
-  return A.prototype = PA, A.DP = QR, A.RM = CR, A.NE = DR, A.PE = iR, A.strict = oR, A.roundDown = 0, A.roundHalfUp = 1, A.roundHalfEven = 2, A.roundUp = 3, A;
+  return A.prototype = PA, A.DP = CR, A.RM = ER, A.NE = iR, A.PE = oR, A.strict = wR, A.roundDown = 0, A.roundHalfUp = 1, A.roundHalfEven = 2, A.roundUp = 3, A;
 }
-function UR(A, I) {
+function NR(A, I) {
   var g, B, Q;
-  if (!RR.test(I))
-    throw Error(sg + "number");
+  if (!UR.test(I))
+    throw Error(Yg + "number");
   for (A.s = I.charAt(0) == "-" ? (I = I.slice(1), -1) : 1, (g = I.indexOf(".")) > -1 && (I = I.replace(".", "")), (B = I.search(/e/i)) > 0 ? (g < 0 && (g = B), g += +I.slice(B + 1), I = I.substring(0, B)) : g < 0 && (g = I.length), Q = I.length, B = 0; B < Q && I.charAt(B) == "0"; ) ++B;
   if (B == Q)
     A.c = [A.e = 0];
@@ -2043,10 +2043,10 @@ function UR(A, I) {
   }
   return A;
 }
-function Yg(A, I, g, B) {
+function Sg(A, I, g, B) {
   var Q = A.c;
   if (g === TI && (g = A.constructor.RM), g !== 0 && g !== 1 && g !== 2 && g !== 3)
-    throw Error(wR);
+    throw Error(RR);
   if (I < 1)
     B = g === 3 && (B || !!Q[0]) || I === 0 && (g === 1 && Q[0] >= 5 || g === 2 && (Q[0] > 5 || Q[0] === 5 && (B || Q[1] !== TI))), Q.length = 1, B ? (A.e = A.e - I + 1, Q[0] = 1) : Q[0] = A.e = 0;
   else if (I < Q.length) {
@@ -2061,7 +2061,7 @@ function Yg(A, I, g, B) {
   }
   return A;
 }
-function Sg(A, I, g) {
+function Jg(A, I, g) {
   var B = A.e, Q = A.c.join(""), E = Q.length;
   if (I)
     Q = Q.charAt(0) + (E > 1 ? "." + Q.slice(1) : "") + (B < 0 ? "e" : "e+") + B;
@@ -2090,10 +2090,10 @@ PA.cmp = function(A) {
 };
 PA.div = function(A) {
   var I = this, g = I.constructor, B = I.c, Q = (A = new g(A)).c, E = I.s == A.s ? 1 : -1, R = g.DP;
-  if (R !== ~~R || R < 0 || R > mg)
+  if (R !== ~~R || R < 0 || R > Zg)
     throw Error(MQ);
   if (!Q[0])
-    throw Error(Bi);
+    throw Error(Ci);
   if (!B[0])
     return A.s = E, A.c = [A.e = 0], A;
   var D, i, a, c, M, e = Q.slice(), F = D = Q.length, K = B.length, n = B.slice(0, D), q = n.length, l = A, t = l.c = [], d = 0, O = R + (l.e = I.e - A.e) + 1;
@@ -2122,7 +2122,7 @@ PA.div = function(A) {
     }
     t[d++] = c ? a : ++a, n[0] && c ? n[q] = B[F] || 0 : n = [B[F]];
   } while ((F++ < K || n[0] !== TI) && E--);
-  return !t[0] && d != 1 && (t.shift(), l.e--, O--), d > O && Yg(l, O, g.RM, n[0] !== TI), l;
+  return !t[0] && d != 1 && (t.shift(), l.e--, O--), d > O && Sg(l, O, g.RM, n[0] !== TI), l;
 };
 PA.eq = function(A) {
   return this.cmp(A) === 0;
@@ -2171,7 +2171,7 @@ PA.minus = PA.sub = function(A) {
 PA.mod = function(A) {
   var I, g = this, B = g.constructor, Q = g.s, E = (A = new B(A)).s;
   if (!A.c[0])
-    throw Error(Bi);
+    throw Error(Ci);
   return g.s = A.s = 1, I = A.cmp(g) == 1, g.s = Q, A.s = E, I ? new B(g) : (Q = B.DP, E = B.RM, B.DP = B.RM = 0, g = g.div(A), B.DP = Q, B.RM = E, this.minus(g.times(A)));
 };
 PA.neg = function() {
@@ -2195,33 +2195,33 @@ PA.plus = PA.add = function(A) {
 };
 PA.pow = function(A) {
   var I = this, g = new I.constructor("1"), B = g, Q = A < 0;
-  if (A !== ~~A || A < -1e6 || A > ER)
-    throw Error(sg + "exponent");
+  if (A !== ~~A || A < -1e6 || A > DR)
+    throw Error(Yg + "exponent");
   for (Q && (A = -A); A & 1 && (B = B.times(I)), A >>= 1, !!A; )
     I = I.times(I);
   return Q ? g.div(B) : B;
 };
 PA.prec = function(A, I) {
-  if (A !== ~~A || A < 1 || A > mg)
-    throw Error(sg + "precision");
-  return Yg(new this.constructor(this), A, I);
+  if (A !== ~~A || A < 1 || A > Zg)
+    throw Error(Yg + "precision");
+  return Sg(new this.constructor(this), A, I);
 };
 PA.round = function(A, I) {
   if (A === TI) A = 0;
-  else if (A !== ~~A || A < -1e6 || A > mg)
+  else if (A !== ~~A || A < -1e6 || A > Zg)
     throw Error(MQ);
-  return Yg(new this.constructor(this), A + this.e + 1, I);
+  return Sg(new this.constructor(this), A + this.e + 1, I);
 };
 PA.sqrt = function() {
   var A, I, g, B = this, Q = B.constructor, E = B.s, R = B.e, D = new Q("0.5");
   if (!B.c[0]) return new Q(B);
   if (E < 0)
     throw Error(aB + "No square root");
-  E = Math.sqrt(+Sg(B, !0, !0)), E === 0 || E === 1 / 0 ? (I = B.c.join(""), I.length + R & 1 || (I += "0"), E = Math.sqrt(I), R = ((R + 1) / 2 | 0) - (R < 0 || R & 1), A = new Q((E == 1 / 0 ? "5e" : (E = E.toExponential()).slice(0, E.indexOf("e") + 1)) + R)) : A = new Q(E + ""), R = A.e + (Q.DP += 4);
+  E = Math.sqrt(+Jg(B, !0, !0)), E === 0 || E === 1 / 0 ? (I = B.c.join(""), I.length + R & 1 || (I += "0"), E = Math.sqrt(I), R = ((R + 1) / 2 | 0) - (R < 0 || R & 1), A = new Q((E == 1 / 0 ? "5e" : (E = E.toExponential()).slice(0, E.indexOf("e") + 1)) + R)) : A = new Q(E + ""), R = A.e + (Q.DP += 4);
   do
     g = A, A = D.times(g.plus(B.div(g)));
   while (g.c.slice(0, R).join("") !== A.c.slice(0, R).join(""));
-  return Yg(A, (Q.DP -= 4) + A.e + 1, Q.RM);
+  return Sg(A, (Q.DP -= 4) + A.e + 1, Q.RM);
 };
 PA.times = PA.mul = function(A) {
   var I, g = this, B = g.constructor, Q = g.c, E = (A = new B(A)).c, R = Q.length, D = E.length, i = g.e, a = A.e;
@@ -2239,27 +2239,27 @@ PA.times = PA.mul = function(A) {
 PA.toExponential = function(A, I) {
   var g = this, B = g.c[0];
   if (A !== TI) {
-    if (A !== ~~A || A < 0 || A > mg)
+    if (A !== ~~A || A < 0 || A > Zg)
       throw Error(MQ);
-    for (g = Yg(new g.constructor(g), ++A, I); g.c.length < A; ) g.c.push(0);
+    for (g = Sg(new g.constructor(g), ++A, I); g.c.length < A; ) g.c.push(0);
   }
-  return Sg(g, !0, !!B);
+  return Jg(g, !0, !!B);
 };
 PA.toFixed = function(A, I) {
   var g = this, B = g.c[0];
   if (A !== TI) {
-    if (A !== ~~A || A < 0 || A > mg)
+    if (A !== ~~A || A < 0 || A > Zg)
       throw Error(MQ);
-    for (g = Yg(new g.constructor(g), A + g.e + 1, I), A = A + g.e + 1; g.c.length < A; ) g.c.push(0);
+    for (g = Sg(new g.constructor(g), A + g.e + 1, I), A = A + g.e + 1; g.c.length < A; ) g.c.push(0);
   }
-  return Sg(g, !1, !!B);
+  return Jg(g, !1, !!B);
 };
 PA[Symbol.for("nodejs.util.inspect.custom")] = PA.toJSON = PA.toString = function() {
   var A = this, I = A.constructor;
-  return Sg(A, A.e <= I.NE || A.e >= I.PE, !!A.c[0]);
+  return Jg(A, A.e <= I.NE || A.e >= I.PE, !!A.c[0]);
 };
 PA.toNumber = function() {
-  var A = +Sg(this, !0, !0);
+  var A = +Jg(this, !0, !0);
   if (this.constructor.strict === !0 && !this.eq(A.toString()))
     throw Error(aB + "Imprecise conversion");
   return A;
@@ -2267,23 +2267,23 @@ PA.toNumber = function() {
 PA.toPrecision = function(A, I) {
   var g = this, B = g.constructor, Q = g.c[0];
   if (A !== TI) {
-    if (A !== ~~A || A < 1 || A > mg)
-      throw Error(sg + "precision");
-    for (g = Yg(new B(g), A, I); g.c.length < A; ) g.c.push(0);
+    if (A !== ~~A || A < 1 || A > Zg)
+      throw Error(Yg + "precision");
+    for (g = Sg(new B(g), A, I); g.c.length < A; ) g.c.push(0);
   }
-  return Sg(g, A <= g.e || g.e <= B.NE || g.e >= B.PE, !!Q);
+  return Jg(g, A <= g.e || g.e <= B.NE || g.e >= B.PE, !!Q);
 };
 PA.valueOf = function() {
   var A = this, I = A.constructor;
   if (I.strict === !0)
     throw Error(aB + "valueOf disallowed");
-  return Sg(A, A.e <= I.NE || A.e >= I.PE, !0);
+  return Jg(A, A.e <= I.NE || A.e >= I.PE, !0);
 };
-var OB = Qi();
-const NR = oI.CcdAmount;
-class Ci {
+var OB = Ei();
+const aR = oI.CcdAmount;
+class Di {
   constructor(I) {
-    this.microCcdAmount = I, this.__type = NR;
+    this.microCcdAmount = I, this.__type = aR;
   }
   /**
    * Get a string representation of the CCD amount.
@@ -2301,12 +2301,12 @@ class Ci {
     return this.microCcdAmount.toString();
   }
 }
-function Zg(A) {
-  return Fg(A);
+function xg(A) {
+  return kg(A);
 }
-function Fg(A) {
+function kg(A) {
   if (typeof A != "bigint") {
-    if (A = aR(A), !A.mod(OB(1)).eq(OB(0)))
+    if (A = GR(A), !A.mod(OB(1)).eq(OB(0)))
       throw Error("Can not create CcdAmount from a non-whole number!");
     A = BigInt(A.toFixed());
   }
@@ -2314,18 +2314,18 @@ function Fg(A) {
     throw new Error("A micro CCD amount must be a non-negative integer but was: " + A);
   if (A > 18446744073709551615n)
     throw new Error("A micro CCD amount must be representable as an unsigned 64 bit integer but was: " + A);
-  return new Ci(A);
+  return new Di(A);
 }
-function aR(A) {
+function GR(A) {
   return OB(typeof A == "string" ? A.replace(",", ".") : A);
 }
 function SA(A) {
-  return new Ci(A.value);
+  return new Di(A.value);
 }
-const GR = oI.ContractAddress;
-let Ei = class {
+const FR = oI.ContractAddress;
+let ii = class {
   constructor(I, g) {
-    this.index = I, this.subindex = g, this.__type = GR;
+    this.index = I, this.subindex = g, this.__type = FR;
   }
   /**
    * Get a string representation of the contract address using the `<index, subindex>` format.
@@ -2335,24 +2335,24 @@ let Ei = class {
     return `<${this.index}, ${this.subindex}>`;
   }
 };
-function FR(A) {
-  return A instanceof Ei;
+function kR(A) {
+  return A instanceof ii;
 }
-function Di(A, I = 0n) {
+function oi(A, I = 0n) {
   if (A < 0)
     throw new Error("Invalid contract address: The index cannot be a negative number.");
   if (I < 0)
     throw new Error("Invalid contract address: The subindex cannot be a negative number.");
-  return new Ei(BigInt(A), BigInt(I));
-}
-function kR(A) {
-  return { index: A.index, subindex: A.subindex };
+  return new ii(BigInt(A), BigInt(I));
 }
 function MR(A) {
-  return Di(A.index, A.subindex);
+  return { index: A.index, subindex: A.subindex };
+}
+function cR(A) {
+  return oi(A.index, A.subindex);
 }
 function XI(A) {
-  return Di(A.index, A.subindex);
+  return oi(A.index, A.subindex);
 }
 function mB(A) {
   return {
@@ -2360,9 +2360,9 @@ function mB(A) {
     subindex: A.subindex
   };
 }
-var zg = { exports: {} }, WQ = { exports: {} }, ZB = { exports: {} }, cR = ZB.exports, hE;
-function ii() {
-  return hE || (hE = 1, function(A) {
+var Pg = { exports: {} }, mQ = { exports: {} }, ZB = { exports: {} }, hR = ZB.exports, sE;
+function wi() {
+  return sE || (sE = 1, function(A) {
     (function(I) {
       var g, B = /^-?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i, Q = Math.ceil, E = Math.floor, R = "[BigNumber Error] ", D = R + "Number primitive has more than 15 significant digits: ", i = 1e14, a = 14, c = 9007199254740991, M = [1, 10, 100, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9, 1e10, 1e11, 1e12, 1e13], e = 1e7, F = 1e9;
       function K(v) {
@@ -2982,13 +2982,13 @@ function ii() {
         return v;
       }
       g = K(), g.default = g.BigNumber = g, A.exports ? A.exports = g : (I || (I = typeof self < "u" && self ? self : window), I.BigNumber = g);
-    })(cR);
+    })(hR);
   }(ZB)), ZB.exports;
 }
-var sE;
-function hR() {
-  return sE || (sE = 1, function(A) {
-    var I = ii(), g = A.exports;
+var YE;
+function sR() {
+  return YE || (YE = 1, function(A) {
+    var I = wi(), g = A.exports;
     (function() {
       var B = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g, Q, E, R = {
         // table of character substitutions
@@ -3055,12 +3055,12 @@ function hR() {
         return a("", { "": c });
       });
     })();
-  }(WQ)), WQ.exports;
+  }(mQ)), mQ.exports;
 }
-var mQ, YE;
-function sR() {
-  if (YE) return mQ;
-  YE = 1;
+var ZQ, SE;
+function YR() {
+  if (SE) return ZQ;
+  SE = 1;
   var A = null;
   const I = /(?:_|\\u005[Ff])(?:_|\\u005[Ff])(?:p|\\u0070)(?:r|\\u0072)(?:o|\\u006[Ff])(?:t|\\u0074)(?:o|\\u006[Ff])(?:_|\\u005[Ff])(?:_|\\u005[Ff])/, g = /(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)/;
   var B = function(Q) {
@@ -3124,7 +3124,7 @@ function sR() {
       if (d = +O, !isFinite(d))
         c("Bad number");
       else
-        return A == null && (A = ii()), O.length > 15 ? E.storeAsString ? O : E.useNativeBigInt ? BigInt(O) : new A(O) : E.alwaysParseAsBig ? E.useNativeBigInt ? BigInt(d) : new A(d) : d;
+        return A == null && (A = wi()), O.length > 15 ? E.storeAsString ? O : E.useNativeBigInt ? BigInt(O) : new A(O) : E.alwaysParseAsBig ? E.useNativeBigInt ? BigInt(d) : new A(d) : d;
     }, F = function() {
       var d, O, y = "", v;
       if (D === '"')
@@ -3205,26 +3205,26 @@ function sR() {
       }({ "": y }, "") : y;
     };
   };
-  return mQ = B, mQ;
+  return ZQ = B, ZQ;
 }
-var SE;
-function YR() {
-  if (SE) return zg.exports;
-  SE = 1;
-  var A = hR().stringify, I = sR();
-  return zg.exports = function(g) {
+var JE;
+function SR() {
+  if (JE) return Pg.exports;
+  JE = 1;
+  var A = sR().stringify, I = YR();
+  return Pg.exports = function(g) {
     return {
       parse: I(g),
       stringify: A
     };
-  }, zg.exports.parse = I(), zg.exports.stringify = A, zg.exports;
+  }, Pg.exports.parse = I(), Pg.exports.stringify = A, Pg.exports;
 }
-var SR = YR();
-const oi = /* @__PURE__ */ YC(SR), JE = 65535, JR = (A) => {
-  if (A.byteLength > JE)
-    throw new Error(`Serialized parameter exceeds max length of smart contract parameter (${JE} bytes)`);
+var JR = SR();
+const Ri = /* @__PURE__ */ SC(JR), tE = 65535, tR = (A) => {
+  if (A.byteLength > tE)
+    throw new Error(`Serialized parameter exceeds max length of smart contract parameter (${tE} bytes)`);
 };
-function wi(A) {
+function Ui(A) {
   for (let I = 0; I < A.length; I++) {
     const g = A.charCodeAt(I);
     if (!(32 <= g && g <= 47 || // Punctuation ! to /
@@ -3238,10 +3238,10 @@ function wi(A) {
   }
   return !0;
 }
-const tR = oI.ContractName;
-class yR {
+const yR = oI.ContractName;
+class eR {
   constructor(I) {
-    this.value = I, this.__type = tR;
+    this.value = I, this.__type = yR;
   }
   /**
    * Get a string representation of the contract name.
@@ -3258,17 +3258,17 @@ class yR {
     return this.value;
   }
 }
-function eR(A) {
-  return KR(A);
-}
 function KR(A) {
+  return HR(A);
+}
+function HR(A) {
   if (A.length > 95)
     throw new Error("Invalid ContractName: Can be atmost 95 characters long.");
   if (A.includes("."))
     throw new Error("Invalid ContractName: Must not contain a '.' character.");
-  if (!wi(A))
+  if (!Ui(A))
     throw new Error("Invalid ContractName: Must only contain ASCII alpha, numeric and punctuation characters.");
-  return new yR(A);
+  return new eR(A);
 }
 var AB;
 (function(A) {
@@ -3278,13 +3278,13 @@ var IB;
 (function(A) {
   A[A.UpToDate = 0] = "UpToDate", A[A.Pending = 1] = "Pending", A[A.CatchingUp = 2] = "CatchingUp";
 })(IB || (IB = {}));
-function Ri(A) {
+function Ni(A) {
   return /^[A-F0-9]+$/i.test(A);
 }
-function HR(A) {
+function nR(A) {
   return /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/.test(A);
 }
-function nR(A) {
+function rR(A) {
   let I = 0n;
   const g = Object.values(A);
   for (const B of g) {
@@ -3298,7 +3298,7 @@ function s(A) {
     throw console.trace(), Error("Undefined value found.");
   return A;
 }
-function Dg(A, I, g = (B) => B) {
+function ig(A, I, g = (B) => B) {
   const B = {};
   for (const Q in A)
     B[g(Q)] = I(A[Q]);
@@ -3323,7 +3323,7 @@ function wI(A, I) {
     }
   };
 }
-function rR(A) {
+function LR(A) {
   return A !== void 0;
 }
 var lA;
@@ -3338,23 +3338,23 @@ var uA;
 (function(A) {
   A.Root = "root", A.Level1 = "level1", A.HigherLevelKeyUpdate = "higherLevelKeyUpdate", A.AuthorizationKeysUpdate = "AuthorizationKeysUpdate", A.Protocol = "protocol", A.ElectionDifficulty = "electionDifficulty", A.EuroPerEnergy = "euroPerEnergy", A.MicroGtuPerEuro = "microGtuPerEuro", A.FoundationAccount = "foundationAccount", A.MintDistribution = "mintDistribution", A.TransactionFeeDistribution = "transactionFeeDistribution", A.GasRewards = "gasRewards", A.PoolParameters = "poolParameters", A.AddAnonymityRevoker = "addAnonymityRevoker", A.AddIdentityProvider = "addIdentityProvider", A.CooldownParameters = "cooldownParameters", A.TimeParameters = "timeParameters", A.ProtocolUpdate = "protocolUpdate", A.BakerStakeThreshold = "bakerStakeThreshold", A.Emergency = "emergency", A.GasRewardsCpv2 = "gasRewardsCpv2", A.TimeoutParameters = "timeoutParameters", A.MinBlockTime = "minBlockTime", A.BlockEnergyLimit = "blockEnergyLimit", A.FinalizationCommitteeParameters = "finalizationCommitteeParameters", A.ValidatorScoreParameters = "validatorScoreParameters";
 })(uA || (uA = {}));
-var tE;
+var yE;
 (function(A) {
   A[A.Added = 0] = "Added", A[A.Removed = 1] = "Removed", A[A.Unchanged = 2] = "Unchanged";
-})(tE || (tE = {}));
-var ng;
-(function(A) {
-  A.RootKeysUpdate = "rootKeysUpdate", A.Level1KeysUpdate = "level1KeysUpdate";
-})(ng || (ng = {}));
+})(yE || (yE = {}));
 var rg;
 (function(A) {
-  A.Level2KeysUpdate = "level2KeysUpdate", A.Level2KeysUpdateV1 = "level2KeysUpdateV1";
+  A.RootKeysUpdate = "rootKeysUpdate", A.Level1KeysUpdate = "level1KeysUpdate";
 })(rg || (rg = {}));
+var Lg;
+(function(A) {
+  A.Level2KeysUpdate = "level2KeysUpdate", A.Level2KeysUpdateV1 = "level2KeysUpdateV1";
+})(Lg || (Lg = {}));
 var uB;
 (function(A) {
   A.ModuleNotWF = "ModuleNotWF", A.ModuleHashAlreadyExists = "ModuleHashAlreadyExists", A.InvalidAccountReference = "InvalidAccountReference", A.InvalidInitMethod = "InvalidInitMethod", A.InvalidReceiveMethod = "InvalidReceiveMethod", A.InvalidModuleReference = "InvalidModuleReference", A.InvalidContractAddress = "InvalidContractAddress", A.RuntimeFailure = "RuntimeFailure", A.AmountTooLarge = "AmountTooLarge", A.SerializationFailure = "SerializationFailure", A.OutOfEnergy = "OutOfEnergy", A.RejectedInit = "RejectedInit", A.RejectedReceive = "RejectedReceive", A.NonExistentRewardAccount = "NonExistentRewardAccount", A.InvalidProof = "InvalidProof", A.AlreadyABaker = "AlreadyABaker", A.NotABaker = "NotABaker", A.InsufficientBalanceForBakerStake = "InsufficientBalanceForBakerStake", A.StakeUnderMinimumThresholdForBaking = "StakeUnderMinimumThresholdForBaking", A.BakerInCooldown = "BakerInCooldown", A.DuplicateAggregationKey = "DuplicateAggregationKey", A.NonExistentCredentialID = "NonExistentCredentialID", A.KeyIndexAlreadyInUse = "KeyIndexAlreadyInUse", A.InvalidAccountThreshold = "InvalidAccountThreshold", A.InvalidCredentialKeySignThreshold = "InvalidCredentialKeySignThreshold", A.InvalidEncryptedAmountTransferProof = "InvalidEncryptedAmountTransferProof", A.InvalidTransferToPublicProof = "InvalidTransferToPublicProof", A.EncryptedAmountSelfTransfer = "EncryptedAmountSelfTransfer", A.InvalidIndexOnEncryptedTransfer = "InvalidIndexOnEncryptedTransfer", A.ZeroScheduledAmount = "ZeroScheduledAmount", A.NonIncreasingSchedule = "NonIncreasingSchedule", A.FirstScheduledReleaseExpired = "FirstScheduledReleaseExpired", A.ScheduledSelfTransfer = "ScheduledSelfTransfer", A.InvalidCredentials = "InvalidCredentials", A.DuplicateCredIDs = "DuplicateCredIDs", A.NonExistentCredIDs = "NonExistentCredIDs", A.RemoveFirstCredential = "RemoveFirstCredential", A.CredentialHolderDidNotSign = "CredentialHolderDidNotSign", A.NotAllowedMultipleCredentials = "NotAllowedMultipleCredentials", A.NotAllowedToReceiveEncrypted = "NotAllowedToReceiveEncrypted", A.NotAllowedToHandleEncrypted = "NotAllowedToHandleEncrypted", A.MissingBakerAddParameters = "MissingBakerAddParameters", A.FinalizationRewardCommissionNotInRange = "FinalizationRewardCommissionNotInRange", A.BakingRewardCommissionNotInRange = "BakingRewardCommissionNotInRange", A.TransactionFeeCommissionNotInRange = "TransactionFeeCommissionNotInRange", A.AlreadyADelegator = "AlreadyADelegator", A.InsufficientBalanceForDelegationStake = "InsufficientBalanceForDelegationStake", A.MissingDelegationAddParameters = "MissingDelegationAddParameters", A.InsufficientDelegationStake = "InsufficientDelegationStake", A.DelegatorInCooldown = "DelegatorInCooldown", A.NotADelegator = "NotADelegator", A.DelegationTargetNotABaker = "DelegationTargetNotABaker", A.StakeOverMaximumThresholdForPool = "StakeOverMaximumThresholdForPool", A.PoolWouldBecomeOverDelegated = "PoolWouldBecomeOverDelegated", A.PoolClosed = "PoolClosed";
 })(uB || (uB = {}));
-function Ui(A) {
+function ai(A) {
   let I = typeof A;
   if (I == "object") {
     if (Array.isArray(A))
@@ -3364,7 +3364,7 @@ function Ui(A) {
   }
   return I;
 }
-function LR(A) {
+function qR(A) {
   return A !== null && typeof A == "object" && !Array.isArray(A);
 }
 let vI = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split(""), cQ = [];
@@ -3372,7 +3372,7 @@ for (let A = 0; A < vI.length; A++)
   cQ[vI[A].charCodeAt(0)] = A;
 cQ[45] = vI.indexOf("+");
 cQ[95] = vI.indexOf("/");
-function Ni(A) {
+function Gi(A) {
   let I = A.length * 3 / 4;
   A[A.length - 2] == "=" ? I -= 2 : A[A.length - 1] == "=" && (I -= 1);
   let g = new Uint8Array(I), B = 0, Q = 0, E, R = 0;
@@ -3411,7 +3411,7 @@ function Ni(A) {
     throw Error("invalid base64 string.");
   return g.subarray(0, B);
 }
-function ai(A) {
+function Fi(A) {
   let I = "", g = 0, B, Q = 0;
   for (let E = 0; E < A.length; E++)
     switch (B = A[E], g) {
@@ -3443,14 +3443,14 @@ var bB;
   }, A.last = (g, B) => A.list(g, B).slice(-1)[0];
   const I = (g) => g && Array.isArray(g[A.symbol]);
 })(bB || (bB = {}));
-function qR(A, I) {
+function dR(A, I) {
   return Object.assign(Object.assign({}, A), I);
 }
 var DI;
 (function(A) {
   A[A.Varint = 0] = "Varint", A[A.Bit64 = 1] = "Bit64", A[A.LengthDelimited = 2] = "LengthDelimited", A[A.StartGroup = 3] = "StartGroup", A[A.EndGroup = 4] = "EndGroup", A[A.Bit32 = 5] = "Bit32";
 })(DI || (DI = {}));
-function dR() {
+function pR() {
   let A = 0, I = 0;
   for (let B = 0; B < 28; B += 7) {
     let Q = this.buf[this.pos++];
@@ -3467,7 +3467,7 @@ function dR() {
   }
   throw new Error("invalid varint");
 }
-function ZQ(A, I, g) {
+function xQ(A, I, g) {
   for (let E = 0; E < 28; E = E + 7) {
     const R = A >>> E, D = !(!(R >>> 7) && I == 0), i = (D ? R | 128 : R) & 255;
     if (g.push(i), !D)
@@ -3484,7 +3484,7 @@ function ZQ(A, I, g) {
   }
 }
 const xB = 65536 * 65536;
-function Gi(A) {
+function ki(A) {
   let I = A[0] == "-";
   I && (A = A.slice(1));
   const g = 1e6;
@@ -3495,7 +3495,7 @@ function Gi(A) {
   }
   return E(-24, -18), E(-18, -12), E(-12, -6), E(-6), [I, B, Q];
 }
-function DC(A, I) {
+function iC(A, I) {
   if (I >>> 0 <= 2097151)
     return "" + (xB * I + (A >>> 0));
   let g = A & 16777215, B = (A >>> 24 | I << 8) >>> 0 & 16777215, Q = I >> 16 & 65535, E = g + B * 6777216 + Q * 6710656, R = B + Q * 8147497, D = Q * 2, i = 1e7;
@@ -3520,7 +3520,7 @@ function DC(A, I) {
     1
   );
 }
-function yE(A, I) {
+function eE(A, I) {
   if (A >= 0) {
     for (; A > 127; )
       I.push(A & 127 | 128), A = A >>> 7;
@@ -3531,7 +3531,7 @@ function yE(A, I) {
     I.push(1);
   }
 }
-function pR() {
+function VR() {
   let A = this.buf[this.pos++], I = A & 127;
   if ((A & 128) == 0)
     return this.assertBounds(), I;
@@ -3549,7 +3549,7 @@ function pR() {
   return this.assertBounds(), I >>> 0;
 }
 let AI;
-function VR() {
+function lR() {
   const A = new DataView(new ArrayBuffer(8));
   AI = globalThis.BigInt !== void 0 && typeof A.getBigInt64 == "function" && typeof A.getBigUint64 == "function" && typeof A.setBigInt64 == "function" && typeof A.setBigUint64 == "function" ? {
     MIN: BigInt("-9223372036854775808"),
@@ -3560,13 +3560,13 @@ function VR() {
     V: A
   } : void 0;
 }
-VR();
-function Fi(A) {
+lR();
+function Mi(A) {
   if (!A)
     throw new Error("BigInt unavailable, see https://github.com/timostamm/protobuf-ts/blob/v1.0.8/MANUAL.md#bigint-support");
 }
-const ki = /^-?[0-9]+$/, jB = 4294967296, KB = 2147483648;
-class Mi {
+const ci = /^-?[0-9]+$/, jB = 4294967296, KB = 2147483648;
+class hi {
   /**
    * Create a new instance with the given bits.
    */
@@ -3589,7 +3589,7 @@ class Mi {
     return I;
   }
 }
-class cI extends Mi {
+class cI extends hi {
   /**
    * Create instance from a `string`, `number` or `bigint`.
    */
@@ -3620,9 +3620,9 @@ class cI extends Mi {
         case "string":
           if (I == "0")
             return this.ZERO;
-          if (I = I.trim(), !ki.test(I))
+          if (I = I.trim(), !ci.test(I))
             throw new Error("string is no integer");
-          let [g, B, Q] = Gi(I);
+          let [g, B, Q] = ki(I);
           if (g)
             throw new Error("signed value for ulong");
           return new cI(B, Q);
@@ -3641,17 +3641,17 @@ class cI extends Mi {
    * Convert to decimal string.
    */
   toString() {
-    return AI ? this.toBigInt().toString() : DC(this.lo, this.hi);
+    return AI ? this.toBigInt().toString() : iC(this.lo, this.hi);
   }
   /**
    * Convert to native bigint.
    */
   toBigInt() {
-    return Fi(AI), AI.V.setInt32(0, this.lo, !0), AI.V.setInt32(4, this.hi, !0), AI.V.getBigUint64(0, !0);
+    return Mi(AI), AI.V.setInt32(0, this.lo, !0), AI.V.setInt32(4, this.hi, !0), AI.V.getBigUint64(0, !0);
   }
 }
 cI.ZERO = new cI(0, 0);
-class iI extends Mi {
+class iI extends hi {
   /**
    * Create instance from a `string`, `number` or `bigint`.
    */
@@ -3682,9 +3682,9 @@ class iI extends Mi {
         case "string":
           if (I == "0")
             return this.ZERO;
-          if (I = I.trim(), !ki.test(I))
+          if (I = I.trim(), !ci.test(I))
             throw new Error("string is no integer");
-          let [g, B, Q] = Gi(I);
+          let [g, B, Q] = ki(I);
           if (g) {
             if (Q > KB || Q == KB && B != 0)
               throw new Error("signed long too small");
@@ -3723,28 +3723,28 @@ class iI extends Mi {
       return this.toBigInt().toString();
     if (this.isNegative()) {
       let I = this.negate();
-      return "-" + DC(I.lo, I.hi);
+      return "-" + iC(I.lo, I.hi);
     }
-    return DC(this.lo, this.hi);
+    return iC(this.lo, this.hi);
   }
   /**
    * Convert to native bigint.
    */
   toBigInt() {
-    return Fi(AI), AI.V.setInt32(0, this.lo, !0), AI.V.setInt32(4, this.hi, !0), AI.V.getBigInt64(0, !0);
+    return Mi(AI), AI.V.setInt32(0, this.lo, !0), AI.V.setInt32(4, this.hi, !0), AI.V.getBigInt64(0, !0);
   }
 }
 iI.ZERO = new iI(0, 0);
-const eE = {
+const KE = {
   readUnknownField: !0,
-  readerFactory: (A) => new WR(A)
+  readerFactory: (A) => new mR(A)
 };
-function lR(A) {
-  return A ? Object.assign(Object.assign({}, eE), A) : eE;
+function WR(A) {
+  return A ? Object.assign(Object.assign({}, KE), A) : KE;
 }
-class WR {
+class mR {
   constructor(I, g) {
-    this.varint64 = dR, this.uint32 = pR, this.buf = I, this.len = I.length, this.pos = 0, this.view = new DataView(I.buffer, I.byteOffset, I.byteLength), this.textDecoder = g ?? new TextDecoder("utf-8", {
+    this.varint64 = pR, this.uint32 = VR, this.buf = I, this.len = I.length, this.pos = 0, this.view = new DataView(I.buffer, I.byteOffset, I.byteLength), this.textDecoder = g ?? new TextDecoder("utf-8", {
       fatal: !0,
       ignoreBOM: !0
     });
@@ -3888,36 +3888,36 @@ function ZA(A, I) {
   if (!A)
     throw new Error(I);
 }
-function mR(A, I) {
+function ZR(A, I) {
   throw new Error("Unexpected object: " + A);
 }
-const ZR = 34028234663852886e22, xR = -34028234663852886e22, TR = 4294967295, fR = 2147483647, OR = -2147483648;
+const xR = 34028234663852886e22, TR = -34028234663852886e22, fR = 4294967295, OR = 2147483647, uR = -2147483648;
 function gB(A) {
   if (typeof A != "number")
     throw new Error("invalid int 32: " + typeof A);
-  if (!Number.isInteger(A) || A > fR || A < OR)
+  if (!Number.isInteger(A) || A > OR || A < uR)
     throw new Error("invalid int 32: " + A);
 }
 function zB(A) {
   if (typeof A != "number")
     throw new Error("invalid uint 32: " + typeof A);
-  if (!Number.isInteger(A) || A > TR || A < 0)
+  if (!Number.isInteger(A) || A > fR || A < 0)
     throw new Error("invalid uint 32: " + A);
 }
-function eC(A) {
+function KC(A) {
   if (typeof A != "number")
     throw new Error("invalid float 32: " + typeof A);
-  if (Number.isFinite(A) && (A > ZR || A < xR))
+  if (Number.isFinite(A) && (A > xR || A < TR))
     throw new Error("invalid float 32: " + A);
 }
-const KE = {
+const HE = {
   writeUnknownFields: !0,
-  writerFactory: () => new bR()
+  writerFactory: () => new jR()
 };
-function uR(A) {
-  return A ? Object.assign(Object.assign({}, KE), A) : KE;
+function bR(A) {
+  return A ? Object.assign(Object.assign({}, HE), A) : HE;
 }
-class bR {
+class jR {
   constructor(I) {
     this.stack = [], this.textEncoder = I ?? new TextEncoder(), this.chunks = [], this.buf = [];
   }
@@ -3981,7 +3981,7 @@ class bR {
    * Write a `int32` value, a signed 32 bit varint.
    */
   int32(I) {
-    return gB(I), yE(I, this.buf), this;
+    return gB(I), eE(I, this.buf), this;
   }
   /**
    * Write a `bool` value, a variant.
@@ -4006,7 +4006,7 @@ class bR {
    * Write a `float` value, 32-bit floating point number.
    */
   float(I) {
-    eC(I);
+    KC(I);
     let g = new Uint8Array(4);
     return new DataView(g.buffer).setFloat32(0, I, !0), this.raw(g);
   }
@@ -4037,7 +4037,7 @@ class bR {
    * Write a `sint32` value, a signed, zigzag-encoded 32-bit varint.
    */
   sint32(I) {
-    return gB(I), I = (I << 1 ^ I >> 31) >>> 0, yE(I, this.buf), this;
+    return gB(I), I = (I << 1 ^ I >> 31) >>> 0, eE(I, this.buf), this;
   }
   /**
    * Write a `fixed64` value, a signed, fixed-length 64-bit integer.
@@ -4058,44 +4058,44 @@ class bR {
    */
   int64(I) {
     let g = iI.from(I);
-    return ZQ(g.lo, g.hi, this.buf), this;
+    return xQ(g.lo, g.hi, this.buf), this;
   }
   /**
    * Write a `sint64` value, a signed, zig-zag-encoded 64-bit varint.
    */
   sint64(I) {
     let g = iI.from(I), B = g.hi >> 31, Q = g.lo << 1 ^ B, E = (g.hi << 1 | g.lo >>> 31) ^ B;
-    return ZQ(Q, E, this.buf), this;
+    return xQ(Q, E, this.buf), this;
   }
   /**
    * Write a `uint64` value, an unsigned 64-bit varint.
    */
   uint64(I) {
     let g = cI.from(I);
-    return ZQ(g.lo, g.hi, this.buf), this;
+    return xQ(g.lo, g.hi, this.buf), this;
   }
 }
-const HE = {
+const nE = {
   emitDefaultValues: !1,
   enumAsInteger: !1,
   useProtoFieldName: !1,
   prettySpaces: 0
-}, nE = {
+}, rE = {
   ignoreUnknownFields: !1
 };
-function jR(A) {
+function zR(A) {
+  return A ? Object.assign(Object.assign({}, rE), A) : rE;
+}
+function PR(A) {
   return A ? Object.assign(Object.assign({}, nE), A) : nE;
 }
-function zR(A) {
-  return A ? Object.assign(Object.assign({}, HE), A) : HE;
-}
-function PR(A, I) {
+function XR(A, I) {
   var g, B;
   let Q = Object.assign(Object.assign({}, A), I);
   return Q.typeRegistry = [...(g = A == null ? void 0 : A.typeRegistry) !== null && g !== void 0 ? g : [], ...(B = I == null ? void 0 : I.typeRegistry) !== null && B !== void 0 ? B : []], Q;
 }
-const ci = Symbol.for("protobuf-ts/message-type");
-function iC(A) {
+const si = Symbol.for("protobuf-ts/message-type");
+function oC(A) {
   let I = !1;
   const g = [];
   for (let B = 0; B < A.length; B++) {
@@ -4116,11 +4116,11 @@ var PB;
 (function(A) {
   A[A.NO = 0] = "NO", A[A.PACKED = 1] = "PACKED", A[A.UNPACKED = 2] = "UNPACKED";
 })(PB || (PB = {}));
-function XR(A) {
-  var I, g, B, Q;
-  return A.localName = (I = A.localName) !== null && I !== void 0 ? I : iC(A.name), A.jsonName = (g = A.jsonName) !== null && g !== void 0 ? g : iC(A.name), A.repeat = (B = A.repeat) !== null && B !== void 0 ? B : PB.NO, A.opt = (Q = A.opt) !== null && Q !== void 0 ? Q : A.repeat || A.oneof ? !1 : A.kind == "message", A;
-}
 function vR(A) {
+  var I, g, B, Q;
+  return A.localName = (I = A.localName) !== null && I !== void 0 ? I : oC(A.name), A.jsonName = (g = A.jsonName) !== null && g !== void 0 ? g : oC(A.name), A.repeat = (B = A.repeat) !== null && B !== void 0 ? B : PB.NO, A.opt = (Q = A.opt) !== null && Q !== void 0 ? Q : A.repeat || A.oneof ? !1 : A.kind == "message", A;
+}
+function _R(A) {
   if (typeof A != "object" || A === null || !A.hasOwnProperty("oneofKind"))
     return !1;
   switch (typeof A.oneofKind) {
@@ -4132,7 +4132,7 @@ function vR(A) {
       return !1;
   }
 }
-class _R {
+class $R {
   constructor(I) {
     var g;
     this.fields = (g = I.fields) !== null && g !== void 0 ? g : [];
@@ -4192,7 +4192,7 @@ class _R {
       return !0;
     for (const R of E.oneofs) {
       const D = I[R];
-      if (!vR(D))
+      if (!_R(D))
         return !1;
       if (D.oneofKind === void 0)
         continue;
@@ -4318,7 +4318,7 @@ function lI(A, I) {
       return A.toString();
   }
 }
-class $R {
+class AU {
   constructor(I) {
     this.info = I;
   }
@@ -4334,7 +4334,7 @@ class $R {
   // Cannot parse JSON <type of jsonValue> for <type name>#<fieldName>.
   assert(I, g, B) {
     if (!I) {
-      let Q = Ui(B);
+      let Q = ai(B);
       throw (Q == "number" || Q == "boolean") && (Q = B.toString()), new Error(`Cannot parse JSON ${Q} for ${this.info.typeName}#${g}`);
     }
   }
@@ -4372,7 +4372,7 @@ class $R {
       if (D.kind == "map") {
         if (R === null)
           continue;
-        this.assert(LR(R), D.name, R);
+        this.assert(qR(R), D.name, R);
         const c = a[i];
         for (const [M, e] of Object.entries(R)) {
           this.assert(e !== null, D.name + " map value", null);
@@ -4494,7 +4494,7 @@ class $R {
             E = "too large or small";
             break;
           }
-          return g == UA.FLOAT && eC(R), R;
+          return g == UA.FLOAT && KC(R), R;
         // int32, fixed32, uint32: JSON value will be a decimal number. Either numbers or strings are accepted.
         case UA.INT32:
         case UA.FIXED32:
@@ -4552,7 +4552,7 @@ class $R {
             return new Uint8Array(0);
           if (typeof I != "string")
             break;
-          return Ni(I);
+          return Gi(I);
       }
     } catch (R) {
       E = R.message;
@@ -4560,7 +4560,7 @@ class $R {
     this.assert(!1, Q + (E ? " - " + E : ""), I);
   }
 }
-class AU {
+class IU {
   constructor(I) {
     var g;
     this.fields = (g = I.fields) !== null && g !== void 0 ? g : [];
@@ -4689,7 +4689,7 @@ class AU {
       // float, double: JSON value will be a number or one of the special string values "NaN", "Infinity", and "-Infinity".
       // Either numbers or strings are accepted. Exponent notation is also accepted.
       case UA.FLOAT:
-        eC(g);
+        KC(g);
       case UA.DOUBLE:
         return g === 0 ? R ? 0 : void 0 : (ZA(typeof g == "number"), Number.isNaN(g) ? "NaN" : g === Number.POSITIVE_INFINITY ? "Infinity" : g === Number.NEGATIVE_INFINITY ? "-Infinity" : g);
       // string:
@@ -4714,11 +4714,11 @@ class AU {
       // bytes: JSON value will be the data encoded as a string using standard base64 encoding with paddings.
       // Either standard or URL-safe base64 encoding with/without paddings are accepted.
       case UA.BYTES:
-        return ZA(g instanceof Uint8Array), g.byteLength ? ai(g) : R ? "" : void 0;
+        return ZA(g instanceof Uint8Array), g.byteLength ? Fi(g) : R ? "" : void 0;
     }
   }
 }
-function oC(A, I = fI.STRING) {
+function wC(A, I = fI.STRING) {
   switch (A) {
     case UA.BOOL:
       return !1;
@@ -4740,7 +4740,7 @@ function oC(A, I = fI.STRING) {
       return 0;
   }
 }
-class IU {
+class gU {
   constructor(I) {
     this.info = I;
   }
@@ -4834,13 +4834,13 @@ class IU {
       }
     }
     if (R === void 0) {
-      let i = oC(I.K);
+      let i = wC(I.K);
       R = I.K == UA.BOOL ? i.toString() : i;
     }
     if (D === void 0)
       switch (I.V.kind) {
         case "scalar":
-          D = oC(I.V.T, I.V.L);
+          D = wC(I.V.T, I.V.L);
           break;
         case "enum":
           D = 0;
@@ -4886,7 +4886,7 @@ class IU {
     }
   }
 }
-class gU {
+class BU {
   constructor(I) {
     this.info = I;
   }
@@ -5052,8 +5052,8 @@ class gU {
     return [B, Q, E || R];
   }
 }
-function BU(A) {
-  const I = A.messagePrototype ? Object.create(A.messagePrototype) : Object.defineProperty({}, ci, { value: A });
+function QU(A) {
+  const I = A.messagePrototype ? Object.create(A.messagePrototype) : Object.defineProperty({}, si, { value: A });
   for (let g of A.fields) {
     let B = g.localName;
     if (!g.opt)
@@ -5064,7 +5064,7 @@ function BU(A) {
       else
         switch (g.kind) {
           case "scalar":
-            I[B] = oC(g.T, g.L);
+            I[B] = wC(g.T, g.L);
             break;
           case "enum":
             I[B] = 0;
@@ -5076,7 +5076,7 @@ function BU(A) {
   }
   return I;
 }
-function xQ(A, I, g) {
+function TQ(A, I, g) {
   let B, Q = g, E;
   for (let R of A.fields) {
     let D = R.localName;
@@ -5122,7 +5122,7 @@ function xQ(A, I, g) {
     }
   }
 }
-function QU(A, I, g) {
+function CU(A, I, g) {
   if (I === g)
     return !0;
   if (!I || !g)
@@ -5133,16 +5133,16 @@ function QU(A, I, g) {
       case "enum":
       case "scalar":
         let D = B.kind == "enum" ? UA.INT32 : B.T;
-        if (!(B.repeat ? rE(D, E, R) : hi(D, E, R)))
+        if (!(B.repeat ? LE(D, E, R) : Yi(D, E, R)))
           return !1;
         break;
       case "map":
-        if (!(B.V.kind == "message" ? LE(B.V.T(), HB(E), HB(R)) : rE(B.V.kind == "enum" ? UA.INT32 : B.V.T, HB(E), HB(R))))
+        if (!(B.V.kind == "message" ? qE(B.V.T(), HB(E), HB(R)) : LE(B.V.kind == "enum" ? UA.INT32 : B.V.T, HB(E), HB(R))))
           return !1;
         break;
       case "message":
         let i = B.T();
-        if (!(B.repeat ? LE(i, E, R) : i.equals(E, R)))
+        if (!(B.repeat ? qE(i, E, R) : i.equals(E, R)))
           return !1;
         break;
     }
@@ -5150,7 +5150,7 @@ function QU(A, I, g) {
   return !0;
 }
 const HB = Object.values;
-function hi(A, I, g) {
+function Yi(A, I, g) {
   if (I === g)
     return !0;
   if (A !== UA.BYTES)
@@ -5163,15 +5163,15 @@ function hi(A, I, g) {
       return !1;
   return !0;
 }
-function rE(A, I, g) {
+function LE(A, I, g) {
   if (I.length !== g.length)
     return !1;
   for (let B = 0; B < I.length; B++)
-    if (!hi(A, I[B], g[B]))
+    if (!Yi(A, I[B], g[B]))
       return !1;
   return !0;
 }
-function LE(A, I, g) {
+function qE(A, I, g) {
   if (I.length !== g.length)
     return !1;
   for (let B = 0; B < I.length; B++)
@@ -5179,14 +5179,14 @@ function LE(A, I, g) {
       return !1;
   return !0;
 }
-const CU = Object.getOwnPropertyDescriptors(Object.getPrototypeOf({}));
+const EU = Object.getOwnPropertyDescriptors(Object.getPrototypeOf({}));
 class Y {
   constructor(I, g, B) {
-    this.defaultCheckDepth = 16, this.typeName = I, this.fields = g.map(XR), this.options = B ?? {}, this.messagePrototype = Object.create(null, Object.assign(Object.assign({}, CU), { [ci]: { value: this } })), this.refTypeCheck = new _R(this), this.refJsonReader = new $R(this), this.refJsonWriter = new AU(this), this.refBinReader = new IU(this), this.refBinWriter = new gU(this);
+    this.defaultCheckDepth = 16, this.typeName = I, this.fields = g.map(vR), this.options = B ?? {}, this.messagePrototype = Object.create(null, Object.assign(Object.assign({}, EU), { [si]: { value: this } })), this.refTypeCheck = new $R(this), this.refJsonReader = new AU(this), this.refJsonWriter = new IU(this), this.refBinReader = new gU(this), this.refBinWriter = new BU(this);
   }
   create(I) {
-    let g = BU(this);
-    return I !== void 0 && xQ(this, g, I), g;
+    let g = QU(this);
+    return I !== void 0 && TQ(this, g, I), g;
   }
   /**
    * Clone the message.
@@ -5195,7 +5195,7 @@ class Y {
    */
   clone(I) {
     let g = this.create();
-    return xQ(this, g, I), g;
+    return TQ(this, g, I), g;
   }
   /**
    * Determines whether two message of the same type have the same field values.
@@ -5204,7 +5204,7 @@ class Y {
    * Will also return true if both messages are `undefined`.
    */
   equals(I, g) {
-    return QU(this, I, g);
+    return CU(this, I, g);
   }
   /**
    * Is the given value assignable to our message type
@@ -5224,20 +5224,20 @@ class Y {
    * Copy partial data into the target message.
    */
   mergePartial(I, g) {
-    xQ(this, I, g);
+    TQ(this, I, g);
   }
   /**
    * Create a new message from binary format.
    */
   fromBinary(I, g) {
-    let B = lR(g);
+    let B = WR(g);
     return this.internalBinaryRead(B.readerFactory(I), I.byteLength, B);
   }
   /**
    * Read a new message from a JSON value.
    */
   fromJson(I, g) {
-    return this.internalJsonRead(I, jR(g));
+    return this.internalJsonRead(I, zR(g));
   }
   /**
    * Read a new message from a JSON string.
@@ -5251,7 +5251,7 @@ class Y {
    * Write the message to canonical JSON value.
    */
   toJson(I, g) {
-    return this.internalJsonWrite(I, zR(g));
+    return this.internalJsonWrite(I, PR(g));
   }
   /**
    * Convert the message to canonical JSON string.
@@ -5266,7 +5266,7 @@ class Y {
    * Write the message to binary format.
    */
   toBinary(I, g) {
-    let B = uR(g);
+    let B = bR(g);
     return this.internalBinaryWrite(I, B.writerFactory(), B).finish();
   }
   /**
@@ -5282,7 +5282,7 @@ class Y {
       let Q = B ?? this.create();
       return this.refJsonReader.read(I, Q, g), Q;
     }
-    throw new Error(`Unable to parse message ${this.typeName} from JSON ${Ui(I)}.`);
+    throw new Error(`Unable to parse message ${this.typeName} from JSON ${ai(I)}.`);
   }
   /**
    * This is an internal method. If you just want to write a message
@@ -5316,14 +5316,14 @@ class Y {
     return this.refBinReader.read(I, E, B, g), E;
   }
 }
-function EU(A, I) {
+function DU(A, I) {
   var g, B, Q;
   let E = A;
-  return E.service = I, E.localName = (g = E.localName) !== null && g !== void 0 ? g : iC(E.name), E.serverStreaming = !!E.serverStreaming, E.clientStreaming = !!E.clientStreaming, E.options = (B = E.options) !== null && B !== void 0 ? B : {}, E.idempotency = (Q = E.idempotency) !== null && Q !== void 0 ? Q : void 0, E;
+  return E.service = I, E.localName = (g = E.localName) !== null && g !== void 0 ? g : oC(E.name), E.serverStreaming = !!E.serverStreaming, E.clientStreaming = !!E.clientStreaming, E.options = (B = E.options) !== null && B !== void 0 ? B : {}, E.idempotency = (Q = E.idempotency) !== null && Q !== void 0 ? Q : void 0, E;
 }
-class si {
+class Si {
   constructor(I, g, B) {
-    this.typeName = I, this.methods = g.map((Q) => EU(Q, this)), this.options = B ?? {};
+    this.typeName = I, this.methods = g.map((Q) => DU(Q, this)), this.options = B ?? {};
   }
 }
 class vA extends Error {
@@ -5343,7 +5343,7 @@ class vA extends Error {
 `);
   }
 }
-function DU(A, I) {
+function iU(A, I) {
   if (!I)
     return A;
   let g = {};
@@ -5352,10 +5352,10 @@ function DU(A, I) {
     let Q = I[B];
     switch (B) {
       case "jsonOptions":
-        g.jsonOptions = PR(A.jsonOptions, g.jsonOptions);
+        g.jsonOptions = XR(A.jsonOptions, g.jsonOptions);
         break;
       case "binaryOptions":
-        g.binaryOptions = qR(A.binaryOptions, g.binaryOptions);
+        g.binaryOptions = dR(A.binaryOptions, g.binaryOptions);
         break;
       case "meta":
         g.meta = {}, nB(A.meta, g.meta), nB(I.meta, g.meta);
@@ -5438,7 +5438,7 @@ class Cg {
     this._state === HI.PENDING && this.reject(I);
   }
 }
-class iU {
+class oU {
   constructor() {
     this._lis = {
       nxt: [],
@@ -5544,7 +5544,7 @@ class iU {
       g.q.push(I);
   }
 }
-var oU = function(A, I, g, B) {
+var wU = function(A, I, g, B) {
   function Q(E) {
     return E instanceof g ? E : new g(function(R) {
       R(E);
@@ -5571,7 +5571,7 @@ var oU = function(A, I, g, B) {
     a((B = B.apply(A, I || [])).next());
   });
 };
-class wU {
+class RU {
   constructor(I, g, B, Q, E, R, D) {
     this.method = I, this.requestHeaders = g, this.request = B, this.headers = Q, this.response = E, this.status = R, this.trailers = D;
   }
@@ -5583,7 +5583,7 @@ class wU {
     return this.promiseFinished().then((B) => I ? Promise.resolve(I(B)) : B, (B) => g ? Promise.resolve(g(B)) : Promise.reject(B));
   }
   promiseFinished() {
-    return oU(this, void 0, void 0, function* () {
+    return wU(this, void 0, void 0, function* () {
       let [I, g, B, Q] = yield Promise.all([this.headers, this.response, this.status, this.trailers]);
       return {
         method: this.method,
@@ -5597,7 +5597,7 @@ class wU {
     });
   }
 }
-var RU = function(A, I, g, B) {
+var UU = function(A, I, g, B) {
   function Q(E) {
     return E instanceof g ? E : new g(function(R) {
       R(E);
@@ -5624,7 +5624,7 @@ var RU = function(A, I, g, B) {
     a((B = B.apply(A, I || [])).next());
   });
 };
-class UU {
+class NU {
   constructor(I, g, B, Q, E, R, D) {
     this.method = I, this.requestHeaders = g, this.request = B, this.headers = Q, this.responses = E, this.status = R, this.trailers = D;
   }
@@ -5638,7 +5638,7 @@ class UU {
     return this.promiseFinished().then((B) => I ? Promise.resolve(I(B)) : B, (B) => g ? Promise.resolve(g(B)) : Promise.reject(B));
   }
   promiseFinished() {
-    return RU(this, void 0, void 0, function* () {
+    return UU(this, void 0, void 0, function* () {
       let [I, g, B] = yield Promise.all([this.headers, this.status, this.trailers]);
       return {
         method: this.method,
@@ -5685,27 +5685,27 @@ function yA(A, I, g, B, Q) {
     }
     return a(g, B);
   }
-  mR(A);
+  ZR(A);
 }
-function NU(A) {
+function aU(A) {
   return A instanceof vA;
 }
 var XB;
 (function(A) {
   A[A.firstName = 0] = "firstName", A[A.lastName = 1] = "lastName", A[A.sex = 2] = "sex", A[A.dob = 3] = "dob", A[A.countryOfResidence = 4] = "countryOfResidence", A[A.nationality = 5] = "nationality", A[A.idDocType = 6] = "idDocType", A[A.idDocNo = 7] = "idDocNo", A[A.idDocIssuer = 8] = "idDocIssuer", A[A.idDocIssuedAt = 9] = "idDocIssuedAt", A[A.idDocExpiresAt = 10] = "idDocExpiresAt", A[A.nationalIdNo = 11] = "nationalIdNo", A[A.taxIdNo = 12] = "taxIdNo", A[A.lei = 13] = "lei", A[A.legalName = 14] = "legalName", A[A.legalCountry = 15] = "legalCountry", A[A.businessNumber = 16] = "businessNumber", A[A.registrationAuth = 17] = "registrationAuth";
 })(XB || (XB = {}));
-var qE;
-(function(A) {
-  A.firstName = "firstName", A.lastName = "lastName", A.sex = "sex", A.dob = "dob", A.countryOfResidence = "countryOfResidence", A.nationality = "nationality", A.idDocType = "idDocType", A.idDocNo = "idDocNo", A.idDocIssuer = "idDocIssuer", A.idDocIssuedAt = "idDocIssuedAt", A.idDocExpiresAt = "idDocExpiresAt", A.nationalIdNo = "nationalIdNo", A.taxIdNo = "taxIdNo", A.lei = "lei", A.legalName = "legalName", A.legalCountry = "legalCountry", A.businessNumber = "businessNumber", A.registrationAuth = "registrationAuth";
-})(qE || (qE = {}));
 var dE;
 (function(A) {
-  A.NotKnown = "0", A.Male = "1", A.Female = "2", A.NA = "9";
+  A.firstName = "firstName", A.lastName = "lastName", A.sex = "sex", A.dob = "dob", A.countryOfResidence = "countryOfResidence", A.nationality = "nationality", A.idDocType = "idDocType", A.idDocNo = "idDocNo", A.idDocIssuer = "idDocIssuer", A.idDocIssuedAt = "idDocIssuedAt", A.idDocExpiresAt = "idDocExpiresAt", A.nationalIdNo = "nationalIdNo", A.taxIdNo = "taxIdNo", A.lei = "lei", A.legalName = "legalName", A.legalCountry = "legalCountry", A.businessNumber = "businessNumber", A.registrationAuth = "registrationAuth";
 })(dE || (dE = {}));
 var pE;
 (function(A) {
-  A.NA = "0", A.Passport = "1", A.NationalIdCard = "2", A.DriversLicense = "3", A.ImmigrationCard = "4";
+  A.NotKnown = "0", A.Male = "1", A.Female = "2", A.NA = "9";
 })(pE || (pE = {}));
+var VE;
+(function(A) {
+  A.NA = "0", A.Passport = "1", A.NationalIdCard = "2", A.DriversLicense = "3", A.ImmigrationCard = "4";
+})(VE || (VE = {}));
 var BB;
 (function(A) {
   A.Received = "received", A.Finalized = "finalized", A.Committed = "committed";
@@ -5718,10 +5718,10 @@ var vB;
 (function(A) {
   A.ReduceStake = "ReduceStake", A.RemoveStake = "RemoveStake";
 })(vB || (vB = {}));
-var VE;
+var lE;
 (function(A) {
   A[A.OpenForAll = 0] = "OpenForAll", A[A.ClosedForNew = 1] = "ClosedForNew", A[A.ClosedForAll = 2] = "ClosedForAll";
-})(VE || (VE = {}));
+})(lE || (lE = {}));
 var QB;
 (function(A) {
   A.OpenForAll = "openForAll", A.ClosedForNew = "closedForNew", A.ClosedForAll = "closedForAll";
@@ -5734,47 +5734,47 @@ var _B;
 (function(A) {
   A.BakerPool = "BakerPool", A.PassiveDelegation = "PassiveDelegation";
 })(_B || (_B = {}));
-var ig;
+var og;
 (function(A) {
   A.PassiveDelegation = "Passive", A.Baker = "Baker";
-})(ig || (ig = {}));
+})(og || (og = {}));
 var EB;
 (function(A) {
   A.Simple = "simple", A.Baker = "baker", A.Delegator = "delegator";
 })(EB || (EB = {}));
-var lE;
+var WE;
 (function(A) {
   A[A.AccountTransactionKind = 0] = "AccountTransactionKind", A[A.CredentialDeploymentKind = 1] = "CredentialDeploymentKind", A[A.UpdateInstructionKind = 2] = "UpdateInstructionKind";
-})(lE || (lE = {}));
+})(WE || (WE = {}));
 var VI;
 (function(A) {
   A[A.DeployModule = 0] = "DeployModule", A[A.InitContract = 1] = "InitContract", A[A.Update = 2] = "Update", A[A.Transfer = 3] = "Transfer", A[A.AddBaker = 4] = "AddBaker", A[A.RemoveBaker = 5] = "RemoveBaker", A[A.UpdateBakerStake = 6] = "UpdateBakerStake", A[A.UpdateBakerRestakeEarnings = 7] = "UpdateBakerRestakeEarnings", A[A.UpdateBakerKeys = 8] = "UpdateBakerKeys", A[A.UpdateCredentialKeys = 13] = "UpdateCredentialKeys", A[A.EncryptedAmountTransfer = 16] = "EncryptedAmountTransfer", A[A.TransferToEncrypted = 17] = "TransferToEncrypted", A[A.TransferToPublic = 18] = "TransferToPublic", A[A.TransferWithSchedule = 19] = "TransferWithSchedule", A[A.UpdateCredentials = 20] = "UpdateCredentials", A[A.RegisterData = 21] = "RegisterData", A[A.TransferWithMemo = 22] = "TransferWithMemo", A[A.EncryptedAmountTransferWithMemo = 23] = "EncryptedAmountTransferWithMemo", A[A.TransferWithScheduleAndMemo = 24] = "TransferWithScheduleAndMemo", A[A.ConfigureBaker = 25] = "ConfigureBaker", A[A.ConfigureDelegation = 26] = "ConfigureDelegation";
 })(VI || (VI = {}));
-var WE;
-(function(A) {
-  A[A.V0 = 0] = "V0", A[A.V1 = 1] = "V1";
-})(WE || (WE = {}));
 var mE;
 (function(A) {
-  A[A.V0 = 0] = "V0", A[A.V1 = 1] = "V1", A[A.V2 = 2] = "V2";
+  A[A.V0 = 0] = "V0", A[A.V1 = 1] = "V1";
 })(mE || (mE = {}));
 var ZE;
 (function(A) {
-  A[A.Cooldown = 0] = "Cooldown", A[A.PreCooldown = 1] = "PreCooldown", A[A.PrePreCooldown = 2] = "PrePreCooldown";
+  A[A.V0 = 0] = "V0", A[A.V1 = 1] = "V1", A[A.V2 = 2] = "V2";
 })(ZE || (ZE = {}));
-function xE(A, I, g, B) {
+var xE;
+(function(A) {
+  A[A.Cooldown = 0] = "Cooldown", A[A.PreCooldown = 1] = "PreCooldown", A[A.PrePreCooldown = 2] = "PrePreCooldown";
+})(xE || (xE = {}));
+function TE(A, I, g, B) {
   const Q = Object.keys(A), E = [I(Q.length)];
   return Q.forEach((R) => {
     E.push(g(R)), E.push(B(A[R]));
   }), FA.Buffer.concat(E);
 }
-function TE(A, I, g) {
+function fE(A, I, g) {
   const B = [I(A.length)];
   return A.forEach((Q) => {
     B.push(g(Q));
   }), FA.Buffer.concat(B);
 }
-function wC(A) {
+function RC(A) {
   const I = A === !0 ? 1 : 0, g = new ArrayBuffer(1);
   return new DataView(g).setInt8(0, I), FA.Buffer.from(new Int8Array(g));
 }
@@ -5790,13 +5790,13 @@ function uI(A, I = !1) {
   const g = new ArrayBuffer(4);
   return new DataView(g).setUint32(0, A, I), FA.Buffer.from(new Uint8Array(g));
 }
-function og(A, I = !1) {
+function wg(A, I = !1) {
   if (A > 65535 || A < 0 || !Number.isInteger(A))
     throw new Error("The input has to be a 16 bit unsigned integer but it was: " + A);
   const g = new ArrayBuffer(2);
   return new DataView(g).setUint16(0, A, I), FA.Buffer.from(new Uint8Array(g));
 }
-function fE(A) {
+function OE(A) {
   if (A > 127 || A < -128 || !Number.isInteger(A))
     throw new Error("The input has to be a 8 bit signed integer but it was: " + A);
   return FA.Buffer.from(FA.Buffer.of(A));
@@ -5806,29 +5806,29 @@ function tI(A) {
     throw new Error("The input has to be a 8 bit unsigned integer but it was: " + A);
   return FA.Buffer.from(FA.Buffer.of(A));
 }
-function aU(A) {
+function GU(A) {
   return tI(Number(A));
 }
-function Yi(A) {
-  const I = og(A.data.length);
+function Ji(A) {
+  const I = wg(A.data.length);
   return FA.Buffer.concat([I, A.data]);
 }
-function Si(A, I = !1) {
+function ti(A, I = !1) {
   const g = uI(A.length, I);
   return FA.Buffer.concat([g, A]);
 }
 function RB(A, I = !1) {
-  const g = og(A.length, I);
+  const g = wg(A.length, I);
   return FA.Buffer.concat([g, A]);
 }
-function ag(A) {
+function Gg(A) {
   return FA.Buffer.from(A, "hex");
 }
 var $B;
 (function(A) {
   A[A.Ed25519 = 0] = "Ed25519";
 })($B || ($B = {}));
-function GU(A) {
+function FU(A) {
   const I = A.schemeId;
   let g;
   if ($B[I] !== void 0)
@@ -5838,111 +5838,111 @@ function GU(A) {
   const B = FA.Buffer.from(A.verifyKey, "hex"), Q = tI(g);
   return FA.Buffer.concat([Q, B]);
 }
-function OE(A) {
-  const I = parseInt(A.substring(0, 4), 10), g = parseInt(A.substring(4, 6), 10), B = og(I), Q = tI(g);
+function uE(A) {
+  const I = parseInt(A.substring(0, 4), 10), g = parseInt(A.substring(4, 6), 10), B = wg(I), Q = tI(g);
   return FA.Buffer.concat([B, Q]);
 }
-function Ji(A, I) {
+function yi(A, I) {
   return I.map((g) => A[g]).reduceRight(
     // eslint-disable-next-line no-bitwise
     (g, B) => g << 1 | +(B !== void 0),
     0
   );
 }
-const KC = (A) => (I) => {
+const HC = (A) => (I) => {
   const g = Object.keys(A).map((B) => {
     const Q = I[B], E = A[B];
     return E(Q);
-  }).filter(rR);
+  }).filter(LR);
   return FA.Buffer.concat(g);
 }, nI = (A) => (I) => I !== void 0 ? A(I) : void 0;
-function FU(A) {
-  return A.delegateType === ig.PassiveDelegation ? fE(0) : FA.Buffer.concat([fE(1), OI(A.bakerId)]);
+function kU(A) {
+  return A.delegateType === og.PassiveDelegation ? OE(0) : FA.Buffer.concat([OE(1), OI(A.bakerId)]);
 }
-const ti = {
+const ei = {
   stake: nI((A) => OI(A.microCcdAmount)),
-  restakeEarnings: nI(wC),
-  delegationTarget: nI(FU)
-}, kU = (A) => og(Ji(A, Object.keys(ti)));
-function MU(A) {
-  const I = kU(A), g = KC(ti)(A);
+  restakeEarnings: nI(RC),
+  delegationTarget: nI(kU)
+}, MU = (A) => wg(yi(A, Object.keys(ei)));
+function cU(A) {
+  const I = MU(A), g = HC(ei)(A);
   return FA.Buffer.concat([I, g]);
 }
-const cU = KC({
-  electionVerifyKey: ag,
-  proofElection: ag,
-  signatureVerifyKey: ag,
-  proofSig: ag,
-  aggregationVerifyKey: ag,
-  proofAggregation: ag
-}), hU = (A) => {
-  const I = FA.Buffer.from(new TextEncoder().encode(A)), g = og(I.length);
+const hU = HC({
+  electionVerifyKey: Gg,
+  proofElection: Gg,
+  signatureVerifyKey: Gg,
+  proofSig: Gg,
+  aggregationVerifyKey: Gg,
+  proofAggregation: Gg
+}), sU = (A) => {
+  const I = FA.Buffer.from(new TextEncoder().encode(A)), g = wg(I.length);
   return FA.Buffer.concat([g, I]);
-}, yi = {
+}, Ki = {
   stake: nI((A) => OI(A.microCcdAmount)),
-  restakeEarnings: nI(wC),
+  restakeEarnings: nI(RC),
   openForDelegation: nI(tI),
-  keys: nI(cU),
-  metadataUrl: nI(hU),
+  keys: nI(hU),
+  metadataUrl: nI(sU),
   transactionFeeCommission: nI(uI),
   bakingRewardCommission: nI(uI),
   finalizationRewardCommission: nI(uI),
-  suspended: nI(wC)
-}, sU = (A) => og(Ji(A, Object.keys(yi)));
-function YU(A) {
-  const I = sU(A), g = KC(yi)(A);
+  suspended: nI(RC)
+}, YU = (A) => wg(yi(A, Object.keys(Ki)));
+function SU(A) {
+  const I = YU(A), g = HC(Ki)(A);
   return FA.Buffer.concat([I, g]);
 }
-const SU = oI.Parameter;
-let JU = class {
+const JU = oI.Parameter;
+let tU = class {
   constructor(I) {
-    this.buffer = I, this.__type = SU;
+    this.buffer = I, this.__type = JU;
   }
   /**
    * Get a string representation of the parameter.
    * @returns {string} The string representation.
    */
   toString() {
-    return uE(this);
+    return bE(this);
   }
   /**
    * Get a JSON-serializable representation of the parameter.
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return uE(this);
+    return bE(this);
   }
 };
-function ei(A) {
-  return yU(A);
-}
-function tU() {
-  return Hi(new ArrayBuffer(0));
-}
-function Ki(A) {
-  return JR(A), Hi(A);
-}
 function Hi(A) {
-  return new JU(new Uint8Array(A));
+  return eU(A);
 }
-function yU(A) {
-  return Ki(FA.Buffer.from(A, "hex"));
-}
-function uE(A) {
-  return FA.Buffer.from(A.buffer).toString("hex");
+function yU() {
+  return ri(new ArrayBuffer(0));
 }
 function ni(A) {
-  return A.buffer;
+  return tR(A), ri(A);
 }
 function ri(A) {
-  return Ki(A.value);
+  return new tU(new Uint8Array(A));
 }
 function eU(A) {
+  return ni(FA.Buffer.from(A, "hex"));
+}
+function bE(A) {
+  return FA.Buffer.from(A.buffer).toString("hex");
+}
+function Li(A) {
+  return A.buffer;
+}
+function qi(A) {
+  return ni(A.value);
+}
+function KU(A) {
   return {
     value: A.buffer
   };
 }
-let KU = class {
+let HU = class {
   constructor(I) {
     this.buffer = I, this.__nominal = !0;
   }
@@ -5951,29 +5951,29 @@ let KU = class {
    * @returns {string} The string representation.
    */
   toString() {
-    return bE(this);
+    return jE(this);
   }
   /**
    * Get a JSON-serializable representation of the contract event.
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return bE(this);
+    return jE(this);
   }
 };
-function HU(A) {
-  return new KU(new Uint8Array(A));
-}
-function bE(A) {
-  return FA.Buffer.from(A.buffer).toString("hex");
+function nU(A) {
+  return new HU(new Uint8Array(A));
 }
 function jE(A) {
-  return HU(A.value);
+  return FA.Buffer.from(A.buffer).toString("hex");
 }
-const nU = oI.CredentialRegistrationId;
-let rU = class {
+function zE(A) {
+  return nU(A.value);
+}
+const rU = oI.CredentialRegistrationId;
+let LU = class {
   constructor(I) {
-    this.credId = I, this.__type = nU;
+    this.credId = I, this.__type = rU;
   }
   /**
    * Get a string representation of the credential registration id.
@@ -5990,16 +5990,16 @@ let rU = class {
     return this.credId;
   }
 };
-function LU(A) {
-  return A instanceof rU;
-}
 function qU(A) {
+  return A instanceof LU;
+}
+function dU(A) {
   return FA.Buffer.from(A.credId, "hex");
 }
-const dU = oI.Duration;
-let pU = class {
+const pU = oI.Duration;
+let VU = class {
   constructor(I) {
-    this.value = I, this.__type = dU;
+    this.value = I, this.__type = pU;
   }
   /**
    * Get a string representation of the duration in milliseconds.
@@ -6009,21 +6009,21 @@ let pU = class {
     return this.value.toString();
   }
 };
-function VU(A) {
+function lU(A) {
   if (A < 0)
     throw new Error("Invalid duration: The value cannot be a negative number.");
-  return new pU(BigInt(A));
+  return new VU(BigInt(A));
 }
-function Eg(A) {
-  return VU(A.value);
+function Dg(A) {
+  return lU(A.value);
 }
-const lU = oI.Energy;
-let Li = class {
+const WU = oI.Energy;
+let di = class {
   get serializable() {
     return this.value.toString();
   }
   constructor(I) {
-    this.value = I, this.__type = lU;
+    this.value = I, this.__type = WU;
   }
   /**
    * Get a string representation of the energy.
@@ -6036,18 +6036,18 @@ let Li = class {
 function hQ(A) {
   if (A < 0)
     throw new Error("Invalid energy: The value cannot be a negative number.");
-  return new Li(BigInt(A));
+  return new di(BigInt(A));
 }
-function Lg(A) {
-  return new Li(A.value);
+function qg(A) {
+  return new di(A.value);
 }
-function zE(A) {
+function PE(A) {
   return {
     value: A.value
   };
 }
-const WU = oI.InitName;
-let mU = class {
+const mU = oI.InitName;
+let ZU = class {
   /**
    * @deprecated Use the {@linkcode InitName.toJSON} method instead.
    */
@@ -6055,7 +6055,7 @@ let mU = class {
     return this.value;
   }
   constructor(I) {
-    this.value = I, this.__type = WU;
+    this.value = I, this.__type = mU;
   }
   /**
    * Get a string representation of the init-function name.
@@ -6072,28 +6072,28 @@ let mU = class {
     return this.value;
   }
 };
-function ZU(A) {
-  return new mU(A);
+function xU(A) {
+  return new ZU(A);
 }
-function HC(A) {
-  return ZU(A.value);
+function nC(A) {
+  return xU(A.value);
 }
 /*! noble-ed25519 - MIT License (c) 2019 Paul Miller (paulmillr.com) */
-const GI = 2n ** 255n - 19n, DB = 2n ** 252n + 27742317777372353535851937790883648493n, PE = 0x216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51an, XE = 0x6666666666666666666666666666666666666666666666666666666666666658n, xU = 37095705934669439343138083508754565189542113879843219016388785533085940283555n, rB = {
+const GI = 2n ** 255n - 19n, DB = 2n ** 252n + 27742317777372353535851937790883648493n, XE = 0x216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51an, vE = 0x6666666666666666666666666666666666666666666666666666666666666658n, TU = 37095705934669439343138083508754565189542113879843219016388785533085940283555n, rB = {
   a: -1n,
   // -1 mod p
-  d: xU,
+  d: TU,
   // -(121665/121666) mod p
   h: 8
 }, kI = (A = "") => {
   throw new Error(A);
-}, qi = (A) => typeof A == "string", TU = (A) => A instanceof Uint8Array || ArrayBuffer.isView(A) && A.constructor.name === "Uint8Array", qg = (A, I) => (
+}, pi = (A) => typeof A == "string", fU = (A) => A instanceof Uint8Array || ArrayBuffer.isView(A) && A.constructor.name === "Uint8Array", dg = (A, I) => (
   // is Uint8Array (of specific length)
-  !TU(A) || typeof I == "number" && I > 0 && A.length !== I ? kI("Uint8Array of valid length expected") : A
-), dg = (A) => new Uint8Array(A), nC = (A, I) => qg(qi(A) ? LC(A) : dg(qg(A)), I), LA = (A, I = GI) => {
+  !fU(A) || typeof I == "number" && I > 0 && A.length !== I ? kI("Uint8Array of valid length expected") : A
+), pg = (A) => new Uint8Array(A), rC = (A, I) => dg(pi(A) ? qC(A) : pg(dg(A)), I), LA = (A, I = GI) => {
   let g = A % I;
   return g >= 0n ? g : I + g;
-}, vE = (A) => A instanceof rI ? A : kI("Point expected");
+}, _E = (A) => A instanceof rI ? A : kI("Point expected");
 class rI {
   constructor(I, g, B, Q) {
     this.ex = I, this.ey = g, this.ez = B, this.et = Q;
@@ -6104,13 +6104,13 @@ class rI {
   /** RFC8032 5.1.3: hex / Uint8Array to Point. */
   static fromHex(I, g = !1) {
     const { d: B } = rB;
-    I = nC(I, 32);
+    I = rC(I, 32);
     const Q = I.slice(), E = I[31];
     Q[31] = E & -129;
-    const R = Vi(Q);
+    const R = Wi(Q);
     g && !(0n <= R && R < 2n ** 256n) && kI("bad y coord 1"), !g && !(0n <= R && R < GI) && kI("bad y coord 2");
     const D = LA(R * R), i = LA(D - 1n), a = LA(B * D + 1n);
-    let { isValid: c, value: M } = OU(i, a);
+    let { isValid: c, value: M } = uU(i, a);
     c || kI("bad y coordinate 3");
     const e = (M & 1n) === 1n, F = (E & 128) !== 0;
     return !g && M === 0n && F && kI("bad y coord 3"), F !== e && (M = LA(-M)), new rI(M, R, 1n, LA(M * R));
@@ -6124,11 +6124,11 @@ class rI {
   }
   // Should be used with care.
   equals(I) {
-    const { ex: g, ey: B, ez: Q } = this, { ex: E, ey: R, ez: D } = vE(I), i = LA(g * D), a = LA(E * Q), c = LA(B * D), M = LA(R * Q);
+    const { ex: g, ey: B, ez: Q } = this, { ex: E, ey: R, ez: D } = _E(I), i = LA(g * D), a = LA(E * Q), c = LA(B * D), M = LA(R * Q);
     return i === a && c === M;
   }
   is0() {
-    return this.equals(vg);
+    return this.equals(_g);
   }
   negate() {
     return new rI(LA(-this.ex), this.ey, this.ez, LA(-this.et));
@@ -6140,17 +6140,17 @@ class rI {
   }
   /** Point addition. Complete formula. */
   add(I) {
-    const { ex: g, ey: B, ez: Q, et: E } = this, { ex: R, ey: D, ez: i, et: a } = vE(I), { a: c, d: M } = rB, e = LA(g * R), F = LA(B * D), K = LA(E * M * a), n = LA(Q * i), q = LA((g + B) * (R + D) - e - F), l = LA(n - K), t = LA(n + K), d = LA(F - c * e), O = LA(q * l), y = LA(t * d), v = LA(q * d), W = LA(l * t);
+    const { ex: g, ey: B, ez: Q, et: E } = this, { ex: R, ey: D, ez: i, et: a } = _E(I), { a: c, d: M } = rB, e = LA(g * R), F = LA(B * D), K = LA(E * M * a), n = LA(Q * i), q = LA((g + B) * (R + D) - e - F), l = LA(n - K), t = LA(n + K), d = LA(F - c * e), O = LA(q * l), y = LA(t * d), v = LA(q * d), W = LA(l * t);
     return new rI(O, y, W, v);
   }
   mul(I, g = !0) {
     if (I === 0n)
-      return g === !0 ? kI("cannot multiply by 0") : vg;
+      return g === !0 ? kI("cannot multiply by 0") : _g;
     if (typeof I == "bigint" && 0n < I && I < DB || kI("invalid scalar, must be < L"), !g && this.is0() || I === 1n)
       return this;
-    if (this.equals(pg))
-      return vU(I).p;
-    let B = vg, Q = pg;
+    if (this.equals(Vg))
+      return _U(I).p;
+    let B = _g, Q = Vg;
     for (let E = this; I > 0n; E = E.double(), I >>= 1n)
       I & 1n ? B = B.add(E) : g && (Q = Q.add(E));
     return B;
@@ -6174,51 +6174,51 @@ class rI {
   /** converts point to 2d xy affine point. (x, y, z, t) ∋ (x=x/z, y=y/z, t=xy). */
   toAffine() {
     const { ex: I, ey: g, ez: B } = this;
-    if (this.equals(vg))
+    if (this.equals(_g))
       return { x: 0n, y: 1n };
-    const Q = li(B, GI);
+    const Q = mi(B, GI);
     return LA(B * Q) !== 1n && kI("invalid inverse"), { x: LA(I * Q), y: LA(g * Q) };
   }
   toRawBytes() {
-    const { x: I, y: g } = this.toAffine(), B = pi(g);
+    const { x: I, y: g } = this.toAffine(), B = li(g);
     return B[31] |= I & 1n ? 128 : 0, B;
   }
   toHex() {
-    return rC(this.toRawBytes());
+    return LC(this.toRawBytes());
   }
   // encode to hex string
 }
-rI.BASE = new rI(PE, XE, 1n, LA(PE * XE));
+rI.BASE = new rI(XE, vE, 1n, LA(XE * vE));
 rI.ZERO = new rI(0n, 1n, 1n, 0n);
-const { BASE: pg, ZERO: vg } = rI, di = (A, I) => A.toString(16).padStart(I, "0"), rC = (A) => Array.from(qg(A)).map((I) => di(I, 2)).join(""), zI = { _0: 48, _9: 57, A: 65, F: 70, a: 97, f: 102 }, _E = (A) => {
+const { BASE: Vg, ZERO: _g } = rI, Vi = (A, I) => A.toString(16).padStart(I, "0"), LC = (A) => Array.from(dg(A)).map((I) => Vi(I, 2)).join(""), zI = { _0: 48, _9: 57, A: 65, F: 70, a: 97, f: 102 }, $E = (A) => {
   if (A >= zI._0 && A <= zI._9)
     return A - zI._0;
   if (A >= zI.A && A <= zI.F)
     return A - (zI.A - 10);
   if (A >= zI.a && A <= zI.f)
     return A - (zI.a - 10);
-}, LC = (A) => {
+}, qC = (A) => {
   const I = "hex invalid";
-  if (!qi(A))
+  if (!pi(A))
     return kI(I);
   const g = A.length, B = g / 2;
   if (g % 2)
     return kI(I);
-  const Q = dg(B);
+  const Q = pg(B);
   for (let E = 0, R = 0; E < B; E++, R += 2) {
-    const D = _E(A.charCodeAt(R)), i = _E(A.charCodeAt(R + 1));
+    const D = $E(A.charCodeAt(R)), i = $E(A.charCodeAt(R + 1));
     if (D === void 0 || i === void 0)
       return kI(I);
     Q[E] = D * 16 + i;
   }
   return Q;
-}, pi = (A) => LC(di(A, 32 * 2)).reverse(), Vi = (A) => BigInt("0x" + rC(dg(qg(A)).reverse())), AQ = (...A) => {
-  const I = dg(A.reduce((B, Q) => B + qg(Q).length, 0));
+}, li = (A) => qC(Vi(A, 32 * 2)).reverse(), Wi = (A) => BigInt("0x" + LC(pg(dg(A)).reverse())), AQ = (...A) => {
+  const I = pg(A.reduce((B, Q) => B + dg(Q).length, 0));
   let g = 0;
   return A.forEach((B) => {
     I.set(B, g), g += B.length;
   }), I;
-}, li = (A, I) => {
+}, mi = (A, I) => {
   (A === 0n || I <= 0n) && kI("no inverse n=" + A + " mod=" + I);
   let g = LA(A, I), B = I, Q = 0n, E = 1n;
   for (; g !== 0n; ) {
@@ -6231,84 +6231,84 @@ const { BASE: pg, ZERO: vg } = rI, di = (A, I) => A.toString(16).padStart(I, "0"
   for (; I-- > 0n; )
     g *= g, g %= GI;
   return g;
-}, fU = (A) => {
+}, OU = (A) => {
   const g = A * A % GI * A % GI, B = mI(g, 2n) * g % GI, Q = mI(B, 1n) * A % GI, E = mI(Q, 5n) * Q % GI, R = mI(E, 10n) * E % GI, D = mI(R, 20n) * R % GI, i = mI(D, 40n) * D % GI, a = mI(i, 80n) * i % GI, c = mI(a, 80n) * i % GI, M = mI(c, 10n) * E % GI;
   return { pow_p_5_8: mI(M, 2n) * A % GI, b2: g };
-}, $E = 19681161376707505956807079304988542015446066515923890162744021073123829784752n, OU = (A, I) => {
-  const g = LA(I * I * I), B = LA(g * g * I), Q = fU(A * B).pow_p_5_8;
+}, AD = 19681161376707505956807079304988542015446066515923890162744021073123829784752n, uU = (A, I) => {
+  const g = LA(I * I * I), B = LA(g * g * I), Q = OU(A * B).pow_p_5_8;
   let E = LA(A * g * Q);
-  const R = LA(I * E * E), D = E, i = LA(E * $E), a = R === A, c = R === LA(-A), M = R === LA(-A * $E);
+  const R = LA(I * E * E), D = E, i = LA(E * AD), a = R === A, c = R === LA(-A), M = R === LA(-A * AD);
   return a && (E = D), (c || M) && (E = i), (LA(E) & 1n) === 1n && (E = LA(-E)), { isValid: a || c, value: E };
-}, RC = (A) => LA(Vi(A), DB);
-let TQ;
-const qC = (...A) => Wi.sha512Async(...A), uU = (A) => {
+}, UC = (A) => LA(Wi(A), DB);
+let fQ;
+const dC = (...A) => Zi.sha512Async(...A), bU = (A) => {
   const I = A.slice(0, 32);
   I[0] &= 248, I[31] &= 127, I[31] |= 64;
-  const g = A.slice(32, 64), B = RC(I), Q = pg.mul(B), E = Q.toRawBytes();
+  const g = A.slice(32, 64), B = UC(I), Q = Vg.mul(B), E = Q.toRawBytes();
   return { head: I, prefix: g, scalar: B, point: Q, pointBytes: E };
-}, bU = (A) => qC(nC(A, 32)).then(uU);
-function jU(A, I) {
-  return qC(I.hashable).then(I.finish);
+}, jU = (A) => dC(rC(A, 32)).then(bU);
+function zU(A, I) {
+  return dC(I.hashable).then(I.finish);
 }
-const zU = (A, I, g) => {
-  const { pointBytes: B, scalar: Q } = A, E = RC(I), R = pg.mul(E).toRawBytes();
+const PU = (A, I, g) => {
+  const { pointBytes: B, scalar: Q } = A, E = UC(I), R = Vg.mul(E).toRawBytes();
   return { hashable: AQ(R, B, g), finish: (a) => {
-    const c = LA(E + RC(a) * Q, DB);
-    return qg(AQ(R, pi(c)), 64);
+    const c = LA(E + UC(a) * Q, DB);
+    return dg(AQ(R, li(c)), 64);
   } };
-}, PU = async (A, I) => {
-  const g = nC(A), B = await bU(I), Q = await qC(B.prefix, g);
-  return jU(!0, zU(B, Q, g));
-}, AD = () => (
+}, XU = async (A, I) => {
+  const g = rC(A), B = await jU(I), Q = await dC(B.prefix, g);
+  return zU(!0, PU(B, Q, g));
+}, ID = () => (
   // We support: 1) browsers 2) node.js 19+
   typeof globalThis == "object" && "crypto" in globalThis ? globalThis.crypto : void 0
-), Wi = {
-  bytesToHex: rC,
-  hexToBytes: LC,
+), Zi = {
+  bytesToHex: LC,
+  hexToBytes: qC,
   concatBytes: AQ,
   mod: LA,
-  invert: li,
+  invert: mi,
   randomBytes: (A = 32) => {
-    const I = AD();
-    return (!I || !I.getRandomValues) && kI("crypto.getRandomValues must be defined"), I.getRandomValues(dg(A));
+    const I = ID();
+    return (!I || !I.getRandomValues) && kI("crypto.getRandomValues must be defined"), I.getRandomValues(pg(A));
   },
   sha512Async: async (...A) => {
-    const I = AD(), g = I && I.subtle;
+    const I = ID(), g = I && I.subtle;
     g || kI("etc.sha512Async or crypto.subtle must be defined");
     const B = AQ(...A);
-    return dg(await g.digest("SHA-512", B.buffer));
+    return pg(await g.digest("SHA-512", B.buffer));
   },
   sha512Sync: void 0
   // Actual logic below
 };
-Object.defineProperties(Wi, { sha512Sync: {
+Object.defineProperties(Zi, { sha512Sync: {
   configurable: !1,
   get() {
-    return TQ;
+    return fQ;
   },
   set(A) {
-    TQ || (TQ = A);
+    fQ || (fQ = A);
   }
 } });
-const Gg = 8, XU = () => {
-  const A = [], I = 256 / Gg + 1;
-  let g = pg, B = g;
+const Fg = 8, vU = () => {
+  const A = [], I = 256 / Fg + 1;
+  let g = Vg, B = g;
   for (let Q = 0; Q < I; Q++) {
     B = g, A.push(B);
-    for (let E = 1; E < 2 ** (Gg - 1); E++)
+    for (let E = 1; E < 2 ** (Fg - 1); E++)
       B = B.add(g), A.push(B);
     g = B.double();
   }
   return A;
 };
-let ID;
-const vU = (A) => {
-  const I = ID || (ID = XU()), g = (c, M) => {
+let gD;
+const _U = (A) => {
+  const I = gD || (gD = vU()), g = (c, M) => {
     let e = M.negate();
     return c ? e : M;
   };
-  let B = vg, Q = pg;
-  const E = 1 + 256 / Gg, R = 2 ** (Gg - 1), D = BigInt(2 ** Gg - 1), i = 2 ** Gg, a = BigInt(Gg);
+  let B = _g, Q = Vg;
+  const E = 1 + 256 / Fg, R = 2 ** (Fg - 1), D = BigInt(2 ** Fg - 1), i = 2 ** Fg, a = BigInt(Fg);
   for (let c = 0; c < E; c++) {
     const M = c * R;
     let e = Number(A & D);
@@ -6318,10 +6318,10 @@ const vU = (A) => {
   }
   return { p: B, f: Q };
 };
-var fQ = {}, XA = {}, OQ, gD;
+var OQ = {}, XA = {}, uQ, BD;
 function GB() {
-  if (gD) return OQ;
-  gD = 1, OQ = A;
+  if (BD) return uQ;
+  BD = 1, uQ = A;
   function A(I, g) {
     if (!I)
       throw new Error(g || "Assertion failed");
@@ -6329,11 +6329,11 @@ function GB() {
   return A.equal = function(g, B, Q) {
     if (g != B)
       throw new Error(Q || "Assertion failed: " + g + " != " + B);
-  }, OQ;
+  }, uQ;
 }
-var LB = { exports: {} }, BD;
-function _U() {
-  return BD || (BD = 1, typeof Object.create == "function" ? LB.exports = function(I, g) {
+var LB = { exports: {} }, QD;
+function $U() {
+  return QD || (QD = 1, typeof Object.create == "function" ? LB.exports = function(I, g) {
     g && (I.super_ = g, I.prototype = Object.create(g.prototype, {
       constructor: {
         value: I,
@@ -6351,11 +6351,11 @@ function _U() {
     }
   }), LB.exports;
 }
-var QD;
+var CD;
 function jI() {
-  if (QD) return XA;
-  QD = 1;
-  var A = GB(), I = _U();
+  if (CD) return XA;
+  CD = 1;
+  var A = GB(), I = $U();
   XA.inherits = I;
   function g(Z, m) {
     return (Z.charCodeAt(m) & 64512) !== 55296 || m < 0 || m + 1 >= Z.length ? !1 : (Z.charCodeAt(m + 1) & 64512) === 56320;
@@ -6509,15 +6509,15 @@ function jI() {
   }
   return XA.shr64_lo = wA, XA;
 }
-var uQ = {}, CD;
+var bQ = {}, ED;
 function FB() {
-  if (CD) return uQ;
-  CD = 1;
+  if (ED) return bQ;
+  ED = 1;
   var A = jI(), I = GB();
   function g() {
     this.pending = null, this.pendingTotal = 0, this.blockSize = this.constructor.blockSize, this.outSize = this.constructor.outSize, this.hmacStrength = this.constructor.hmacStrength, this.padLength = this.constructor.padLength / 8, this.endian = "big", this._delta8 = this.blockSize / 8, this._delta32 = this.blockSize / 32;
   }
-  return uQ.BlockHash = g, g.prototype.update = function(Q, E) {
+  return bQ.BlockHash = g, g.prototype.update = function(Q, E) {
     if (Q = A.toArray(Q, E), this.pending ? this.pending = this.pending.concat(Q) : this.pending = Q, this.pendingTotal += Q.length, this.pending.length >= this._delta8) {
       Q = this.pending;
       var R = Q.length % this._delta8;
@@ -6541,12 +6541,12 @@ function FB() {
       for (D[i++] = Q & 255, D[i++] = Q >>> 8 & 255, D[i++] = Q >>> 16 & 255, D[i++] = Q >>> 24 & 255, D[i++] = 0, D[i++] = 0, D[i++] = 0, D[i++] = 0, a = 8; a < this.padLength; a++)
         D[i++] = 0;
     return D;
-  }, uQ;
+  }, bQ;
 }
-var Ng = {}, ZI = {}, ED;
-function mi() {
-  if (ED) return ZI;
-  ED = 1;
+var ag = {}, ZI = {}, DD;
+function xi() {
+  if (DD) return ZI;
+  DD = 1;
   var A = jI(), I = A.rotr32;
   function g(c, M, e, F) {
     if (c === 0)
@@ -6586,11 +6586,11 @@ function mi() {
   }
   return ZI.g1_256 = a, ZI;
 }
-var bQ, DD;
-function $U() {
-  if (DD) return bQ;
-  DD = 1;
-  var A = jI(), I = FB(), g = mi(), B = A.rotl32, Q = A.sum32, E = A.sum32_5, R = g.ft_1, D = I.BlockHash, i = [
+var jQ, iD;
+function AN() {
+  if (iD) return jQ;
+  iD = 1;
+  var A = jI(), I = FB(), g = xi(), B = A.rotl32, Q = A.sum32, E = A.sum32_5, R = g.ft_1, D = I.BlockHash, i = [
     1518500249,
     1859775393,
     2400959708,
@@ -6607,7 +6607,7 @@ function $U() {
       3285377520
     ], this.W = new Array(80);
   }
-  return A.inherits(a, D), bQ = a, a.blockSize = 512, a.outSize = 160, a.hmacStrength = 80, a.padLength = 64, a.prototype._update = function(M, e) {
+  return A.inherits(a, D), jQ = a, a.blockSize = 512, a.outSize = 160, a.hmacStrength = 80, a.padLength = 64, a.prototype._update = function(M, e) {
     for (var F = this.W, K = 0; K < 16; K++)
       F[K] = M[e + K];
     for (; K < F.length; K++)
@@ -6620,13 +6620,13 @@ function $U() {
     this.h[0] = Q(this.h[0], n), this.h[1] = Q(this.h[1], q), this.h[2] = Q(this.h[2], l), this.h[3] = Q(this.h[3], t), this.h[4] = Q(this.h[4], d);
   }, a.prototype._digest = function(M) {
     return M === "hex" ? A.toHex32(this.h, "big") : A.split32(this.h, "big");
-  }, bQ;
+  }, jQ;
 }
-var jQ, iD;
-function Zi() {
-  if (iD) return jQ;
-  iD = 1;
-  var A = jI(), I = FB(), g = mi(), B = GB(), Q = A.sum32, E = A.sum32_4, R = A.sum32_5, D = g.ch32, i = g.maj32, a = g.s0_256, c = g.s1_256, M = g.g0_256, e = g.g1_256, F = I.BlockHash, K = [
+var zQ, oD;
+function Ti() {
+  if (oD) return zQ;
+  oD = 1;
+  var A = jI(), I = FB(), g = xi(), B = GB(), Q = A.sum32, E = A.sum32_4, R = A.sum32_5, D = g.ch32, i = g.maj32, a = g.s0_256, c = g.s1_256, M = g.g0_256, e = g.g1_256, F = I.BlockHash, K = [
     1116352408,
     1899447441,
     3049323471,
@@ -6706,7 +6706,7 @@ function Zi() {
       1541459225
     ], this.k = K, this.W = new Array(64);
   }
-  return A.inherits(n, F), jQ = n, n.blockSize = 512, n.outSize = 256, n.hmacStrength = 192, n.padLength = 64, n.prototype._update = function(l, t) {
+  return A.inherits(n, F), zQ = n, n.blockSize = 512, n.outSize = 256, n.hmacStrength = 192, n.padLength = 64, n.prototype._update = function(l, t) {
     for (var d = this.W, O = 0; O < 16; O++)
       d[O] = l[t + O];
     for (; O < d.length; O++)
@@ -6719,13 +6719,13 @@ function Zi() {
     this.h[0] = Q(this.h[0], y), this.h[1] = Q(this.h[1], v), this.h[2] = Q(this.h[2], W), this.h[3] = Q(this.h[3], IA), this.h[4] = Q(this.h[4], _), this.h[5] = Q(this.h[5], T), this.h[6] = Q(this.h[6], wA), this.h[7] = Q(this.h[7], Z);
   }, n.prototype._digest = function(l) {
     return l === "hex" ? A.toHex32(this.h, "big") : A.split32(this.h, "big");
-  }, jQ;
+  }, zQ;
 }
-var zQ, oD;
-function AN() {
-  if (oD) return zQ;
-  oD = 1;
-  var A = jI(), I = Zi();
+var PQ, wD;
+function IN() {
+  if (wD) return PQ;
+  wD = 1;
+  var A = jI(), I = Ti();
   function g() {
     if (!(this instanceof g))
       return new g();
@@ -6740,14 +6740,14 @@ function AN() {
       3204075428
     ];
   }
-  return A.inherits(g, I), zQ = g, g.blockSize = 512, g.outSize = 224, g.hmacStrength = 192, g.padLength = 64, g.prototype._digest = function(Q) {
+  return A.inherits(g, I), PQ = g, g.blockSize = 512, g.outSize = 224, g.hmacStrength = 192, g.padLength = 64, g.prototype._digest = function(Q) {
     return Q === "hex" ? A.toHex32(this.h.slice(0, 7), "big") : A.split32(this.h.slice(0, 7), "big");
-  }, zQ;
+  }, PQ;
 }
-var PQ, wD;
-function xi() {
-  if (wD) return PQ;
-  wD = 1;
+var XQ, RD;
+function fi() {
+  if (RD) return XQ;
+  RD = 1;
   var A = jI(), I = FB(), g = GB(), B = A.rotr64_hi, Q = A.rotr64_lo, E = A.shr64_hi, R = A.shr64_lo, D = A.sum64, i = A.sum64_hi, a = A.sum64_lo, c = A.sum64_4_hi, M = A.sum64_4_lo, e = A.sum64_5_hi, F = A.sum64_5_lo, K = I.BlockHash, n = [
     1116352408,
     3609767458,
@@ -6932,7 +6932,7 @@ function xi() {
       327033209
     ], this.k = n, this.W = new Array(160);
   }
-  A.inherits(q, K), PQ = q, q.blockSize = 1024, q.outSize = 512, q.hmacStrength = 192, q.padLength = 128, q.prototype._prepareBlock = function(X, DA) {
+  A.inherits(q, K), XQ = q, q.blockSize = 1024, q.outSize = 512, q.hmacStrength = 192, q.padLength = 128, q.prototype._prepareBlock = function(X, DA) {
     for (var EA = this.W, CA = 0; CA < 32; CA++)
       EA[CA] = X[DA + CA];
     for (; CA < EA.length; CA += 2) {
@@ -7041,13 +7041,13 @@ function xi() {
     var DA = Q(m, X, 19), EA = Q(X, m, 29), CA = R(m, X, 6), GA = DA ^ EA ^ CA;
     return GA < 0 && (GA += 4294967296), GA;
   }
-  return PQ;
+  return XQ;
 }
-var XQ, RD;
-function IN() {
-  if (RD) return XQ;
-  RD = 1;
-  var A = jI(), I = xi();
+var vQ, UD;
+function gN() {
+  if (UD) return vQ;
+  UD = 1;
+  var A = jI(), I = fi();
   function g() {
     if (!(this instanceof g))
       return new g();
@@ -7070,25 +7070,25 @@ function IN() {
       3204075428
     ];
   }
-  return A.inherits(g, I), XQ = g, g.blockSize = 1024, g.outSize = 384, g.hmacStrength = 192, g.padLength = 128, g.prototype._digest = function(Q) {
+  return A.inherits(g, I), vQ = g, g.blockSize = 1024, g.outSize = 384, g.hmacStrength = 192, g.padLength = 128, g.prototype._digest = function(Q) {
     return Q === "hex" ? A.toHex32(this.h.slice(0, 12), "big") : A.split32(this.h.slice(0, 12), "big");
-  }, XQ;
+  }, vQ;
 }
-var UD;
-function gN() {
-  return UD || (UD = 1, Ng.sha1 = $U(), Ng.sha224 = AN(), Ng.sha256 = Zi(), Ng.sha384 = IN(), Ng.sha512 = xi()), Ng;
-}
-var vQ = {}, ND;
+var ND;
 function BN() {
-  if (ND) return vQ;
-  ND = 1;
+  return ND || (ND = 1, ag.sha1 = AN(), ag.sha224 = IN(), ag.sha256 = Ti(), ag.sha384 = gN(), ag.sha512 = fi()), ag;
+}
+var _Q = {}, aD;
+function QN() {
+  if (aD) return _Q;
+  aD = 1;
   var A = jI(), I = FB(), g = A.rotl32, B = A.sum32, Q = A.sum32_3, E = A.sum32_4, R = I.BlockHash;
   function D() {
     if (!(this instanceof D))
       return new D();
     R.call(this), this.h = [1732584193, 4023233417, 2562383102, 271733878, 3285377520], this.endian = "little";
   }
-  A.inherits(D, R), vQ.ripemd160 = D, D.blockSize = 512, D.outSize = 160, D.hmacStrength = 192, D.padLength = 64, D.prototype._update = function(q, l) {
+  A.inherits(D, R), _Q.ripemd160 = D, D.blockSize = 512, D.outSize = 160, D.hmacStrength = 192, D.padLength = 64, D.prototype._update = function(q, l) {
     for (var t = this.h[0], d = this.h[1], O = this.h[2], y = this.h[3], v = this.h[4], W = t, IA = d, _ = O, T = y, wA = v, Z = 0; Z < 80; Z++) {
       var m = B(
         g(
@@ -7443,19 +7443,19 @@ function BN() {
     11,
     11
   ];
-  return vQ;
+  return _Q;
 }
-var _Q, aD;
-function QN() {
-  if (aD) return _Q;
-  aD = 1;
+var $Q, GD;
+function CN() {
+  if (GD) return $Q;
+  GD = 1;
   var A = jI(), I = GB();
   function g(B, Q, E) {
     if (!(this instanceof g))
       return new g(B, Q, E);
     this.Hash = B, this.blockSize = B.blockSize / 8, this.outSize = B.outSize / 8, this.inner = null, this.outer = null, this._init(A.toArray(Q, E));
   }
-  return _Q = g, g.prototype._init = function(Q) {
+  return $Q = g, g.prototype._init = function(Q) {
     Q.length > this.blockSize && (Q = new this.Hash().update(Q).digest()), I(Q.length <= this.blockSize);
     for (var E = Q.length; E < this.blockSize; E++)
       Q.push(0);
@@ -7468,25 +7468,25 @@ function QN() {
     return this.inner.update(Q, E), this;
   }, g.prototype.digest = function(Q) {
     return this.outer.update(this.inner.digest()), this.outer.digest(Q);
-  }, _Q;
+  }, $Q;
 }
-var GD;
-function CN() {
-  return GD || (GD = 1, function(A) {
+var FD;
+function EN() {
+  return FD || (FD = 1, function(A) {
     var I = A;
-    I.utils = jI(), I.common = FB(), I.sha = gN(), I.ripemd = BN(), I.hmac = QN(), I.sha1 = I.sha.sha1, I.sha256 = I.sha.sha256, I.sha224 = I.sha.sha224, I.sha384 = I.sha.sha384, I.sha512 = I.sha.sha512, I.ripemd160 = I.ripemd.ripemd160;
-  }(fQ)), fQ;
+    I.utils = jI(), I.common = FB(), I.sha = BN(), I.ripemd = QN(), I.hmac = CN(), I.sha1 = I.sha.sha1, I.sha256 = I.sha.sha256, I.sha224 = I.sha.sha224, I.sha384 = I.sha.sha384, I.sha512 = I.sha.sha512, I.ripemd160 = I.ripemd.ripemd160;
+  }(OQ)), OQ;
 }
-var EN = CN();
-const DN = /* @__PURE__ */ YC(EN);
-function iN(A) {
-  const I = DN.sha256();
+var DN = EN();
+const iN = /* @__PURE__ */ SC(DN);
+function oN(A) {
+  const I = iN.sha256();
   return A.forEach((g) => I.update(g)), FA.Buffer.from(I.digest("hex"), "hex");
 }
-const UC = oI.DataBlob;
-class wg {
+const NC = oI.DataBlob;
+class Rg {
   constructor(I) {
-    if (this.__type = UC, I.byteLength > 256)
+    if (this.__type = NC, I.byteLength > 256)
       throw new Error("A data blob's size cannot exceed 256 bytes");
     this.data = FA.Buffer.from(I);
   }
@@ -7506,7 +7506,7 @@ class wg {
    * @returns The parsed instance.
    */
   static fromJSON(I) {
-    return new wg(ag(I.substring(4)));
+    return new Rg(Gg(I.substring(4)));
   }
   /**
    * Takes an {@linkcode Type} and transforms it to a {@linkcode TypedJson} format.
@@ -7515,19 +7515,19 @@ class wg {
    */
   toTypedJSON() {
     return {
-      "@type": UC,
+      "@type": NC,
       value: this.data.toString("hex")
     };
   }
 }
-wg.fromTypedJSON = vw(UC, (A) => {
+Rg.fromTypedJSON = _w(NC, (A) => {
   const I = FA.Buffer.from(A, "hex");
-  return new wg(I);
+  return new Rg(I);
 });
-const oN = oI.ReceiveName;
-let Ti = class {
+const wN = oI.ReceiveName;
+let Oi = class {
   constructor(I) {
-    this.value = I, this.__type = oN;
+    this.value = I, this.__type = wN;
   }
   /**
    * Get a string representation of the receive name.
@@ -7544,33 +7544,33 @@ let Ti = class {
     return this.value;
   }
 };
-function wN(A) {
-  return RN(A);
-}
 function RN(A) {
+  return UN(A);
+}
+function UN(A) {
   if (A.length > 100)
     throw new Error("Invalid ReceiveName: Can be atmost 100 characters long.");
   if (!A.includes("."))
     throw new Error("Invalid ReceiveName: Must contain at least one '.' character.");
-  if (!wi(A))
+  if (!Ui(A))
     throw new Error("Invalid ReceiveName: Must only contain ASCII alpha, numeric and punctuation characters.");
-  return new Ti(A);
-}
-function UN(A) {
-  return new Ti(A);
+  return new Oi(A);
 }
 function NN(A) {
+  return new Oi(A);
+}
+function aN(A) {
   return A.value;
 }
 function IQ(A) {
-  return UN(A.value);
+  return NN(A.value);
 }
-function aN(A) {
+function GN(A) {
   return {
     value: A.value
   };
 }
-class fi {
+class ui {
   getBaseEnergyCost() {
     return 300n;
   }
@@ -7579,7 +7579,7 @@ class fi {
     return FA.Buffer.concat([g, B]);
   }
   deserialize(I) {
-    const g = kQ(FA.Buffer.from(I.read(32))), B = Fg(I.read(8).readBigUInt64BE(0));
+    const g = kQ(FA.Buffer.from(I.read(32))), B = kg(I.read(8).readBigUInt64BE(0));
     return {
       toAddress: g,
       amount: B
@@ -7593,18 +7593,18 @@ class fi {
   }
   fromJSON(I) {
     return {
-      toAddress: Ai(I.toAddress),
-      amount: Zg(I.amount)
+      toAddress: gi(I.toAddress),
+      amount: xg(I.amount)
     };
   }
 }
-class GN extends fi {
+class FN extends ui {
   serialize(I) {
-    const g = fB(I.toAddress), B = Yi(I.memo), Q = OI(I.amount.microCcdAmount);
+    const g = fB(I.toAddress), B = Ji(I.memo), Q = OI(I.amount.microCcdAmount);
     return FA.Buffer.concat([g, B, Q]);
   }
   deserialize(I) {
-    const g = kQ(FA.Buffer.from(I.read(32))), B = I.read(2).readUInt16BE(0), Q = new wg(FA.Buffer.from(I.read(B))), E = Fg(I.read(8).readBigUInt64BE(0));
+    const g = kQ(FA.Buffer.from(I.read(32))), B = I.read(2).readUInt16BE(0), Q = new Rg(FA.Buffer.from(I.read(B))), E = kg(I.read(8).readBigUInt64BE(0));
     return {
       toAddress: g,
       memo: Q,
@@ -7620,13 +7620,13 @@ class GN extends fi {
   }
   fromJSON(I) {
     return {
-      toAddress: Ai(I.toAddress),
-      memo: wg.fromJSON(I.memo),
-      amount: Zg(I.amount)
+      toAddress: gi(I.toAddress),
+      memo: Rg.fromJSON(I.memo),
+      amount: xg(I.amount)
     };
   }
 }
-class FN {
+class kN {
   getBaseEnergyCost(I) {
     let g = I.source.byteLength;
     I.version === void 0 && (g -= 8);
@@ -7637,7 +7637,7 @@ class FN {
     if (I.version === void 0)
       return FA.Buffer.from(I.source);
     {
-      const g = Si(I.source), B = uI(I.version);
+      const g = ti(I.source), B = uI(I.version);
       return FA.Buffer.concat([B, g]);
     }
   }
@@ -7657,12 +7657,12 @@ class FN {
     };
   }
 }
-class kN {
+class MN {
   getBaseEnergyCost(I) {
     return I.maxContractExecutionEnergy.value;
   }
   serialize(I) {
-    const g = OI(I.amount.microCcdAmount), B = FA.Buffer.from("init_" + I.initName.value, "utf8"), Q = RB(B), E = I.moduleRef.decodedModuleRef, R = ni(I.param), D = RB(R);
+    const g = OI(I.amount.microCcdAmount), B = FA.Buffer.from("init_" + I.initName.value, "utf8"), Q = RB(B), E = I.moduleRef.decodedModuleRef, R = Li(I.param), D = RB(R);
     return FA.Buffer.concat([g, E, Q, D]);
   }
   deserialize() {
@@ -7679,20 +7679,20 @@ class kN {
   }
   fromJSON(I) {
     return {
-      amount: Zg(I.amount),
-      moduleRef: VN(I.moduleRef),
-      initName: eR(I.initName),
-      param: ei(I.param),
+      amount: xg(I.amount),
+      moduleRef: lN(I.moduleRef),
+      initName: KR(I.initName),
+      param: Hi(I.param),
       maxContractExecutionEnergy: hQ(I.maxContractExecutionEnergy)
     };
   }
 }
-class MN {
+class cN {
   getBaseEnergyCost(I) {
     return I.maxContractExecutionEnergy.value;
   }
   serialize(I) {
-    const g = OI(I.amount.microCcdAmount), B = OI(I.address.index), Q = OI(I.address.subindex), E = FA.Buffer.concat([B, Q]), R = FA.Buffer.from(NN(I.receiveName), "utf8"), D = RB(R), i = ni(I.message), a = RB(i);
+    const g = OI(I.amount.microCcdAmount), B = OI(I.address.index), Q = OI(I.address.subindex), E = FA.Buffer.concat([B, Q]), R = FA.Buffer.from(aN(I.receiveName), "utf8"), D = RB(R), i = Li(I.message), a = RB(i);
     return FA.Buffer.concat([
       g,
       E,
@@ -7706,7 +7706,7 @@ class MN {
   toJSON(I) {
     return {
       amount: I.amount.toJSON(),
-      address: kR(I.address),
+      address: MR(I.address),
       receiveName: I.receiveName.toJSON(),
       message: I.message.toJSON(),
       maxContractExecutionEnergy: I.maxContractExecutionEnergy.value
@@ -7714,21 +7714,21 @@ class MN {
   }
   fromJSON(I) {
     return {
-      amount: Zg(I.amount),
-      address: MR(I.address),
-      receiveName: wN(I.receiveName),
-      message: ei(I.message),
+      amount: xg(I.amount),
+      address: cR(I.address),
+      receiveName: RN(I.receiveName),
+      message: Hi(I.message),
       maxContractExecutionEnergy: hQ(I.maxContractExecutionEnergy)
     };
   }
 }
-class cN {
+class hN {
   getBaseEnergyCost(I) {
     const g = I.newCredentials.map((Q) => 54000n + 100n * BigInt(Object.keys(Q.cdi.credentialPublicKeys.keys).length)).reduce((Q, E) => Q + E, BigInt(0));
     return 500n + 500n * I.currentNumberOfCredentials + g;
   }
   serialize(I) {
-    const g = TE(I.newCredentials, tI, ({ index: E, cdi: R }) => FA.Buffer.concat([tI(E), nN(R)])), B = TE(I.removeCredentialIds, tI, (E) => FA.Buffer.from(E, "hex")), Q = tI(I.threshold);
+    const g = fE(I.newCredentials, tI, ({ index: E, cdi: R }) => FA.Buffer.concat([tI(E), rN(R)])), B = fE(I.removeCredentialIds, tI, (E) => FA.Buffer.from(E, "hex")), Q = tI(I.threshold);
     return FA.Buffer.concat([g, B, Q]);
   }
   deserialize() {
@@ -7757,17 +7757,17 @@ class cN {
     };
   }
 }
-class hN {
+class sN {
   getBaseEnergyCost() {
     return 300n;
   }
   serialize(I) {
-    return Yi(I.data);
+    return Ji(I.data);
   }
   deserialize(I) {
     const g = I.read(2).readUInt16BE(0);
     return {
-      data: new wg(FA.Buffer.from(I.read(g)))
+      data: new Rg(FA.Buffer.from(I.read(g)))
     };
   }
   toJSON(I) {
@@ -7778,16 +7778,16 @@ class hN {
   fromJSON(I) {
     return {
       // The first 2 bytes are the length of the data buffer, so we need to remove them.
-      data: wg.fromJSON(I.data)
+      data: Rg.fromJSON(I.data)
     };
   }
 }
-class sN {
+class YN {
   getBaseEnergyCost(I) {
     return I.keys ? 4050n : 300n;
   }
   serialize(I) {
-    return YU(I);
+    return SU(I);
   }
   deserialize() {
     throw new Error("deserialize not supported");
@@ -7802,7 +7802,7 @@ class sN {
   fromJSON(I) {
     return {
       ...I,
-      stake: I.stake ? Zg(I.stake) : void 0,
+      stake: I.stake ? xg(I.stake) : void 0,
       openForDelegation: I.openForDelegation !== void 0 ? Number(I.openForDelegation) : void 0,
       transactionFeeCommission: I.transactionFeeCommission !== void 0 ? Number(I.transactionFeeCommission) : void 0,
       bakingRewardCommission: I.bakingRewardCommission !== void 0 ? Number(I.bakingRewardCommission) : void 0,
@@ -7810,12 +7810,12 @@ class sN {
     };
   }
 }
-class YN {
+class SN {
   getBaseEnergyCost() {
     return 300n;
   }
   serialize(I) {
-    return MU(I);
+    return cU(I);
   }
   deserialize() {
     throw new Error("deserialize not supported");
@@ -7830,51 +7830,51 @@ class YN {
   fromJSON(I) {
     let g = {
       ...I,
-      stake: I.stake ? Zg(I.stake) : void 0
+      stake: I.stake ? xg(I.stake) : void 0
     };
-    return I.delegationTarget === void 0 || I.delegationTarget.delegateType === ig.PassiveDelegation || (g.delegationTarget = { ...I.delegationTarget, bakerId: BigInt(I.delegationTarget.bakerId) }), g;
+    return I.delegationTarget === void 0 || I.delegationTarget.delegateType === og.PassiveDelegation || (g.delegationTarget = { ...I.delegationTarget, bakerId: BigInt(I.delegationTarget.bakerId) }), g;
   }
 }
-function Oi(A) {
+function bi(A) {
   switch (A) {
     case VI.Transfer:
-      return new fi();
+      return new ui();
     case VI.TransferWithMemo:
-      return new GN();
-    case VI.DeployModule:
       return new FN();
-    case VI.InitContract:
+    case VI.DeployModule:
       return new kN();
-    case VI.Update:
+    case VI.InitContract:
       return new MN();
-    case VI.UpdateCredentials:
+    case VI.Update:
       return new cN();
-    case VI.RegisterData:
+    case VI.UpdateCredentials:
       return new hN();
-    case VI.ConfigureDelegation:
-      return new YN();
-    case VI.ConfigureBaker:
+    case VI.RegisterData:
       return new sN();
+    case VI.ConfigureDelegation:
+      return new SN();
+    case VI.ConfigureBaker:
+      return new YN();
     default:
       throw new Error("The provided type does not have a handler: " + A);
   }
 }
-const SN = 100n, JN = 1n, tN = BigInt(60);
-function yN(A, I, g) {
-  return hQ(SN * A + JN * (tN + I) + g);
-}
-function eN(A) {
-  return FA.Buffer.from(Uint8Array.of(A));
+const JN = 100n, tN = 1n, yN = BigInt(60);
+function eN(A, I, g) {
+  return hQ(JN * A + tN * (yN + I) + g);
 }
 function KN(A) {
-  const I = eN(A.type), B = Oi(A.type).serialize(A.payload);
+  return FA.Buffer.from(Uint8Array.of(A));
+}
+function HN(A) {
+  const I = KN(A.type), B = bi(A.type).serialize(A.payload);
   return FA.Buffer.concat([I, B]);
 }
-function ui(A) {
+function ji(A) {
   const I = [];
-  I.push(xE(A.credentialPublicKeys.keys, tI, aU, GU)), I.push(tI(A.credentialPublicKeys.threshold)), I.push(FA.Buffer.from(A.credId, "hex")), I.push(uI(A.ipIdentity)), I.push(tI(A.revocationThreshold)), I.push(xE(A.arData, og, (Q) => uI(parseInt(Q, 10)), (Q) => FA.Buffer.from(Q.encIdCredPubShare, "hex"))), I.push(OE(A.policy.validTo)), I.push(OE(A.policy.createdAt));
+  I.push(TE(A.credentialPublicKeys.keys, tI, GU, FU)), I.push(tI(A.credentialPublicKeys.threshold)), I.push(FA.Buffer.from(A.credId, "hex")), I.push(uI(A.ipIdentity)), I.push(tI(A.revocationThreshold)), I.push(TE(A.arData, wg, (Q) => uI(parseInt(Q, 10)), (Q) => FA.Buffer.from(Q.encIdCredPubShare, "hex"))), I.push(uE(A.policy.validTo)), I.push(uE(A.policy.createdAt));
   const g = Object.entries(A.policy.revealedAttributes);
-  return I.push(og(g.length)), g.map(([Q, E]) => [
+  return I.push(wg(g.length)), g.map(([Q, E]) => [
     XB[Q],
     E
   ]).sort((Q, E) => Q[0] - E[0]).forEach(([Q, E]) => {
@@ -7882,7 +7882,7 @@ function ui(A) {
     I.push(FA.Buffer.concat([D, i])), I.push(R);
   }), FA.Buffer.concat(I);
 }
-function HN(A) {
+function nN(A) {
   const I = uI(Object.entries(A.proofIdCredPub).length), g = FA.Buffer.concat(Object.entries(A.proofIdCredPub).sort(([B], [Q]) => parseInt(B, 10) - parseInt(Q, 10)).map(([B, Q]) => {
     const E = uI(parseInt(B, 10)), R = FA.Buffer.from(Q, "hex");
     return FA.Buffer.concat([E, R]);
@@ -7898,23 +7898,23 @@ function HN(A) {
     FA.Buffer.from(A.credCounterLessThanMaxAccounts, "hex")
   ]);
 }
-function nN(A) {
-  const I = ui(A), g = FA.Buffer.from(A.proofs, "hex"), B = uI(g.length);
+function rN(A) {
+  const I = ji(A), g = FA.Buffer.from(A.proofs, "hex"), B = uI(g.length);
   return FA.Buffer.concat([I, B, g]);
 }
-function rN(A) {
-  const I = ui(A.unsignedCdi), g = HN(A.unsignedCdi.proofs), B = tI(0);
-  return iN([
+function LN(A) {
+  const I = ji(A.unsignedCdi), g = nN(A.unsignedCdi.proofs), B = tI(0);
+  return oN([
     I,
     g,
     B,
     OI(A.expiry.expiryEpochSeconds)
   ]);
 }
-const LN = oI.TransactionExpiry;
-class qN {
+const qN = oI.TransactionExpiry;
+class dN {
   constructor(I) {
-    this.expiryEpochSeconds = I, this.__type = LN;
+    this.expiryEpochSeconds = I, this.__type = qN;
   }
   /**
    * Get a string representation of the transaction expiry date in seconds since the Unix epoch.
@@ -7935,23 +7935,23 @@ class qN {
     return Number(this.expiryEpochSeconds);
   }
 }
-function dN(A) {
+function pN(A) {
   if (A < 0n)
     throw new Error("Invalid transaction expiry: Expiry cannot be before unix epoch.");
-  return new qN(BigInt(A));
-}
-function FD(A) {
-  return new Date(Number(A.expiryEpochSeconds) * 1e3);
+  return new dN(BigInt(A));
 }
 function kD(A) {
+  return new Date(Number(A.expiryEpochSeconds) * 1e3);
+}
+function MD(A) {
   return {
     value: A.expiryEpochSeconds
   };
 }
-const bi = 32, pN = oI.ModuleReference;
-class ji {
+const zi = 32, VN = oI.ModuleReference;
+class Pi {
   constructor(I, g) {
-    this.moduleRef = I, this.decodedModuleRef = g, this.__type = pN;
+    this.moduleRef = I, this.decodedModuleRef = g, this.__type = VN;
   }
   /**
    * Get a string representation of the module reference.
@@ -7965,56 +7965,56 @@ class ji {
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return Si(this.decodedModuleRef).toString("hex");
+    return ti(this.decodedModuleRef).toString("hex");
   }
 }
-function VN(A) {
-  return WN(A.slice(8));
-}
 function lN(A) {
-  const I = FA.Buffer.from(A).toString("hex");
-  if (A.byteLength !== bi)
-    throw new Error("The provided moduleRef " + I + " is invalid as module reference as it does not contain 32 bytes");
-  return new ji(I, new Uint8Array(A));
+  return mN(A.slice(8));
 }
 function WN(A) {
-  if (A.length !== bi * 2)
+  const I = FA.Buffer.from(A).toString("hex");
+  if (A.byteLength !== zi)
+    throw new Error("The provided moduleRef " + I + " is invalid as module reference as it does not contain 32 bytes");
+  return new Pi(I, new Uint8Array(A));
+}
+function mN(A) {
+  if (A.length !== zi * 2)
     throw new Error("The provided moduleRef " + A + " is invalid as its length was not 64");
-  return new ji(A, new Uint8Array(FA.Buffer.from(A, "hex")));
+  return new Pi(A, new Uint8Array(FA.Buffer.from(A, "hex")));
 }
 function gQ(A) {
-  return lN(A.value);
+  return WN(A.value);
 }
-const mN = oI.ReturnValue;
-class ZN {
+const ZN = oI.ReturnValue;
+class xN {
   constructor(I) {
-    this.buffer = I, this.__type = mN;
+    this.buffer = I, this.__type = ZN;
   }
   /**
    * Get a string representation of the return value.
    * @returns {string} The string representation.
    */
   toString() {
-    return cD(this);
+    return hD(this);
   }
   /**
    * Get a JSON-serializable representation of the return value.
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return cD(this);
+    return hD(this);
   }
 }
-function MD(A) {
-  return new ZN(new Uint8Array(A));
-}
 function cD(A) {
+  return new xN(new Uint8Array(A));
+}
+function hD(A) {
   return FA.Buffer.from(A.buffer).toString("hex");
 }
-const xN = oI.SequenceNumber;
-let TN = class {
+const TN = oI.SequenceNumber;
+let fN = class {
   constructor(I) {
-    this.value = I, this.__type = xN;
+    this.value = I, this.__type = TN;
   }
   /**
    * Get a string representation of the sequence number.
@@ -8031,23 +8031,23 @@ let TN = class {
     return this.value;
   }
 };
-function fN(A) {
+function ON(A) {
   if (A < 1)
     throw new Error("Invalid account sequence number: Must be 1 or higher.");
-  return new TN(BigInt(A));
+  return new fN(BigInt(A));
 }
-function zi(A) {
-  return fN(A.value);
+function Xi(A) {
+  return ON(A.value);
 }
-function ON(A) {
+function uN(A) {
   return {
     value: A.value
   };
 }
-const uN = oI.Timestamp;
-let bN = class {
+const bN = oI.Timestamp;
+let jN = class {
   constructor(I) {
-    this.value = I, this.__type = uN;
+    this.value = I, this.__type = bN;
   }
   /**
    * Get a string representation of the timestamp as the number of milliseconds since Unix epoch.
@@ -8057,50 +8057,50 @@ let bN = class {
     return this.value.toString();
   }
 };
-function Pi(A) {
+function vi(A) {
   if (A < 0)
     throw new Error("Invalid timestamp: The value cannot be a negative number.");
-  return new bN(BigInt(A));
+  return new jN(BigInt(A));
 }
-function dC(A) {
-  return Pi(A.value);
+function pC(A) {
+  return vi(A.value);
 }
-const jN = oI.TransactionHash, zN = 32;
-let PN = class {
+const zN = oI.TransactionHash, PN = 32;
+let XN = class {
   constructor(I) {
-    this.buffer = I, this.__type = jN;
+    this.buffer = I, this.__type = zN;
   }
   /**
    * Get a string representation of the transaction hash.
    * @returns {string} The string representation.
    */
   toString() {
-    return hD(this);
+    return sD(this);
   }
   /**
    * Get a JSON-serializable representation of the transaction hash.
    * @returns {HexString} The JSON-serializable representation.
    */
   toJSON() {
-    return hD(this);
+    return sD(this);
   }
 };
-function XN(A) {
-  if (A.byteLength !== zN)
+function vN(A) {
+  if (A.byteLength !== PN)
     throw new Error(`Invalid transaction hash provided: Expected a buffer containing 32 bytes, instead got '${FA.Buffer.from(A).toString("hex")}'.`);
-  return new PN(new Uint8Array(A));
+  return new XN(new Uint8Array(A));
 }
-function hD(A) {
+function sD(A) {
   return FA.Buffer.from(A.buffer).toString("hex");
 }
-function vN(A) {
+function _N(A) {
   return A.buffer;
 }
-function _g(A) {
-  return XN(A.value);
+function $g(A) {
+  return vN(A.value);
 }
-async function _N({ source: A, version: I }) {
-  const g = $N(await WebAssembly.compile(A), I);
+async function $N({ source: A, version: I }) {
+  const g = Aa(await WebAssembly.compile(A), I);
   if (g === void 0)
     return;
   const { sectionName: B, unversionedSchemaVersion: Q, contents: E } = g;
@@ -8113,7 +8113,7 @@ async function _N({ source: A, version: I }) {
     buffer: R
   } : { type: "versioned", buffer: R };
 }
-function $N(A, I) {
+function Aa(A, I) {
   function g(B, Q) {
     const E = WebAssembly.Module.customSections(A, B);
     return E.length === 0 ? void 0 : { sectionName: B, unversionedSchemaVersion: Q, contents: E };
@@ -8128,11 +8128,11 @@ function $N(A, I) {
   }
   return g("concordium-schema", void 0);
 }
-var $Q = { exports: {} };
+var AC = { exports: {} };
 /*! For license information please see index.min.js.LICENSE.txt */
-var sD;
-function Aa() {
-  return sD || (sD = 1, function(A, I) {
+var YD;
+function Ia() {
+  return YD || (YD = 1, function(A, I) {
     (function(g, B) {
       A.exports = B();
     })(self, () => (() => {
@@ -9172,8 +9172,8 @@ ${h.stack}` : P;
         function iA(h, G, r, P, $, AA) {
           let NA, hA;
           try {
-            const _A = i.__wbindgen_add_to_stack_pointer(-16), RI = t(h, i.__wbindgen_malloc, i.__wbindgen_realloc), UI = F, qI = t(G, i.__wbindgen_malloc, i.__wbindgen_realloc), rQ = F, Jw = t(AA, i.__wbindgen_malloc, i.__wbindgen_realloc), tw = F;
-            i.getCredentialId(_A, RI, UI, qI, rQ, r, P, $, Jw, tw);
+            const _A = i.__wbindgen_add_to_stack_pointer(-16), RI = t(h, i.__wbindgen_malloc, i.__wbindgen_realloc), UI = F, qI = t(G, i.__wbindgen_malloc, i.__wbindgen_realloc), rQ = F, yw = t(AA, i.__wbindgen_malloc, i.__wbindgen_realloc), ew = F;
+            i.getCredentialId(_A, RI, UI, qI, rQ, r, P, $, yw, ew);
             var sA = y()[_A / 4 + 0], cA = y()[_A / 4 + 1], KA = y()[_A / 4 + 2], HA = y()[_A / 4 + 3], qA = sA, WA = cA;
             if (HA) throw qA = 0, WA = 0, e(KA);
             return NA = qA, hA = WA, W(qA, WA);
@@ -9765,28 +9765,28 @@ ${h.stack}` : P;
         typeof Symbol < "u" && Symbol.toStringTag && Object.defineProperty(E, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(E, "__esModule", { value: !0 });
       }, Q.b = document.baseURI || self.location.href, Q(249);
     })());
-  }($Q)), $Q.exports;
+  }(AC)), AC.exports;
 }
-var pI = Aa();
-function Ia(A, I) {
-  const g = pI.serializeCredentialDeploymentPayload(A, oi.stringify(I.unsignedCdi));
+var pI = Ia();
+function ga(A, I) {
+  const g = pI.serializeCredentialDeploymentPayload(A, Ri.stringify(I.unsignedCdi));
   return FA.Buffer.from(g);
 }
 /*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) */
-function ga(A) {
+function Ba(A) {
   return A instanceof Uint8Array || ArrayBuffer.isView(A) && A.constructor.name === "Uint8Array";
 }
 function iB(A) {
   if (!Number.isSafeInteger(A) || A < 0)
     throw new Error("positive integer expected, got " + A);
 }
-function xg(A, ...I) {
-  if (!ga(A))
+function Tg(A, ...I) {
+  if (!Ba(A))
     throw new Error("Uint8Array expected");
   if (I.length > 0 && !I.includes(A.length))
     throw new Error("Uint8Array expected of length " + I + ", got length=" + A.length);
 }
-function Xi(A) {
+function _i(A) {
   if (typeof A != "function" || typeof A.create != "function")
     throw new Error("Hash should be wrapped by utils.createHasher");
   iB(A.outputLen), iB(A.blockLen);
@@ -9797,13 +9797,13 @@ function BQ(A, I = !0) {
   if (I && A.finished)
     throw new Error("Hash#digest() has already been called");
 }
-function Ba(A, I) {
-  xg(A);
+function Qa(A, I) {
+  Tg(A);
   const g = I.outputLen;
   if (A.length < g)
     throw new Error("digestInto() expects output buffer of length at least " + g);
 }
-function cg(...A) {
+function hg(...A) {
   for (let I = 0; I < A.length; I++)
     A[I].fill(0);
 }
@@ -9813,32 +9813,32 @@ function TB(A) {
 function xI(A, I) {
   return A << 32 - I | A >>> I;
 }
-function vi(A) {
+function $i(A) {
   if (typeof A != "string")
     throw new Error("string expected");
   return new Uint8Array(new TextEncoder().encode(A));
 }
-function pC(A) {
-  return typeof A == "string" && (A = vi(A)), xg(A), A;
+function VC(A) {
+  return typeof A == "string" && (A = $i(A)), Tg(A), A;
 }
-function YD(A) {
-  return typeof A == "string" && (A = vi(A)), xg(A), A;
+function SD(A) {
+  return typeof A == "string" && (A = $i(A)), Tg(A), A;
 }
-function Qa(A, I) {
+function Ca(A, I) {
   if (I !== void 0 && {}.toString.call(I) !== "[object Object]")
     throw new Error("options should be object or undefined");
   return Object.assign(A, I);
 }
-class _i {
+class Ao {
 }
-function $i(A) {
-  const I = (B) => A().update(pC(B)).digest(), g = A();
+function Io(A) {
+  const I = (B) => A().update(VC(B)).digest(), g = A();
   return I.outputLen = g.outputLen, I.blockLen = g.blockLen, I.create = () => A(), I;
 }
-class Ao extends _i {
+class go extends Ao {
   constructor(I, g) {
-    super(), this.finished = !1, this.destroyed = !1, Xi(I);
-    const B = pC(g);
+    super(), this.finished = !1, this.destroyed = !1, _i(I);
+    const B = VC(g);
     if (this.iHash = I.create(), typeof this.iHash.update != "function")
       throw new Error("Expected instance of class which extends utils.Hash");
     this.blockLen = this.iHash.blockLen, this.outputLen = this.iHash.outputLen;
@@ -9849,13 +9849,13 @@ class Ao extends _i {
     this.iHash.update(E), this.oHash = I.create();
     for (let R = 0; R < E.length; R++)
       E[R] ^= 106;
-    this.oHash.update(E), cg(E);
+    this.oHash.update(E), hg(E);
   }
   update(I) {
     return BQ(this), this.iHash.update(I), this;
   }
   digestInto(I) {
-    BQ(this), xg(I, this.outputLen), this.finished = !0, this.iHash.digestInto(I), this.oHash.update(I), this.oHash.digestInto(I), this.destroy();
+    BQ(this), Tg(I, this.outputLen), this.finished = !0, this.iHash.digestInto(I), this.oHash.update(I), this.oHash.digestInto(I), this.destroy();
   }
   digest() {
     const I = new Uint8Array(this.oHash.outputLen);
@@ -9873,21 +9873,21 @@ class Ao extends _i {
     this.destroyed = !0, this.oHash.destroy(), this.iHash.destroy();
   }
 }
-const Io = (A, I, g) => new Ao(A, I).update(g).digest();
-Io.create = (A, I) => new Ao(A, I);
-function Ca(A, I, g, B) {
-  Xi(A);
-  const Q = Qa({ dkLen: 32, asyncTick: 10 }, B), { c: E, dkLen: R, asyncTick: D } = Q;
+const Bo = (A, I, g) => new go(A, I).update(g).digest();
+Bo.create = (A, I) => new go(A, I);
+function Ea(A, I, g, B) {
+  _i(A);
+  const Q = Ca({ dkLen: 32, asyncTick: 10 }, B), { c: E, dkLen: R, asyncTick: D } = Q;
   if (iB(E), iB(R), iB(D), E < 1)
     throw new Error("iterations (c) should be >= 1");
-  const i = YD(I), a = YD(g), c = new Uint8Array(R), M = Io.create(A, i), e = M._cloneInto().update(a);
+  const i = SD(I), a = SD(g), c = new Uint8Array(R), M = Bo.create(A, i), e = M._cloneInto().update(a);
   return { c: E, dkLen: R, asyncTick: D, DK: c, PRF: M, PRFSalt: e };
 }
-function Ea(A, I, g, B, Q) {
-  return A.destroy(), I.destroy(), B && B.destroy(), cg(Q), g;
+function Da(A, I, g, B, Q) {
+  return A.destroy(), I.destroy(), B && B.destroy(), hg(Q), g;
 }
-function Da(A, I, g, B) {
-  const { c: Q, dkLen: E, DK: R, PRF: D, PRFSalt: i } = Ca(A, I, g, B);
+function ia(A, I, g, B) {
+  const { c: Q, dkLen: E, DK: R, PRF: D, PRFSalt: i } = Ea(A, I, g, B);
   let a;
   const c = new Uint8Array(4), M = TB(c), e = new Uint8Array(D.outputLen);
   for (let F = 1, K = 0; K < E; F++, K += D.outputLen) {
@@ -9899,26 +9899,26 @@ function Da(A, I, g, B) {
         n[l] ^= e[l];
     }
   }
-  return Ea(D, i, R, a, e);
+  return Da(D, i, R, a, e);
 }
-function ia(A, I, g, B) {
+function oa(A, I, g, B) {
   if (typeof A.setBigUint64 == "function")
     return A.setBigUint64(I, g, B);
   const Q = BigInt(32), E = BigInt(4294967295), R = Number(g >> Q & E), D = Number(g & E), i = B ? 4 : 0, a = B ? 0 : 4;
   A.setUint32(I + i, R, B), A.setUint32(I + a, D, B);
 }
-function oa(A, I, g) {
+function wa(A, I, g) {
   return A & I ^ ~A & g;
 }
-function wa(A, I, g) {
+function Ra(A, I, g) {
   return A & I ^ A & g ^ I & g;
 }
-class go extends _i {
+class Qo extends Ao {
   constructor(I, g, B, Q) {
     super(), this.finished = !1, this.length = 0, this.pos = 0, this.destroyed = !1, this.blockLen = I, this.outputLen = g, this.padOffset = B, this.isLE = Q, this.buffer = new Uint8Array(I), this.view = TB(this.buffer);
   }
   update(I) {
-    BQ(this), I = pC(I), xg(I);
+    BQ(this), I = VC(I), Tg(I);
     const { view: g, buffer: B, blockLen: Q } = this, E = I.length;
     for (let R = 0; R < E; ) {
       const D = Math.min(Q - this.pos, E - R);
@@ -9933,13 +9933,13 @@ class go extends _i {
     return this.length += I.length, this.roundClean(), this;
   }
   digestInto(I) {
-    BQ(this), Ba(I, this), this.finished = !0;
+    BQ(this), Qa(I, this), this.finished = !0;
     const { buffer: g, view: B, blockLen: Q, isLE: E } = this;
     let { pos: R } = this;
-    g[R++] = 128, cg(this.buffer.subarray(R)), this.padOffset > Q - R && (this.process(B, 0), R = 0);
+    g[R++] = 128, hg(this.buffer.subarray(R)), this.padOffset > Q - R && (this.process(B, 0), R = 0);
     for (let M = R; M < Q; M++)
       g[M] = 0;
-    ia(B, Q - 8, BigInt(this.length * 8), E), this.process(B, 0);
+    oa(B, Q - 8, BigInt(this.length * 8), E), this.process(B, 0);
     const D = TB(I), i = this.outputLen;
     if (i % 4)
       throw new Error("_sha2: outputLen should be aligned to 32bit");
@@ -9990,25 +9990,25 @@ const Ig = /* @__PURE__ */ Uint32Array.from([
   4215389547,
   1541459225,
   327033209
-]), qB = /* @__PURE__ */ BigInt(2 ** 32 - 1), SD = /* @__PURE__ */ BigInt(32);
-function Ra(A, I = !1) {
-  return I ? { h: Number(A & qB), l: Number(A >> SD & qB) } : { h: Number(A >> SD & qB) | 0, l: Number(A & qB) | 0 };
-}
+]), qB = /* @__PURE__ */ BigInt(2 ** 32 - 1), JD = /* @__PURE__ */ BigInt(32);
 function Ua(A, I = !1) {
+  return I ? { h: Number(A & qB), l: Number(A >> JD & qB) } : { h: Number(A >> JD & qB) | 0, l: Number(A & qB) | 0 };
+}
+function Na(A, I = !1) {
   const g = A.length;
   let B = new Uint32Array(g), Q = new Uint32Array(g);
   for (let E = 0; E < g; E++) {
-    const { h: R, l: D } = Ra(A[E], I);
+    const { h: R, l: D } = Ua(A[E], I);
     [B[E], Q[E]] = [R, D];
   }
   return [B, Q];
 }
-const JD = (A, I, g) => A >>> g, tD = (A, I, g) => A << 32 - g | I >>> g, tg = (A, I, g) => A >>> g | I << 32 - g, yg = (A, I, g) => A << 32 - g | I >>> g, dB = (A, I, g) => A << 64 - g | I >>> g - 32, pB = (A, I, g) => A >>> g - 32 | I << 64 - g;
+const tD = (A, I, g) => A >>> g, yD = (A, I, g) => A << 32 - g | I >>> g, yg = (A, I, g) => A >>> g | I << 32 - g, eg = (A, I, g) => A << 32 - g | I >>> g, dB = (A, I, g) => A << 64 - g | I >>> g - 32, pB = (A, I, g) => A >>> g - 32 | I << 64 - g;
 function PI(A, I, g, B) {
   const Q = (I >>> 0) + (B >>> 0);
   return { h: A + g + (Q / 2 ** 32 | 0) | 0, l: Q | 0 };
 }
-const Na = (A, I, g) => (A >>> 0) + (I >>> 0) + (g >>> 0), aa = (A, I, g, B) => I + g + B + (A / 2 ** 32 | 0) | 0, Ga = (A, I, g, B) => (A >>> 0) + (I >>> 0) + (g >>> 0) + (B >>> 0), Fa = (A, I, g, B, Q) => I + g + B + Q + (A / 2 ** 32 | 0) | 0, ka = (A, I, g, B, Q) => (A >>> 0) + (I >>> 0) + (g >>> 0) + (B >>> 0) + (Q >>> 0), Ma = (A, I, g, B, Q, E) => I + g + B + Q + E + (A / 2 ** 32 | 0) | 0, ca = /* @__PURE__ */ Uint32Array.from([
+const aa = (A, I, g) => (A >>> 0) + (I >>> 0) + (g >>> 0), Ga = (A, I, g, B) => I + g + B + (A / 2 ** 32 | 0) | 0, Fa = (A, I, g, B) => (A >>> 0) + (I >>> 0) + (g >>> 0) + (B >>> 0), ka = (A, I, g, B, Q) => I + g + B + Q + (A / 2 ** 32 | 0) | 0, Ma = (A, I, g, B, Q) => (A >>> 0) + (I >>> 0) + (g >>> 0) + (B >>> 0) + (Q >>> 0), ca = (A, I, g, B, Q, E) => I + g + B + Q + E + (A / 2 ** 32 | 0) | 0, ha = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
   3049323471,
@@ -10074,7 +10074,7 @@ const Na = (A, I, g) => (A >>> 0) + (I >>> 0) + (g >>> 0), aa = (A, I, g, B) => 
   3204031479,
   3329325298
 ]), gg = /* @__PURE__ */ new Uint32Array(64);
-class ha extends go {
+class sa extends Qo {
   constructor(I = 32) {
     super(64, I, 8, !1), this.A = Ig[0] | 0, this.B = Ig[1] | 0, this.C = Ig[2] | 0, this.D = Ig[3] | 0, this.E = Ig[4] | 0, this.F = Ig[5] | 0, this.G = Ig[6] | 0, this.H = Ig[7] | 0;
   }
@@ -10095,19 +10095,19 @@ class ha extends go {
     }
     let { A: B, B: Q, C: E, D: R, E: D, F: i, G: a, H: c } = this;
     for (let M = 0; M < 64; M++) {
-      const e = xI(D, 6) ^ xI(D, 11) ^ xI(D, 25), F = c + e + oa(D, i, a) + ca[M] + gg[M] | 0, n = (xI(B, 2) ^ xI(B, 13) ^ xI(B, 22)) + wa(B, Q, E) | 0;
+      const e = xI(D, 6) ^ xI(D, 11) ^ xI(D, 25), F = c + e + wa(D, i, a) + ha[M] + gg[M] | 0, n = (xI(B, 2) ^ xI(B, 13) ^ xI(B, 22)) + Ra(B, Q, E) | 0;
       c = a, a = i, i = D, D = R + F | 0, R = E, E = Q, Q = B, B = F + n | 0;
     }
     B = B + this.A | 0, Q = Q + this.B | 0, E = E + this.C | 0, R = R + this.D | 0, D = D + this.E | 0, i = i + this.F | 0, a = a + this.G | 0, c = c + this.H | 0, this.set(B, Q, E, R, D, i, a, c);
   }
   roundClean() {
-    cg(gg);
+    hg(gg);
   }
   destroy() {
-    this.set(0, 0, 0, 0, 0, 0, 0, 0), cg(this.buffer);
+    this.set(0, 0, 0, 0, 0, 0, 0, 0), hg(this.buffer);
   }
 }
-const Bo = Ua([
+const Co = Na([
   "0x428a2f98d728ae22",
   "0x7137449123ef65cd",
   "0xb5c0fbcfec4d3b2f",
@@ -10188,8 +10188,8 @@ const Bo = Ua([
   "0x597f299cfc657e2a",
   "0x5fcb6fab3ad6faec",
   "0x6c44198c4a475817"
-].map((A) => BigInt(A))), sa = Bo[0], Ya = Bo[1], Bg = /* @__PURE__ */ new Uint32Array(80), Qg = /* @__PURE__ */ new Uint32Array(80);
-class Sa extends go {
+].map((A) => BigInt(A))), Ya = Co[0], Sa = Co[1], Bg = /* @__PURE__ */ new Uint32Array(80), Qg = /* @__PURE__ */ new Uint32Array(80);
+class Ja extends Qo {
   constructor(I = 64) {
     super(128, I, 16, !1), this.Ah = aI[0] | 0, this.Al = aI[1] | 0, this.Bh = aI[2] | 0, this.Bl = aI[3] | 0, this.Ch = aI[4] | 0, this.Cl = aI[5] | 0, this.Dh = aI[6] | 0, this.Dl = aI[7] | 0, this.Eh = aI[8] | 0, this.El = aI[9] | 0, this.Fh = aI[10] | 0, this.Fl = aI[11] | 0, this.Gh = aI[12] | 0, this.Gl = aI[13] | 0, this.Hh = aI[14] | 0, this.Hl = aI[15] | 0;
   }
@@ -10206,34 +10206,34 @@ class Sa extends go {
     for (let d = 0; d < 16; d++, g += 4)
       Bg[d] = I.getUint32(g), Qg[d] = I.getUint32(g += 4);
     for (let d = 16; d < 80; d++) {
-      const O = Bg[d - 15] | 0, y = Qg[d - 15] | 0, v = tg(O, y, 1) ^ tg(O, y, 8) ^ JD(O, y, 7), W = yg(O, y, 1) ^ yg(O, y, 8) ^ tD(O, y, 7), IA = Bg[d - 2] | 0, _ = Qg[d - 2] | 0, T = tg(IA, _, 19) ^ dB(IA, _, 61) ^ JD(IA, _, 6), wA = yg(IA, _, 19) ^ pB(IA, _, 61) ^ tD(IA, _, 6), Z = Ga(W, wA, Qg[d - 7], Qg[d - 16]), m = Fa(Z, v, T, Bg[d - 7], Bg[d - 16]);
+      const O = Bg[d - 15] | 0, y = Qg[d - 15] | 0, v = yg(O, y, 1) ^ yg(O, y, 8) ^ tD(O, y, 7), W = eg(O, y, 1) ^ eg(O, y, 8) ^ yD(O, y, 7), IA = Bg[d - 2] | 0, _ = Qg[d - 2] | 0, T = yg(IA, _, 19) ^ dB(IA, _, 61) ^ tD(IA, _, 6), wA = eg(IA, _, 19) ^ pB(IA, _, 61) ^ yD(IA, _, 6), Z = Fa(W, wA, Qg[d - 7], Qg[d - 16]), m = ka(Z, v, T, Bg[d - 7], Bg[d - 16]);
       Bg[d] = m | 0, Qg[d] = Z | 0;
     }
     let { Ah: B, Al: Q, Bh: E, Bl: R, Ch: D, Cl: i, Dh: a, Dl: c, Eh: M, El: e, Fh: F, Fl: K, Gh: n, Gl: q, Hh: l, Hl: t } = this;
     for (let d = 0; d < 80; d++) {
-      const O = tg(M, e, 14) ^ tg(M, e, 18) ^ dB(M, e, 41), y = yg(M, e, 14) ^ yg(M, e, 18) ^ pB(M, e, 41), v = M & F ^ ~M & n, W = e & K ^ ~e & q, IA = ka(t, y, W, Ya[d], Qg[d]), _ = Ma(IA, l, O, v, sa[d], Bg[d]), T = IA | 0, wA = tg(B, Q, 28) ^ dB(B, Q, 34) ^ dB(B, Q, 39), Z = yg(B, Q, 28) ^ pB(B, Q, 34) ^ pB(B, Q, 39), m = B & E ^ B & D ^ E & D, X = Q & R ^ Q & i ^ R & i;
+      const O = yg(M, e, 14) ^ yg(M, e, 18) ^ dB(M, e, 41), y = eg(M, e, 14) ^ eg(M, e, 18) ^ pB(M, e, 41), v = M & F ^ ~M & n, W = e & K ^ ~e & q, IA = Ma(t, y, W, Sa[d], Qg[d]), _ = ca(IA, l, O, v, Ya[d], Bg[d]), T = IA | 0, wA = yg(B, Q, 28) ^ dB(B, Q, 34) ^ dB(B, Q, 39), Z = eg(B, Q, 28) ^ pB(B, Q, 34) ^ pB(B, Q, 39), m = B & E ^ B & D ^ E & D, X = Q & R ^ Q & i ^ R & i;
       l = n | 0, t = q | 0, n = F | 0, q = K | 0, F = M | 0, K = e | 0, { h: M, l: e } = PI(a | 0, c | 0, _ | 0, T | 0), a = D | 0, c = i | 0, D = E | 0, i = R | 0, E = B | 0, R = Q | 0;
-      const DA = Na(T, Z, X);
-      B = aa(DA, _, wA, m), Q = DA | 0;
+      const DA = aa(T, Z, X);
+      B = Ga(DA, _, wA, m), Q = DA | 0;
     }
     ({ h: B, l: Q } = PI(this.Ah | 0, this.Al | 0, B | 0, Q | 0)), { h: E, l: R } = PI(this.Bh | 0, this.Bl | 0, E | 0, R | 0), { h: D, l: i } = PI(this.Ch | 0, this.Cl | 0, D | 0, i | 0), { h: a, l: c } = PI(this.Dh | 0, this.Dl | 0, a | 0, c | 0), { h: M, l: e } = PI(this.Eh | 0, this.El | 0, M | 0, e | 0), { h: F, l: K } = PI(this.Fh | 0, this.Fl | 0, F | 0, K | 0), { h: n, l: q } = PI(this.Gh | 0, this.Gl | 0, n | 0, q | 0), { h: l, l: t } = PI(this.Hh | 0, this.Hl | 0, l | 0, t | 0), this.set(B, Q, E, R, D, i, a, c, M, e, F, K, n, q, l, t);
   }
   roundClean() {
-    cg(Bg, Qg);
+    hg(Bg, Qg);
   }
   destroy() {
-    cg(this.buffer), this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    hg(this.buffer), this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   }
 }
-const Ja = /* @__PURE__ */ $i(() => new ha()), ta = /* @__PURE__ */ $i(() => new Sa());
+const ta = /* @__PURE__ */ Io(() => new sa()), ya = /* @__PURE__ */ Io(() => new Ja());
 /*! scure-base - MIT License (c) 2022 Paul Miller (paulmillr.com) */
 function QQ(A) {
   return A instanceof Uint8Array || ArrayBuffer.isView(A) && A.constructor.name === "Uint8Array";
 }
-function Qo(A, I) {
+function Eo(A, I) {
   return Array.isArray(I) ? I.length === 0 ? !0 : A ? I.every((g) => typeof g == "string") : I.every((g) => Number.isSafeInteger(g)) : !1;
 }
-function ya(A) {
+function ea(A) {
   if (typeof A != "function")
     throw new Error("function expected");
   return !0;
@@ -10243,7 +10243,7 @@ function CQ(A, I) {
     throw new Error(`${A}: string expected`);
   return !0;
 }
-function Tg(A) {
+function fg(A) {
   if (!Number.isSafeInteger(A))
     throw new Error(`invalid integer: ${A}`);
 }
@@ -10252,20 +10252,20 @@ function EQ(A) {
     throw new Error("array expected");
 }
 function DQ(A, I) {
-  if (!Qo(!0, I))
+  if (!Eo(!0, I))
     throw new Error(`${A}: array of strings expected`);
 }
-function Co(A, I) {
-  if (!Qo(!1, I))
+function Do(A, I) {
+  if (!Eo(!1, I))
     throw new Error(`${A}: array of numbers expected`);
 }
 // @__NO_SIDE_EFFECTS__
-function ea(...A) {
+function Ka(...A) {
   const I = (E) => E, g = (E, R) => (D) => E(R(D)), B = A.map((E) => E.encode).reduceRight(g, I), Q = A.map((E) => E.decode).reduce(g, I);
   return { encode: B, decode: Q };
 }
 // @__NO_SIDE_EFFECTS__
-function Ka(A) {
+function Ha(A) {
   const I = typeof A == "string" ? A.split("") : A, g = I.length;
   DQ("alphabet", I);
   const B = new Map(I.map((Q, E) => [Q, E]));
@@ -10285,15 +10285,15 @@ function Ka(A) {
   };
 }
 // @__NO_SIDE_EFFECTS__
-function Ha(A = "") {
+function na(A = "") {
   return CQ("join", A), {
     encode: (I) => (DQ("join.decode", I), I.join(A)),
     decode: (I) => (CQ("join.decode", I), I.split(A))
   };
 }
 // @__NO_SIDE_EFFECTS__
-function na(A, I = "=") {
-  return Tg(A), CQ("padding", I), {
+function ra(A, I = "=") {
+  return fg(A), CQ("padding", I), {
     encode(g) {
       for (DQ("padding.encode", g); g.length * A % 8; )
         g.push(I);
@@ -10311,7 +10311,7 @@ function na(A, I = "=") {
     }
   };
 }
-function NC(A, I, g) {
+function aC(A, I, g) {
   if (I < 2)
     throw new Error(`convertRadix: invalid from=${I}, base cannot be less than 2`);
   if (g < 2)
@@ -10320,7 +10320,7 @@ function NC(A, I, g) {
     return [];
   let B = 0;
   const Q = [], E = Array.from(A, (D) => {
-    if (Tg(D), D < 0 || D >= I)
+    if (fg(D), D < 0 || D >= I)
       throw new Error(`invalid integer: ${D}`);
     return D;
   }), R = E.length;
@@ -10346,13 +10346,13 @@ function NC(A, I, g) {
     Q.push(0);
   return Q.reverse();
 }
-const Eo = (A, I) => I === 0 ? A : Eo(I, A % I), iQ = /* @__NO_SIDE_EFFECTS__ */ (A, I) => A + (I - Eo(A, I)), AC = /* @__PURE__ */ (() => {
+const io = (A, I) => I === 0 ? A : io(I, A % I), iQ = /* @__NO_SIDE_EFFECTS__ */ (A, I) => A + (I - io(A, I)), IC = /* @__PURE__ */ (() => {
   let A = [];
   for (let I = 0; I < 40; I++)
     A.push(2 ** I);
   return A;
 })();
-function aC(A, I, g, B) {
+function GC(A, I, g, B) {
   if (EQ(A), I <= 0 || I > 32)
     throw new Error(`convertRadix2: wrong from=${I}`);
   if (g <= 0 || g > 32)
@@ -10360,15 +10360,15 @@ function aC(A, I, g, B) {
   if (/* @__PURE__ */ iQ(I, g) > 32)
     throw new Error(`convertRadix2: carry overflow from=${I} to=${g} carryBits=${/* @__PURE__ */ iQ(I, g)}`);
   let Q = 0, E = 0;
-  const R = AC[I], D = AC[g] - 1, i = [];
+  const R = IC[I], D = IC[g] - 1, i = [];
   for (const a of A) {
-    if (Tg(a), a >= R)
+    if (fg(a), a >= R)
       throw new Error(`convertRadix2: invalid data word=${a} from=${I}`);
     if (Q = Q << I | a, E + I > 32)
       throw new Error(`convertRadix2: carry overflow pos=${E} from=${I}`);
     for (E += I; E >= g; E -= g)
       i.push((Q >> E - g & D) >>> 0);
-    const c = AC[E];
+    const c = IC[E];
     if (c === void 0)
       throw new Error("invalid carry");
     Q &= c - 1;
@@ -10380,21 +10380,21 @@ function aC(A, I, g, B) {
   return B && E > 0 && i.push(Q >>> 0), i;
 }
 // @__NO_SIDE_EFFECTS__
-function ra(A) {
-  Tg(A);
+function La(A) {
+  fg(A);
   const I = 2 ** 8;
   return {
     encode: (g) => {
       if (!QQ(g))
         throw new Error("radix.encode input should be Uint8Array");
-      return NC(Array.from(g), I, A);
+      return aC(Array.from(g), I, A);
     },
-    decode: (g) => (Co("radix.decode", g), Uint8Array.from(NC(g, A, I)))
+    decode: (g) => (Do("radix.decode", g), Uint8Array.from(aC(g, A, I)))
   };
 }
 // @__NO_SIDE_EFFECTS__
-function La(A, I = !1) {
-  if (Tg(A), A <= 0 || A > 32)
+function qa(A, I = !1) {
+  if (fg(A), A <= 0 || A > 32)
     throw new Error("radix2: bits should be in (0..32]");
   if (/* @__PURE__ */ iQ(8, A) > 32 || /* @__PURE__ */ iQ(A, 8) > 32)
     throw new Error("radix2: carry overflow");
@@ -10402,13 +10402,13 @@ function La(A, I = !1) {
     encode: (g) => {
       if (!QQ(g))
         throw new Error("radix2.encode input should be Uint8Array");
-      return aC(Array.from(g), 8, A, !I);
+      return GC(Array.from(g), 8, A, !I);
     },
-    decode: (g) => (Co("radix2.decode", g), Uint8Array.from(aC(g, A, 8, I)))
+    decode: (g) => (Do("radix2.decode", g), Uint8Array.from(GC(g, A, 8, I)))
   };
 }
-function qa(A, I) {
-  return Tg(A), ya(I), {
+function da(A, I) {
+  return fg(A), ea(I), {
     encode(g) {
       if (!QQ(g))
         throw new Error("checksum.encode: input should be Uint8Array");
@@ -10427,60 +10427,60 @@ function qa(A, I) {
   };
 }
 const VB = {
-  alphabet: Ka,
-  chain: ea,
-  checksum: qa,
-  convertRadix: NC,
-  convertRadix2: aC,
-  radix: ra,
-  radix2: La,
-  join: Ha,
-  padding: na
+  alphabet: Ha,
+  chain: Ka,
+  checksum: da,
+  convertRadix: aC,
+  convertRadix2: GC,
+  radix: La,
+  radix2: qa,
+  join: na,
+  padding: ra
 };
 /*! scure-bip39 - MIT License (c) 2022 Patricio Palladino, Paul Miller (paulmillr.com) */
-function Do(A) {
+function oo(A) {
   if (typeof A != "string")
     throw new TypeError("invalid mnemonic type: " + typeof A);
   return A.normalize("NFKD");
 }
-function io(A) {
-  const I = Do(A), g = I.split(" ");
+function wo(A) {
+  const I = oo(A), g = I.split(" ");
   if (![12, 15, 18, 21, 24].includes(g.length))
     throw new Error("Invalid mnemonic");
   return { nfkd: I, words: g };
 }
-function da(A) {
-  xg(A, 16, 20, 24, 28, 32);
+function pa(A) {
+  Tg(A, 16, 20, 24, 28, 32);
 }
-const pa = (A) => {
+const Va = (A) => {
   const I = 8 - A.length / 4;
-  return new Uint8Array([Ja(A)[0] >> I << I]);
+  return new Uint8Array([ta(A)[0] >> I << I]);
 };
-function Va(A) {
+function la(A) {
   if (!Array.isArray(A) || A.length !== 2048 || typeof A[0] != "string")
     throw new Error("Wordlist: expected array of 2048 strings");
   return A.forEach((I) => {
     if (typeof I != "string")
       throw new Error("wordlist: non-string element: " + I);
-  }), VB.chain(VB.checksum(1, pa), VB.radix2(11, !0), VB.alphabet(A));
+  }), VB.chain(VB.checksum(1, Va), VB.radix2(11, !0), VB.alphabet(A));
 }
-function la(A, I) {
-  const { words: g } = io(A), B = Va(I).decode(g);
-  return da(B), B;
+function Wa(A, I) {
+  const { words: g } = wo(A), B = la(I).decode(g);
+  return pa(B), B;
 }
-function oo(A, I) {
+function Ro(A, I) {
   try {
-    la(A, I);
+    Wa(A, I);
   } catch {
     return !1;
   }
   return !0;
 }
-const Wa = (A) => Do("mnemonic" + A);
-function ma(A, I = "") {
-  return Da(ta, io(A).nfkd, Wa(I), { c: 2048, dkLen: 64 });
+const ma = (A) => oo("mnemonic" + A);
+function Za(A, I = "") {
+  return ia(ya, wo(A).nfkd, ma(I), { c: 2048, dkLen: 64 });
 }
-const wo = `abandon
+const Uo = `abandon
 ability
 able
 about
@@ -12531,15 +12531,15 @@ zoo`.split(`
 `);
 class oQ {
   static fromSeedPhrase(I, g) {
-    if (!oo(I, wo))
+    if (!Ro(I, Uo))
       throw new Error("Invalid seed phrase.");
-    const B = FA.Buffer.from(ma(I)).toString("hex");
+    const B = FA.Buffer.from(Za(I)).toString("hex");
     return new oQ(B, g);
   }
   static fromHex(I, g) {
     if (I.length !== 128)
       throw new Error("The provided seed " + I + " is invalid as its length was not 128");
-    if (!Ri(I))
+    if (!Ni(I))
       throw new Error("The provided seed " + I + " does not represent a hexidecimal value");
     return new oQ(I, g);
   }
@@ -12577,15 +12577,15 @@ class oQ {
     return FA.Buffer.from(pI.getVerifiableCredentialBackupEncryptionKey(this.seedAsHex, this.network), "hex");
   }
 }
-async function Za(A, I) {
-  const g = rN(A);
-  return FA.Buffer.from(await PU(g, I)).toString("hex");
+async function xa(A, I) {
+  const g = LN(A);
+  return FA.Buffer.from(await XU(g, I)).toString("hex");
 }
 var YA;
 (function(A) {
   A[A.OK = 0] = "OK", A[A.CANCELLED = 1] = "CANCELLED", A[A.UNKNOWN = 2] = "UNKNOWN", A[A.INVALID_ARGUMENT = 3] = "INVALID_ARGUMENT", A[A.DEADLINE_EXCEEDED = 4] = "DEADLINE_EXCEEDED", A[A.NOT_FOUND = 5] = "NOT_FOUND", A[A.ALREADY_EXISTS = 6] = "ALREADY_EXISTS", A[A.PERMISSION_DENIED = 7] = "PERMISSION_DENIED", A[A.UNAUTHENTICATED = 16] = "UNAUTHENTICATED", A[A.RESOURCE_EXHAUSTED = 8] = "RESOURCE_EXHAUSTED", A[A.FAILED_PRECONDITION = 9] = "FAILED_PRECONDITION", A[A.ABORTED = 10] = "ABORTED", A[A.OUT_OF_RANGE = 11] = "OUT_OF_RANGE", A[A.UNIMPLEMENTED = 12] = "UNIMPLEMENTED", A[A.INTERNAL = 13] = "INTERNAL", A[A.UNAVAILABLE = 14] = "UNAVAILABLE", A[A.DATA_LOSS = 15] = "DATA_LOSS";
 })(YA || (YA = {}));
-var xa = function(A, I, g, B) {
+var Ta = function(A, I, g, B) {
   function Q(E) {
     return E instanceof g ? E : new g(function(R) {
       R(E);
@@ -12612,7 +12612,7 @@ var xa = function(A, I, g, B) {
     a((B = B.apply(A, I || [])).next());
   });
 };
-function yD(A, I, g, B, Q) {
+function eD(A, I, g, B, Q) {
   if (B)
     for (let [E, R] of Object.entries(B))
       if (typeof R == "string")
@@ -12632,14 +12632,14 @@ function yD(A, I, g, B, Q) {
   }
   return A;
 }
-function eD(A, I) {
+function KD(A, I) {
   let g = new Uint8Array(5 + A.length);
   g[0] = WI.DATA;
   for (let B = A.length, Q = 4; Q > 0; Q--)
     g[Q] = B % 256, B >>>= 8;
-  return g.set(A, 5), I === "binary" ? g : ai(g);
+  return g.set(A, 5), I === "binary" ? g : Fi(g);
 }
-function GC(A, I, g) {
+function FC(A, I, g) {
   if (arguments.length === 1) {
     let i = A, a;
     try {
@@ -12652,23 +12652,23 @@ function GC(A, I, g) {
       case "opaqueredirect":
         throw new vA(`fetch response type ${i.type}`, YA[YA.UNKNOWN]);
     }
-    return GC(ua(i.headers), i.status, i.statusText);
+    return FC(ba(i.headers), i.status, i.statusText);
   }
-  let B = A, Q = I >= 200 && I < 300, E = Uo(B), [R, D] = Ro(B);
-  return (R === void 0 || R === YA.OK) && !Q && (R = ba(I), D = g), [R, D, E];
+  let B = A, Q = I >= 200 && I < 300, E = ao(B), [R, D] = No(B);
+  return (R === void 0 || R === YA.OK) && !Q && (R = ja(I), D = g), [R, D, E];
 }
-function KD(A) {
-  let I = Oa(A), [g, B] = Ro(I), Q = Uo(I);
+function HD(A) {
+  let I = ua(A), [g, B] = No(I), Q = ao(I);
   return [g ?? YA.OK, B, Q];
 }
 var WI;
 (function(A) {
   A[A.DATA = 0] = "DATA", A[A.TRAILER = 128] = "TRAILER";
 })(WI || (WI = {}));
-function HD(A, I, g) {
-  return xa(this, void 0, void 0, function* () {
-    let B, Q = "", E = new Uint8Array(0), R = fa(I);
-    if (Ta(A)) {
+function nD(A, I, g) {
+  return Ta(this, void 0, void 0, function* () {
+    let B, Q = "", E = new Uint8Array(0), R = Oa(I);
+    if (fa(A)) {
       let D = A.getReader();
       B = {
         next: () => D.read()
@@ -12684,9 +12684,9 @@ function HD(A, I, g) {
           let i = Q.length - Q.length % 4;
           if (i === 0)
             continue;
-          E = nD(E, Ni(Q.substring(0, i))), Q = Q.substring(i);
+          E = rD(E, Gi(Q.substring(0, i))), Q = Q.substring(i);
         } else
-          E = nD(E, D.value);
+          E = rD(E, D.value);
         for (; E.length >= 5 && E[0] === WI.DATA; ) {
           let i = 0;
           for (let a = 1; a < 5; a++)
@@ -12708,12 +12708,12 @@ function HD(A, I, g) {
     }
   });
 }
-const Ta = (A) => typeof A.getReader == "function";
-function nD(A, I) {
+const fa = (A) => typeof A.getReader == "function";
+function rD(A, I) {
   let g = new Uint8Array(A.length + I.length);
   return g.set(A), g.set(I, A.length), g;
 }
-function fa(A) {
+function Oa(A) {
   switch (A) {
     case "application/grpc-web-text":
     case "application/grpc-web-text+proto":
@@ -12728,7 +12728,7 @@ function fa(A) {
       throw new vA("unexpected response content type: " + A, YA[YA.INTERNAL]);
   }
 }
-function Ro(A) {
+function No(A) {
   let I, g, B = A["grpc-message"];
   if (B !== void 0) {
     if (Array.isArray(B))
@@ -12744,7 +12744,7 @@ function Ro(A) {
   }
   return [I, g];
 }
-function Uo(A) {
+function ao(A) {
   let I = {};
   for (let [g, B] of Object.entries(A))
     switch (g) {
@@ -12757,7 +12757,7 @@ function Uo(A) {
     }
   return I;
 }
-function Oa(A) {
+function ua(A) {
   let I = {};
   for (let g of String.fromCharCode.apply(String, A).trim().split(`\r
 `)) {
@@ -12771,14 +12771,14 @@ function Oa(A) {
   }
   return I;
 }
-function ua(A) {
+function ba(A) {
   let I = {};
   return A.forEach((g, B) => {
     let Q = I[B];
     typeof Q == "string" ? I[B] = [Q, g] : Array.isArray(Q) ? Q.push(g) : I[B] = g;
   }), I;
 }
-function ba(A) {
+function ja(A) {
   switch (A) {
     case 200:
       return YA.OK;
@@ -12810,12 +12810,12 @@ function ba(A) {
       return YA.UNKNOWN;
   }
 }
-class ja {
+class za {
   constructor(I) {
     this.defaultOptions = I;
   }
   mergeOptions(I) {
-    return DU(this.defaultOptions, I);
+    return iU(this.defaultOptions, I);
   }
   /**
    * Create an URI for a gRPC web call.
@@ -12847,15 +12847,15 @@ class ja {
   }
   serverStreaming(I, g, B) {
     var Q, E, R, D, i;
-    let a = B, c = (Q = a.format) !== null && Q !== void 0 ? Q : "text", M = (E = a.fetch) !== null && E !== void 0 ? E : globalThis.fetch, e = (R = a.fetchInit) !== null && R !== void 0 ? R : {}, F = this.makeUrl(I, a), K = I.I.toBinary(g, a.binaryOptions), n = new Cg(), q = new iU(), l = !0, t, d = new Cg(), O, y = new Cg();
+    let a = B, c = (Q = a.format) !== null && Q !== void 0 ? Q : "text", M = (E = a.fetch) !== null && E !== void 0 ? E : globalThis.fetch, e = (R = a.fetchInit) !== null && R !== void 0 ? R : {}, F = this.makeUrl(I, a), K = I.I.toBinary(g, a.binaryOptions), n = new Cg(), q = new oU(), l = !0, t, d = new Cg(), O, y = new Cg();
     return M(F, Object.assign(Object.assign({}, e), {
       method: "POST",
-      headers: yD(new globalThis.Headers(), c, a.timeout, a.meta),
-      body: eD(K, c),
+      headers: eD(new globalThis.Headers(), c, a.timeout, a.meta),
+      body: KD(K, c),
       signal: (D = B.abort) !== null && D !== void 0 ? D : null
       // node-fetch@3.0.0-beta.9 rejects `undefined`
     })).then((v) => {
-      let [W, IA, _] = GC(v);
+      let [W, IA, _] = FC(v);
       if (n.resolve(_), W != null && W !== YA.OK)
         throw new vA(IA ?? YA[W], YA[W], _);
       return W != null && (t = {
@@ -12865,14 +12865,14 @@ class ja {
     }).then((v) => {
       if (!v.body)
         throw new vA("missing response body", YA[YA.INTERNAL]);
-      return HD(v.body, v.headers.get("content-type"), (W, IA) => {
+      return nD(v.body, v.headers.get("content-type"), (W, IA) => {
         switch (W) {
           case WI.DATA:
             q.notifyMessage(I.O.fromBinary(IA, a.binaryOptions)), l = !1;
             break;
           case WI.TRAILER:
             let _, T;
-            [_, T, O] = KD(IA), t = {
+            [_, T, O] = HD(IA), t = {
               code: YA[_],
               detail: T ?? YA[_]
             };
@@ -12890,19 +12890,19 @@ class ja {
     }).catch((v) => {
       let W;
       v instanceof vA ? W = v : v instanceof Error && v.name === "AbortError" ? W = new vA(v.message, YA[YA.CANCELLED]) : W = new vA(v instanceof Error ? v.message : "" + v, YA[YA.INTERNAL]), W.methodName = I.name, W.serviceName = I.service.typeName, n.rejectPending(W), q.notifyError(W), d.rejectPending(W), y.rejectPending(W);
-    }), new UU(I, (i = a.meta) !== null && i !== void 0 ? i : {}, g, n.promise, q, d.promise, y.promise);
+    }), new NU(I, (i = a.meta) !== null && i !== void 0 ? i : {}, g, n.promise, q, d.promise, y.promise);
   }
   unary(I, g, B) {
     var Q, E, R, D, i;
     let a = B, c = (Q = a.format) !== null && Q !== void 0 ? Q : "text", M = (E = a.fetch) !== null && E !== void 0 ? E : globalThis.fetch, e = (R = a.fetchInit) !== null && R !== void 0 ? R : {}, F = this.makeUrl(I, a), K = I.I.toBinary(g, a.binaryOptions), n = new Cg(), q, l = new Cg(), t, d = new Cg(), O, y = new Cg();
     return M(F, Object.assign(Object.assign({}, e), {
       method: "POST",
-      headers: yD(new globalThis.Headers(), c, a.timeout, a.meta),
-      body: eD(K, c),
+      headers: eD(new globalThis.Headers(), c, a.timeout, a.meta),
+      body: KD(K, c),
       signal: (D = B.abort) !== null && D !== void 0 ? D : null
       // node-fetch@3.0.0-beta.9 rejects `undefined`
     })).then((v) => {
-      let [W, IA, _] = GC(v);
+      let [W, IA, _] = FC(v);
       if (n.resolve(_), W != null && W !== YA.OK)
         throw new vA(IA ?? YA[W], YA[W], _);
       return W != null && (t = {
@@ -12912,7 +12912,7 @@ class ja {
     }).then((v) => {
       if (!v.body)
         throw new vA("missing response body", YA[YA.INTERNAL]);
-      return HD(v.body, v.headers.get("content-type"), (W, IA) => {
+      return nD(v.body, v.headers.get("content-type"), (W, IA) => {
         switch (W) {
           case WI.DATA:
             if (q)
@@ -12921,7 +12921,7 @@ class ja {
             break;
           case WI.TRAILER:
             let _, T;
-            [_, T, O] = KD(IA), t = {
+            [_, T, O] = HD(IA), t = {
               code: YA[_],
               detail: T ?? YA[_]
             };
@@ -12943,27 +12943,27 @@ class ja {
     }).catch((v) => {
       let W;
       v instanceof vA ? W = v : v instanceof Error && v.name === "AbortError" ? W = new vA(v.message, YA[YA.CANCELLED]) : W = new vA(v instanceof Error ? v.message : "" + v, YA[YA.INTERNAL]), W.methodName = I.name, W.serviceName = I.service.typeName, n.rejectPending(W), l.rejectPending(W), d.rejectPending(W), y.rejectPending(W);
-    }), new wU(I, (i = a.meta) !== null && i !== void 0 ? i : {}, g, n.promise, l.promise, d.promise, y.promise);
+    }), new RU(I, (i = a.meta) !== null && i !== void 0 ? i : {}, g, n.promise, l.promise, d.promise, y.promise);
   }
 }
-const za = hQ(1000000n);
-class Pa extends Y {
+const Pa = hQ(1000000n);
+class Xa extends Y {
   constructor() {
     super("concordium.health.NodeHealthRequest", []);
   }
 }
-const Xa = new Pa();
-class va extends Y {
+const va = new Xa();
+class _a extends Y {
   constructor() {
     super("concordium.health.NodeHealthResponse", []);
   }
 }
-const _a = new va(), IC = new si("concordium.health.Health", [
-  { name: "Check", options: {}, I: Xa, O: _a }
+const $a = new _a(), gC = new Si("concordium.health.Health", [
+  { name: "Check", options: {}, I: va, O: $a }
 ]);
-class $a {
+class AG {
   constructor(I) {
-    this._transport = I, this.typeName = IC.typeName, this.methods = IC.methods, this.options = IC.options;
+    this._transport = I, this.typeName = gC.typeName, this.methods = gC.methods, this.options = gC.options;
   }
   /**
    * Check the health of the node. By necessity this involves a number of
@@ -12986,10 +12986,10 @@ class $a {
     return yA("unary", this._transport, B, Q, I);
   }
 }
-var FC;
+var kC;
 (function(A) {
   A[A.COOLDOWN = 0] = "COOLDOWN", A[A.PRE_COOLDOWN = 1] = "PRE_COOLDOWN", A[A.PRE_PRE_COOLDOWN = 2] = "PRE_PRE_COOLDOWN";
-})(FC || (FC = {}));
+})(kC || (kC = {}));
 var wQ;
 (function(A) {
   A[A.UPTODATE = 0] = "UPTODATE", A[A.PENDING = 1] = "PENDING", A[A.CATCHINGUP = 2] = "CATCHINGUP";
@@ -12998,10 +12998,10 @@ var RQ;
 (function(A) {
   A[A.NOT_IN_COMMITTEE = 0] = "NOT_IN_COMMITTEE", A[A.ADDED_BUT_NOT_ACTIVE_IN_COMMITTEE = 1] = "ADDED_BUT_NOT_ACTIVE_IN_COMMITTEE", A[A.ADDED_BUT_WRONG_KEYS = 2] = "ADDED_BUT_WRONG_KEYS";
 })(RQ || (RQ = {}));
-var kg;
+var Mg;
 (function(A) {
   A[A.OPEN_FOR_ALL = 0] = "OPEN_FOR_ALL", A[A.CLOSED_FOR_NEW = 1] = "CLOSED_FOR_NEW", A[A.CLOSED_FOR_ALL = 2] = "CLOSED_FOR_ALL";
-})(kg || (kg = {}));
+})(Mg || (Mg = {}));
 var UQ;
 (function(A) {
   A[A.V0 = 0] = "V0", A[A.V1 = 1] = "V1";
@@ -13010,10 +13010,10 @@ var NQ;
 (function(A) {
   A[A.INITIAL = 0] = "INITIAL", A[A.NORMAL = 1] = "NORMAL";
 })(NQ || (NQ = {}));
-var rD;
+var LD;
 (function(A) {
   A[A.UPDATE_PROTOCOL = 0] = "UPDATE_PROTOCOL", A[A.UPDATE_ELECTION_DIFFICULTY = 1] = "UPDATE_ELECTION_DIFFICULTY", A[A.UPDATE_EURO_PER_ENERGY = 2] = "UPDATE_EURO_PER_ENERGY", A[A.UPDATE_MICRO_CCD_PER_EURO = 3] = "UPDATE_MICRO_CCD_PER_EURO", A[A.UPDATE_FOUNDATION_ACCOUNT = 4] = "UPDATE_FOUNDATION_ACCOUNT", A[A.UPDATE_MINT_DISTRIBUTION = 5] = "UPDATE_MINT_DISTRIBUTION", A[A.UPDATE_TRANSACTION_FEE_DISTRIBUTION = 6] = "UPDATE_TRANSACTION_FEE_DISTRIBUTION", A[A.UPDATE_GAS_REWARDS = 7] = "UPDATE_GAS_REWARDS", A[A.UPDATE_POOL_PARAMETERS = 8] = "UPDATE_POOL_PARAMETERS", A[A.ADD_ANONYMITY_REVOKER = 9] = "ADD_ANONYMITY_REVOKER", A[A.ADD_IDENTITY_PROVIDER = 10] = "ADD_IDENTITY_PROVIDER", A[A.UPDATE_ROOT_KEYS = 11] = "UPDATE_ROOT_KEYS", A[A.UPDATE_LEVEL1_KEYS = 12] = "UPDATE_LEVEL1_KEYS", A[A.UPDATE_LEVEL2_KEYS = 13] = "UPDATE_LEVEL2_KEYS", A[A.UPDATE_COOLDOWN_PARAMETERS = 14] = "UPDATE_COOLDOWN_PARAMETERS", A[A.UPDATE_TIME_PARAMETERS = 15] = "UPDATE_TIME_PARAMETERS", A[A.UPDATE_TIMEOUT_PARAMETERS = 16] = "UPDATE_TIMEOUT_PARAMETERS", A[A.UPDATE_MIN_BLOCK_TIME = 17] = "UPDATE_MIN_BLOCK_TIME", A[A.UPDATE_BLOCK_ENERGY_LIMIT = 18] = "UPDATE_BLOCK_ENERGY_LIMIT", A[A.UPDATE_FINALIZATION_COMMITTEE_PARAMETERS = 19] = "UPDATE_FINALIZATION_COMMITTEE_PARAMETERS", A[A.UPDATE_VALIDATOR_SCORE_PARAMETERS = 20] = "UPDATE_VALIDATOR_SCORE_PARAMETERS";
-})(rD || (rD = {}));
+})(LD || (LD = {}));
 var BI;
 (function(A) {
   A[A.DEPLOY_MODULE = 0] = "DEPLOY_MODULE", A[A.INIT_CONTRACT = 1] = "INIT_CONTRACT", A[A.UPDATE = 2] = "UPDATE", A[A.TRANSFER = 3] = "TRANSFER", A[A.ADD_BAKER = 4] = "ADD_BAKER", A[A.REMOVE_BAKER = 5] = "REMOVE_BAKER", A[A.UPDATE_BAKER_STAKE = 6] = "UPDATE_BAKER_STAKE", A[A.UPDATE_BAKER_RESTAKE_EARNINGS = 7] = "UPDATE_BAKER_RESTAKE_EARNINGS", A[A.UPDATE_BAKER_KEYS = 8] = "UPDATE_BAKER_KEYS", A[A.UPDATE_CREDENTIAL_KEYS = 9] = "UPDATE_CREDENTIAL_KEYS", A[A.ENCRYPTED_AMOUNT_TRANSFER = 10] = "ENCRYPTED_AMOUNT_TRANSFER", A[A.TRANSFER_TO_ENCRYPTED = 11] = "TRANSFER_TO_ENCRYPTED", A[A.TRANSFER_TO_PUBLIC = 12] = "TRANSFER_TO_PUBLIC", A[A.TRANSFER_WITH_SCHEDULE = 13] = "TRANSFER_WITH_SCHEDULE", A[A.UPDATE_CREDENTIALS = 14] = "UPDATE_CREDENTIALS", A[A.REGISTER_DATA = 15] = "REGISTER_DATA", A[A.TRANSFER_WITH_MEMO = 16] = "TRANSFER_WITH_MEMO", A[A.ENCRYPTED_AMOUNT_TRANSFER_WITH_MEMO = 17] = "ENCRYPTED_AMOUNT_TRANSFER_WITH_MEMO", A[A.TRANSFER_WITH_SCHEDULE_AND_MEMO = 18] = "TRANSFER_WITH_SCHEDULE_AND_MEMO", A[A.CONFIGURE_BAKER = 19] = "CONFIGURE_BAKER", A[A.CONFIGURE_DELEGATION = 20] = "CONFIGURE_DELEGATION";
@@ -13022,13 +13022,13 @@ var $I;
 (function(A) {
   A[A.PROTOCOL_VERSION_1 = 0] = "PROTOCOL_VERSION_1", A[A.PROTOCOL_VERSION_2 = 1] = "PROTOCOL_VERSION_2", A[A.PROTOCOL_VERSION_3 = 2] = "PROTOCOL_VERSION_3", A[A.PROTOCOL_VERSION_4 = 3] = "PROTOCOL_VERSION_4", A[A.PROTOCOL_VERSION_5 = 4] = "PROTOCOL_VERSION_5", A[A.PROTOCOL_VERSION_6 = 5] = "PROTOCOL_VERSION_6", A[A.PROTOCOL_VERSION_7 = 6] = "PROTOCOL_VERSION_7", A[A.PROTOCOL_VERSION_8 = 7] = "PROTOCOL_VERSION_8";
 })($I || ($I = {}));
-class AG extends Y {
+class IG extends Y {
   constructor() {
     super("concordium.v2.Empty", []);
   }
 }
-const tA = new AG();
-class IG extends Y {
+const tA = new IG();
+class gG extends Y {
   constructor() {
     super("concordium.v2.BlockHash", [
       {
@@ -13041,8 +13041,8 @@ class IG extends Y {
     ]);
   }
 }
-const II = new IG();
-class gG extends Y {
+const II = new gG();
+class BG extends Y {
   constructor() {
     super("concordium.v2.Sha256Hash", [
       {
@@ -13055,8 +13055,8 @@ class gG extends Y {
     ]);
   }
 }
-const BG = new gG();
-class QG extends Y {
+const QG = new BG();
+class CG extends Y {
   constructor() {
     super("concordium.v2.TransactionHash", [
       {
@@ -13069,8 +13069,8 @@ class QG extends Y {
     ]);
   }
 }
-const Kg = new QG();
-class CG extends Y {
+const Hg = new CG();
+class EG extends Y {
   constructor() {
     super("concordium.v2.StateHash", [
       {
@@ -13083,8 +13083,8 @@ class CG extends Y {
     ]);
   }
 }
-const EG = new CG();
-class DG extends Y {
+const DG = new EG();
+class iG extends Y {
   constructor() {
     super("concordium.v2.AbsoluteBlockHeight", [
       {
@@ -13098,8 +13098,8 @@ class DG extends Y {
     ]);
   }
 }
-const Rg = new DG();
-class iG extends Y {
+const Ug = new iG();
+class oG extends Y {
   constructor() {
     super("concordium.v2.BlockHeight", [
       {
@@ -13113,8 +13113,8 @@ class iG extends Y {
     ]);
   }
 }
-const kB = new iG();
-class oG extends Y {
+const kB = new oG();
+class wG extends Y {
   constructor() {
     super("concordium.v2.BakerId", [
       {
@@ -13128,8 +13128,8 @@ class oG extends Y {
     ]);
   }
 }
-const xA = new oG();
-class wG extends Y {
+const xA = new wG();
+class RG extends Y {
   constructor() {
     super("concordium.v2.AccountIndex", [
       {
@@ -13143,8 +13143,8 @@ class wG extends Y {
     ]);
   }
 }
-const Vg = new wG();
-class RG extends Y {
+const lg = new RG();
+class UG extends Y {
   constructor() {
     super("concordium.v2.ModuleRef", [
       {
@@ -13157,17 +13157,17 @@ class RG extends Y {
     ]);
   }
 }
-const eI = new RG();
-class UG extends Y {
+const eI = new UG();
+class NG extends Y {
   constructor() {
     super("concordium.v2.VersionedModuleSource", [
-      { no: 1, name: "v0", kind: "message", oneof: "module", T: () => aG },
-      { no: 2, name: "v1", kind: "message", oneof: "module", T: () => FG }
+      { no: 1, name: "v0", kind: "message", oneof: "module", T: () => GG },
+      { no: 2, name: "v1", kind: "message", oneof: "module", T: () => kG }
     ]);
   }
 }
-const No = new UG();
-class NG extends Y {
+const Go = new NG();
+class aG extends Y {
   constructor() {
     super("concordium.v2.VersionedModuleSource.ModuleSourceV0", [
       {
@@ -13180,8 +13180,8 @@ class NG extends Y {
     ]);
   }
 }
-const aG = new NG();
-class GG extends Y {
+const GG = new aG();
+class FG extends Y {
   constructor() {
     super("concordium.v2.VersionedModuleSource.ModuleSourceV1", [
       {
@@ -13194,8 +13194,8 @@ class GG extends Y {
     ]);
   }
 }
-const FG = new GG();
-class kG extends Y {
+const kG = new FG();
+class MG extends Y {
   constructor() {
     super("concordium.v2.Timestamp", [
       {
@@ -13209,18 +13209,18 @@ class kG extends Y {
     ]);
   }
 }
-const EI = new kG();
-class MG extends Y {
+const EI = new MG();
+class cG extends Y {
   constructor() {
     super("concordium.v2.Release", [
       { no: 1, name: "timestamp", kind: "message", T: () => EI },
       { no: 2, name: "amount", kind: "message", T: () => kA },
-      { no: 3, name: "transactions", kind: "message", repeat: 1, T: () => Kg }
+      { no: 3, name: "transactions", kind: "message", repeat: 1, T: () => Hg }
     ]);
   }
 }
-const cG = new MG();
-class hG extends Y {
+const hG = new cG();
+class sG extends Y {
   constructor() {
     super("concordium.v2.NewRelease", [
       { no: 1, name: "timestamp", kind: "message", T: () => EI },
@@ -13228,17 +13228,17 @@ class hG extends Y {
     ]);
   }
 }
-const sG = new hG();
-class YG extends Y {
+const YG = new sG();
+class SG extends Y {
   constructor() {
     super("concordium.v2.ReleaseSchedule", [
       { no: 1, name: "total", kind: "message", T: () => kA },
-      { no: 2, name: "schedules", kind: "message", repeat: 1, T: () => cG }
+      { no: 2, name: "schedules", kind: "message", repeat: 1, T: () => hG }
     ]);
   }
 }
-const SG = new YG();
-class JG extends Y {
+const JG = new SG();
+class tG extends Y {
   constructor() {
     super("concordium.v2.EncryptedAmount", [
       {
@@ -13251,11 +13251,11 @@ class JG extends Y {
     ]);
   }
 }
-const Mg = new JG();
-class tG extends Y {
+const cg = new tG();
+class yG extends Y {
   constructor() {
     super("concordium.v2.EncryptedBalance", [
-      { no: 1, name: "self_amount", kind: "message", T: () => Mg },
+      { no: 1, name: "self_amount", kind: "message", T: () => cg },
       {
         no: 2,
         name: "start_index",
@@ -13264,7 +13264,7 @@ class tG extends Y {
         L: 0
         /*LongType.BIGINT*/
       },
-      { no: 3, name: "aggregated_amount", kind: "message", T: () => Mg },
+      { no: 3, name: "aggregated_amount", kind: "message", T: () => cg },
       {
         no: 4,
         name: "num_aggregated",
@@ -13273,12 +13273,12 @@ class tG extends Y {
         T: 13
         /*ScalarType.UINT32*/
       },
-      { no: 5, name: "incoming_amounts", kind: "message", repeat: 1, T: () => Mg }
+      { no: 5, name: "incoming_amounts", kind: "message", repeat: 1, T: () => cg }
     ]);
   }
 }
-const yG = new tG();
-class eG extends Y {
+const eG = new yG();
+class KG extends Y {
   constructor() {
     super("concordium.v2.DelegationTarget", [
       { no: 1, name: "passive", kind: "message", oneof: "target", T: () => tA },
@@ -13286,24 +13286,10 @@ class eG extends Y {
     ]);
   }
 }
-const ao = new eG();
-class KG extends Y {
-  constructor() {
-    super("concordium.v2.BakerElectionVerifyKey", [
-      {
-        no: 1,
-        name: "value",
-        kind: "scalar",
-        T: 12
-        /*ScalarType.BYTES*/
-      }
-    ]);
-  }
-}
-const VC = new KG();
+const Fo = new KG();
 class HG extends Y {
   constructor() {
-    super("concordium.v2.BakerSignatureVerifyKey", [
+    super("concordium.v2.BakerElectionVerifyKey", [
       {
         no: 1,
         name: "value",
@@ -13317,6 +13303,20 @@ class HG extends Y {
 const lC = new HG();
 class nG extends Y {
   constructor() {
+    super("concordium.v2.BakerSignatureVerifyKey", [
+      {
+        no: 1,
+        name: "value",
+        kind: "scalar",
+        T: 12
+        /*ScalarType.BYTES*/
+      }
+    ]);
+  }
+}
+const WC = new nG();
+class rG extends Y {
+  constructor() {
     super("concordium.v2.BakerAggregationVerifyKey", [
       {
         no: 1,
@@ -13328,28 +13328,28 @@ class nG extends Y {
     ]);
   }
 }
-const sQ = new nG();
-class rG extends Y {
+const sQ = new rG();
+class LG extends Y {
   constructor() {
     super("concordium.v2.BakerInfo", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
-      { no: 2, name: "election_key", kind: "message", T: () => VC },
-      { no: 3, name: "signature_key", kind: "message", T: () => lC },
+      { no: 2, name: "election_key", kind: "message", T: () => lC },
+      { no: 3, name: "signature_key", kind: "message", T: () => WC },
       { no: 4, name: "aggregation_key", kind: "message", T: () => sQ }
     ]);
   }
 }
-const Go = new rG();
-class LG extends Y {
+const ko = new LG();
+class qG extends Y {
   constructor() {
     super("concordium.v2.StakePendingChange", [
-      { no: 1, name: "reduce", kind: "message", oneof: "change", T: () => dG },
+      { no: 1, name: "reduce", kind: "message", oneof: "change", T: () => pG },
       { no: 2, name: "remove", kind: "message", oneof: "change", T: () => EI }
     ]);
   }
 }
-const WC = new LG();
-class qG extends Y {
+const mC = new qG();
+class dG extends Y {
   constructor() {
     super("concordium.v2.StakePendingChange.Reduce", [
       { no: 1, name: "new_stake", kind: "message", T: () => kA },
@@ -13357,8 +13357,8 @@ class qG extends Y {
     ]);
   }
 }
-const dG = new qG();
-class pG extends Y {
+const pG = new dG();
+class VG extends Y {
   constructor() {
     super("concordium.v2.AmountFraction", [
       {
@@ -13371,8 +13371,8 @@ class pG extends Y {
     ]);
   }
 }
-const gI = new pG();
-class VG extends Y {
+const gI = new VG();
+class lG extends Y {
   constructor() {
     super("concordium.v2.CommissionRates", [
       { no: 1, name: "finalization", kind: "message", T: () => gI },
@@ -13381,11 +13381,11 @@ class VG extends Y {
     ]);
   }
 }
-const YQ = new VG();
-class lG extends Y {
+const YQ = new lG();
+class WG extends Y {
   constructor() {
     super("concordium.v2.BakerPoolInfo", [
-      { no: 1, name: "open_status", kind: "enum", T: () => ["concordium.v2.OpenStatus", kg, "OPEN_STATUS_"] },
+      { no: 1, name: "open_status", kind: "enum", T: () => ["concordium.v2.OpenStatus", Mg, "OPEN_STATUS_"] },
       {
         no: 2,
         name: "url",
@@ -13397,17 +13397,17 @@ class lG extends Y {
     ]);
   }
 }
-const Fo = new lG();
-class WG extends Y {
+const Mo = new WG();
+class mG extends Y {
   constructor() {
     super("concordium.v2.AccountStakingInfo", [
-      { no: 1, name: "baker", kind: "message", oneof: "stakingInfo", T: () => xG },
-      { no: 2, name: "delegator", kind: "message", oneof: "stakingInfo", T: () => fG }
+      { no: 1, name: "baker", kind: "message", oneof: "stakingInfo", T: () => TG },
+      { no: 2, name: "delegator", kind: "message", oneof: "stakingInfo", T: () => OG }
     ]);
   }
 }
-const mG = new WG();
-class ZG extends Y {
+const ZG = new mG();
+class xG extends Y {
   constructor() {
     super("concordium.v2.AccountStakingInfo.Baker", [
       { no: 1, name: "staked_amount", kind: "message", T: () => kA },
@@ -13418,9 +13418,9 @@ class ZG extends Y {
         T: 8
         /*ScalarType.BOOL*/
       },
-      { no: 3, name: "baker_info", kind: "message", T: () => Go },
-      { no: 4, name: "pending_change", kind: "message", T: () => WC },
-      { no: 5, name: "pool_info", kind: "message", T: () => Fo },
+      { no: 3, name: "baker_info", kind: "message", T: () => ko },
+      { no: 4, name: "pending_change", kind: "message", T: () => mC },
+      { no: 5, name: "pool_info", kind: "message", T: () => Mo },
       {
         no: 6,
         name: "is_suspended",
@@ -13431,8 +13431,8 @@ class ZG extends Y {
     ]);
   }
 }
-const xG = new ZG();
-class TG extends Y {
+const TG = new xG();
+class fG extends Y {
   constructor() {
     super("concordium.v2.AccountStakingInfo.Delegator", [
       { no: 1, name: "staked_amount", kind: "message", T: () => kA },
@@ -13443,13 +13443,13 @@ class TG extends Y {
         T: 8
         /*ScalarType.BOOL*/
       },
-      { no: 3, name: "target", kind: "message", T: () => ao },
-      { no: 4, name: "pending_change", kind: "message", T: () => WC }
+      { no: 3, name: "target", kind: "message", T: () => Fo },
+      { no: 4, name: "pending_change", kind: "message", T: () => mC }
     ]);
   }
 }
-const fG = new TG();
-class OG extends Y {
+const OG = new fG();
+class uG extends Y {
   constructor() {
     super("concordium.v2.SequenceNumber", [
       {
@@ -13463,8 +13463,8 @@ class OG extends Y {
     ]);
   }
 }
-const QI = new OG();
-class uG extends Y {
+const QI = new uG();
+class bG extends Y {
   constructor() {
     super("concordium.v2.UpdateSequenceNumber", [
       {
@@ -13478,8 +13478,8 @@ class uG extends Y {
     ]);
   }
 }
-const bG = new uG();
-class jG extends Y {
+const jG = new bG();
+class zG extends Y {
   constructor() {
     super("concordium.v2.Amount", [
       {
@@ -13493,8 +13493,8 @@ class jG extends Y {
     ]);
   }
 }
-const kA = new jG();
-class zG extends Y {
+const kA = new zG();
+class PG extends Y {
   constructor() {
     super("concordium.v2.CredentialIndex", [
       {
@@ -13507,8 +13507,8 @@ class zG extends Y {
     ]);
   }
 }
-new zG();
-class PG extends Y {
+new PG();
+class XG extends Y {
   constructor() {
     super("concordium.v2.SignatureThreshold", [
       {
@@ -13521,8 +13521,8 @@ class PG extends Y {
     ]);
   }
 }
-const XG = new PG();
-class vG extends Y {
+const vG = new XG();
+class _G extends Y {
   constructor() {
     super("concordium.v2.AccountThreshold", [
       {
@@ -13535,8 +13535,8 @@ class vG extends Y {
     ]);
   }
 }
-const ko = new vG();
-class _G extends Y {
+const co = new _G();
+class $G extends Y {
   constructor() {
     super("concordium.v2.EncryptionKey", [
       {
@@ -13549,8 +13549,8 @@ class _G extends Y {
     ]);
   }
 }
-const $G = new _G();
-class AF extends Y {
+const AF = new $G();
+class IF extends Y {
   constructor() {
     super("concordium.v2.AccountAddress", [
       {
@@ -13563,8 +13563,8 @@ class AF extends Y {
     ]);
   }
 }
-const VA = new AF();
-class IF extends Y {
+const VA = new IF();
+class gF extends Y {
   constructor() {
     super("concordium.v2.Address", [
       { no: 1, name: "account", kind: "message", oneof: "type", T: () => VA },
@@ -13572,8 +13572,8 @@ class IF extends Y {
     ]);
   }
 }
-const SQ = new IF();
-class gF extends Y {
+const SQ = new gF();
+class BF extends Y {
   constructor() {
     super("concordium.v2.AccountVerifyKey", [
       {
@@ -13587,17 +13587,17 @@ class gF extends Y {
     ]);
   }
 }
-const BF = new gF();
-class QF extends Y {
+const QF = new BF();
+class CF extends Y {
   constructor() {
     super("concordium.v2.CredentialPublicKeys", [
-      { no: 1, name: "keys", kind: "map", K: 13, V: { kind: "message", T: () => BF } },
-      { no: 2, name: "threshold", kind: "message", T: () => XG }
+      { no: 1, name: "keys", kind: "map", K: 13, V: { kind: "message", T: () => QF } },
+      { no: 2, name: "threshold", kind: "message", T: () => vG }
     ]);
   }
 }
-const Mo = new QF();
-class CF extends Y {
+const ho = new CF();
+class EF extends Y {
   constructor() {
     super("concordium.v2.CredentialRegistrationId", [
       {
@@ -13610,8 +13610,8 @@ class CF extends Y {
     ]);
   }
 }
-const Ag = new CF();
-class EF extends Y {
+const Ag = new EF();
+class DF extends Y {
   constructor() {
     super("concordium.v2.IdentityProviderIdentity", [
       {
@@ -13624,8 +13624,8 @@ class EF extends Y {
     ]);
   }
 }
-const co = new EF();
-class DF extends Y {
+const so = new DF();
+class iF extends Y {
   constructor() {
     super("concordium.v2.YearMonth", [
       {
@@ -13645,12 +13645,12 @@ class DF extends Y {
     ]);
   }
 }
-const LD = new DF();
-class iF extends Y {
+const qD = new iF();
+class oF extends Y {
   constructor() {
     super("concordium.v2.Policy", [
-      { no: 1, name: "created_at", kind: "message", T: () => LD },
-      { no: 2, name: "valid_to", kind: "message", T: () => LD },
+      { no: 1, name: "created_at", kind: "message", T: () => qD },
+      { no: 2, name: "valid_to", kind: "message", T: () => qD },
       { no: 3, name: "attributes", kind: "map", K: 13, V: {
         kind: "scalar",
         T: 12
@@ -13659,19 +13659,19 @@ class iF extends Y {
     ]);
   }
 }
-const ho = new iF();
-class oF extends Y {
+const Yo = new oF();
+class wF extends Y {
   constructor() {
     super("concordium.v2.InitialCredentialValues", [
-      { no: 1, name: "keys", kind: "message", T: () => Mo },
+      { no: 1, name: "keys", kind: "message", T: () => ho },
       { no: 2, name: "cred_id", kind: "message", T: () => Ag },
-      { no: 3, name: "ip_id", kind: "message", T: () => co },
-      { no: 4, name: "policy", kind: "message", T: () => ho }
+      { no: 3, name: "ip_id", kind: "message", T: () => so },
+      { no: 4, name: "policy", kind: "message", T: () => Yo }
     ]);
   }
 }
-const wF = new oF();
-class RF extends Y {
+const RF = new wF();
+class UF extends Y {
   constructor() {
     super("concordium.v2.ChainArData", [
       {
@@ -13684,8 +13684,8 @@ class RF extends Y {
     ]);
   }
 }
-const UF = new RF();
-class NF extends Y {
+const NF = new UF();
+class aF extends Y {
   constructor() {
     super("concordium.v2.ArThreshold", [
       {
@@ -13698,8 +13698,8 @@ class NF extends Y {
     ]);
   }
 }
-const aF = new NF();
-class GF extends Y {
+const GF = new aF();
+class FF extends Y {
   constructor() {
     super("concordium.v2.Commitment", [
       {
@@ -13712,87 +13712,87 @@ class GF extends Y {
     ]);
   }
 }
-const Pg = new GF();
-class FF extends Y {
+const Xg = new FF();
+class kF extends Y {
   constructor() {
     super("concordium.v2.CredentialCommitments", [
-      { no: 1, name: "prf", kind: "message", T: () => Pg },
-      { no: 2, name: "cred_counter", kind: "message", T: () => Pg },
-      { no: 3, name: "max_accounts", kind: "message", T: () => Pg },
-      { no: 4, name: "attributes", kind: "map", K: 13, V: { kind: "message", T: () => Pg } },
-      { no: 5, name: "id_cred_sec_sharing_coeff", kind: "message", repeat: 1, T: () => Pg }
+      { no: 1, name: "prf", kind: "message", T: () => Xg },
+      { no: 2, name: "cred_counter", kind: "message", T: () => Xg },
+      { no: 3, name: "max_accounts", kind: "message", T: () => Xg },
+      { no: 4, name: "attributes", kind: "map", K: 13, V: { kind: "message", T: () => Xg } },
+      { no: 5, name: "id_cred_sec_sharing_coeff", kind: "message", repeat: 1, T: () => Xg }
     ]);
   }
 }
-const kF = new FF();
-class MF extends Y {
+const MF = new kF();
+class cF extends Y {
   constructor() {
     super("concordium.v2.NormalCredentialValues", [
-      { no: 1, name: "keys", kind: "message", T: () => Mo },
+      { no: 1, name: "keys", kind: "message", T: () => ho },
       { no: 2, name: "cred_id", kind: "message", T: () => Ag },
-      { no: 3, name: "ip_id", kind: "message", T: () => co },
-      { no: 4, name: "policy", kind: "message", T: () => ho },
-      { no: 5, name: "ar_threshold", kind: "message", T: () => aF },
-      { no: 6, name: "ar_data", kind: "map", K: 13, V: { kind: "message", T: () => UF } },
-      { no: 7, name: "commitments", kind: "message", T: () => kF }
+      { no: 3, name: "ip_id", kind: "message", T: () => so },
+      { no: 4, name: "policy", kind: "message", T: () => Yo },
+      { no: 5, name: "ar_threshold", kind: "message", T: () => GF },
+      { no: 6, name: "ar_data", kind: "map", K: 13, V: { kind: "message", T: () => NF } },
+      { no: 7, name: "commitments", kind: "message", T: () => MF }
     ]);
   }
 }
-const cF = new MF();
-class hF extends Y {
+const hF = new cF();
+class sF extends Y {
   constructor() {
     super("concordium.v2.AccountCredential", [
-      { no: 1, name: "initial", kind: "message", oneof: "credentialValues", T: () => wF },
-      { no: 2, name: "normal", kind: "message", oneof: "credentialValues", T: () => cF }
+      { no: 1, name: "initial", kind: "message", oneof: "credentialValues", T: () => RF },
+      { no: 2, name: "normal", kind: "message", oneof: "credentialValues", T: () => hF }
     ]);
   }
 }
-const sF = new hF();
-class YF extends Y {
+const YF = new sF();
+class SF extends Y {
   constructor() {
     super("concordium.v2.Cooldown", [
       { no: 1, name: "end_time", kind: "message", T: () => EI },
       { no: 2, name: "amount", kind: "message", T: () => kA },
-      { no: 3, name: "status", kind: "enum", T: () => ["concordium.v2.Cooldown.CooldownStatus", FC] }
+      { no: 3, name: "status", kind: "enum", T: () => ["concordium.v2.Cooldown.CooldownStatus", kC] }
     ]);
   }
 }
-const SF = new YF();
-class JF extends Y {
+const JF = new SF();
+class tF extends Y {
   constructor() {
     super("concordium.v2.AccountInfo", [
       { no: 1, name: "sequence_number", kind: "message", T: () => QI },
       { no: 2, name: "amount", kind: "message", T: () => kA },
-      { no: 3, name: "schedule", kind: "message", T: () => SG },
-      { no: 4, name: "creds", kind: "map", K: 13, V: { kind: "message", T: () => sF } },
-      { no: 5, name: "threshold", kind: "message", T: () => ko },
-      { no: 6, name: "encrypted_balance", kind: "message", T: () => yG },
-      { no: 7, name: "encryption_key", kind: "message", T: () => $G },
-      { no: 8, name: "index", kind: "message", T: () => Vg },
-      { no: 9, name: "stake", kind: "message", T: () => mG },
+      { no: 3, name: "schedule", kind: "message", T: () => JG },
+      { no: 4, name: "creds", kind: "map", K: 13, V: { kind: "message", T: () => YF } },
+      { no: 5, name: "threshold", kind: "message", T: () => co },
+      { no: 6, name: "encrypted_balance", kind: "message", T: () => eG },
+      { no: 7, name: "encryption_key", kind: "message", T: () => AF },
+      { no: 8, name: "index", kind: "message", T: () => lg },
+      { no: 9, name: "stake", kind: "message", T: () => ZG },
       { no: 10, name: "address", kind: "message", T: () => VA },
-      { no: 11, name: "cooldowns", kind: "message", repeat: 1, T: () => SF },
+      { no: 11, name: "cooldowns", kind: "message", repeat: 1, T: () => JF },
       { no: 12, name: "available_balance", kind: "message", T: () => kA }
     ]);
   }
 }
-const so = new JF();
-class tF extends Y {
+const So = new tF();
+class yF extends Y {
   constructor() {
     super("concordium.v2.BlockHashInput", [
       { no: 1, name: "best", kind: "message", oneof: "blockHashInput", T: () => tA },
       { no: 2, name: "last_final", kind: "message", oneof: "blockHashInput", T: () => tA },
       { no: 3, name: "given", kind: "message", oneof: "blockHashInput", T: () => II },
-      { no: 4, name: "absolute_height", kind: "message", oneof: "blockHashInput", T: () => Rg },
-      { no: 5, name: "relative_height", kind: "message", oneof: "blockHashInput", T: () => eF }
+      { no: 4, name: "absolute_height", kind: "message", oneof: "blockHashInput", T: () => Ug },
+      { no: 5, name: "relative_height", kind: "message", oneof: "blockHashInput", T: () => KF }
     ]);
   }
 }
-const TA = new tF();
-class yF extends Y {
+const TA = new yF();
+class eF extends Y {
   constructor() {
     super("concordium.v2.BlockHashInput.RelativeHeight", [
-      { no: 1, name: "genesis_index", kind: "message", T: () => ug },
+      { no: 1, name: "genesis_index", kind: "message", T: () => bg },
       { no: 2, name: "height", kind: "message", T: () => kB },
       {
         no: 3,
@@ -13804,54 +13804,54 @@ class yF extends Y {
     ]);
   }
 }
-const eF = new yF();
-class KF extends Y {
+const KF = new eF();
+class HF extends Y {
   constructor() {
     super("concordium.v2.EpochRequest", [
-      { no: 1, name: "relative_epoch", kind: "message", oneof: "epochRequestInput", T: () => nF },
+      { no: 1, name: "relative_epoch", kind: "message", oneof: "epochRequestInput", T: () => rF },
       { no: 2, name: "block_hash", kind: "message", oneof: "epochRequestInput", T: () => TA }
     ]);
   }
 }
-const qD = new KF();
-class HF extends Y {
+const dD = new HF();
+class nF extends Y {
   constructor() {
     super("concordium.v2.EpochRequest.RelativeEpoch", [
-      { no: 1, name: "genesis_index", kind: "message", T: () => ug },
+      { no: 1, name: "genesis_index", kind: "message", T: () => bg },
       { no: 2, name: "epoch", kind: "message", T: () => YI }
     ]);
   }
 }
-const nF = new HF();
-class rF extends Y {
+const rF = new nF();
+class LF extends Y {
   constructor() {
     super("concordium.v2.AccountIdentifierInput", [
       { no: 1, name: "address", kind: "message", oneof: "accountIdentifierInput", T: () => VA },
       { no: 2, name: "cred_id", kind: "message", oneof: "accountIdentifierInput", T: () => Ag },
-      { no: 3, name: "account_index", kind: "message", oneof: "accountIdentifierInput", T: () => Vg }
+      { no: 3, name: "account_index", kind: "message", oneof: "accountIdentifierInput", T: () => lg }
     ]);
   }
 }
-const Yo = new rF();
-class LF extends Y {
+const Jo = new LF();
+class qF extends Y {
   constructor() {
     super("concordium.v2.AccountInfoRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
-      { no: 2, name: "account_identifier", kind: "message", T: () => Yo }
+      { no: 2, name: "account_identifier", kind: "message", T: () => Jo }
     ]);
   }
 }
-const qF = new LF();
-class dF extends Y {
+const dF = new qF();
+class pF extends Y {
   constructor() {
     super("concordium.v2.FinalizedBlockInfo", [
       { no: 1, name: "hash", kind: "message", T: () => II },
-      { no: 2, name: "height", kind: "message", T: () => Rg }
+      { no: 2, name: "height", kind: "message", T: () => Ug }
     ]);
   }
 }
-const pF = new dF();
-class VF extends Y {
+const VF = new pF();
+class lF extends Y {
   constructor() {
     super("concordium.v2.AncestorsRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -13866,8 +13866,8 @@ class VF extends Y {
     ]);
   }
 }
-const lF = new VF();
-class WF extends Y {
+const WF = new lF();
+class mF extends Y {
   constructor() {
     super("concordium.v2.ModuleSourceRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -13875,8 +13875,8 @@ class WF extends Y {
     ]);
   }
 }
-const mF = new WF();
-class ZF extends Y {
+const ZF = new mF();
+class xF extends Y {
   constructor() {
     super("concordium.v2.ContractAddress", [
       {
@@ -13898,8 +13898,8 @@ class ZF extends Y {
     ]);
   }
 }
-const hI = new ZF();
-class xF extends Y {
+const hI = new xF();
+class TF extends Y {
   constructor() {
     super("concordium.v2.InstanceInfoRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -13907,42 +13907,42 @@ class xF extends Y {
     ]);
   }
 }
-const dD = new xF();
-class TF extends Y {
+const pD = new TF();
+class fF extends Y {
   constructor() {
     super("concordium.v2.InstanceInfo", [
-      { no: 1, name: "v0", kind: "message", oneof: "version", T: () => OF },
-      { no: 2, name: "v1", kind: "message", oneof: "version", T: () => bF }
+      { no: 1, name: "v0", kind: "message", oneof: "version", T: () => uF },
+      { no: 2, name: "v1", kind: "message", oneof: "version", T: () => jF }
     ]);
   }
 }
-const So = new TF();
-class fF extends Y {
+const to = new fF();
+class OF extends Y {
   constructor() {
     super("concordium.v2.InstanceInfo.V0", [
-      { no: 1, name: "model", kind: "message", T: () => Bk },
+      { no: 1, name: "model", kind: "message", T: () => Qk },
       { no: 2, name: "owner", kind: "message", T: () => VA },
       { no: 3, name: "amount", kind: "message", T: () => kA },
-      { no: 4, name: "methods", kind: "message", repeat: 1, T: () => Ug },
+      { no: 4, name: "methods", kind: "message", repeat: 1, T: () => Ng },
       { no: 5, name: "name", kind: "message", T: () => MB },
       { no: 6, name: "source_module", kind: "message", T: () => eI }
     ]);
   }
 }
-const OF = new fF();
-class uF extends Y {
+const uF = new OF();
+class bF extends Y {
   constructor() {
     super("concordium.v2.InstanceInfo.V1", [
       { no: 2, name: "owner", kind: "message", T: () => VA },
       { no: 3, name: "amount", kind: "message", T: () => kA },
-      { no: 4, name: "methods", kind: "message", repeat: 1, T: () => Ug },
+      { no: 4, name: "methods", kind: "message", repeat: 1, T: () => Ng },
       { no: 5, name: "name", kind: "message", T: () => MB },
       { no: 6, name: "source_module", kind: "message", T: () => eI }
     ]);
   }
 }
-const bF = new uF();
-class jF extends Y {
+const jF = new bF();
+class zF extends Y {
   constructor() {
     super("concordium.v2.InstanceStateKVPair", [
       {
@@ -13962,8 +13962,8 @@ class jF extends Y {
     ]);
   }
 }
-const zF = new jF();
-class PF extends Y {
+const PF = new zF();
+class XF extends Y {
   constructor() {
     super("concordium.v2.InstanceStateLookupRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -13978,8 +13978,8 @@ class PF extends Y {
     ]);
   }
 }
-const XF = new PF();
-class vF extends Y {
+const vF = new XF();
+class _F extends Y {
   constructor() {
     super("concordium.v2.InstanceStateValueAtKey", [
       {
@@ -13992,8 +13992,8 @@ class vF extends Y {
     ]);
   }
 }
-const _F = new vF();
-class $F extends Y {
+const $F = new _F();
+class Ak extends Y {
   constructor() {
     super("concordium.v2.ReceiveName", [
       {
@@ -14006,8 +14006,8 @@ class $F extends Y {
     ]);
   }
 }
-const Ug = new $F();
-class Ak extends Y {
+const Ng = new Ak();
+class Ik extends Y {
   constructor() {
     super("concordium.v2.InitName", [
       {
@@ -14020,8 +14020,8 @@ class Ak extends Y {
     ]);
   }
 }
-const MB = new Ak();
-class Ik extends Y {
+const MB = new Ik();
+class gk extends Y {
   constructor() {
     super("concordium.v2.Parameter", [
       {
@@ -14034,8 +14034,8 @@ class Ik extends Y {
     ]);
   }
 }
-const Jg = new Ik();
-class gk extends Y {
+const tg = new gk();
+class Bk extends Y {
   constructor() {
     super("concordium.v2.ContractStateV0", [
       {
@@ -14048,43 +14048,43 @@ class gk extends Y {
     ]);
   }
 }
-const Bk = new gk();
-class Qk extends Y {
+const Qk = new Bk();
+class Ck extends Y {
   constructor() {
     super("concordium.v2.BlockItemStatus", [
       { no: 1, name: "received", kind: "message", oneof: "status", T: () => tA },
-      { no: 2, name: "committed", kind: "message", oneof: "status", T: () => Dk },
-      { no: 3, name: "finalized", kind: "message", oneof: "status", T: () => ok }
+      { no: 2, name: "committed", kind: "message", oneof: "status", T: () => ik },
+      { no: 3, name: "finalized", kind: "message", oneof: "status", T: () => wk }
     ]);
   }
 }
-const Ck = new Qk();
-class Ek extends Y {
+const Ek = new Ck();
+class Dk extends Y {
   constructor() {
     super("concordium.v2.BlockItemStatus.Committed", [
-      { no: 1, name: "outcomes", kind: "message", repeat: 1, T: () => Jo }
+      { no: 1, name: "outcomes", kind: "message", repeat: 1, T: () => yo }
     ]);
   }
 }
-const Dk = new Ek();
-class ik extends Y {
+const ik = new Dk();
+class ok extends Y {
   constructor() {
     super("concordium.v2.BlockItemStatus.Finalized", [
-      { no: 1, name: "outcome", kind: "message", T: () => Jo }
+      { no: 1, name: "outcome", kind: "message", T: () => yo }
     ]);
   }
 }
-const ok = new ik();
-class wk extends Y {
+const wk = new ok();
+class Rk extends Y {
   constructor() {
     super("concordium.v2.BlockItemSummaryInBlock", [
       { no: 1, name: "block_hash", kind: "message", T: () => II },
-      { no: 2, name: "outcome", kind: "message", T: () => lo }
+      { no: 2, name: "outcome", kind: "message", T: () => mo }
     ]);
   }
 }
-const Jo = new wk();
-class Rk extends Y {
+const yo = new Rk();
+class Uk extends Y {
   constructor() {
     super("concordium.v2.Energy", [
       {
@@ -14098,8 +14098,8 @@ class Rk extends Y {
     ]);
   }
 }
-const sI = new Rk();
-class Uk extends Y {
+const sI = new Uk();
+class Nk extends Y {
   constructor() {
     super("concordium.v2.Slot", [
       {
@@ -14113,8 +14113,8 @@ class Uk extends Y {
     ]);
   }
 }
-const Nk = new Uk();
-class ak extends Y {
+const ak = new Nk();
+class Gk extends Y {
   constructor() {
     super("concordium.v2.NextAccountSequenceNumber", [
       { no: 1, name: "sequence_number", kind: "message", T: () => QI },
@@ -14128,8 +14128,8 @@ class ak extends Y {
     ]);
   }
 }
-const Gk = new ak();
-class Fk extends Y {
+const Fk = new Gk();
+class kk extends Y {
   constructor() {
     super("concordium.v2.Duration", [
       {
@@ -14143,23 +14143,23 @@ class Fk extends Y {
     ]);
   }
 }
-const _I = new Fk();
-class kk extends Y {
+const _I = new kk();
+class Mk extends Y {
   constructor() {
     super("concordium.v2.RejectReason", [
       { no: 1, name: "module_not_wf", kind: "message", oneof: "reason", T: () => tA },
       { no: 2, name: "module_hash_already_exists", kind: "message", oneof: "reason", T: () => eI },
       { no: 3, name: "invalid_account_reference", kind: "message", oneof: "reason", T: () => VA },
-      { no: 4, name: "invalid_init_method", kind: "message", oneof: "reason", T: () => ck },
-      { no: 5, name: "invalid_receive_method", kind: "message", oneof: "reason", T: () => sk },
+      { no: 4, name: "invalid_init_method", kind: "message", oneof: "reason", T: () => hk },
+      { no: 5, name: "invalid_receive_method", kind: "message", oneof: "reason", T: () => Yk },
       { no: 6, name: "invalid_module_reference", kind: "message", oneof: "reason", T: () => eI },
       { no: 7, name: "invalid_contract_address", kind: "message", oneof: "reason", T: () => hI },
       { no: 8, name: "runtime_failure", kind: "message", oneof: "reason", T: () => tA },
-      { no: 9, name: "amount_too_large", kind: "message", oneof: "reason", T: () => Sk },
+      { no: 9, name: "amount_too_large", kind: "message", oneof: "reason", T: () => Jk },
       { no: 10, name: "serialization_failure", kind: "message", oneof: "reason", T: () => tA },
       { no: 11, name: "out_of_energy", kind: "message", oneof: "reason", T: () => tA },
-      { no: 12, name: "rejected_init", kind: "message", oneof: "reason", T: () => tk },
-      { no: 13, name: "rejected_receive", kind: "message", oneof: "reason", T: () => ek },
+      { no: 12, name: "rejected_init", kind: "message", oneof: "reason", T: () => yk },
+      { no: 13, name: "rejected_receive", kind: "message", oneof: "reason", T: () => Kk },
       { no: 14, name: "invalid_proof", kind: "message", oneof: "reason", T: () => tA },
       { no: 15, name: "already_a_baker", kind: "message", oneof: "reason", T: () => xA },
       { no: 16, name: "not_a_baker", kind: "message", oneof: "reason", T: () => VA },
@@ -14180,8 +14180,8 @@ class kk extends Y {
       { no: 31, name: "first_scheduled_release_expired", kind: "message", oneof: "reason", T: () => tA },
       { no: 32, name: "scheduled_self_transfer", kind: "message", oneof: "reason", T: () => VA },
       { no: 33, name: "invalid_credentials", kind: "message", oneof: "reason", T: () => tA },
-      { no: 34, name: "duplicate_cred_ids", kind: "message", oneof: "reason", T: () => Hk },
-      { no: 35, name: "non_existent_cred_ids", kind: "message", oneof: "reason", T: () => rk },
+      { no: 34, name: "duplicate_cred_ids", kind: "message", oneof: "reason", T: () => nk },
+      { no: 35, name: "non_existent_cred_ids", kind: "message", oneof: "reason", T: () => Lk },
       { no: 36, name: "remove_first_credential", kind: "message", oneof: "reason", T: () => tA },
       { no: 37, name: "credential_holder_did_not_sign", kind: "message", oneof: "reason", T: () => tA },
       { no: 38, name: "not_allowed_multiple_credentials", kind: "message", oneof: "reason", T: () => tA },
@@ -14204,8 +14204,8 @@ class kk extends Y {
     ]);
   }
 }
-const mC = new kk();
-class Mk extends Y {
+const ZC = new Mk();
+class ck extends Y {
   constructor() {
     super("concordium.v2.RejectReason.InvalidInitMethod", [
       { no: 1, name: "module_ref", kind: "message", T: () => eI },
@@ -14213,17 +14213,17 @@ class Mk extends Y {
     ]);
   }
 }
-const ck = new Mk();
-class hk extends Y {
+const hk = new ck();
+class sk extends Y {
   constructor() {
     super("concordium.v2.RejectReason.InvalidReceiveMethod", [
       { no: 1, name: "module_ref", kind: "message", T: () => eI },
-      { no: 2, name: "receive_name", kind: "message", T: () => Ug }
+      { no: 2, name: "receive_name", kind: "message", T: () => Ng }
     ]);
   }
 }
-const sk = new hk();
-class Yk extends Y {
+const Yk = new sk();
+class Sk extends Y {
   constructor() {
     super("concordium.v2.RejectReason.AmountTooLarge", [
       { no: 1, name: "address", kind: "message", T: () => SQ },
@@ -14231,8 +14231,8 @@ class Yk extends Y {
     ]);
   }
 }
-const Sk = new Yk();
-class Jk extends Y {
+const Jk = new Sk();
+class tk extends Y {
   constructor() {
     super("concordium.v2.RejectReason.RejectedInit", [
       {
@@ -14245,8 +14245,8 @@ class Jk extends Y {
     ]);
   }
 }
-const tk = new Jk();
-class yk extends Y {
+const yk = new tk();
+class ek extends Y {
   constructor() {
     super("concordium.v2.RejectReason.RejectedReceive", [
       {
@@ -14257,29 +14257,29 @@ class yk extends Y {
         /*ScalarType.INT32*/
       },
       { no: 2, name: "contract_address", kind: "message", T: () => hI },
-      { no: 3, name: "receive_name", kind: "message", T: () => Ug },
-      { no: 4, name: "parameter", kind: "message", T: () => Jg }
+      { no: 3, name: "receive_name", kind: "message", T: () => Ng },
+      { no: 4, name: "parameter", kind: "message", T: () => tg }
     ]);
   }
 }
-const ek = new yk();
-class Kk extends Y {
+const Kk = new ek();
+class Hk extends Y {
   constructor() {
     super("concordium.v2.RejectReason.DuplicateCredIds", [
       { no: 1, name: "ids", kind: "message", repeat: 1, T: () => Ag }
     ]);
   }
 }
-const Hk = new Kk();
-class nk extends Y {
+const nk = new Hk();
+class rk extends Y {
   constructor() {
     super("concordium.v2.RejectReason.NonExistentCredIds", [
       { no: 1, name: "ids", kind: "message", repeat: 1, T: () => Ag }
     ]);
   }
 }
-const rk = new nk();
-class Lk extends Y {
+const Lk = new rk();
+class qk extends Y {
   constructor() {
     super("concordium.v2.ContractInitializedEvent", [
       { no: 1, name: "contract_version", kind: "enum", T: () => ["concordium.v2.ContractVersion", UQ] },
@@ -14287,13 +14287,13 @@ class Lk extends Y {
       { no: 3, name: "address", kind: "message", T: () => hI },
       { no: 4, name: "amount", kind: "message", T: () => kA },
       { no: 5, name: "init_name", kind: "message", T: () => MB },
-      { no: 6, name: "events", kind: "message", repeat: 1, T: () => ZC },
-      { no: 7, name: "parameter", kind: "message", T: () => Jg }
+      { no: 6, name: "events", kind: "message", repeat: 1, T: () => xC },
+      { no: 7, name: "parameter", kind: "message", T: () => tg }
     ]);
   }
 }
-const qk = new Lk();
-class dk extends Y {
+const dk = new qk();
+class pk extends Y {
   constructor() {
     super("concordium.v2.ContractEvent", [
       {
@@ -14306,34 +14306,34 @@ class dk extends Y {
     ]);
   }
 }
-const ZC = new dk();
-class pk extends Y {
+const xC = new pk();
+class Vk extends Y {
   constructor() {
     super("concordium.v2.InstanceUpdatedEvent", [
       { no: 1, name: "contract_version", kind: "enum", T: () => ["concordium.v2.ContractVersion", UQ] },
       { no: 2, name: "address", kind: "message", T: () => hI },
       { no: 3, name: "instigator", kind: "message", T: () => SQ },
       { no: 4, name: "amount", kind: "message", T: () => kA },
-      { no: 5, name: "parameter", kind: "message", T: () => Jg },
-      { no: 6, name: "receive_name", kind: "message", T: () => Ug },
-      { no: 7, name: "events", kind: "message", repeat: 1, T: () => ZC }
+      { no: 5, name: "parameter", kind: "message", T: () => tg },
+      { no: 6, name: "receive_name", kind: "message", T: () => Ng },
+      { no: 7, name: "events", kind: "message", repeat: 1, T: () => xC }
     ]);
   }
 }
-const Vk = new pk();
-class lk extends Y {
+const lk = new Vk();
+class Wk extends Y {
   constructor() {
     super("concordium.v2.ContractTraceElement", [
-      { no: 1, name: "updated", kind: "message", oneof: "element", T: () => Vk },
-      { no: 2, name: "transferred", kind: "message", oneof: "element", T: () => mk },
-      { no: 3, name: "interrupted", kind: "message", oneof: "element", T: () => xk },
-      { no: 4, name: "resumed", kind: "message", oneof: "element", T: () => fk },
-      { no: 5, name: "upgraded", kind: "message", oneof: "element", T: () => uk }
+      { no: 1, name: "updated", kind: "message", oneof: "element", T: () => lk },
+      { no: 2, name: "transferred", kind: "message", oneof: "element", T: () => Zk },
+      { no: 3, name: "interrupted", kind: "message", oneof: "element", T: () => Tk },
+      { no: 4, name: "resumed", kind: "message", oneof: "element", T: () => Ok },
+      { no: 5, name: "upgraded", kind: "message", oneof: "element", T: () => bk }
     ]);
   }
 }
-const xC = new lk();
-class Wk extends Y {
+const TC = new Wk();
+class mk extends Y {
   constructor() {
     super("concordium.v2.ContractTraceElement.Transferred", [
       { no: 1, name: "sender", kind: "message", T: () => hI },
@@ -14342,17 +14342,17 @@ class Wk extends Y {
     ]);
   }
 }
-const mk = new Wk();
-class Zk extends Y {
+const Zk = new mk();
+class xk extends Y {
   constructor() {
     super("concordium.v2.ContractTraceElement.Interrupted", [
       { no: 1, name: "address", kind: "message", T: () => hI },
-      { no: 2, name: "events", kind: "message", repeat: 1, T: () => ZC }
+      { no: 2, name: "events", kind: "message", repeat: 1, T: () => xC }
     ]);
   }
 }
-const xk = new Zk();
-class Tk extends Y {
+const Tk = new xk();
+class fk extends Y {
   constructor() {
     super("concordium.v2.ContractTraceElement.Resumed", [
       { no: 1, name: "address", kind: "message", T: () => hI },
@@ -14366,8 +14366,8 @@ class Tk extends Y {
     ]);
   }
 }
-const fk = new Tk();
-class Ok extends Y {
+const Ok = new fk();
+class uk extends Y {
   constructor() {
     super("concordium.v2.ContractTraceElement.Upgraded", [
       { no: 1, name: "address", kind: "message", T: () => hI },
@@ -14376,20 +14376,20 @@ class Ok extends Y {
     ]);
   }
 }
-const uk = new Ok();
-class bk extends Y {
+const bk = new uk();
+class jk extends Y {
   constructor() {
     super("concordium.v2.BakerKeysEvent", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
       { no: 2, name: "account", kind: "message", T: () => VA },
-      { no: 3, name: "sign_key", kind: "message", T: () => lC },
-      { no: 4, name: "election_key", kind: "message", T: () => VC },
+      { no: 3, name: "sign_key", kind: "message", T: () => WC },
+      { no: 4, name: "election_key", kind: "message", T: () => lC },
       { no: 5, name: "aggregation_key", kind: "message", T: () => sQ }
     ]);
   }
 }
-const TC = new bk();
-class jk extends Y {
+const fC = new jk();
+class zk extends Y {
   constructor() {
     super("concordium.v2.Memo", [
       {
@@ -14402,8 +14402,8 @@ class jk extends Y {
     ]);
   }
 }
-const JQ = new jk();
-class zk extends Y {
+const JQ = new zk();
+class Pk extends Y {
   constructor() {
     super("concordium.v2.BakerStakeUpdatedData", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14418,13 +14418,13 @@ class zk extends Y {
     ]);
   }
 }
-const Pk = new zk();
-class Xk extends Y {
+const Xk = new Pk();
+class vk extends Y {
   constructor() {
     super("concordium.v2.EncryptedAmountRemovedEvent", [
       { no: 1, name: "account", kind: "message", T: () => VA },
-      { no: 2, name: "new_amount", kind: "message", T: () => Mg },
-      { no: 3, name: "input_amount", kind: "message", T: () => Mg },
+      { no: 2, name: "new_amount", kind: "message", T: () => cg },
+      { no: 3, name: "input_amount", kind: "message", T: () => cg },
       {
         no: 4,
         name: "up_to_index",
@@ -14436,8 +14436,8 @@ class Xk extends Y {
     ]);
   }
 }
-const to = new Xk();
-class vk extends Y {
+const eo = new vk();
+class _k extends Y {
   constructor() {
     super("concordium.v2.NewEncryptedAmountEvent", [
       { no: 1, name: "receiver", kind: "message", T: () => VA },
@@ -14449,22 +14449,22 @@ class vk extends Y {
         L: 0
         /*LongType.BIGINT*/
       },
-      { no: 3, name: "encrypted_amount", kind: "message", T: () => Mg }
+      { no: 3, name: "encrypted_amount", kind: "message", T: () => cg }
     ]);
   }
 }
-const _k = new vk();
-class $k extends Y {
+const $k = new _k();
+class AM extends Y {
   constructor() {
     super("concordium.v2.EncryptedSelfAmountAddedEvent", [
       { no: 1, name: "account", kind: "message", T: () => VA },
-      { no: 2, name: "new_amount", kind: "message", T: () => Mg },
+      { no: 2, name: "new_amount", kind: "message", T: () => cg },
       { no: 3, name: "amount", kind: "message", T: () => kA }
     ]);
   }
 }
-const AM = new $k();
-class IM extends Y {
+const IM = new AM();
+class gM extends Y {
   constructor() {
     super("concordium.v2.RegisteredData", [
       {
@@ -14477,32 +14477,32 @@ class IM extends Y {
     ]);
   }
 }
-const yo = new IM();
-class gM extends Y {
+const Ko = new gM();
+class BM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent", [
-      { no: 1, name: "baker_added", kind: "message", oneof: "event", T: () => eo },
+      { no: 1, name: "baker_added", kind: "message", oneof: "event", T: () => Ho },
       { no: 2, name: "baker_removed", kind: "message", oneof: "event", T: () => xA },
-      { no: 3, name: "baker_stake_increased", kind: "message", oneof: "event", T: () => EM },
-      { no: 4, name: "baker_stake_decreased", kind: "message", oneof: "event", T: () => iM },
-      { no: 5, name: "baker_restake_earnings_updated", kind: "message", oneof: "event", T: () => Ko },
-      { no: 6, name: "baker_keys_updated", kind: "message", oneof: "event", T: () => TC },
-      { no: 7, name: "baker_set_open_status", kind: "message", oneof: "event", T: () => RM },
-      { no: 8, name: "baker_set_metadata_url", kind: "message", oneof: "event", T: () => NM },
-      { no: 9, name: "baker_set_transaction_fee_commission", kind: "message", oneof: "event", T: () => GM },
-      { no: 10, name: "baker_set_baking_reward_commission", kind: "message", oneof: "event", T: () => kM },
-      { no: 11, name: "baker_set_finalization_reward_commission", kind: "message", oneof: "event", T: () => cM },
-      { no: 12, name: "delegation_removed", kind: "message", oneof: "event", T: () => sM },
-      { no: 13, name: "baker_suspended", kind: "message", oneof: "event", T: () => SM },
-      { no: 14, name: "baker_resumed", kind: "message", oneof: "event", T: () => tM }
+      { no: 3, name: "baker_stake_increased", kind: "message", oneof: "event", T: () => DM },
+      { no: 4, name: "baker_stake_decreased", kind: "message", oneof: "event", T: () => oM },
+      { no: 5, name: "baker_restake_earnings_updated", kind: "message", oneof: "event", T: () => no },
+      { no: 6, name: "baker_keys_updated", kind: "message", oneof: "event", T: () => fC },
+      { no: 7, name: "baker_set_open_status", kind: "message", oneof: "event", T: () => UM },
+      { no: 8, name: "baker_set_metadata_url", kind: "message", oneof: "event", T: () => aM },
+      { no: 9, name: "baker_set_transaction_fee_commission", kind: "message", oneof: "event", T: () => FM },
+      { no: 10, name: "baker_set_baking_reward_commission", kind: "message", oneof: "event", T: () => MM },
+      { no: 11, name: "baker_set_finalization_reward_commission", kind: "message", oneof: "event", T: () => hM },
+      { no: 12, name: "delegation_removed", kind: "message", oneof: "event", T: () => YM },
+      { no: 13, name: "baker_suspended", kind: "message", oneof: "event", T: () => JM },
+      { no: 14, name: "baker_resumed", kind: "message", oneof: "event", T: () => yM }
     ]);
   }
 }
-const BM = new gM();
-class QM extends Y {
+const QM = new BM();
+class CM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerAdded", [
-      { no: 1, name: "keys_event", kind: "message", T: () => TC },
+      { no: 1, name: "keys_event", kind: "message", T: () => fC },
       { no: 2, name: "stake", kind: "message", T: () => kA },
       {
         no: 3,
@@ -14514,8 +14514,8 @@ class QM extends Y {
     ]);
   }
 }
-const eo = new QM();
-class CM extends Y {
+const Ho = new CM();
+class EM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerStakeIncreased", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14523,8 +14523,8 @@ class CM extends Y {
     ]);
   }
 }
-const EM = new CM();
-class DM extends Y {
+const DM = new EM();
+class iM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerStakeDecreased", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14532,8 +14532,8 @@ class DM extends Y {
     ]);
   }
 }
-const iM = new DM();
-class oM extends Y {
+const oM = new iM();
+class wM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerRestakeEarningsUpdated", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14547,17 +14547,17 @@ class oM extends Y {
     ]);
   }
 }
-const Ko = new oM();
-class wM extends Y {
+const no = new wM();
+class RM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSetOpenStatus", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
-      { no: 2, name: "open_status", kind: "enum", T: () => ["concordium.v2.OpenStatus", kg, "OPEN_STATUS_"] }
+      { no: 2, name: "open_status", kind: "enum", T: () => ["concordium.v2.OpenStatus", Mg, "OPEN_STATUS_"] }
     ]);
   }
 }
-const RM = new wM();
-class UM extends Y {
+const UM = new RM();
+class NM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSetMetadataUrl", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14571,8 +14571,8 @@ class UM extends Y {
     ]);
   }
 }
-const NM = new UM();
-class aM extends Y {
+const aM = new NM();
+class GM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSetTransactionFeeCommission", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14580,8 +14580,8 @@ class aM extends Y {
     ]);
   }
 }
-const GM = new aM();
-class FM extends Y {
+const FM = new GM();
+class kM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSetBakingRewardCommission", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14589,8 +14589,8 @@ class FM extends Y {
     ]);
   }
 }
-const kM = new FM();
-class MM extends Y {
+const MM = new kM();
+class cM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSetFinalizationRewardCommission", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
@@ -14598,75 +14598,75 @@ class MM extends Y {
     ]);
   }
 }
-const cM = new MM();
-class hM extends Y {
+const hM = new cM();
+class sM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.DelegationRemoved", [
-      { no: 1, name: "delegator_id", kind: "message", T: () => hg }
+      { no: 1, name: "delegator_id", kind: "message", T: () => sg }
     ]);
   }
 }
-const sM = new hM();
-class YM extends Y {
+const YM = new sM();
+class SM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerSuspended", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA }
     ]);
   }
 }
-const SM = new YM();
-class JM extends Y {
+const JM = new SM();
+class tM extends Y {
   constructor() {
     super("concordium.v2.BakerEvent.BakerResumed", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA }
     ]);
   }
 }
-const tM = new JM();
-class yM extends Y {
-  constructor() {
-    super("concordium.v2.DelegatorId", [
-      { no: 1, name: "id", kind: "message", T: () => Vg }
-    ]);
-  }
-}
-const hg = new yM();
+const yM = new tM();
 class eM extends Y {
   constructor() {
-    super("concordium.v2.DelegationEvent", [
-      { no: 1, name: "delegation_stake_increased", kind: "message", oneof: "event", T: () => nM },
-      { no: 2, name: "delegation_stake_decreased", kind: "message", oneof: "event", T: () => LM },
-      { no: 3, name: "delegation_set_restake_earnings", kind: "message", oneof: "event", T: () => dM },
-      { no: 4, name: "delegation_set_delegation_target", kind: "message", oneof: "event", T: () => VM },
-      { no: 5, name: "delegation_added", kind: "message", oneof: "event", T: () => hg },
-      { no: 6, name: "delegation_removed", kind: "message", oneof: "event", T: () => hg },
-      { no: 7, name: "baker_removed", kind: "message", oneof: "event", T: () => WM }
+    super("concordium.v2.DelegatorId", [
+      { no: 1, name: "id", kind: "message", T: () => lg }
     ]);
   }
 }
-const KM = new eM();
-class HM extends Y {
+const sg = new eM();
+class KM extends Y {
+  constructor() {
+    super("concordium.v2.DelegationEvent", [
+      { no: 1, name: "delegation_stake_increased", kind: "message", oneof: "event", T: () => rM },
+      { no: 2, name: "delegation_stake_decreased", kind: "message", oneof: "event", T: () => qM },
+      { no: 3, name: "delegation_set_restake_earnings", kind: "message", oneof: "event", T: () => pM },
+      { no: 4, name: "delegation_set_delegation_target", kind: "message", oneof: "event", T: () => lM },
+      { no: 5, name: "delegation_added", kind: "message", oneof: "event", T: () => sg },
+      { no: 6, name: "delegation_removed", kind: "message", oneof: "event", T: () => sg },
+      { no: 7, name: "baker_removed", kind: "message", oneof: "event", T: () => mM }
+    ]);
+  }
+}
+const HM = new KM();
+class nM extends Y {
   constructor() {
     super("concordium.v2.DelegationEvent.DelegationStakeIncreased", [
-      { no: 1, name: "delegator_id", kind: "message", T: () => hg },
+      { no: 1, name: "delegator_id", kind: "message", T: () => sg },
       { no: 2, name: "new_stake", kind: "message", T: () => kA }
     ]);
   }
 }
-const nM = new HM();
-class rM extends Y {
+const rM = new nM();
+class LM extends Y {
   constructor() {
     super("concordium.v2.DelegationEvent.DelegationStakeDecreased", [
-      { no: 1, name: "delegator_id", kind: "message", T: () => hg },
+      { no: 1, name: "delegator_id", kind: "message", T: () => sg },
       { no: 2, name: "new_stake", kind: "message", T: () => kA }
     ]);
   }
 }
-const LM = new rM();
-class qM extends Y {
+const qM = new LM();
+class dM extends Y {
   constructor() {
     super("concordium.v2.DelegationEvent.DelegationSetRestakeEarnings", [
-      { no: 1, name: "delegator_id", kind: "message", T: () => hg },
+      { no: 1, name: "delegator_id", kind: "message", T: () => sg },
       {
         no: 2,
         name: "restake_earnings",
@@ -14677,68 +14677,68 @@ class qM extends Y {
     ]);
   }
 }
-const dM = new qM();
-class pM extends Y {
+const pM = new dM();
+class VM extends Y {
   constructor() {
     super("concordium.v2.DelegationEvent.DelegationSetDelegationTarget", [
-      { no: 1, name: "delegator_id", kind: "message", T: () => hg },
-      { no: 2, name: "delegation_target", kind: "message", T: () => ao }
+      { no: 1, name: "delegator_id", kind: "message", T: () => sg },
+      { no: 2, name: "delegation_target", kind: "message", T: () => Fo }
     ]);
   }
 }
-const VM = new pM();
-class lM extends Y {
+const lM = new VM();
+class WM extends Y {
   constructor() {
     super("concordium.v2.DelegationEvent.BakerRemoved", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA }
     ]);
   }
 }
-const WM = new lM();
-class mM extends Y {
+const mM = new WM();
+class ZM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects", [
-      { no: 1, name: "none", kind: "message", oneof: "effect", T: () => TM },
+      { no: 1, name: "none", kind: "message", oneof: "effect", T: () => fM },
       { no: 2, name: "module_deployed", kind: "message", oneof: "effect", T: () => eI },
-      { no: 3, name: "contract_initialized", kind: "message", oneof: "effect", T: () => qk },
-      { no: 4, name: "contract_update_issued", kind: "message", oneof: "effect", T: () => OM },
-      { no: 5, name: "account_transfer", kind: "message", oneof: "effect", T: () => bM },
-      { no: 6, name: "baker_added", kind: "message", oneof: "effect", T: () => eo },
+      { no: 3, name: "contract_initialized", kind: "message", oneof: "effect", T: () => dk },
+      { no: 4, name: "contract_update_issued", kind: "message", oneof: "effect", T: () => uM },
+      { no: 5, name: "account_transfer", kind: "message", oneof: "effect", T: () => jM },
+      { no: 6, name: "baker_added", kind: "message", oneof: "effect", T: () => Ho },
       { no: 7, name: "baker_removed", kind: "message", oneof: "effect", T: () => xA },
-      { no: 8, name: "baker_stake_updated", kind: "message", oneof: "effect", T: () => zM },
-      { no: 9, name: "baker_restake_earnings_updated", kind: "message", oneof: "effect", T: () => Ko },
-      { no: 10, name: "baker_keys_updated", kind: "message", oneof: "effect", T: () => TC },
-      { no: 11, name: "encrypted_amount_transferred", kind: "message", oneof: "effect", T: () => XM },
-      { no: 12, name: "transferred_to_encrypted", kind: "message", oneof: "effect", T: () => AM },
-      { no: 13, name: "transferred_to_public", kind: "message", oneof: "effect", T: () => _M },
-      { no: 14, name: "transferred_with_schedule", kind: "message", oneof: "effect", T: () => A0 },
+      { no: 8, name: "baker_stake_updated", kind: "message", oneof: "effect", T: () => PM },
+      { no: 9, name: "baker_restake_earnings_updated", kind: "message", oneof: "effect", T: () => no },
+      { no: 10, name: "baker_keys_updated", kind: "message", oneof: "effect", T: () => fC },
+      { no: 11, name: "encrypted_amount_transferred", kind: "message", oneof: "effect", T: () => vM },
+      { no: 12, name: "transferred_to_encrypted", kind: "message", oneof: "effect", T: () => IM },
+      { no: 13, name: "transferred_to_public", kind: "message", oneof: "effect", T: () => $M },
+      { no: 14, name: "transferred_with_schedule", kind: "message", oneof: "effect", T: () => I0 },
       { no: 15, name: "credential_keys_updated", kind: "message", oneof: "effect", T: () => Ag },
-      { no: 16, name: "credentials_updated", kind: "message", oneof: "effect", T: () => g0 },
-      { no: 17, name: "data_registered", kind: "message", oneof: "effect", T: () => yo },
-      { no: 18, name: "baker_configured", kind: "message", oneof: "effect", T: () => Q0 },
-      { no: 19, name: "delegation_configured", kind: "message", oneof: "effect", T: () => E0 }
+      { no: 16, name: "credentials_updated", kind: "message", oneof: "effect", T: () => B0 },
+      { no: 17, name: "data_registered", kind: "message", oneof: "effect", T: () => Ko },
+      { no: 18, name: "baker_configured", kind: "message", oneof: "effect", T: () => C0 },
+      { no: 19, name: "delegation_configured", kind: "message", oneof: "effect", T: () => D0 }
     ]);
   }
 }
-const ZM = new mM();
-class xM extends Y {
+const xM = new ZM();
+class TM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.None", [
       { no: 1, name: "transaction_type", kind: "enum", opt: !0, T: () => ["concordium.v2.TransactionType", BI] },
-      { no: 2, name: "reject_reason", kind: "message", T: () => mC }
+      { no: 2, name: "reject_reason", kind: "message", T: () => ZC }
     ]);
   }
 }
-const TM = new xM();
-class fM extends Y {
+const fM = new TM();
+class OM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.ContractUpdateIssued", [
-      { no: 1, name: "effects", kind: "message", repeat: 1, T: () => xC }
+      { no: 1, name: "effects", kind: "message", repeat: 1, T: () => TC }
     ]);
   }
 }
-const OM = new fM();
-class uM extends Y {
+const uM = new OM();
+class bM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.AccountTransfer", [
       { no: 1, name: "amount", kind: "message", T: () => kA },
@@ -14747,79 +14747,79 @@ class uM extends Y {
     ]);
   }
 }
-const bM = new uM();
-class jM extends Y {
+const jM = new bM();
+class zM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.BakerStakeUpdated", [
-      { no: 1, name: "update", kind: "message", T: () => Pk }
+      { no: 1, name: "update", kind: "message", T: () => Xk }
     ]);
   }
 }
-const zM = new jM();
-class PM extends Y {
+const PM = new zM();
+class XM extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.EncryptedAmountTransferred", [
-      { no: 1, name: "removed", kind: "message", T: () => to },
-      { no: 2, name: "added", kind: "message", T: () => _k },
+      { no: 1, name: "removed", kind: "message", T: () => eo },
+      { no: 2, name: "added", kind: "message", T: () => $k },
       { no: 3, name: "memo", kind: "message", T: () => JQ }
     ]);
   }
 }
-const XM = new PM();
-class vM extends Y {
+const vM = new XM();
+class _M extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.TransferredToPublic", [
-      { no: 1, name: "removed", kind: "message", T: () => to },
+      { no: 1, name: "removed", kind: "message", T: () => eo },
       { no: 2, name: "amount", kind: "message", T: () => kA }
     ]);
   }
 }
-const _M = new vM();
-class $M extends Y {
+const $M = new _M();
+class A0 extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.TransferredWithSchedule", [
       { no: 1, name: "receiver", kind: "message", T: () => VA },
-      { no: 2, name: "amount", kind: "message", repeat: 1, T: () => sG },
+      { no: 2, name: "amount", kind: "message", repeat: 1, T: () => YG },
       { no: 3, name: "memo", kind: "message", T: () => JQ }
     ]);
   }
 }
-const A0 = new $M();
-class I0 extends Y {
+const I0 = new A0();
+class g0 extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.CredentialsUpdated", [
       { no: 1, name: "new_cred_ids", kind: "message", repeat: 1, T: () => Ag },
       { no: 2, name: "removed_cred_ids", kind: "message", repeat: 1, T: () => Ag },
-      { no: 3, name: "new_threshold", kind: "message", T: () => ko }
+      { no: 3, name: "new_threshold", kind: "message", T: () => co }
     ]);
   }
 }
-const g0 = new I0();
-class B0 extends Y {
+const B0 = new g0();
+class Q0 extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.BakerConfigured", [
-      { no: 1, name: "events", kind: "message", repeat: 1, T: () => BM }
+      { no: 1, name: "events", kind: "message", repeat: 1, T: () => QM }
     ]);
   }
 }
-const Q0 = new B0();
-class C0 extends Y {
+const C0 = new Q0();
+class E0 extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionEffects.DelegationConfigured", [
-      { no: 1, name: "events", kind: "message", repeat: 1, T: () => KM }
+      { no: 1, name: "events", kind: "message", repeat: 1, T: () => HM }
     ]);
   }
 }
-const E0 = new C0();
-class D0 extends Y {
+const D0 = new E0();
+class i0 extends Y {
   constructor() {
     super("concordium.v2.ElectionDifficulty", [
       { no: 1, name: "value", kind: "message", T: () => gI }
     ]);
   }
 }
-const cB = new D0();
-class i0 extends Y {
+const cB = new i0();
+class o0 extends Y {
   constructor() {
     super("concordium.v2.TimeoutParameters", [
       { no: 1, name: "timeout_base", kind: "message", T: () => _I },
@@ -14828,8 +14828,8 @@ class i0 extends Y {
     ]);
   }
 }
-const fC = new i0();
-class o0 extends Y {
+const OC = new o0();
+class w0 extends Y {
   constructor() {
     super("concordium.v2.FinalizationCommitteeParameters", [
       {
@@ -14850,8 +14850,8 @@ class o0 extends Y {
     ]);
   }
 }
-const tQ = new o0();
-class w0 extends Y {
+const tQ = new w0();
+class R0 extends Y {
   constructor() {
     super("concordium.v2.ValidatorScoreParameters", [
       {
@@ -14865,26 +14865,26 @@ class w0 extends Y {
     ]);
   }
 }
-const OC = new w0();
-class R0 extends Y {
+const uC = new R0();
+class U0 extends Y {
   constructor() {
     super("concordium.v2.ConsensusParametersV1", [
-      { no: 1, name: "timeout_parameters", kind: "message", T: () => fC },
+      { no: 1, name: "timeout_parameters", kind: "message", T: () => OC },
       { no: 2, name: "min_block_time", kind: "message", T: () => _I },
       { no: 3, name: "block_energy_limit", kind: "message", T: () => sI }
     ]);
   }
 }
-const Ho = new R0();
-class U0 extends Y {
+const ro = new U0();
+class N0 extends Y {
   constructor() {
     super("concordium.v2.ExchangeRate", [
       { no: 1, name: "value", kind: "message", T: () => aQ }
     ]);
   }
 }
-const LI = new U0();
-class N0 extends Y {
+const LI = new N0();
+class a0 extends Y {
   constructor() {
     super("concordium.v2.Ratio", [
       {
@@ -14906,8 +14906,8 @@ class N0 extends Y {
     ]);
   }
 }
-const aQ = new N0();
-class a0 extends Y {
+const aQ = new a0();
+class G0 extends Y {
   constructor() {
     super("concordium.v2.UpdatePublicKey", [
       {
@@ -14920,8 +14920,8 @@ class a0 extends Y {
     ]);
   }
 }
-const no = new a0();
-class G0 extends Y {
+const Lo = new G0();
+class F0 extends Y {
   constructor() {
     super("concordium.v2.UpdateKeysThreshold", [
       {
@@ -14934,8 +14934,8 @@ class G0 extends Y {
     ]);
   }
 }
-const ro = new G0();
-class F0 extends Y {
+const qo = new F0();
+class k0 extends Y {
   constructor() {
     super("concordium.v2.UpdateKeysIndex", [
       {
@@ -14948,29 +14948,29 @@ class F0 extends Y {
     ]);
   }
 }
-const k0 = new F0();
-class M0 extends Y {
-  constructor() {
-    super("concordium.v2.HigherLevelKeys", [
-      { no: 1, name: "keys", kind: "message", repeat: 1, T: () => no },
-      { no: 2, name: "threshold", kind: "message", T: () => ro }
-    ]);
-  }
-}
-const KI = new M0();
+const M0 = new k0();
 class c0 extends Y {
   constructor() {
-    super("concordium.v2.AccessStructure", [
-      { no: 1, name: "access_public_keys", kind: "message", repeat: 1, T: () => k0 },
-      { no: 2, name: "access_threshold", kind: "message", T: () => ro }
+    super("concordium.v2.HigherLevelKeys", [
+      { no: 1, name: "keys", kind: "message", repeat: 1, T: () => Lo },
+      { no: 2, name: "threshold", kind: "message", T: () => qo }
     ]);
   }
 }
-const JI = new c0();
+const KI = new c0();
 class h0 extends Y {
   constructor() {
+    super("concordium.v2.AccessStructure", [
+      { no: 1, name: "access_public_keys", kind: "message", repeat: 1, T: () => M0 },
+      { no: 2, name: "access_threshold", kind: "message", T: () => qo }
+    ]);
+  }
+}
+const JI = new h0();
+class s0 extends Y {
+  constructor() {
     super("concordium.v2.AuthorizationsV0", [
-      { no: 1, name: "keys", kind: "message", repeat: 1, T: () => no },
+      { no: 1, name: "keys", kind: "message", repeat: 1, T: () => Lo },
       { no: 2, name: "emergency", kind: "message", T: () => JI },
       { no: 3, name: "protocol", kind: "message", T: () => JI },
       { no: 4, name: "parameter_consensus", kind: "message", T: () => JI },
@@ -14986,8 +14986,8 @@ class h0 extends Y {
     ]);
   }
 }
-const hB = new h0();
-class s0 extends Y {
+const hB = new s0();
+class Y0 extends Y {
   constructor() {
     super("concordium.v2.AuthorizationsV1", [
       { no: 1, name: "v0", kind: "message", T: () => hB },
@@ -14996,8 +14996,8 @@ class s0 extends Y {
     ]);
   }
 }
-const fg = new s0();
-class Y0 extends Y {
+const Og = new Y0();
+class S0 extends Y {
   constructor() {
     super("concordium.v2.Description", [
       {
@@ -15024,18 +15024,18 @@ class Y0 extends Y {
     ]);
   }
 }
-const Lo = new Y0();
-class S0 extends Y {
+const po = new S0();
+class J0 extends Y {
   constructor() {
     super("concordium.v2.ArInfo", [
-      { no: 1, name: "identity", kind: "message", T: () => t0 },
-      { no: 2, name: "description", kind: "message", T: () => Lo },
-      { no: 3, name: "public_key", kind: "message", T: () => e0 }
+      { no: 1, name: "identity", kind: "message", T: () => y0 },
+      { no: 2, name: "description", kind: "message", T: () => po },
+      { no: 3, name: "public_key", kind: "message", T: () => K0 }
     ]);
   }
 }
-const uC = new S0();
-class J0 extends Y {
+const bC = new J0();
+class t0 extends Y {
   constructor() {
     super("concordium.v2.ArInfo.ArIdentity", [
       {
@@ -15048,8 +15048,8 @@ class J0 extends Y {
     ]);
   }
 }
-const t0 = new J0();
-class y0 extends Y {
+const y0 = new t0();
+class e0 extends Y {
   constructor() {
     super("concordium.v2.ArInfo.ArPublicKey", [
       {
@@ -15062,8 +15062,8 @@ class y0 extends Y {
     ]);
   }
 }
-const e0 = new y0();
-class K0 extends Y {
+const K0 = new e0();
+class H0 extends Y {
   constructor() {
     super("concordium.v2.IpIdentity", [
       {
@@ -15076,19 +15076,19 @@ class K0 extends Y {
     ]);
   }
 }
-const H0 = new K0();
-class n0 extends Y {
+const n0 = new H0();
+class r0 extends Y {
   constructor() {
     super("concordium.v2.IpInfo", [
-      { no: 1, name: "identity", kind: "message", T: () => H0 },
-      { no: 2, name: "description", kind: "message", T: () => Lo },
-      { no: 3, name: "verify_key", kind: "message", T: () => L0 },
-      { no: 4, name: "cdi_verify_key", kind: "message", T: () => d0 }
+      { no: 1, name: "identity", kind: "message", T: () => n0 },
+      { no: 2, name: "description", kind: "message", T: () => po },
+      { no: 3, name: "verify_key", kind: "message", T: () => q0 },
+      { no: 4, name: "cdi_verify_key", kind: "message", T: () => p0 }
     ]);
   }
 }
-const bC = new n0();
-class r0 extends Y {
+const jC = new r0();
+class L0 extends Y {
   constructor() {
     super("concordium.v2.IpInfo.IpVerifyKey", [
       {
@@ -15101,8 +15101,8 @@ class r0 extends Y {
     ]);
   }
 }
-const L0 = new r0();
-class q0 extends Y {
+const q0 = new L0();
+class d0 extends Y {
   constructor() {
     super("concordium.v2.IpInfo.IpCdiVerifyKey", [
       {
@@ -15115,8 +15115,8 @@ class q0 extends Y {
     ]);
   }
 }
-const d0 = new q0();
-class p0 extends Y {
+const p0 = new d0();
+class V0 extends Y {
   constructor() {
     super("concordium.v2.DurationSeconds", [
       {
@@ -15130,8 +15130,8 @@ class p0 extends Y {
     ]);
   }
 }
-const pD = new p0();
-class V0 extends Y {
+const VD = new V0();
+class l0 extends Y {
   constructor() {
     super("concordium.v2.InclusiveRangeAmountFraction", [
       { no: 1, name: "min", kind: "message", T: () => gI },
@@ -15139,34 +15139,34 @@ class V0 extends Y {
     ]);
   }
 }
-const gC = new V0();
-class l0 extends Y {
+const BC = new l0();
+class W0 extends Y {
   constructor() {
     super("concordium.v2.CommissionRanges", [
-      { no: 1, name: "finalization", kind: "message", T: () => gC },
-      { no: 2, name: "baking", kind: "message", T: () => gC },
-      { no: 3, name: "transaction", kind: "message", T: () => gC }
+      { no: 1, name: "finalization", kind: "message", T: () => BC },
+      { no: 2, name: "baking", kind: "message", T: () => BC },
+      { no: 3, name: "transaction", kind: "message", T: () => BC }
     ]);
   }
 }
-const W0 = new l0();
-class m0 extends Y {
+const m0 = new W0();
+class Z0 extends Y {
   constructor() {
     super("concordium.v2.CapitalBound", [
       { no: 1, name: "value", kind: "message", T: () => gI }
     ]);
   }
 }
-const Z0 = new m0();
-class x0 extends Y {
+const x0 = new Z0();
+class T0 extends Y {
   constructor() {
     super("concordium.v2.LeverageFactor", [
       { no: 1, name: "value", kind: "message", T: () => aQ }
     ]);
   }
 }
-const T0 = new x0();
-class f0 extends Y {
+const f0 = new T0();
+class O0 extends Y {
   constructor() {
     super("concordium.v2.Epoch", [
       {
@@ -15180,8 +15180,8 @@ class f0 extends Y {
     ]);
   }
 }
-const YI = new f0();
-class O0 extends Y {
+const YI = new O0();
+class u0 extends Y {
   constructor() {
     super("concordium.v2.Round", [
       {
@@ -15195,16 +15195,16 @@ class O0 extends Y {
     ]);
   }
 }
-const SI = new O0();
-class u0 extends Y {
+const SI = new u0();
+class b0 extends Y {
   constructor() {
     super("concordium.v2.RewardPeriodLength", [
       { no: 1, name: "value", kind: "message", T: () => YI }
     ]);
   }
 }
-const b0 = new u0();
-class j0 extends Y {
+const j0 = new b0();
+class z0 extends Y {
   constructor() {
     super("concordium.v2.MintRate", [
       {
@@ -15224,40 +15224,40 @@ class j0 extends Y {
     ]);
   }
 }
-const jC = new j0();
-class z0 extends Y {
+const zC = new z0();
+class P0 extends Y {
   constructor() {
     super("concordium.v2.CooldownParametersCpv1", [
-      { no: 1, name: "pool_owner_cooldown", kind: "message", T: () => pD },
-      { no: 2, name: "delegator_cooldown", kind: "message", T: () => pD }
+      { no: 1, name: "pool_owner_cooldown", kind: "message", T: () => VD },
+      { no: 2, name: "delegator_cooldown", kind: "message", T: () => VD }
     ]);
   }
 }
-const sB = new z0();
-class P0 extends Y {
+const sB = new P0();
+class X0 extends Y {
   constructor() {
     super("concordium.v2.PoolParametersCpv1", [
       { no: 1, name: "passive_finalization_commission", kind: "message", T: () => gI },
       { no: 2, name: "passive_baking_commission", kind: "message", T: () => gI },
       { no: 3, name: "passive_transaction_commission", kind: "message", T: () => gI },
-      { no: 4, name: "commission_bounds", kind: "message", T: () => W0 },
+      { no: 4, name: "commission_bounds", kind: "message", T: () => m0 },
       { no: 5, name: "minimum_equity_capital", kind: "message", T: () => kA },
-      { no: 6, name: "capital_bound", kind: "message", T: () => Z0 },
-      { no: 7, name: "leverage_bound", kind: "message", T: () => T0 }
+      { no: 6, name: "capital_bound", kind: "message", T: () => x0 },
+      { no: 7, name: "leverage_bound", kind: "message", T: () => f0 }
     ]);
   }
 }
-const YB = new P0();
-class X0 extends Y {
+const YB = new X0();
+class v0 extends Y {
   constructor() {
     super("concordium.v2.TimeParametersCpv1", [
-      { no: 1, name: "reward_period_length", kind: "message", T: () => b0 },
-      { no: 2, name: "mint_per_payday", kind: "message", T: () => jC }
+      { no: 1, name: "reward_period_length", kind: "message", T: () => j0 },
+      { no: 2, name: "mint_per_payday", kind: "message", T: () => zC }
     ]);
   }
 }
-const SB = new X0();
-class v0 extends Y {
+const SB = new v0();
+class _0 extends Y {
   constructor() {
     super("concordium.v2.MintDistributionCpv1", [
       { no: 1, name: "baking_reward", kind: "message", T: () => gI },
@@ -15265,8 +15265,8 @@ class v0 extends Y {
     ]);
   }
 }
-const JB = new v0();
-class _0 extends Y {
+const JB = new _0();
+class $0 extends Y {
   constructor() {
     super("concordium.v2.ProtocolUpdate", [
       {
@@ -15283,7 +15283,7 @@ class _0 extends Y {
         T: 9
         /*ScalarType.STRING*/
       },
-      { no: 3, name: "specificationHash", kind: "message", T: () => BG },
+      { no: 3, name: "specificationHash", kind: "message", T: () => QG },
       {
         no: 4,
         name: "specification_auxiliary_data",
@@ -15294,18 +15294,18 @@ class _0 extends Y {
     ]);
   }
 }
-const qo = new _0();
-class $0 extends Y {
+const Vo = new $0();
+class Ac extends Y {
   constructor() {
     super("concordium.v2.MintDistributionCpv0", [
-      { no: 1, name: "mint_per_slot", kind: "message", T: () => jC },
+      { no: 1, name: "mint_per_slot", kind: "message", T: () => zC },
       { no: 2, name: "baking_reward", kind: "message", T: () => gI },
       { no: 3, name: "finalization_reward", kind: "message", T: () => gI }
     ]);
   }
 }
-const zC = new $0();
-class Ac extends Y {
+const PC = new Ac();
+class Ic extends Y {
   constructor() {
     super("concordium.v2.TransactionFeeDistribution", [
       { no: 1, name: "baker", kind: "message", T: () => gI },
@@ -15313,8 +15313,8 @@ class Ac extends Y {
     ]);
   }
 }
-const Og = new Ac();
-class Ic extends Y {
+const ug = new Ic();
+class gc extends Y {
   constructor() {
     super("concordium.v2.GasRewards", [
       { no: 1, name: "baker", kind: "message", T: () => gI },
@@ -15324,8 +15324,8 @@ class Ic extends Y {
     ]);
   }
 }
-const yQ = new Ic();
-class gc extends Y {
+const yQ = new gc();
+class Bc extends Y {
   constructor() {
     super("concordium.v2.GasRewardsCpv2", [
       { no: 1, name: "baker", kind: "message", T: () => gI },
@@ -15334,77 +15334,77 @@ class gc extends Y {
     ]);
   }
 }
-const eQ = new gc();
-class Bc extends Y {
+const eQ = new Bc();
+class Qc extends Y {
   constructor() {
     super("concordium.v2.BakerStakeThreshold", [
       { no: 1, name: "baker_stake_threshold", kind: "message", T: () => kA }
     ]);
   }
 }
-const po = new Bc();
-class Qc extends Y {
+const lo = new Qc();
+class Cc extends Y {
   constructor() {
     super("concordium.v2.RootUpdate", [
       { no: 1, name: "root_keys_update", kind: "message", oneof: "updateType", T: () => KI },
       { no: 2, name: "level_1_keys_update", kind: "message", oneof: "updateType", T: () => KI },
       { no: 3, name: "level_2_keys_update_v0", kind: "message", oneof: "updateType", T: () => hB },
-      { no: 4, name: "level_2_keys_update_v1", kind: "message", oneof: "updateType", T: () => fg }
+      { no: 4, name: "level_2_keys_update_v1", kind: "message", oneof: "updateType", T: () => Og }
     ]);
   }
 }
-const Cc = new Qc();
-class Ec extends Y {
+const Ec = new Cc();
+class Dc extends Y {
   constructor() {
     super("concordium.v2.Level1Update", [
       { no: 1, name: "level_1_keys_update", kind: "message", oneof: "updateType", T: () => KI },
       { no: 2, name: "level_2_keys_update_v0", kind: "message", oneof: "updateType", T: () => hB },
-      { no: 3, name: "level_2_keys_update_v1", kind: "message", oneof: "updateType", T: () => fg }
+      { no: 3, name: "level_2_keys_update_v1", kind: "message", oneof: "updateType", T: () => Og }
     ]);
   }
 }
-const Dc = new Ec();
-class ic extends Y {
+const ic = new Dc();
+class oc extends Y {
   constructor() {
     super("concordium.v2.UpdatePayload", [
-      { no: 1, name: "protocol_update", kind: "message", oneof: "payload", T: () => qo },
+      { no: 1, name: "protocol_update", kind: "message", oneof: "payload", T: () => Vo },
       { no: 2, name: "election_difficulty_update", kind: "message", oneof: "payload", T: () => cB },
       { no: 3, name: "euro_per_energy_update", kind: "message", oneof: "payload", T: () => LI },
       { no: 4, name: "micro_ccd_per_euro_update", kind: "message", oneof: "payload", T: () => LI },
       { no: 5, name: "foundation_account_update", kind: "message", oneof: "payload", T: () => VA },
-      { no: 6, name: "mint_distribution_update", kind: "message", oneof: "payload", T: () => zC },
-      { no: 7, name: "transaction_fee_distribution_update", kind: "message", oneof: "payload", T: () => Og },
+      { no: 6, name: "mint_distribution_update", kind: "message", oneof: "payload", T: () => PC },
+      { no: 7, name: "transaction_fee_distribution_update", kind: "message", oneof: "payload", T: () => ug },
       { no: 8, name: "gas_rewards_update", kind: "message", oneof: "payload", T: () => yQ },
-      { no: 9, name: "baker_stake_threshold_update", kind: "message", oneof: "payload", T: () => po },
-      { no: 10, name: "root_update", kind: "message", oneof: "payload", T: () => Cc },
-      { no: 11, name: "level_1_update", kind: "message", oneof: "payload", T: () => Dc },
-      { no: 12, name: "add_anonymity_revoker_update", kind: "message", oneof: "payload", T: () => uC },
-      { no: 13, name: "add_identity_provider_update", kind: "message", oneof: "payload", T: () => bC },
+      { no: 9, name: "baker_stake_threshold_update", kind: "message", oneof: "payload", T: () => lo },
+      { no: 10, name: "root_update", kind: "message", oneof: "payload", T: () => Ec },
+      { no: 11, name: "level_1_update", kind: "message", oneof: "payload", T: () => ic },
+      { no: 12, name: "add_anonymity_revoker_update", kind: "message", oneof: "payload", T: () => bC },
+      { no: 13, name: "add_identity_provider_update", kind: "message", oneof: "payload", T: () => jC },
       { no: 14, name: "cooldown_parameters_cpv_1_update", kind: "message", oneof: "payload", T: () => sB },
       { no: 15, name: "pool_parameters_cpv_1_update", kind: "message", oneof: "payload", T: () => YB },
       { no: 16, name: "time_parameters_cpv_1_update", kind: "message", oneof: "payload", T: () => SB },
       { no: 17, name: "mint_distribution_cpv_1_update", kind: "message", oneof: "payload", T: () => JB },
       { no: 18, name: "gas_rewards_cpv_2_update", kind: "message", oneof: "payload", T: () => eQ },
-      { no: 19, name: "timeout_parameters_update", kind: "message", oneof: "payload", T: () => fC },
+      { no: 19, name: "timeout_parameters_update", kind: "message", oneof: "payload", T: () => OC },
       { no: 20, name: "min_block_time_update", kind: "message", oneof: "payload", T: () => _I },
       { no: 21, name: "block_energy_limit_update", kind: "message", oneof: "payload", T: () => sI },
       { no: 22, name: "finalization_committee_parameters_update", kind: "message", oneof: "payload", T: () => tQ },
-      { no: 23, name: "validator_score_parameters_update", kind: "message", oneof: "payload", T: () => OC }
+      { no: 23, name: "validator_score_parameters_update", kind: "message", oneof: "payload", T: () => uC }
     ]);
   }
 }
-const oc = new ic();
-class wc extends Y {
+const wc = new oc();
+class Rc extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionDetails", [
       { no: 1, name: "cost", kind: "message", T: () => kA },
       { no: 2, name: "sender", kind: "message", T: () => VA },
-      { no: 3, name: "effects", kind: "message", T: () => ZM }
+      { no: 3, name: "effects", kind: "message", T: () => xM }
     ]);
   }
 }
-const Vo = new wc();
-class Rc extends Y {
+const Wo = new Rc();
+class Uc extends Y {
   constructor() {
     super("concordium.v2.AccountCreationDetails", [
       { no: 1, name: "credential_type", kind: "enum", T: () => ["concordium.v2.CredentialType", NQ, "CREDENTIAL_TYPE_"] },
@@ -15413,8 +15413,8 @@ class Rc extends Y {
     ]);
   }
 }
-const Uc = new Rc();
-class Nc extends Y {
+const Nc = new Uc();
+class ac extends Y {
   constructor() {
     super("concordium.v2.TransactionTime", [
       {
@@ -15428,30 +15428,30 @@ class Nc extends Y {
     ]);
   }
 }
-const lg = new Nc();
-class ac extends Y {
+const Wg = new ac();
+class Gc extends Y {
   constructor() {
     super("concordium.v2.UpdateDetails", [
-      { no: 1, name: "effective_time", kind: "message", T: () => lg },
-      { no: 2, name: "payload", kind: "message", T: () => oc }
+      { no: 1, name: "effective_time", kind: "message", T: () => Wg },
+      { no: 2, name: "payload", kind: "message", T: () => wc }
     ]);
   }
 }
-const Gc = new ac();
-class Fc extends Y {
+const Fc = new Gc();
+class kc extends Y {
   constructor() {
     super("concordium.v2.BlockItemSummary", [
-      { no: 1, name: "index", kind: "message", T: () => Mc },
+      { no: 1, name: "index", kind: "message", T: () => cc },
       { no: 2, name: "energy_cost", kind: "message", T: () => sI },
-      { no: 3, name: "hash", kind: "message", T: () => Kg },
-      { no: 4, name: "account_transaction", kind: "message", oneof: "details", T: () => Vo },
-      { no: 5, name: "account_creation", kind: "message", oneof: "details", T: () => Uc },
-      { no: 6, name: "update", kind: "message", oneof: "details", T: () => Gc }
+      { no: 3, name: "hash", kind: "message", T: () => Hg },
+      { no: 4, name: "account_transaction", kind: "message", oneof: "details", T: () => Wo },
+      { no: 5, name: "account_creation", kind: "message", oneof: "details", T: () => Nc },
+      { no: 6, name: "update", kind: "message", oneof: "details", T: () => Fc }
     ]);
   }
 }
-const lo = new Fc();
-class kc extends Y {
+const mo = new kc();
+class Mc extends Y {
   constructor() {
     super("concordium.v2.BlockItemSummary.TransactionIndex", [
       {
@@ -15465,8 +15465,8 @@ class kc extends Y {
     ]);
   }
 }
-const Mc = new kc();
-class cc extends Y {
+const cc = new Mc();
+class hc extends Y {
   constructor() {
     super("concordium.v2.GenesisIndex", [
       {
@@ -15479,8 +15479,8 @@ class cc extends Y {
     ]);
   }
 }
-const ug = new cc();
-class hc extends Y {
+const bg = new hc();
+class sc extends Y {
   constructor() {
     super("concordium.v2.ConsensusInfo", [
       { no: 1, name: "best_block", kind: "message", T: () => II },
@@ -15489,8 +15489,8 @@ class hc extends Y {
       { no: 4, name: "slot_duration", kind: "message", T: () => _I },
       { no: 5, name: "epoch_duration", kind: "message", T: () => _I },
       { no: 6, name: "last_finalized_block", kind: "message", T: () => II },
-      { no: 7, name: "best_block_height", kind: "message", T: () => Rg },
-      { no: 8, name: "last_finalized_block_height", kind: "message", T: () => Rg },
+      { no: 7, name: "best_block_height", kind: "message", T: () => Ug },
+      { no: 8, name: "last_finalized_block_height", kind: "message", T: () => Ug },
       {
         no: 9,
         name: "blocks_received_count",
@@ -15606,7 +15606,7 @@ class hc extends Y {
         /*ScalarType.DOUBLE*/
       },
       { no: 27, name: "protocol_version", kind: "enum", T: () => ["concordium.v2.ProtocolVersion", $I] },
-      { no: 28, name: "genesis_index", kind: "message", T: () => ug },
+      { no: 28, name: "genesis_index", kind: "message", T: () => bg },
       { no: 29, name: "current_era_genesis_block", kind: "message", T: () => II },
       { no: 30, name: "current_era_genesis_time", kind: "message", T: () => EI },
       { no: 31, name: "current_timeout_duration", kind: "message", T: () => _I },
@@ -15616,17 +15616,17 @@ class hc extends Y {
     ]);
   }
 }
-const sc = new hc();
-class Yc extends Y {
+const Yc = new sc();
+class Sc extends Y {
   constructor() {
     super("concordium.v2.ArrivedBlockInfo", [
       { no: 1, name: "hash", kind: "message", T: () => II },
-      { no: 2, name: "height", kind: "message", T: () => Rg }
+      { no: 2, name: "height", kind: "message", T: () => Ug }
     ]);
   }
 }
-const Sc = new Yc();
-class Jc extends Y {
+const Jc = new Sc();
+class tc extends Y {
   constructor() {
     super("concordium.v2.CryptographicParameters", [
       {
@@ -15653,19 +15653,19 @@ class Jc extends Y {
     ]);
   }
 }
-const tc = new Jc();
-class yc extends Y {
+const yc = new tc();
+class ec extends Y {
   constructor() {
     super("concordium.v2.BlockInfo", [
       { no: 1, name: "hash", kind: "message", T: () => II },
-      { no: 2, name: "height", kind: "message", T: () => Rg },
+      { no: 2, name: "height", kind: "message", T: () => Ug },
       { no: 3, name: "parent_block", kind: "message", T: () => II },
       { no: 4, name: "last_finalized_block", kind: "message", T: () => II },
-      { no: 5, name: "genesis_index", kind: "message", T: () => ug },
+      { no: 5, name: "genesis_index", kind: "message", T: () => bg },
       { no: 6, name: "era_block_height", kind: "message", T: () => kB },
       { no: 7, name: "receive_time", kind: "message", T: () => EI },
       { no: 8, name: "arrive_time", kind: "message", T: () => EI },
-      { no: 9, name: "slot_number", kind: "message", T: () => Nk },
+      { no: 9, name: "slot_number", kind: "message", T: () => ak },
       { no: 10, name: "slot_time", kind: "message", T: () => EI },
       { no: 11, name: "baker", kind: "message", T: () => xA },
       {
@@ -15690,15 +15690,15 @@ class yc extends Y {
         T: 13
         /*ScalarType.UINT32*/
       },
-      { no: 16, name: "state_hash", kind: "message", T: () => EG },
+      { no: 16, name: "state_hash", kind: "message", T: () => DG },
       { no: 17, name: "protocol_version", kind: "enum", T: () => ["concordium.v2.ProtocolVersion", $I] },
       { no: 18, name: "round", kind: "message", T: () => SI },
       { no: 19, name: "epoch", kind: "message", T: () => YI }
     ]);
   }
 }
-const ec = new yc();
-class Kc extends Y {
+const Kc = new ec();
+class Hc extends Y {
   constructor() {
     super("concordium.v2.PoolInfoRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -15706,17 +15706,17 @@ class Kc extends Y {
     ]);
   }
 }
-const Hc = new Kc();
-class nc extends Y {
+const nc = new Hc();
+class rc extends Y {
   constructor() {
     super("concordium.v2.PoolPendingChange", [
-      { no: 1, name: "reduce", kind: "message", oneof: "change", T: () => qc },
-      { no: 2, name: "remove", kind: "message", oneof: "change", T: () => pc }
+      { no: 1, name: "reduce", kind: "message", oneof: "change", T: () => dc },
+      { no: 2, name: "remove", kind: "message", oneof: "change", T: () => Vc }
     ]);
   }
 }
-const rc = new nc();
-class Lc extends Y {
+const Lc = new rc();
+class qc extends Y {
   constructor() {
     super("concordium.v2.PoolPendingChange.Reduce", [
       { no: 1, name: "reduced_equity_capital", kind: "message", T: () => kA },
@@ -15724,16 +15724,16 @@ class Lc extends Y {
     ]);
   }
 }
-const qc = new Lc();
-class dc extends Y {
+const dc = new qc();
+class pc extends Y {
   constructor() {
     super("concordium.v2.PoolPendingChange.Remove", [
       { no: 1, name: "effective_time", kind: "message", T: () => EI }
     ]);
   }
 }
-const pc = new dc();
-class Vc extends Y {
+const Vc = new pc();
+class lc extends Y {
   constructor() {
     super("concordium.v2.PoolCurrentPaydayInfo", [
       {
@@ -15783,8 +15783,8 @@ class Vc extends Y {
     ]);
   }
 }
-const lc = new Vc();
-class Wc extends Y {
+const Wc = new lc();
+class mc extends Y {
   constructor() {
     super("concordium.v2.PoolInfoResponse", [
       { no: 1, name: "baker", kind: "message", T: () => xA },
@@ -15792,9 +15792,9 @@ class Wc extends Y {
       { no: 3, name: "equity_capital", kind: "message", T: () => kA },
       { no: 4, name: "delegated_capital", kind: "message", T: () => kA },
       { no: 5, name: "delegated_capital_cap", kind: "message", T: () => kA },
-      { no: 6, name: "pool_info", kind: "message", T: () => Fo },
-      { no: 7, name: "equity_pending_change", kind: "message", T: () => rc },
-      { no: 8, name: "current_payday_info", kind: "message", T: () => lc },
+      { no: 6, name: "pool_info", kind: "message", T: () => Mo },
+      { no: 7, name: "equity_pending_change", kind: "message", T: () => Lc },
+      { no: 8, name: "current_payday_info", kind: "message", T: () => Wc },
       { no: 9, name: "all_pool_total_capital", kind: "message", T: () => kA },
       {
         no: 10,
@@ -15807,8 +15807,8 @@ class Wc extends Y {
     ]);
   }
 }
-const mc = new Wc();
-class Zc extends Y {
+const Zc = new mc();
+class xc extends Y {
   constructor() {
     super("concordium.v2.PassiveDelegationInfo", [
       { no: 1, name: "delegated_capital", kind: "message", T: () => kA },
@@ -15819,28 +15819,28 @@ class Zc extends Y {
     ]);
   }
 }
-const xc = new Zc();
-class Tc extends Y {
+const Tc = new xc();
+class fc extends Y {
   constructor() {
     super("concordium.v2.BlocksAtHeightRequest", [
-      { no: 1, name: "absolute", kind: "message", oneof: "blocksAtHeight", T: () => uc },
-      { no: 2, name: "relative", kind: "message", oneof: "blocksAtHeight", T: () => jc }
+      { no: 1, name: "absolute", kind: "message", oneof: "blocksAtHeight", T: () => bc },
+      { no: 2, name: "relative", kind: "message", oneof: "blocksAtHeight", T: () => zc }
     ]);
   }
 }
-const fc = new Tc();
-class Oc extends Y {
+const Oc = new fc();
+class uc extends Y {
   constructor() {
     super("concordium.v2.BlocksAtHeightRequest.Absolute", [
-      { no: 1, name: "height", kind: "message", T: () => Rg }
+      { no: 1, name: "height", kind: "message", T: () => Ug }
     ]);
   }
 }
-const uc = new Oc();
-class bc extends Y {
+const bc = new uc();
+class jc extends Y {
   constructor() {
     super("concordium.v2.BlocksAtHeightRequest.Relative", [
-      { no: 1, name: "genesis_index", kind: "message", T: () => ug },
+      { no: 1, name: "genesis_index", kind: "message", T: () => bg },
       { no: 2, name: "height", kind: "message", T: () => kB },
       {
         no: 3,
@@ -15852,25 +15852,25 @@ class bc extends Y {
     ]);
   }
 }
-const jc = new bc();
-class zc extends Y {
+const zc = new jc();
+class Pc extends Y {
   constructor() {
     super("concordium.v2.BlocksAtHeightResponse", [
       { no: 1, name: "blocks", kind: "message", repeat: 1, T: () => II }
     ]);
   }
 }
-const Pc = new zc();
-class Xc extends Y {
+const Xc = new Pc();
+class vc extends Y {
   constructor() {
     super("concordium.v2.TokenomicsInfo", [
-      { no: 1, name: "v0", kind: "message", oneof: "tokenomics", T: () => $c },
-      { no: 2, name: "v1", kind: "message", oneof: "tokenomics", T: () => Ih }
+      { no: 1, name: "v0", kind: "message", oneof: "tokenomics", T: () => Ah },
+      { no: 2, name: "v1", kind: "message", oneof: "tokenomics", T: () => gh }
     ]);
   }
 }
-const vc = new Xc();
-class _c extends Y {
+const _c = new vc();
+class $c extends Y {
   constructor() {
     super("concordium.v2.TokenomicsInfo.V0", [
       { no: 1, name: "total_amount", kind: "message", T: () => kA },
@@ -15882,8 +15882,8 @@ class _c extends Y {
     ]);
   }
 }
-const $c = new _c();
-class Ah extends Y {
+const Ah = new $c();
+class Ih extends Y {
   constructor() {
     super("concordium.v2.TokenomicsInfo.V1", [
       { no: 1, name: "total_amount", kind: "message", T: () => kA },
@@ -15893,37 +15893,37 @@ class Ah extends Y {
       { no: 5, name: "gas_account", kind: "message", T: () => kA },
       { no: 6, name: "foundation_transaction_rewards", kind: "message", T: () => kA },
       { no: 7, name: "next_payday_time", kind: "message", T: () => EI },
-      { no: 8, name: "next_payday_mint_rate", kind: "message", T: () => jC },
+      { no: 8, name: "next_payday_mint_rate", kind: "message", T: () => zC },
       { no: 9, name: "total_staked_capital", kind: "message", T: () => kA },
       { no: 10, name: "protocol_version", kind: "enum", T: () => ["concordium.v2.ProtocolVersion", $I] }
     ]);
   }
 }
-const Ih = new Ah();
-class gh extends Y {
+const gh = new Ih();
+class Bh extends Y {
   constructor() {
     super("concordium.v2.InvokeInstanceRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
       { no: 2, name: "invoker", kind: "message", T: () => SQ },
       { no: 3, name: "instance", kind: "message", T: () => hI },
       { no: 4, name: "amount", kind: "message", T: () => kA },
-      { no: 5, name: "entrypoint", kind: "message", T: () => Ug },
-      { no: 6, name: "parameter", kind: "message", T: () => Jg },
+      { no: 5, name: "entrypoint", kind: "message", T: () => Ng },
+      { no: 6, name: "parameter", kind: "message", T: () => tg },
       { no: 7, name: "energy", kind: "message", T: () => sI }
     ]);
   }
 }
-const Bh = new gh();
-class Qh extends Y {
+const Qh = new Bh();
+class Ch extends Y {
   constructor() {
     super("concordium.v2.InvokeInstanceResponse", [
-      { no: 1, name: "success", kind: "message", oneof: "result", T: () => oh },
-      { no: 2, name: "failure", kind: "message", oneof: "result", T: () => Dh }
+      { no: 1, name: "success", kind: "message", oneof: "result", T: () => wh },
+      { no: 2, name: "failure", kind: "message", oneof: "result", T: () => ih }
     ]);
   }
 }
-const Ch = new Qh();
-class Eh extends Y {
+const Eh = new Ch();
+class Dh extends Y {
   constructor() {
     super("concordium.v2.InvokeInstanceResponse.Failure", [
       {
@@ -15935,12 +15935,12 @@ class Eh extends Y {
         /*ScalarType.BYTES*/
       },
       { no: 2, name: "used_energy", kind: "message", T: () => sI },
-      { no: 3, name: "reason", kind: "message", T: () => mC }
+      { no: 3, name: "reason", kind: "message", T: () => ZC }
     ]);
   }
 }
-const Dh = new Eh();
-class ih extends Y {
+const ih = new Dh();
+class oh extends Y {
   constructor() {
     super("concordium.v2.InvokeInstanceResponse.Success", [
       {
@@ -15952,12 +15952,12 @@ class ih extends Y {
         /*ScalarType.BYTES*/
       },
       { no: 2, name: "used_energy", kind: "message", T: () => sI },
-      { no: 3, name: "effects", kind: "message", repeat: 1, T: () => xC }
+      { no: 3, name: "effects", kind: "message", repeat: 1, T: () => TC }
     ]);
   }
 }
-const oh = new ih();
-class wh extends Y {
+const wh = new oh();
+class Rh extends Y {
   constructor() {
     super("concordium.v2.GetPoolDelegatorsRequest", [
       { no: 1, name: "block_hash", kind: "message", T: () => TA },
@@ -15965,18 +15965,18 @@ class wh extends Y {
     ]);
   }
 }
-const VD = new wh();
-class Rh extends Y {
+const lD = new Rh();
+class Uh extends Y {
   constructor() {
     super("concordium.v2.DelegatorInfo", [
       { no: 1, name: "account", kind: "message", T: () => VA },
       { no: 2, name: "stake", kind: "message", T: () => kA },
-      { no: 3, name: "pending_change", kind: "message", T: () => WC }
+      { no: 3, name: "pending_change", kind: "message", T: () => mC }
     ]);
   }
 }
-const lD = new Rh();
-class Uh extends Y {
+const WD = new Uh();
+class Nh extends Y {
   constructor() {
     super("concordium.v2.DelegatorRewardPeriodInfo", [
       { no: 1, name: "account", kind: "message", T: () => VA },
@@ -15984,17 +15984,17 @@ class Uh extends Y {
     ]);
   }
 }
-const WD = new Uh();
-class Nh extends Y {
+const mD = new Nh();
+class ah extends Y {
   constructor() {
     super("concordium.v2.Branch", [
       { no: 1, name: "block_hash", kind: "message", T: () => II },
-      { no: 2, name: "children", kind: "message", repeat: 1, T: () => Wo }
+      { no: 2, name: "children", kind: "message", repeat: 1, T: () => Zo }
     ]);
   }
 }
-const Wo = new Nh();
-class ah extends Y {
+const Zo = new ah();
+class Gh extends Y {
   constructor() {
     super("concordium.v2.LeadershipElectionNonce", [
       {
@@ -16007,18 +16007,18 @@ class ah extends Y {
     ]);
   }
 }
-const Gh = new ah();
-class Fh extends Y {
+const Fh = new Gh();
+class kh extends Y {
   constructor() {
     super("concordium.v2.ElectionInfo", [
       { no: 1, name: "election_difficulty", kind: "message", T: () => cB },
-      { no: 2, name: "election_nonce", kind: "message", T: () => Gh },
-      { no: 3, name: "baker_election_info", kind: "message", repeat: 1, T: () => ch }
+      { no: 2, name: "election_nonce", kind: "message", T: () => Fh },
+      { no: 3, name: "baker_election_info", kind: "message", repeat: 1, T: () => hh }
     ]);
   }
 }
-const kh = new Fh();
-class Mh extends Y {
+const Mh = new kh();
+class ch extends Y {
   constructor() {
     super("concordium.v2.ElectionInfo.Baker", [
       { no: 1, name: "baker", kind: "message", T: () => xA },
@@ -16033,33 +16033,33 @@ class Mh extends Y {
     ]);
   }
 }
-const ch = new Mh();
-class hh extends Y {
+const hh = new ch();
+class sh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent", [
-      { no: 1, name: "baking_rewards", kind: "message", oneof: "event", T: () => yh },
-      { no: 2, name: "mint", kind: "message", oneof: "event", T: () => Kh },
-      { no: 3, name: "finalization_rewards", kind: "message", oneof: "event", T: () => nh },
-      { no: 4, name: "block_reward", kind: "message", oneof: "event", T: () => Lh },
-      { no: 5, name: "payday_foundation_reward", kind: "message", oneof: "event", T: () => dh },
-      { no: 6, name: "payday_account_reward", kind: "message", oneof: "event", T: () => Vh },
-      { no: 7, name: "block_accrue_reward", kind: "message", oneof: "event", T: () => Wh },
-      { no: 8, name: "payday_pool_reward", kind: "message", oneof: "event", T: () => Zh },
-      { no: 9, name: "validator_suspended", kind: "message", oneof: "event", T: () => Th },
-      { no: 10, name: "validator_primed_for_suspension", kind: "message", oneof: "event", T: () => Oh }
+      { no: 1, name: "baking_rewards", kind: "message", oneof: "event", T: () => eh },
+      { no: 2, name: "mint", kind: "message", oneof: "event", T: () => Hh },
+      { no: 3, name: "finalization_rewards", kind: "message", oneof: "event", T: () => rh },
+      { no: 4, name: "block_reward", kind: "message", oneof: "event", T: () => qh },
+      { no: 5, name: "payday_foundation_reward", kind: "message", oneof: "event", T: () => ph },
+      { no: 6, name: "payday_account_reward", kind: "message", oneof: "event", T: () => lh },
+      { no: 7, name: "block_accrue_reward", kind: "message", oneof: "event", T: () => mh },
+      { no: 8, name: "payday_pool_reward", kind: "message", oneof: "event", T: () => xh },
+      { no: 9, name: "validator_suspended", kind: "message", oneof: "event", T: () => fh },
+      { no: 10, name: "validator_primed_for_suspension", kind: "message", oneof: "event", T: () => uh }
     ]);
   }
 }
-const sh = new hh();
-class Yh extends Y {
+const Yh = new sh();
+class Sh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.AccountAmounts", [
-      { no: 1, name: "entries", kind: "message", repeat: 1, T: () => Jh }
+      { no: 1, name: "entries", kind: "message", repeat: 1, T: () => th }
     ]);
   }
 }
-const mo = new Yh();
-class Sh extends Y {
+const xo = new Sh();
+class Jh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.AccountAmounts.Entry", [
       { no: 1, name: "account", kind: "message", T: () => VA },
@@ -16067,17 +16067,17 @@ class Sh extends Y {
     ]);
   }
 }
-const Jh = new Sh();
-class th extends Y {
+const th = new Jh();
+class yh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.BakingRewards", [
-      { no: 1, name: "baker_rewards", kind: "message", T: () => mo },
+      { no: 1, name: "baker_rewards", kind: "message", T: () => xo },
       { no: 2, name: "remainder", kind: "message", T: () => kA }
     ]);
   }
 }
-const yh = new th();
-class eh extends Y {
+const eh = new yh();
+class Kh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.Mint", [
       { no: 1, name: "mint_baking_reward", kind: "message", T: () => kA },
@@ -16087,17 +16087,17 @@ class eh extends Y {
     ]);
   }
 }
-const Kh = new eh();
-class Hh extends Y {
+const Hh = new Kh();
+class nh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.FinalizationRewards", [
-      { no: 1, name: "finalization_rewards", kind: "message", T: () => mo },
+      { no: 1, name: "finalization_rewards", kind: "message", T: () => xo },
       { no: 2, name: "remainder", kind: "message", T: () => kA }
     ]);
   }
 }
-const nh = new Hh();
-class rh extends Y {
+const rh = new nh();
+class Lh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.BlockReward", [
       { no: 1, name: "transaction_fees", kind: "message", T: () => kA },
@@ -16110,8 +16110,8 @@ class rh extends Y {
     ]);
   }
 }
-const Lh = new rh();
-class qh extends Y {
+const qh = new Lh();
+class dh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.PaydayFoundationReward", [
       { no: 1, name: "foundation_account", kind: "message", T: () => VA },
@@ -16119,8 +16119,8 @@ class qh extends Y {
     ]);
   }
 }
-const dh = new qh();
-class ph extends Y {
+const ph = new dh();
+class Vh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.PaydayAccountReward", [
       { no: 1, name: "account", kind: "message", T: () => VA },
@@ -16130,8 +16130,8 @@ class ph extends Y {
     ]);
   }
 }
-const Vh = new ph();
-class lh extends Y {
+const lh = new Vh();
+class Wh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.BlockAccrueReward", [
       { no: 1, name: "transaction_fees", kind: "message", T: () => kA },
@@ -16144,8 +16144,8 @@ class lh extends Y {
     ]);
   }
 }
-const Wh = new lh();
-class mh extends Y {
+const mh = new Wh();
+class Zh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.PaydayPoolReward", [
       { no: 1, name: "pool_owner", kind: "message", T: () => xA },
@@ -16155,8 +16155,8 @@ class mh extends Y {
     ]);
   }
 }
-const Zh = new mh();
-class xh extends Y {
+const xh = new Zh();
+class Th extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.ValidatorSuspended", [
       { no: 1, name: "bakerId", kind: "message", T: () => xA },
@@ -16164,8 +16164,8 @@ class xh extends Y {
     ]);
   }
 }
-const Th = new xh();
-class fh extends Y {
+const fh = new Th();
+class Oh extends Y {
   constructor() {
     super("concordium.v2.BlockSpecialEvent.ValidatorPrimedForSuspension", [
       { no: 1, name: "bakerId", kind: "message", T: () => xA },
@@ -16173,41 +16173,41 @@ class fh extends Y {
     ]);
   }
 }
-const Oh = new fh();
-class uh extends Y {
+const uh = new Oh();
+class bh extends Y {
   constructor() {
     super("concordium.v2.PendingUpdate", [
-      { no: 1, name: "effective_time", kind: "message", T: () => lg },
+      { no: 1, name: "effective_time", kind: "message", T: () => Wg },
       { no: 2, name: "root_keys", kind: "message", oneof: "effect", T: () => KI },
       { no: 3, name: "level1_keys", kind: "message", oneof: "effect", T: () => KI },
       { no: 4, name: "level2_keys_cpv_0", kind: "message", oneof: "effect", T: () => hB },
-      { no: 5, name: "level2_keys_cpv_1", kind: "message", oneof: "effect", T: () => fg },
-      { no: 6, name: "protocol", kind: "message", oneof: "effect", T: () => qo },
+      { no: 5, name: "level2_keys_cpv_1", kind: "message", oneof: "effect", T: () => Og },
+      { no: 6, name: "protocol", kind: "message", oneof: "effect", T: () => Vo },
       { no: 7, name: "election_difficulty", kind: "message", oneof: "effect", T: () => cB },
       { no: 8, name: "euro_per_energy", kind: "message", oneof: "effect", T: () => LI },
       { no: 9, name: "micro_ccd_per_euro", kind: "message", oneof: "effect", T: () => LI },
       { no: 10, name: "foundation_account", kind: "message", oneof: "effect", T: () => VA },
-      { no: 11, name: "mint_distribution_cpv_0", kind: "message", oneof: "effect", T: () => zC },
+      { no: 11, name: "mint_distribution_cpv_0", kind: "message", oneof: "effect", T: () => PC },
       { no: 12, name: "mint_distribution_cpv_1", kind: "message", oneof: "effect", T: () => JB },
-      { no: 13, name: "transaction_fee_distribution", kind: "message", oneof: "effect", T: () => Og },
+      { no: 13, name: "transaction_fee_distribution", kind: "message", oneof: "effect", T: () => ug },
       { no: 14, name: "gas_rewards", kind: "message", oneof: "effect", T: () => yQ },
-      { no: 15, name: "pool_parameters_cpv_0", kind: "message", oneof: "effect", T: () => po },
+      { no: 15, name: "pool_parameters_cpv_0", kind: "message", oneof: "effect", T: () => lo },
       { no: 16, name: "pool_parameters_cpv_1", kind: "message", oneof: "effect", T: () => YB },
-      { no: 17, name: "add_anonymity_revoker", kind: "message", oneof: "effect", T: () => uC },
-      { no: 18, name: "add_identity_provider", kind: "message", oneof: "effect", T: () => bC },
+      { no: 17, name: "add_anonymity_revoker", kind: "message", oneof: "effect", T: () => bC },
+      { no: 18, name: "add_identity_provider", kind: "message", oneof: "effect", T: () => jC },
       { no: 19, name: "cooldown_parameters", kind: "message", oneof: "effect", T: () => sB },
       { no: 20, name: "time_parameters", kind: "message", oneof: "effect", T: () => SB },
       { no: 21, name: "gas_rewards_cpv_2", kind: "message", oneof: "effect", T: () => eQ },
-      { no: 22, name: "timeout_parameters", kind: "message", oneof: "effect", T: () => fC },
+      { no: 22, name: "timeout_parameters", kind: "message", oneof: "effect", T: () => OC },
       { no: 23, name: "min_block_time", kind: "message", oneof: "effect", T: () => _I },
       { no: 24, name: "block_energy_limit", kind: "message", oneof: "effect", T: () => sI },
       { no: 25, name: "finalization_committee_parameters", kind: "message", oneof: "effect", T: () => tQ },
-      { no: 26, name: "validator_score_parameters", kind: "message", oneof: "effect", T: () => OC }
+      { no: 26, name: "validator_score_parameters", kind: "message", oneof: "effect", T: () => uC }
     ]);
   }
 }
-const bh = new uh();
-class jh extends Y {
+const jh = new bh();
+class zh extends Y {
   constructor() {
     super("concordium.v2.NextUpdateSequenceNumbers", [
       { no: 1, name: "root_keys", kind: "message", T: () => QI },
@@ -16234,8 +16234,8 @@ class jh extends Y {
     ]);
   }
 }
-const zh = new jh();
-class Ph extends Y {
+const Ph = new zh();
+class Xh extends Y {
   constructor() {
     super("concordium.v2.IpAddress", [
       {
@@ -16248,8 +16248,8 @@ class Ph extends Y {
     ]);
   }
 }
-const PC = new Ph();
-class Xh extends Y {
+const XC = new Xh();
+class vh extends Y {
   constructor() {
     super("concordium.v2.Port", [
       {
@@ -16262,17 +16262,17 @@ class Xh extends Y {
     ]);
   }
 }
-const vh = new Xh();
-class _h extends Y {
+const _h = new vh();
+class $h extends Y {
   constructor() {
     super("concordium.v2.IpSocketAddress", [
-      { no: 1, name: "ip", kind: "message", T: () => PC },
-      { no: 2, name: "port", kind: "message", T: () => vh }
+      { no: 1, name: "ip", kind: "message", T: () => XC },
+      { no: 2, name: "port", kind: "message", T: () => _h }
     ]);
   }
 }
-const kC = new _h();
-class $h extends Y {
+const MC = new $h();
+class As extends Y {
   constructor() {
     super("concordium.v2.PeerId", [
       {
@@ -16285,32 +16285,32 @@ class $h extends Y {
     ]);
   }
 }
-const Zo = new $h();
-class As extends Y {
-  constructor() {
-    super("concordium.v2.BannedPeer", [
-      { no: 1, name: "ip_address", kind: "message", T: () => PC }
-    ]);
-  }
-}
-const xo = new As();
+const To = new As();
 class Is extends Y {
   constructor() {
-    super("concordium.v2.BannedPeers", [
-      { no: 1, name: "peers", kind: "message", repeat: 1, T: () => xo }
+    super("concordium.v2.BannedPeer", [
+      { no: 1, name: "ip_address", kind: "message", T: () => XC }
     ]);
   }
 }
-const gs = new Is();
-class Bs extends Y {
+const fo = new Is();
+class gs extends Y {
+  constructor() {
+    super("concordium.v2.BannedPeers", [
+      { no: 1, name: "peers", kind: "message", repeat: 1, T: () => fo }
+    ]);
+  }
+}
+const Bs = new gs();
+class Qs extends Y {
   constructor() {
     super("concordium.v2.PeerToBan", [
-      { no: 1, name: "ip_address", kind: "message", T: () => PC }
+      { no: 1, name: "ip_address", kind: "message", T: () => XC }
     ]);
   }
 }
-const Qs = new Bs();
-class Cs extends Y {
+const Cs = new Qs();
+class Es extends Y {
   constructor() {
     super("concordium.v2.DumpRequest", [
       {
@@ -16330,28 +16330,28 @@ class Cs extends Y {
     ]);
   }
 }
-const Es = new Cs();
-class Ds extends Y {
+const Ds = new Es();
+class is extends Y {
   constructor() {
     super("concordium.v2.PeersInfo", [
-      { no: 1, name: "peers", kind: "message", repeat: 1, T: () => ws }
+      { no: 1, name: "peers", kind: "message", repeat: 1, T: () => Rs }
     ]);
   }
 }
-const is = new Ds();
-class os extends Y {
+const os = new is();
+class ws extends Y {
   constructor() {
     super("concordium.v2.PeersInfo.Peer", [
-      { no: 1, name: "peer_id", kind: "message", T: () => Zo },
-      { no: 2, name: "socket_address", kind: "message", T: () => kC },
-      { no: 3, name: "network_stats", kind: "message", T: () => Us },
+      { no: 1, name: "peer_id", kind: "message", T: () => To },
+      { no: 2, name: "socket_address", kind: "message", T: () => MC },
+      { no: 3, name: "network_stats", kind: "message", T: () => Ns },
       { no: 4, name: "bootstrapper", kind: "message", oneof: "consensusInfo", T: () => tA },
       { no: 5, name: "node_catchup_status", kind: "enum", oneof: "consensusInfo", T: () => ["concordium.v2.PeersInfo.Peer.CatchupStatus", wQ] }
     ]);
   }
 }
-const ws = new os();
-class Rs extends Y {
+const Rs = new ws();
+class Us extends Y {
   constructor() {
     super("concordium.v2.PeersInfo.Peer.NetworkStats", [
       {
@@ -16381,8 +16381,8 @@ class Rs extends Y {
     ]);
   }
 }
-const Us = new Rs();
-class Ns extends Y {
+const Ns = new Us();
+class as extends Y {
   constructor() {
     super("concordium.v2.NodeInfo", [
       {
@@ -16394,17 +16394,17 @@ class Ns extends Y {
       },
       { no: 3, name: "local_time", kind: "message", T: () => EI },
       { no: 4, name: "peer_uptime", kind: "message", T: () => _I },
-      { no: 5, name: "network_info", kind: "message", T: () => Fs },
+      { no: 5, name: "network_info", kind: "message", T: () => ks },
       { no: 6, name: "bootstrapper", kind: "message", oneof: "details", T: () => tA },
-      { no: 7, name: "node", kind: "message", oneof: "details", T: () => Js }
+      { no: 7, name: "node", kind: "message", oneof: "details", T: () => ts }
     ]);
   }
 }
-const as = new Ns();
-class Gs extends Y {
+const Gs = new as();
+class Fs extends Y {
   constructor() {
     super("concordium.v2.NodeInfo.NetworkInfo", [
-      { no: 1, name: "node_id", kind: "message", T: () => Zo },
+      { no: 1, name: "node_id", kind: "message", T: () => To },
       {
         no: 2,
         name: "peer_total_sent",
@@ -16440,54 +16440,54 @@ class Gs extends Y {
     ]);
   }
 }
-const Fs = new Gs();
-class ks extends Y {
+const ks = new Fs();
+class Ms extends Y {
   constructor() {
     super("concordium.v2.NodeInfo.BakerConsensusInfo", [
       { no: 1, name: "baker_id", kind: "message", T: () => xA },
       { no: 2, name: "passive_committee_info", kind: "enum", oneof: "status", T: () => ["concordium.v2.NodeInfo.BakerConsensusInfo.PassiveCommitteeInfo", RQ] },
-      { no: 3, name: "active_baker_committee_info", kind: "message", oneof: "status", T: () => hs },
-      { no: 4, name: "active_finalizer_committee_info", kind: "message", oneof: "status", T: () => Ys }
+      { no: 3, name: "active_baker_committee_info", kind: "message", oneof: "status", T: () => ss },
+      { no: 4, name: "active_finalizer_committee_info", kind: "message", oneof: "status", T: () => Ss }
     ]);
   }
 }
-const Ms = new ks();
-class cs extends Y {
+const cs = new Ms();
+class hs extends Y {
   constructor() {
     super("concordium.v2.NodeInfo.BakerConsensusInfo.ActiveBakerCommitteeInfo", []);
   }
 }
-const hs = new cs();
-class ss extends Y {
+const ss = new hs();
+class Ys extends Y {
   constructor() {
     super("concordium.v2.NodeInfo.BakerConsensusInfo.ActiveFinalizerCommitteeInfo", []);
   }
 }
-const Ys = new ss();
-class Ss extends Y {
+const Ss = new Ys();
+class Js extends Y {
   constructor() {
     super("concordium.v2.NodeInfo.Node", [
       { no: 1, name: "not_running", kind: "message", oneof: "consensusStatus", T: () => tA },
       { no: 2, name: "passive", kind: "message", oneof: "consensusStatus", T: () => tA },
-      { no: 3, name: "active", kind: "message", oneof: "consensusStatus", T: () => Ms }
+      { no: 3, name: "active", kind: "message", oneof: "consensusStatus", T: () => cs }
     ]);
   }
 }
-const Js = new Ss();
-class ts extends Y {
+const ts = new Js();
+class ys extends Y {
   constructor() {
     super("concordium.v2.SendBlockItemRequest", [
-      { no: 1, name: "account_transaction", kind: "message", oneof: "blockItem", T: () => uo },
-      { no: 2, name: "credential_deployment", kind: "message", oneof: "blockItem", T: () => To },
-      { no: 3, name: "update_instruction", kind: "message", oneof: "blockItem", T: () => bo }
+      { no: 1, name: "account_transaction", kind: "message", oneof: "blockItem", T: () => jo },
+      { no: 2, name: "credential_deployment", kind: "message", oneof: "blockItem", T: () => Oo },
+      { no: 3, name: "update_instruction", kind: "message", oneof: "blockItem", T: () => zo }
     ]);
   }
 }
-const ys = new ts();
-class es extends Y {
+const es = new ys();
+class Ks extends Y {
   constructor() {
     super("concordium.v2.CredentialDeployment", [
-      { no: 1, name: "message_expiry", kind: "message", T: () => lg },
+      { no: 1, name: "message_expiry", kind: "message", T: () => Wg },
       {
         no: 2,
         name: "raw_payload",
@@ -16499,8 +16499,8 @@ class es extends Y {
     ]);
   }
 }
-const To = new es();
-class Ks extends Y {
+const Oo = new Ks();
+class Hs extends Y {
   constructor() {
     super("concordium.v2.Signature", [
       {
@@ -16513,65 +16513,65 @@ class Ks extends Y {
     ]);
   }
 }
-const fo = new Ks();
-class Hs extends Y {
+const uo = new Hs();
+class ns extends Y {
   constructor() {
     super("concordium.v2.SignatureMap", [
-      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => fo } }
+      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => uo } }
     ]);
   }
 }
-const ns = new Hs();
-class rs extends Y {
+const rs = new ns();
+class Ls extends Y {
   constructor() {
     super("concordium.v2.AccountSignatureMap", [
-      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => fo } }
+      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => uo } }
     ]);
   }
 }
-const Ls = new rs();
-class qs extends Y {
+const qs = new Ls();
+class ds extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionSignature", [
-      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => Ls } }
+      { no: 1, name: "signatures", kind: "map", K: 13, V: { kind: "message", T: () => qs } }
     ]);
   }
 }
-const ds = new qs();
-class ps extends Y {
+const ps = new ds();
+class Vs extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionHeader", [
       { no: 1, name: "sender", kind: "message", T: () => VA },
       { no: 2, name: "sequence_number", kind: "message", T: () => QI },
       { no: 3, name: "energy_amount", kind: "message", T: () => sI },
-      { no: 5, name: "expiry", kind: "message", T: () => lg }
+      { no: 5, name: "expiry", kind: "message", T: () => Wg }
     ]);
   }
 }
-const Oo = new ps();
-class Vs extends Y {
+const bo = new Vs();
+class ls extends Y {
   constructor() {
     super("concordium.v2.InitContractPayload", [
       { no: 1, name: "amount", kind: "message", T: () => kA },
       { no: 2, name: "module_ref", kind: "message", T: () => eI },
       { no: 3, name: "init_name", kind: "message", T: () => MB },
-      { no: 4, name: "parameter", kind: "message", T: () => Jg }
+      { no: 4, name: "parameter", kind: "message", T: () => tg }
     ]);
   }
 }
-const ls = new Vs();
-class Ws extends Y {
+const Ws = new ls();
+class ms extends Y {
   constructor() {
     super("concordium.v2.UpdateContractPayload", [
       { no: 1, name: "amount", kind: "message", T: () => kA },
       { no: 2, name: "address", kind: "message", T: () => hI },
-      { no: 3, name: "receive_name", kind: "message", T: () => Ug },
-      { no: 4, name: "parameter", kind: "message", T: () => Jg }
+      { no: 3, name: "receive_name", kind: "message", T: () => Ng },
+      { no: 4, name: "parameter", kind: "message", T: () => tg }
     ]);
   }
 }
-const ms = new Ws();
-class Zs extends Y {
+const Zs = new ms();
+class xs extends Y {
   constructor() {
     super("concordium.v2.TransferPayload", [
       { no: 1, name: "amount", kind: "message", T: () => kA },
@@ -16579,8 +16579,8 @@ class Zs extends Y {
     ]);
   }
 }
-const xs = new Zs();
-class Ts extends Y {
+const Ts = new xs();
+class fs extends Y {
   constructor() {
     super("concordium.v2.TransferWithMemoPayload", [
       { no: 1, name: "amount", kind: "message", T: () => kA },
@@ -16589,8 +16589,8 @@ class Ts extends Y {
     ]);
   }
 }
-const fs = new Ts();
-class Os extends Y {
+const Os = new fs();
+class us extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionPayload", [
       {
@@ -16601,46 +16601,46 @@ class Os extends Y {
         T: 12
         /*ScalarType.BYTES*/
       },
-      { no: 2, name: "deploy_module", kind: "message", oneof: "payload", T: () => No },
-      { no: 3, name: "init_contract", kind: "message", oneof: "payload", T: () => ls },
-      { no: 4, name: "update_contract", kind: "message", oneof: "payload", T: () => ms },
-      { no: 5, name: "transfer", kind: "message", oneof: "payload", T: () => xs },
-      { no: 6, name: "transfer_with_memo", kind: "message", oneof: "payload", T: () => fs },
-      { no: 7, name: "register_data", kind: "message", oneof: "payload", T: () => yo }
+      { no: 2, name: "deploy_module", kind: "message", oneof: "payload", T: () => Go },
+      { no: 3, name: "init_contract", kind: "message", oneof: "payload", T: () => Ws },
+      { no: 4, name: "update_contract", kind: "message", oneof: "payload", T: () => Zs },
+      { no: 5, name: "transfer", kind: "message", oneof: "payload", T: () => Ts },
+      { no: 6, name: "transfer_with_memo", kind: "message", oneof: "payload", T: () => Os },
+      { no: 7, name: "register_data", kind: "message", oneof: "payload", T: () => Ko }
     ]);
   }
 }
-const XC = new Os();
-class us extends Y {
+const vC = new us();
+class bs extends Y {
   constructor() {
     super("concordium.v2.PreAccountTransaction", [
-      { no: 1, name: "header", kind: "message", T: () => Oo },
-      { no: 2, name: "payload", kind: "message", T: () => XC }
+      { no: 1, name: "header", kind: "message", T: () => bo },
+      { no: 2, name: "payload", kind: "message", T: () => vC }
     ]);
   }
 }
-const bs = new us();
-class js extends Y {
-  constructor() {
-    super("concordium.v2.AccountTransaction", [
-      { no: 1, name: "signature", kind: "message", T: () => ds },
-      { no: 2, name: "header", kind: "message", T: () => Oo },
-      { no: 3, name: "payload", kind: "message", T: () => XC }
-    ]);
-  }
-}
-const uo = new js();
+const js = new bs();
 class zs extends Y {
   constructor() {
-    super("concordium.v2.UpdateInstructionHeader", [
-      { no: 1, name: "sequence_number", kind: "message", T: () => bG },
-      { no: 2, name: "effective_time", kind: "message", T: () => lg },
-      { no: 3, name: "timeout", kind: "message", T: () => lg }
+    super("concordium.v2.AccountTransaction", [
+      { no: 1, name: "signature", kind: "message", T: () => ps },
+      { no: 2, name: "header", kind: "message", T: () => bo },
+      { no: 3, name: "payload", kind: "message", T: () => vC }
     ]);
   }
 }
-const Ps = new zs();
-class Xs extends Y {
+const jo = new zs();
+class Ps extends Y {
+  constructor() {
+    super("concordium.v2.UpdateInstructionHeader", [
+      { no: 1, name: "sequence_number", kind: "message", T: () => jG },
+      { no: 2, name: "effective_time", kind: "message", T: () => Wg },
+      { no: 3, name: "timeout", kind: "message", T: () => Wg }
+    ]);
+  }
+}
+const Xs = new Ps();
+class vs extends Y {
   constructor() {
     super("concordium.v2.UpdateInstructionPayload", [
       {
@@ -16654,18 +16654,18 @@ class Xs extends Y {
     ]);
   }
 }
-const vs = new Xs();
-class _s extends Y {
+const _s = new vs();
+class $s extends Y {
   constructor() {
     super("concordium.v2.UpdateInstruction", [
-      { no: 1, name: "signatures", kind: "message", T: () => ns },
-      { no: 2, name: "header", kind: "message", T: () => Ps },
-      { no: 3, name: "payload", kind: "message", T: () => vs }
+      { no: 1, name: "signatures", kind: "message", T: () => rs },
+      { no: 2, name: "header", kind: "message", T: () => Xs },
+      { no: 3, name: "payload", kind: "message", T: () => _s }
     ]);
   }
 }
-const bo = new _s();
-class $s extends Y {
+const zo = new $s();
+class AY extends Y {
   constructor() {
     super("concordium.v2.AccountTransactionSignHash", [
       {
@@ -16678,8 +16678,8 @@ class $s extends Y {
     ]);
   }
 }
-const AY = new $s();
-class IY extends Y {
+const IY = new AY();
+class gY extends Y {
   constructor() {
     super("concordium.v2.CredentialsPerBlockLimit", [
       {
@@ -16692,8 +16692,8 @@ class IY extends Y {
     ]);
   }
 }
-const KQ = new IY();
-class gY extends Y {
+const KQ = new gY();
+class BY extends Y {
   constructor() {
     super("concordium.v2.ChainParametersV0", [
       { no: 1, name: "election_difficulty", kind: "message", T: () => cB },
@@ -16701,8 +16701,8 @@ class gY extends Y {
       { no: 3, name: "micro_ccd_per_euro", kind: "message", T: () => LI },
       { no: 4, name: "baker_cooldown_epochs", kind: "message", T: () => YI },
       { no: 5, name: "account_creation_limit", kind: "message", T: () => KQ },
-      { no: 6, name: "mint_distribution", kind: "message", T: () => zC },
-      { no: 7, name: "transaction_fee_distribution", kind: "message", T: () => Og },
+      { no: 6, name: "mint_distribution", kind: "message", T: () => PC },
+      { no: 7, name: "transaction_fee_distribution", kind: "message", T: () => ug },
       { no: 8, name: "gas_rewards", kind: "message", T: () => yQ },
       { no: 9, name: "foundation_account", kind: "message", T: () => VA },
       { no: 10, name: "minimum_threshold_for_baking", kind: "message", T: () => kA },
@@ -16712,8 +16712,8 @@ class gY extends Y {
     ]);
   }
 }
-const BY = new gY();
-class QY extends Y {
+const QY = new BY();
+class CY extends Y {
   constructor() {
     super("concordium.v2.ChainParametersV1", [
       { no: 1, name: "election_difficulty", kind: "message", T: () => cB },
@@ -16723,74 +16723,74 @@ class QY extends Y {
       { no: 5, name: "time_parameters", kind: "message", T: () => SB },
       { no: 6, name: "account_creation_limit", kind: "message", T: () => KQ },
       { no: 7, name: "mint_distribution", kind: "message", T: () => JB },
-      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => Og },
+      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => ug },
       { no: 9, name: "gas_rewards", kind: "message", T: () => yQ },
       { no: 10, name: "foundation_account", kind: "message", T: () => VA },
       { no: 11, name: "pool_parameters", kind: "message", T: () => YB },
       { no: 12, name: "root_keys", kind: "message", T: () => KI },
       { no: 13, name: "level1_keys", kind: "message", T: () => KI },
-      { no: 14, name: "level2_keys", kind: "message", T: () => fg }
+      { no: 14, name: "level2_keys", kind: "message", T: () => Og }
     ]);
   }
 }
-const CY = new QY();
-class EY extends Y {
+const EY = new CY();
+class DY extends Y {
   constructor() {
     super("concordium.v2.ChainParametersV2", [
-      { no: 1, name: "consensus_parameters", kind: "message", T: () => Ho },
+      { no: 1, name: "consensus_parameters", kind: "message", T: () => ro },
       { no: 2, name: "euro_per_energy", kind: "message", T: () => LI },
       { no: 3, name: "micro_ccd_per_euro", kind: "message", T: () => LI },
       { no: 4, name: "cooldown_parameters", kind: "message", T: () => sB },
       { no: 5, name: "time_parameters", kind: "message", T: () => SB },
       { no: 6, name: "account_creation_limit", kind: "message", T: () => KQ },
       { no: 7, name: "mint_distribution", kind: "message", T: () => JB },
-      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => Og },
+      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => ug },
       { no: 9, name: "gas_rewards", kind: "message", T: () => eQ },
       { no: 10, name: "foundation_account", kind: "message", T: () => VA },
       { no: 11, name: "pool_parameters", kind: "message", T: () => YB },
       { no: 12, name: "root_keys", kind: "message", T: () => KI },
       { no: 13, name: "level1_keys", kind: "message", T: () => KI },
-      { no: 14, name: "level2_keys", kind: "message", T: () => fg },
+      { no: 14, name: "level2_keys", kind: "message", T: () => Og },
       { no: 15, name: "finalization_committee_parameters", kind: "message", T: () => tQ }
     ]);
   }
 }
-const DY = new EY();
-class iY extends Y {
+const iY = new DY();
+class oY extends Y {
   constructor() {
     super("concordium.v2.ChainParametersV3", [
-      { no: 1, name: "consensus_parameters", kind: "message", T: () => Ho },
+      { no: 1, name: "consensus_parameters", kind: "message", T: () => ro },
       { no: 2, name: "euro_per_energy", kind: "message", T: () => LI },
       { no: 3, name: "micro_ccd_per_euro", kind: "message", T: () => LI },
       { no: 4, name: "cooldown_parameters", kind: "message", T: () => sB },
       { no: 5, name: "time_parameters", kind: "message", T: () => SB },
       { no: 6, name: "account_creation_limit", kind: "message", T: () => KQ },
       { no: 7, name: "mint_distribution", kind: "message", T: () => JB },
-      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => Og },
+      { no: 8, name: "transaction_fee_distribution", kind: "message", T: () => ug },
       { no: 9, name: "gas_rewards", kind: "message", T: () => eQ },
       { no: 10, name: "foundation_account", kind: "message", T: () => VA },
       { no: 11, name: "pool_parameters", kind: "message", T: () => YB },
       { no: 12, name: "root_keys", kind: "message", T: () => KI },
       { no: 13, name: "level1_keys", kind: "message", T: () => KI },
-      { no: 14, name: "level2_keys", kind: "message", T: () => fg },
+      { no: 14, name: "level2_keys", kind: "message", T: () => Og },
       { no: 15, name: "finalization_committee_parameters", kind: "message", T: () => tQ },
-      { no: 16, name: "validator_score_parameters", kind: "message", T: () => OC }
+      { no: 16, name: "validator_score_parameters", kind: "message", T: () => uC }
     ]);
   }
 }
-const oY = new iY();
-class wY extends Y {
+const wY = new oY();
+class RY extends Y {
   constructor() {
     super("concordium.v2.ChainParameters", [
-      { no: 1, name: "v0", kind: "message", oneof: "parameters", T: () => BY },
-      { no: 2, name: "v1", kind: "message", oneof: "parameters", T: () => CY },
-      { no: 3, name: "v2", kind: "message", oneof: "parameters", T: () => DY },
-      { no: 4, name: "v3", kind: "message", oneof: "parameters", T: () => oY }
+      { no: 1, name: "v0", kind: "message", oneof: "parameters", T: () => QY },
+      { no: 2, name: "v1", kind: "message", oneof: "parameters", T: () => EY },
+      { no: 3, name: "v2", kind: "message", oneof: "parameters", T: () => iY },
+      { no: 4, name: "v3", kind: "message", oneof: "parameters", T: () => wY }
     ]);
   }
 }
-const RY = new wY();
-class UY extends Y {
+const UY = new RY();
+class NY extends Y {
   constructor() {
     super("concordium.v2.FinalizationSummaryParty", [
       { no: 1, name: "baker", kind: "message", T: () => xA },
@@ -16812,8 +16812,8 @@ class UY extends Y {
     ]);
   }
 }
-const NY = new UY();
-class aY extends Y {
+const aY = new NY();
+class GY extends Y {
   constructor() {
     super("concordium.v2.FinalizationIndex", [
       {
@@ -16827,42 +16827,42 @@ class aY extends Y {
     ]);
   }
 }
-const GY = new aY();
-class FY extends Y {
+const FY = new GY();
+class kY extends Y {
   constructor() {
     super("concordium.v2.FinalizationSummary", [
       { no: 1, name: "block", kind: "message", T: () => II },
-      { no: 2, name: "index", kind: "message", T: () => GY },
+      { no: 2, name: "index", kind: "message", T: () => FY },
       { no: 3, name: "delay", kind: "message", T: () => kB },
-      { no: 4, name: "finalizers", kind: "message", repeat: 1, T: () => NY }
+      { no: 4, name: "finalizers", kind: "message", repeat: 1, T: () => aY }
     ]);
   }
 }
-const kY = new FY();
-class MY extends Y {
+const MY = new kY();
+class cY extends Y {
   constructor() {
     super("concordium.v2.BlockFinalizationSummary", [
       { no: 1, name: "none", kind: "message", oneof: "summary", T: () => tA },
-      { no: 2, name: "record", kind: "message", oneof: "summary", T: () => kY }
+      { no: 2, name: "record", kind: "message", oneof: "summary", T: () => MY }
     ]);
   }
 }
-const cY = new MY();
-class hY extends Y {
+const hY = new cY();
+class sY extends Y {
   constructor() {
     super("concordium.v2.BlockItem", [
-      { no: 1, name: "hash", kind: "message", T: () => Kg },
-      { no: 2, name: "account_transaction", kind: "message", oneof: "blockItem", T: () => uo },
-      { no: 3, name: "credential_deployment", kind: "message", oneof: "blockItem", T: () => To },
-      { no: 4, name: "update_instruction", kind: "message", oneof: "blockItem", T: () => bo }
+      { no: 1, name: "hash", kind: "message", T: () => Hg },
+      { no: 2, name: "account_transaction", kind: "message", oneof: "blockItem", T: () => jo },
+      { no: 3, name: "credential_deployment", kind: "message", oneof: "blockItem", T: () => Oo },
+      { no: 4, name: "update_instruction", kind: "message", oneof: "blockItem", T: () => zo }
     ]);
   }
 }
-const sY = new hY();
-class YY extends Y {
+const YY = new sY();
+class SY extends Y {
   constructor() {
     super("concordium.v2.BakerRewardPeriodInfo", [
-      { no: 1, name: "baker", kind: "message", T: () => Go },
+      { no: 1, name: "baker", kind: "message", T: () => ko },
       { no: 2, name: "effective_stake", kind: "message", T: () => kA },
       { no: 3, name: "commission_rates", kind: "message", T: () => YQ },
       { no: 4, name: "equity_capital", kind: "message", T: () => kA },
@@ -16877,8 +16877,8 @@ class YY extends Y {
     ]);
   }
 }
-const SY = new YY();
-class JY extends Y {
+const JY = new SY();
+class tY extends Y {
   constructor() {
     super("concordium.v2.QuorumSignature", [
       {
@@ -16891,8 +16891,8 @@ class JY extends Y {
     ]);
   }
 }
-const HQ = new JY();
-class tY extends Y {
+const HQ = new tY();
+class yY extends Y {
   constructor() {
     super("concordium.v2.QuorumCertificate", [
       { no: 1, name: "block_hash", kind: "message", T: () => II },
@@ -16903,8 +16903,8 @@ class tY extends Y {
     ]);
   }
 }
-const MC = new tY();
-class yY extends Y {
+const cC = new yY();
+class eY extends Y {
   constructor() {
     super("concordium.v2.FinalizerRound", [
       { no: 1, name: "round", kind: "message", T: () => SI },
@@ -16912,8 +16912,8 @@ class yY extends Y {
     ]);
   }
 }
-const mD = new yY();
-class eY extends Y {
+const ZD = new eY();
+class KY extends Y {
   constructor() {
     super("concordium.v2.TimeoutSignature", [
       {
@@ -16926,20 +16926,20 @@ class eY extends Y {
     ]);
   }
 }
-const vC = new eY();
-class KY extends Y {
+const _C = new KY();
+class HY extends Y {
   constructor() {
     super("concordium.v2.TimeoutCertificate", [
       { no: 1, name: "round", kind: "message", T: () => SI },
       { no: 2, name: "min_epoch", kind: "message", T: () => YI },
-      { no: 3, name: "qc_rounds_first_epoch", kind: "message", repeat: 1, T: () => mD },
-      { no: 4, name: "qc_rounds_second_epoch", kind: "message", repeat: 1, T: () => mD },
-      { no: 5, name: "aggregate_signature", kind: "message", T: () => vC }
+      { no: 3, name: "qc_rounds_first_epoch", kind: "message", repeat: 1, T: () => ZD },
+      { no: 4, name: "qc_rounds_second_epoch", kind: "message", repeat: 1, T: () => ZD },
+      { no: 5, name: "aggregate_signature", kind: "message", T: () => _C }
     ]);
   }
 }
-const HY = new KY();
-class nY extends Y {
+const nY = new HY();
+class rY extends Y {
   constructor() {
     super("concordium.v2.SuccessorProof", [
       {
@@ -16952,28 +16952,28 @@ class nY extends Y {
     ]);
   }
 }
-const jo = new nY();
-class rY extends Y {
+const Po = new rY();
+class LY extends Y {
   constructor() {
     super("concordium.v2.EpochFinalizationEntry", [
-      { no: 1, name: "finalized_qc", kind: "message", T: () => MC },
-      { no: 2, name: "successor_qc", kind: "message", T: () => MC },
-      { no: 3, name: "successor_proof", kind: "message", T: () => jo }
+      { no: 1, name: "finalized_qc", kind: "message", T: () => cC },
+      { no: 2, name: "successor_qc", kind: "message", T: () => cC },
+      { no: 3, name: "successor_proof", kind: "message", T: () => Po }
     ]);
   }
 }
-const LY = new rY();
-class qY extends Y {
+const qY = new LY();
+class dY extends Y {
   constructor() {
     super("concordium.v2.BlockCertificates", [
-      { no: 1, name: "quorum_certificate", kind: "message", T: () => MC },
-      { no: 2, name: "timeout_certificate", kind: "message", T: () => HY },
-      { no: 3, name: "epoch_finalization_entry", kind: "message", T: () => LY }
+      { no: 1, name: "quorum_certificate", kind: "message", T: () => cC },
+      { no: 2, name: "timeout_certificate", kind: "message", T: () => nY },
+      { no: 3, name: "epoch_finalization_entry", kind: "message", T: () => qY }
     ]);
   }
 }
-const dY = new qY();
-class pY extends Y {
+const pY = new dY();
+class VY extends Y {
   constructor() {
     super("concordium.v2.WinningBaker", [
       { no: 1, name: "round", kind: "message", T: () => SI },
@@ -16988,51 +16988,51 @@ class pY extends Y {
     ]);
   }
 }
-const VY = new pY();
-class lY extends Y {
+const lY = new VY();
+class WY extends Y {
   constructor() {
     super("concordium.v2.DryRunRequest", [
       { no: 1, name: "load_block_state", kind: "message", oneof: "request", T: () => TA },
-      { no: 2, name: "state_query", kind: "message", oneof: "request", T: () => ZY },
-      { no: 3, name: "state_operation", kind: "message", oneof: "request", T: () => OY }
+      { no: 2, name: "state_query", kind: "message", oneof: "request", T: () => xY },
+      { no: 3, name: "state_operation", kind: "message", oneof: "request", T: () => uY }
     ]);
   }
 }
-const WY = new lY();
-class mY extends Y {
+const mY = new WY();
+class ZY extends Y {
   constructor() {
     super("concordium.v2.DryRunStateQuery", [
-      { no: 1, name: "get_account_info", kind: "message", oneof: "query", T: () => Yo },
+      { no: 1, name: "get_account_info", kind: "message", oneof: "query", T: () => Jo },
       { no: 2, name: "get_instance_info", kind: "message", oneof: "query", T: () => hI },
-      { no: 3, name: "invoke_instance", kind: "message", oneof: "query", T: () => TY }
+      { no: 3, name: "invoke_instance", kind: "message", oneof: "query", T: () => fY }
     ]);
   }
 }
-const ZY = new mY();
-class xY extends Y {
+const xY = new ZY();
+class TY extends Y {
   constructor() {
     super("concordium.v2.DryRunInvokeInstance", [
       { no: 1, name: "invoker", kind: "message", T: () => SQ },
       { no: 2, name: "instance", kind: "message", T: () => hI },
       { no: 3, name: "amount", kind: "message", T: () => kA },
-      { no: 4, name: "entrypoint", kind: "message", T: () => Ug },
-      { no: 5, name: "parameter", kind: "message", T: () => Jg },
+      { no: 4, name: "entrypoint", kind: "message", T: () => Ng },
+      { no: 5, name: "parameter", kind: "message", T: () => tg },
       { no: 6, name: "energy", kind: "message", T: () => sI }
     ]);
   }
 }
-const TY = new xY();
-class fY extends Y {
+const fY = new TY();
+class OY extends Y {
   constructor() {
     super("concordium.v2.DryRunStateOperation", [
       { no: 1, name: "set_timestamp", kind: "message", oneof: "operation", T: () => EI },
-      { no: 2, name: "mint_to_account", kind: "message", oneof: "operation", T: () => bY },
-      { no: 3, name: "run_transaction", kind: "message", oneof: "operation", T: () => zY }
+      { no: 2, name: "mint_to_account", kind: "message", oneof: "operation", T: () => jY },
+      { no: 3, name: "run_transaction", kind: "message", oneof: "operation", T: () => PY }
     ]);
   }
 }
-const OY = new fY();
-class uY extends Y {
+const uY = new OY();
+class bY extends Y {
   constructor() {
     super("concordium.v2.DryRunMintToAccount", [
       { no: 1, name: "account", kind: "message", T: () => VA },
@@ -17040,19 +17040,19 @@ class uY extends Y {
     ]);
   }
 }
-const bY = new uY();
-class jY extends Y {
+const jY = new bY();
+class zY extends Y {
   constructor() {
     super("concordium.v2.DryRunTransaction", [
       { no: 1, name: "sender", kind: "message", T: () => VA },
       { no: 2, name: "energy_amount", kind: "message", T: () => sI },
-      { no: 3, name: "payload", kind: "message", T: () => XC },
-      { no: 4, name: "signatures", kind: "message", repeat: 1, T: () => XY }
+      { no: 3, name: "payload", kind: "message", T: () => vC },
+      { no: 4, name: "signatures", kind: "message", repeat: 1, T: () => vY }
     ]);
   }
 }
-const zY = new jY();
-class PY extends Y {
+const PY = new zY();
+class XY extends Y {
   constructor() {
     super("concordium.v2.DryRunSignature", [
       {
@@ -17072,65 +17072,65 @@ class PY extends Y {
     ]);
   }
 }
-const XY = new PY();
-class vY extends Y {
+const vY = new XY();
+class _Y extends Y {
   constructor() {
     super("concordium.v2.DryRunResponse", [
-      { no: 1, name: "error", kind: "message", oneof: "response", T: () => AS },
-      { no: 2, name: "success", kind: "message", oneof: "response", T: () => MS },
+      { no: 1, name: "error", kind: "message", oneof: "response", T: () => IS },
+      { no: 2, name: "success", kind: "message", oneof: "response", T: () => cS },
       { no: 3, name: "quota_remaining", kind: "message", T: () => sI }
     ]);
   }
 }
-const _Y = new vY();
-class $Y extends Y {
+const $Y = new _Y();
+class AS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse", [
-      { no: 1, name: "no_state", kind: "message", oneof: "error", T: () => gS },
-      { no: 2, name: "block_not_found", kind: "message", oneof: "error", T: () => QS },
-      { no: 3, name: "account_not_found", kind: "message", oneof: "error", T: () => ES },
-      { no: 4, name: "instance_not_found", kind: "message", oneof: "error", T: () => iS },
-      { no: 5, name: "amount_over_limit", kind: "message", oneof: "error", T: () => wS },
-      { no: 6, name: "balance_insufficient", kind: "message", oneof: "error", T: () => US },
-      { no: 8, name: "energy_insufficient", kind: "message", oneof: "error", T: () => aS },
-      { no: 9, name: "invoke_failed", kind: "message", oneof: "error", T: () => FS }
+      { no: 1, name: "no_state", kind: "message", oneof: "error", T: () => BS },
+      { no: 2, name: "block_not_found", kind: "message", oneof: "error", T: () => CS },
+      { no: 3, name: "account_not_found", kind: "message", oneof: "error", T: () => DS },
+      { no: 4, name: "instance_not_found", kind: "message", oneof: "error", T: () => oS },
+      { no: 5, name: "amount_over_limit", kind: "message", oneof: "error", T: () => RS },
+      { no: 6, name: "balance_insufficient", kind: "message", oneof: "error", T: () => NS },
+      { no: 8, name: "energy_insufficient", kind: "message", oneof: "error", T: () => GS },
+      { no: 9, name: "invoke_failed", kind: "message", oneof: "error", T: () => kS }
     ]);
   }
 }
-const AS = new $Y();
-class IS extends Y {
+const IS = new AS();
+class gS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.NoState", []);
   }
 }
-const gS = new IS();
-class BS extends Y {
+const BS = new gS();
+class QS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.BlockNotFound", []);
   }
 }
-const QS = new BS();
-class CS extends Y {
+const CS = new QS();
+class ES extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.AccountNotFound", []);
   }
 }
-const ES = new CS();
-class DS extends Y {
+const DS = new ES();
+class iS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.InstanceNotFound", []);
   }
 }
-const iS = new DS();
-class oS extends Y {
+const oS = new iS();
+class wS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.AmountOverLimit", [
       { no: 1, name: "amount_limit", kind: "message", T: () => kA }
     ]);
   }
 }
-const wS = new oS();
-class RS extends Y {
+const RS = new wS();
+class US extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.BalanceInsufficient", [
       { no: 1, name: "required_amount", kind: "message", T: () => kA },
@@ -17138,16 +17138,16 @@ class RS extends Y {
     ]);
   }
 }
-const US = new RS();
-class NS extends Y {
+const NS = new US();
+class aS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.EnergyInsufficient", [
       { no: 1, name: "energy_required", kind: "message", T: () => sI }
     ]);
   }
 }
-const aS = new NS();
-class GS extends Y {
+const GS = new aS();
+class FS extends Y {
   constructor() {
     super("concordium.v2.DryRunErrorResponse.InvokeFailure", [
       {
@@ -17159,26 +17159,26 @@ class GS extends Y {
         /*ScalarType.BYTES*/
       },
       { no: 2, name: "used_energy", kind: "message", T: () => sI },
-      { no: 3, name: "reason", kind: "message", T: () => mC }
+      { no: 3, name: "reason", kind: "message", T: () => ZC }
     ]);
   }
 }
-const FS = new GS();
-class kS extends Y {
+const kS = new FS();
+class MS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse", [
-      { no: 1, name: "block_state_loaded", kind: "message", oneof: "response", T: () => hS },
-      { no: 2, name: "account_info", kind: "message", oneof: "response", T: () => so },
-      { no: 3, name: "instance_info", kind: "message", oneof: "response", T: () => So },
-      { no: 4, name: "invoke_succeeded", kind: "message", oneof: "response", T: () => KS },
-      { no: 5, name: "timestamp_set", kind: "message", oneof: "response", T: () => YS },
-      { no: 6, name: "minted_to_account", kind: "message", oneof: "response", T: () => JS },
-      { no: 7, name: "transaction_executed", kind: "message", oneof: "response", T: () => yS }
+      { no: 1, name: "block_state_loaded", kind: "message", oneof: "response", T: () => sS },
+      { no: 2, name: "account_info", kind: "message", oneof: "response", T: () => So },
+      { no: 3, name: "instance_info", kind: "message", oneof: "response", T: () => to },
+      { no: 4, name: "invoke_succeeded", kind: "message", oneof: "response", T: () => HS },
+      { no: 5, name: "timestamp_set", kind: "message", oneof: "response", T: () => SS },
+      { no: 6, name: "minted_to_account", kind: "message", oneof: "response", T: () => tS },
+      { no: 7, name: "transaction_executed", kind: "message", oneof: "response", T: () => eS }
     ]);
   }
 }
-const MS = new kS();
-class cS extends Y {
+const cS = new MS();
+class hS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse.BlockStateLoaded", [
       { no: 1, name: "current_timestamp", kind: "message", T: () => EI },
@@ -17187,24 +17187,24 @@ class cS extends Y {
     ]);
   }
 }
-const hS = new cS();
-class sS extends Y {
+const sS = new hS();
+class YS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse.TimestampSet", []);
   }
 }
-const YS = new sS();
-class SS extends Y {
+const SS = new YS();
+class JS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse.MintedToAccount", []);
   }
 }
-const JS = new SS();
-class tS extends Y {
+const tS = new JS();
+class yS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse.TransactionExecuted", [
       { no: 1, name: "energy_cost", kind: "message", T: () => sI },
-      { no: 2, name: "details", kind: "message", T: () => Vo },
+      { no: 2, name: "details", kind: "message", T: () => Wo },
       {
         no: 3,
         name: "return_value",
@@ -17216,8 +17216,8 @@ class tS extends Y {
     ]);
   }
 }
-const yS = new tS();
-class eS extends Y {
+const eS = new yS();
+class KS extends Y {
   constructor() {
     super("concordium.v2.DryRunSuccessResponse.InvokeSuccess", [
       {
@@ -17229,12 +17229,12 @@ class eS extends Y {
         /*ScalarType.BYTES*/
       },
       { no: 2, name: "used_energy", kind: "message", T: () => sI },
-      { no: 3, name: "effects", kind: "message", repeat: 1, T: () => xC }
+      { no: 3, name: "effects", kind: "message", repeat: 1, T: () => TC }
     ]);
   }
 }
-const KS = new eS();
-class HS extends Y {
+const HS = new KS();
+class nS extends Y {
   constructor() {
     super("concordium.v2.FinalizerIndex", [
       {
@@ -17247,8 +17247,8 @@ class HS extends Y {
     ]);
   }
 }
-const tB = new HS();
-class nS extends Y {
+const tB = new nS();
+class rS extends Y {
   constructor() {
     super("concordium.v2.QuorumMessage", [
       { no: 1, name: "signature", kind: "message", T: () => HQ },
@@ -17259,8 +17259,8 @@ class nS extends Y {
     ]);
   }
 }
-const zo = new nS();
-class rS extends Y {
+const Xo = new rS();
+class LS extends Y {
   constructor() {
     super("concordium.v2.RawQuorumCertificate", [
       { no: 1, name: "block_hash", kind: "message", T: () => II },
@@ -17271,8 +17271,8 @@ class rS extends Y {
     ]);
   }
 }
-const UB = new rS();
-class LS extends Y {
+const UB = new LS();
+class qS extends Y {
   constructor() {
     super("concordium.v2.BlockSignature", [
       {
@@ -17285,21 +17285,21 @@ class LS extends Y {
     ]);
   }
 }
-const qS = new LS();
-class dS extends Y {
+const dS = new qS();
+class pS extends Y {
   constructor() {
     super("concordium.v2.TimeoutMessage", [
       { no: 1, name: "finalizer", kind: "message", T: () => tB },
       { no: 2, name: "round", kind: "message", T: () => SI },
       { no: 3, name: "epoch", kind: "message", T: () => YI },
       { no: 4, name: "quorum_certificate", kind: "message", T: () => UB },
-      { no: 5, name: "signature", kind: "message", T: () => vC },
-      { no: 6, name: "message_signature", kind: "message", T: () => qS }
+      { no: 5, name: "signature", kind: "message", T: () => _C },
+      { no: 6, name: "message_signature", kind: "message", T: () => dS }
     ]);
   }
 }
-const cC = new dS();
-class pS extends Y {
+const hC = new pS();
+class VS extends Y {
   constructor() {
     super("concordium.v2.RawFinalizerRound", [
       { no: 1, name: "round", kind: "message", T: () => SI },
@@ -17307,55 +17307,55 @@ class pS extends Y {
     ]);
   }
 }
-const ZD = new pS();
-class VS extends Y {
+const xD = new VS();
+class lS extends Y {
   constructor() {
     super("concordium.v2.RawTimeoutCertificate", [
       { no: 1, name: "round", kind: "message", T: () => SI },
       { no: 2, name: "min_epoch", kind: "message", T: () => YI },
-      { no: 3, name: "qc_rounds_first_epoch", kind: "message", repeat: 1, T: () => ZD },
-      { no: 4, name: "qc_rounds_second_epoch", kind: "message", repeat: 1, T: () => ZD },
-      { no: 5, name: "aggregate_signature", kind: "message", T: () => vC }
+      { no: 3, name: "qc_rounds_first_epoch", kind: "message", repeat: 1, T: () => xD },
+      { no: 4, name: "qc_rounds_second_epoch", kind: "message", repeat: 1, T: () => xD },
+      { no: 5, name: "aggregate_signature", kind: "message", T: () => _C }
     ]);
   }
 }
-const Po = new VS();
-class lS extends Y {
+const vo = new lS();
+class WS extends Y {
   constructor() {
     super("concordium.v2.PersistentRoundStatus", [
-      { no: 1, name: "last_signed_quorum_message", kind: "message", T: () => zo },
-      { no: 2, name: "last_signed_timeout_message", kind: "message", T: () => cC },
+      { no: 1, name: "last_signed_quorum_message", kind: "message", T: () => Xo },
+      { no: 2, name: "last_signed_timeout_message", kind: "message", T: () => hC },
       { no: 3, name: "last_baked_round", kind: "message", T: () => SI },
-      { no: 4, name: "latest_timeout", kind: "message", T: () => Po }
+      { no: 4, name: "latest_timeout", kind: "message", T: () => vo }
     ]);
   }
 }
-const WS = new lS();
-class mS extends Y {
+const mS = new WS();
+class ZS extends Y {
   constructor() {
     super("concordium.v2.RoundTimeout", [
-      { no: 1, name: "timeout_certificate", kind: "message", T: () => Po },
+      { no: 1, name: "timeout_certificate", kind: "message", T: () => vo },
       { no: 2, name: "quorum_certificate", kind: "message", T: () => UB }
     ]);
   }
 }
-const ZS = new mS();
-class xS extends Y {
+const xS = new ZS();
+class TS extends Y {
   constructor() {
     super("concordium.v2.RawFinalizationEntry", [
       { no: 1, name: "finalized_qc", kind: "message", T: () => UB },
       { no: 2, name: "successor_qc", kind: "message", T: () => UB },
-      { no: 3, name: "successor_proof", kind: "message", T: () => jo }
+      { no: 3, name: "successor_proof", kind: "message", T: () => Po }
     ]);
   }
 }
-const Xo = new xS();
-class TS extends Y {
+const _o = new TS();
+class fS extends Y {
   constructor() {
     super("concordium.v2.RoundStatus", [
       { no: 1, name: "current_round", kind: "message", T: () => SI },
       { no: 2, name: "highest_certified_block", kind: "message", T: () => UB },
-      { no: 3, name: "previous_round_timeout", kind: "message", T: () => ZS },
+      { no: 3, name: "previous_round_timeout", kind: "message", T: () => xS },
       {
         no: 4,
         name: "round_eligible_to_bake",
@@ -17364,13 +17364,13 @@ class TS extends Y {
         /*ScalarType.BOOL*/
       },
       { no: 5, name: "current_epoch", kind: "message", T: () => YI },
-      { no: 6, name: "last_epoch_finalization_entry", kind: "message", T: () => Xo },
+      { no: 6, name: "last_epoch_finalization_entry", kind: "message", T: () => _o },
       { no: 7, name: "current_timeout", kind: "message", T: () => _I }
     ]);
   }
 }
-const fS = new TS();
-class OS extends Y {
+const OS = new fS();
+class uS extends Y {
   constructor() {
     super("concordium.v2.BlockTableSummary", [
       {
@@ -17385,16 +17385,16 @@ class OS extends Y {
     ]);
   }
 }
-const uS = new OS();
-class bS extends Y {
+const bS = new uS();
+class jS extends Y {
   constructor() {
     super("concordium.v2.BranchBlocks", [
       { no: 1, name: "blocks_at_branch_height", kind: "message", repeat: 1, T: () => II }
     ]);
   }
 }
-const jS = new bS();
-class zS extends Y {
+const zS = new jS();
+class PS extends Y {
   constructor() {
     super("concordium.v2.RoundExistingBlock", [
       { no: 1, name: "round", kind: "message", T: () => SI },
@@ -17403,8 +17403,8 @@ class zS extends Y {
     ]);
   }
 }
-const PS = new zS();
-class XS extends Y {
+const XS = new PS();
+class vS extends Y {
   constructor() {
     super("concordium.v2.RoundExistingQC", [
       { no: 1, name: "round", kind: "message", T: () => SI },
@@ -17412,20 +17412,20 @@ class XS extends Y {
     ]);
   }
 }
-const vS = new XS();
-class _S extends Y {
+const _S = new vS();
+class $S extends Y {
   constructor() {
     super("concordium.v2.FullBakerInfo", [
       { no: 1, name: "baker_identity", kind: "message", T: () => xA },
-      { no: 2, name: "election_verify_key", kind: "message", T: () => VC },
-      { no: 3, name: "signature_verify_key", kind: "message", T: () => lC },
+      { no: 2, name: "election_verify_key", kind: "message", T: () => lC },
+      { no: 3, name: "signature_verify_key", kind: "message", T: () => WC },
       { no: 4, name: "aggregation_verify_key", kind: "message", T: () => sQ },
       { no: 5, name: "stake", kind: "message", T: () => kA }
     ]);
   }
 }
-const $S = new _S();
-class AJ extends Y {
+const AJ = new $S();
+class IJ extends Y {
   constructor() {
     super("concordium.v2.FinalizationCommitteeHash", [
       {
@@ -17438,41 +17438,41 @@ class AJ extends Y {
     ]);
   }
 }
-const IJ = new AJ();
-class gJ extends Y {
+const gJ = new IJ();
+class BJ extends Y {
   constructor() {
     super("concordium.v2.BakersAndFinalizers", [
-      { no: 1, name: "bakers", kind: "message", repeat: 1, T: () => $S },
+      { no: 1, name: "bakers", kind: "message", repeat: 1, T: () => AJ },
       { no: 2, name: "finalizers", kind: "message", repeat: 1, T: () => xA },
       { no: 3, name: "baker_total_stake", kind: "message", T: () => kA },
       { no: 4, name: "finalizer_total_stake", kind: "message", T: () => kA },
-      { no: 5, name: "finalization_committee_hash", kind: "message", T: () => IJ }
+      { no: 5, name: "finalization_committee_hash", kind: "message", T: () => gJ }
     ]);
   }
 }
-const BC = new gJ();
-class BJ extends Y {
+const QC = new BJ();
+class QJ extends Y {
   constructor() {
     super("concordium.v2.EpochBakers", [
-      { no: 1, name: "previous_epoch_bakers", kind: "message", T: () => BC },
-      { no: 2, name: "current_epoch_bakers", kind: "message", T: () => BC },
-      { no: 3, name: "next_epoch_bakers", kind: "message", T: () => BC },
+      { no: 1, name: "previous_epoch_bakers", kind: "message", T: () => QC },
+      { no: 2, name: "current_epoch_bakers", kind: "message", T: () => QC },
+      { no: 3, name: "next_epoch_bakers", kind: "message", T: () => QC },
       { no: 4, name: "next_payday", kind: "message", T: () => YI }
     ]);
   }
 }
-const QJ = new BJ();
-class CJ extends Y {
+const CJ = new QJ();
+class EJ extends Y {
   constructor() {
     super("concordium.v2.TimeoutMessages", [
       { no: 1, name: "first_epoch", kind: "message", T: () => YI },
-      { no: 2, name: "first_epoch_timeouts", kind: "message", repeat: 1, T: () => cC },
-      { no: 3, name: "second_epoch_timeouts", kind: "message", repeat: 1, T: () => cC }
+      { no: 2, name: "first_epoch_timeouts", kind: "message", repeat: 1, T: () => hC },
+      { no: 3, name: "second_epoch_timeouts", kind: "message", repeat: 1, T: () => hC }
     ]);
   }
 }
-const EJ = new CJ();
-class DJ extends Y {
+const DJ = new EJ();
+class iJ extends Y {
   constructor() {
     super("concordium.v2.AggregatedSignatures", [
       { no: 1, name: "signed_block", kind: "message", T: () => II },
@@ -17482,30 +17482,30 @@ class DJ extends Y {
     ]);
   }
 }
-const iJ = new DJ();
-class oJ extends Y {
-  constructor() {
-    super("concordium.v2.QuorumMessages", [
-      { no: 1, name: "quorum_messages", kind: "message", repeat: 1, T: () => zo },
-      { no: 2, name: "aggregated_signatures", kind: "message", repeat: 1, T: () => iJ }
-    ]);
-  }
-}
-new oJ();
+const oJ = new iJ();
 class wJ extends Y {
   constructor() {
-    super("concordium.v2.ConsensusDetailedStatusQuery", [
-      { no: 1, name: "genesis_index", kind: "message", T: () => ug }
+    super("concordium.v2.QuorumMessages", [
+      { no: 1, name: "quorum_messages", kind: "message", repeat: 1, T: () => Xo },
+      { no: 2, name: "aggregated_signatures", kind: "message", repeat: 1, T: () => oJ }
     ]);
   }
 }
-const RJ = new wJ();
-class UJ extends Y {
+new wJ();
+class RJ extends Y {
+  constructor() {
+    super("concordium.v2.ConsensusDetailedStatusQuery", [
+      { no: 1, name: "genesis_index", kind: "message", T: () => bg }
+    ]);
+  }
+}
+const UJ = new RJ();
+class NJ extends Y {
   constructor() {
     super("concordium.v2.ConsensusDetailedStatus", [
       { no: 1, name: "genesis_block", kind: "message", T: () => II },
-      { no: 2, name: "persistent_round_status", kind: "message", T: () => WS },
-      { no: 3, name: "round_status", kind: "message", T: () => fS },
+      { no: 2, name: "persistent_round_status", kind: "message", T: () => mS },
+      { no: 3, name: "round_status", kind: "message", T: () => OS },
       {
         no: 4,
         name: "non_finalized_transaction_count",
@@ -17522,95 +17522,95 @@ class UJ extends Y {
         L: 0
         /*LongType.BIGINT*/
       },
-      { no: 6, name: "block_table", kind: "message", T: () => uS },
-      { no: 7, name: "branches", kind: "message", repeat: 1, T: () => jS },
-      { no: 8, name: "round_existing_blocks", kind: "message", repeat: 1, T: () => PS },
-      { no: 9, name: "round_existing_qcs", kind: "message", repeat: 1, T: () => vS },
-      { no: 10, name: "genesis_block_height", kind: "message", T: () => Rg },
+      { no: 6, name: "block_table", kind: "message", T: () => bS },
+      { no: 7, name: "branches", kind: "message", repeat: 1, T: () => zS },
+      { no: 8, name: "round_existing_blocks", kind: "message", repeat: 1, T: () => XS },
+      { no: 9, name: "round_existing_qcs", kind: "message", repeat: 1, T: () => _S },
+      { no: 10, name: "genesis_block_height", kind: "message", T: () => Ug },
       { no: 11, name: "last_finalized_block", kind: "message", T: () => II },
       { no: 12, name: "last_finalized_block_height", kind: "message", T: () => kB },
-      { no: 13, name: "latest_finalization_entry", kind: "message", T: () => Xo },
-      { no: 14, name: "epoch_bakers", kind: "message", T: () => QJ },
-      { no: 15, name: "timeout_messages", kind: "message", T: () => EJ },
+      { no: 13, name: "latest_finalization_entry", kind: "message", T: () => _o },
+      { no: 14, name: "epoch_bakers", kind: "message", T: () => CJ },
+      { no: 15, name: "timeout_messages", kind: "message", T: () => DJ },
       { no: 16, name: "terminal_block", kind: "message", T: () => II }
     ]);
   }
 }
-const NJ = new UJ();
-class aJ extends Y {
+const aJ = new NJ();
+class GJ extends Y {
   constructor() {
     super("concordium.v2.AccountPending", [
-      { no: 1, name: "account_index", kind: "message", T: () => Vg },
+      { no: 1, name: "account_index", kind: "message", T: () => lg },
       { no: 2, name: "first_timestamp", kind: "message", T: () => EI }
     ]);
   }
 }
-const xD = new aJ(), QC = new si("concordium.v2.Queries", [
-  { name: "GetBlocks", serverStreaming: !0, options: {}, I: tA, O: Sc },
-  { name: "GetFinalizedBlocks", serverStreaming: !0, options: {}, I: tA, O: pF },
-  { name: "GetAccountInfo", options: {}, I: qF, O: so },
+const TD = new GJ(), CC = new Si("concordium.v2.Queries", [
+  { name: "GetBlocks", serverStreaming: !0, options: {}, I: tA, O: Jc },
+  { name: "GetFinalizedBlocks", serverStreaming: !0, options: {}, I: tA, O: VF },
+  { name: "GetAccountInfo", options: {}, I: dF, O: So },
   { name: "GetAccountList", serverStreaming: !0, options: {}, I: TA, O: VA },
   { name: "GetModuleList", serverStreaming: !0, options: {}, I: TA, O: eI },
-  { name: "GetAncestors", serverStreaming: !0, options: {}, I: lF, O: II },
-  { name: "GetModuleSource", options: {}, I: mF, O: No },
+  { name: "GetAncestors", serverStreaming: !0, options: {}, I: WF, O: II },
+  { name: "GetModuleSource", options: {}, I: ZF, O: Go },
   { name: "GetInstanceList", serverStreaming: !0, options: {}, I: TA, O: hI },
-  { name: "GetInstanceInfo", options: {}, I: dD, O: So },
-  { name: "GetInstanceState", serverStreaming: !0, options: {}, I: dD, O: zF },
-  { name: "InstanceStateLookup", options: {}, I: XF, O: _F },
-  { name: "GetNextAccountSequenceNumber", options: {}, I: VA, O: Gk },
-  { name: "GetConsensusInfo", options: {}, I: tA, O: sc },
-  { name: "GetBlockItemStatus", options: {}, I: Kg, O: Ck },
-  { name: "GetCryptographicParameters", options: {}, I: TA, O: tc },
-  { name: "GetBlockInfo", options: {}, I: TA, O: ec },
+  { name: "GetInstanceInfo", options: {}, I: pD, O: to },
+  { name: "GetInstanceState", serverStreaming: !0, options: {}, I: pD, O: PF },
+  { name: "InstanceStateLookup", options: {}, I: vF, O: $F },
+  { name: "GetNextAccountSequenceNumber", options: {}, I: VA, O: Fk },
+  { name: "GetConsensusInfo", options: {}, I: tA, O: Yc },
+  { name: "GetBlockItemStatus", options: {}, I: Hg, O: Ek },
+  { name: "GetCryptographicParameters", options: {}, I: TA, O: yc },
+  { name: "GetBlockInfo", options: {}, I: TA, O: Kc },
   { name: "GetBakerList", serverStreaming: !0, options: {}, I: TA, O: xA },
-  { name: "GetPoolInfo", options: {}, I: Hc, O: mc },
-  { name: "GetPassiveDelegationInfo", options: {}, I: TA, O: xc },
-  { name: "GetBlocksAtHeight", options: {}, I: fc, O: Pc },
-  { name: "GetTokenomicsInfo", options: {}, I: TA, O: vc },
-  { name: "InvokeInstance", options: {}, I: Bh, O: Ch },
-  { name: "GetPoolDelegators", serverStreaming: !0, options: {}, I: VD, O: lD },
-  { name: "GetPoolDelegatorsRewardPeriod", serverStreaming: !0, options: {}, I: VD, O: WD },
-  { name: "GetPassiveDelegators", serverStreaming: !0, options: {}, I: TA, O: lD },
-  { name: "GetPassiveDelegatorsRewardPeriod", serverStreaming: !0, options: {}, I: TA, O: WD },
-  { name: "GetBranches", options: {}, I: tA, O: Wo },
-  { name: "GetElectionInfo", options: {}, I: TA, O: kh },
-  { name: "GetIdentityProviders", serverStreaming: !0, options: {}, I: TA, O: bC },
-  { name: "GetAnonymityRevokers", serverStreaming: !0, options: {}, I: TA, O: uC },
-  { name: "GetAccountNonFinalizedTransactions", serverStreaming: !0, options: {}, I: VA, O: Kg },
-  { name: "GetBlockTransactionEvents", serverStreaming: !0, options: {}, I: TA, O: lo },
-  { name: "GetBlockSpecialEvents", serverStreaming: !0, options: {}, I: TA, O: sh },
-  { name: "GetBlockPendingUpdates", serverStreaming: !0, options: {}, I: TA, O: bh },
-  { name: "GetNextUpdateSequenceNumbers", options: {}, I: TA, O: zh },
-  { name: "GetScheduledReleaseAccounts", serverStreaming: !0, options: {}, I: TA, O: xD },
-  { name: "GetCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: xD },
-  { name: "GetPreCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: Vg },
-  { name: "GetPrePreCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: Vg },
+  { name: "GetPoolInfo", options: {}, I: nc, O: Zc },
+  { name: "GetPassiveDelegationInfo", options: {}, I: TA, O: Tc },
+  { name: "GetBlocksAtHeight", options: {}, I: Oc, O: Xc },
+  { name: "GetTokenomicsInfo", options: {}, I: TA, O: _c },
+  { name: "InvokeInstance", options: {}, I: Qh, O: Eh },
+  { name: "GetPoolDelegators", serverStreaming: !0, options: {}, I: lD, O: WD },
+  { name: "GetPoolDelegatorsRewardPeriod", serverStreaming: !0, options: {}, I: lD, O: mD },
+  { name: "GetPassiveDelegators", serverStreaming: !0, options: {}, I: TA, O: WD },
+  { name: "GetPassiveDelegatorsRewardPeriod", serverStreaming: !0, options: {}, I: TA, O: mD },
+  { name: "GetBranches", options: {}, I: tA, O: Zo },
+  { name: "GetElectionInfo", options: {}, I: TA, O: Mh },
+  { name: "GetIdentityProviders", serverStreaming: !0, options: {}, I: TA, O: jC },
+  { name: "GetAnonymityRevokers", serverStreaming: !0, options: {}, I: TA, O: bC },
+  { name: "GetAccountNonFinalizedTransactions", serverStreaming: !0, options: {}, I: VA, O: Hg },
+  { name: "GetBlockTransactionEvents", serverStreaming: !0, options: {}, I: TA, O: mo },
+  { name: "GetBlockSpecialEvents", serverStreaming: !0, options: {}, I: TA, O: Yh },
+  { name: "GetBlockPendingUpdates", serverStreaming: !0, options: {}, I: TA, O: jh },
+  { name: "GetNextUpdateSequenceNumbers", options: {}, I: TA, O: Ph },
+  { name: "GetScheduledReleaseAccounts", serverStreaming: !0, options: {}, I: TA, O: TD },
+  { name: "GetCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: TD },
+  { name: "GetPreCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: lg },
+  { name: "GetPrePreCooldownAccounts", serverStreaming: !0, options: {}, I: TA, O: lg },
   { name: "GetBakerEarliestWinTime", options: {}, I: xA, O: EI },
   { name: "Shutdown", options: {}, I: tA, O: tA },
-  { name: "PeerConnect", options: {}, I: kC, O: tA },
-  { name: "PeerDisconnect", options: {}, I: kC, O: tA },
-  { name: "GetBannedPeers", options: {}, I: tA, O: gs },
-  { name: "BanPeer", options: {}, I: Qs, O: tA },
-  { name: "UnbanPeer", options: {}, I: xo, O: tA },
-  { name: "DumpStart", options: {}, I: Es, O: tA },
+  { name: "PeerConnect", options: {}, I: MC, O: tA },
+  { name: "PeerDisconnect", options: {}, I: MC, O: tA },
+  { name: "GetBannedPeers", options: {}, I: tA, O: Bs },
+  { name: "BanPeer", options: {}, I: Cs, O: tA },
+  { name: "UnbanPeer", options: {}, I: fo, O: tA },
+  { name: "DumpStart", options: {}, I: Ds, O: tA },
   { name: "DumpStop", options: {}, I: tA, O: tA },
-  { name: "GetPeersInfo", options: {}, I: tA, O: is },
-  { name: "GetNodeInfo", options: {}, I: tA, O: as },
-  { name: "SendBlockItem", options: {}, I: ys, O: Kg },
-  { name: "GetAccountTransactionSignHash", options: {}, I: bs, O: AY },
-  { name: "GetBlockChainParameters", options: {}, I: TA, O: RY },
-  { name: "GetBlockFinalizationSummary", options: {}, I: TA, O: cY },
-  { name: "GetBlockItems", serverStreaming: !0, options: {}, I: TA, O: sY },
-  { name: "GetBakersRewardPeriod", serverStreaming: !0, options: {}, I: TA, O: SY },
-  { name: "GetBlockCertificates", options: {}, I: TA, O: dY },
-  { name: "GetWinningBakersEpoch", serverStreaming: !0, options: {}, I: qD, O: VY },
-  { name: "GetFirstBlockEpoch", options: {}, I: qD, O: II },
-  { name: "GetConsensusDetailedStatus", options: {}, I: RJ, O: NJ },
-  { name: "DryRun", serverStreaming: !0, clientStreaming: !0, options: {}, I: WY, O: _Y }
+  { name: "GetPeersInfo", options: {}, I: tA, O: os },
+  { name: "GetNodeInfo", options: {}, I: tA, O: Gs },
+  { name: "SendBlockItem", options: {}, I: es, O: Hg },
+  { name: "GetAccountTransactionSignHash", options: {}, I: js, O: IY },
+  { name: "GetBlockChainParameters", options: {}, I: TA, O: UY },
+  { name: "GetBlockFinalizationSummary", options: {}, I: TA, O: hY },
+  { name: "GetBlockItems", serverStreaming: !0, options: {}, I: TA, O: YY },
+  { name: "GetBakersRewardPeriod", serverStreaming: !0, options: {}, I: TA, O: JY },
+  { name: "GetBlockCertificates", options: {}, I: TA, O: pY },
+  { name: "GetWinningBakersEpoch", serverStreaming: !0, options: {}, I: dD, O: lY },
+  { name: "GetFirstBlockEpoch", options: {}, I: dD, O: II },
+  { name: "GetConsensusDetailedStatus", options: {}, I: UJ, O: aJ },
+  { name: "DryRun", serverStreaming: !0, clientStreaming: !0, options: {}, I: mY, O: $Y }
 ]);
-class GJ {
+class FJ {
   constructor(I) {
-    this._transport = I, this.typeName = QC.typeName, this.methods = QC.methods, this.options = QC.options;
+    this._transport = I, this.typeName = CC.typeName, this.methods = CC.methods, this.options = CC.options;
   }
   /**
    * Return a stream of blocks that arrive from the time the query is made onward.
@@ -18333,38 +18333,38 @@ function bI(A) {
 function rA(A) {
   return bI(s(A).value);
 }
-function eg(A) {
-  return SC.encode(FA.Buffer.concat([FA.Buffer.of(1), s(A == null ? void 0 : A.value)]));
+function Kg(A) {
+  return JC.encode(FA.Buffer.concat([FA.Buffer.of(1), s(A == null ? void 0 : A.value)]));
 }
-function FJ(A) {
+function kJ(A) {
   return {
     timestamp: MI(A.timestamp),
     amount: SA(s(A.amount)),
     transactions: A.transactions.map(rA)
   };
 }
-function kJ(A) {
+function MJ(A) {
   return {
     timestamp: MI(A.timestamp),
     amount: SA(s(A.amount))
   };
 }
-function TD(A) {
+function fD(A) {
   return String(A.year) + String(A.month).padStart(2, "0");
 }
-function vo(A) {
+function $o(A) {
   return XB[A];
 }
-function MJ(A) {
+function cJ(A) {
   return {
     cmmPrf: rA(A.prf),
     cmmCredCounter: rA(A.credCounter),
     cmmIdCredSecSharingCoeff: A.idCredSecSharingCoeff.map(rA),
-    cmmAttributes: Dg(A.attributes, rA, vo),
+    cmmAttributes: ig(A.attributes, rA, $o),
     cmmMaxAccounts: rA(A.maxAccounts)
   };
 }
-function cJ(A) {
+function hJ(A) {
   if (A.key.oneofKind === "ed25519Key")
     return {
       schemeId: "Ed25519",
@@ -18372,14 +18372,14 @@ function cJ(A) {
     };
   throw Error('AccountVerifyKey was expected to be of type "ed25519Key", but found' + A.key.oneofKind);
 }
-function hJ(A) {
+function sJ(A) {
   var I;
   return {
     threshold: s((I = A.threshold) == null ? void 0 : I.value),
-    keys: Dg(A.keys, cJ)
+    keys: ig(A.keys, hJ)
   };
 }
-function sJ(A) {
+function YJ(A) {
   return {
     encIdCredPubShare: bI(A.encIdCredPubShare)
   };
@@ -18391,18 +18391,18 @@ function yB(A) {
     finalizationCommission: nA(A == null ? void 0 : A.finalization)
   };
 }
-function YJ(A) {
+function SJ(A) {
   var D, i, a, c, M;
   const I = A.credentialValues;
   if (I === void 0)
     throw Error("CredentialValues were undefined.");
   const g = I.oneofKind === "normal", B = g ? I.normal : I.initial, Q = {
-    validTo: TD(s((D = B.policy) == null ? void 0 : D.validTo)),
-    createdAt: TD(s((i = B.policy) == null ? void 0 : i.createdAt)),
-    revealedAttributes: Dg((a = B.policy) == null ? void 0 : a.attributes, bI, vo)
+    validTo: fD(s((D = B.policy) == null ? void 0 : D.validTo)),
+    createdAt: fD(s((i = B.policy) == null ? void 0 : i.createdAt)),
+    revealedAttributes: ig((a = B.policy) == null ? void 0 : a.attributes, bI, $o)
   }, E = {
     ipIdentity: s((c = B.ipId) == null ? void 0 : c.value),
-    credentialPublicKeys: hJ(s(B.keys)),
+    credentialPublicKeys: sJ(s(B.keys)),
     policy: Q
   };
   let R;
@@ -18412,8 +18412,8 @@ function YJ(A) {
       ...E,
       credId: rA(B.credId),
       revocationThreshold: s((M = B.arThreshold) == null ? void 0 : M.value),
-      arData: Dg(B.arData, sJ, String),
-      commitments: MJ(s(B.commitments))
+      arData: ig(B.arData, YJ, String),
+      commitments: cJ(s(B.commitments))
     }
   } : R = {
     type: "initial",
@@ -18426,14 +18426,14 @@ function YJ(A) {
     value: R
   };
 }
-function SJ(A) {
+function JJ(A) {
   if (A.target.oneofKind === "passive")
     return {
-      delegateType: ig.PassiveDelegation
+      delegateType: og.PassiveDelegation
     };
   if (A.target.oneofKind === "baker")
     return {
-      delegateType: ig.Baker,
+      delegateType: og.Baker,
       bakerId: A.target.baker.value
     };
   throw Error('DelegatorTarget expected to be of type "passive" or "baker", but found ' + A.target.oneofKind);
@@ -18441,7 +18441,7 @@ function SJ(A) {
 function MI(A) {
   return new Date(Number(s(A == null ? void 0 : A.value)));
 }
-function _C(A) {
+function $C(A) {
   var g;
   const I = s(A == null ? void 0 : A.change);
   if (I.oneofKind === "reduce")
@@ -18457,31 +18457,31 @@ function _C(A) {
     };
   throw Error('PendingChange expected to be of type "reduce" or "remove", but found ' + I.oneofKind);
 }
-function JJ(A) {
+function tJ(A) {
   return {
     restakeEarnings: A.restakeEarnings,
     stakedAmount: SA(s(A.stakedAmount)),
-    delegationTarget: SJ(s(A.target)),
+    delegationTarget: JJ(s(A.target)),
     // Set the following value if deleg.pendingChange is set to true
     ...A.pendingChange && {
-      pendingChange: _C(A.pendingChange)
+      pendingChange: $C(A.pendingChange)
     }
   };
 }
 function nA(A) {
   return s(A == null ? void 0 : A.partsPerHundredThousand) / 1e5;
 }
-function $C(A) {
+function AE(A) {
   switch (s(A)) {
-    case kg.OPEN_FOR_ALL:
+    case Mg.OPEN_FOR_ALL:
       return QB.OpenForAll;
-    case kg.CLOSED_FOR_NEW:
+    case Mg.CLOSED_FOR_NEW:
       return QB.ClosedForNew;
-    case kg.CLOSED_FOR_ALL:
+    case Mg.CLOSED_FOR_ALL:
       return QB.ClosedForAll;
   }
 }
-function tJ(A) {
+function yJ(A) {
   var E, R, D, i, a;
   const I = A.bakerInfo, g = A.isSuspended, B = {
     version: 0,
@@ -18493,14 +18493,14 @@ function tJ(A) {
     stakedAmount: SA(s(A.stakedAmount)),
     // Set the following value if baker.pendingChange is set to true
     ...A.pendingChange && {
-      pendingChange: _C(A.pendingChange)
+      pendingChange: $C(A.pendingChange)
     },
     isSuspended: g
   };
   if (A.poolInfo === void 0)
     return B;
   const Q = {
-    openStatus: $C((D = A.poolInfo) == null ? void 0 : D.openStatus),
+    openStatus: AE((D = A.poolInfo) == null ? void 0 : D.openStatus),
     metadataUrl: s((i = A.poolInfo) == null ? void 0 : i.url),
     commissionRates: yB((a = A.poolInfo) == null ? void 0 : a.commissionRates)
   };
@@ -18510,31 +18510,31 @@ function tJ(A) {
     bakerPoolInfo: Q
   };
 }
-function fD(A) {
+function OD(A) {
   var I;
   return {
-    keys: A.keys.map(Wg),
+    keys: A.keys.map(mg),
     threshold: s((I = A.threshold) == null ? void 0 : I.value)
   };
 }
-function AE(A) {
+function IE(A) {
   var I, g, B;
   return {
     euroPerEnergy: s((I = A.euroPerEnergy) == null ? void 0 : I.value),
     microGTUPerEuro: s((g = A.microCcdPerEuro) == null ? void 0 : g.value),
     accountCreationLimit: s((B = A.accountCreationLimit) == null ? void 0 : B.value),
     foundationAccount: CI(s(A.foundationAccount)),
-    level1Keys: fD(s(A.level1Keys)),
-    rootKeys: fD(s(A.rootKeys))
+    level1Keys: OD(s(A.level1Keys)),
+    rootKeys: OD(s(A.rootKeys))
   };
 }
-function Hg(A) {
+function ng(A) {
   return {
     min: nA(A == null ? void 0 : A.min),
     max: nA(A == null ? void 0 : A.max)
   };
 }
-function IE(A) {
+function gE(A) {
   const I = A.transactionFeeDistribution;
   return {
     transactionFeeDistribution: {
@@ -18543,7 +18543,7 @@ function IE(A) {
     }
   };
 }
-function yJ(A) {
+function eJ(A) {
   var I;
   switch ((I = A == null ? void 0 : A.change) == null ? void 0 : I.oneofKind) {
     case "reduce":
@@ -18564,14 +18564,14 @@ function yJ(A) {
       };
   }
 }
-function eJ(A) {
+function KJ(A) {
   return {
-    openStatus: $C(A.openStatus),
+    openStatus: AE(A.openStatus),
     metadataUrl: A.url,
     commissionRates: yB(A.commissionRates)
   };
 }
-function KJ(A) {
+function HJ(A) {
   return {
     blocksBaked: A.blocksBaked,
     finalizationLive: A.finalizationLive,
@@ -18585,14 +18585,14 @@ function KJ(A) {
     missedRounds: A.missedRounds ?? 0n
   };
 }
-function HJ(A) {
+function nJ(A) {
   return {
     amount: SA(s(A.amount)),
-    timestamp: dC(s(A.endTime)),
+    timestamp: pC(s(A.endTime)),
     status: A.status
   };
 }
-function nJ(A) {
+function rJ(A) {
   var a, c, M, e, F, K, n, q, l, t, d, O, y, v, W;
   const I = (c = (a = A.encryptedBalance) == null ? void 0 : a.aggregatedAmount) == null ? void 0 : c.value, g = (M = A.encryptedBalance) == null ? void 0 : M.numAggregated, B = {
     selfAmount: rA((e = A.encryptedBalance) == null ? void 0 : e.selfAmount),
@@ -18603,8 +18603,8 @@ function nJ(A) {
     ...I && { aggregatedAmount: bI(I) }
   }, Q = {
     total: SA(s((n = A.schedule) == null ? void 0 : n.total)),
-    schedule: s((q = A.schedule) == null ? void 0 : q.schedules).map(FJ)
-  }, E = A.cooldowns.map(HJ), R = SA(s(A.amount));
+    schedule: s((q = A.schedule) == null ? void 0 : q.schedules).map(kJ)
+  }, E = A.cooldowns.map(nJ), R = SA(s(A.amount));
   let D;
   if (A.availableBalance !== void 0)
     D = SA(s(A.availableBalance));
@@ -18621,48 +18621,48 @@ function nJ(A) {
       }
     }
     const _ = Q ? BigInt(Q.total.microCcdAmount) : 0n, T = (Z, m) => Z > m ? Z : m, wA = R.microCcdAmount - T(_, IA);
-    D = Fg(wA);
+    D = kg(wA);
   }
   const i = {
     type: EB.Simple,
     accountAddress: CI(s(A.address)),
-    accountNonce: zi(s(A.sequenceNumber)),
+    accountNonce: Xi(s(A.sequenceNumber)),
     accountAmount: R,
     accountIndex: s((O = A.index) == null ? void 0 : O.value),
     accountThreshold: s((y = A.threshold) == null ? void 0 : y.value),
     accountEncryptionKey: rA(A.encryptionKey),
     accountEncryptedAmount: B,
     accountReleaseSchedule: Q,
-    accountCredentials: Dg(A.creds, YJ),
+    accountCredentials: ig(A.creds, SJ),
     accountCooldowns: E,
     accountAvailableBalance: D
   };
   return ((v = A.stake) == null ? void 0 : v.stakingInfo.oneofKind) === "delegator" ? {
     ...i,
     type: EB.Delegator,
-    accountDelegation: JJ(A.stake.stakingInfo.delegator)
+    accountDelegation: tJ(A.stake.stakingInfo.delegator)
   } : ((W = A.stake) == null ? void 0 : W.stakingInfo.oneofKind) === "baker" ? {
     ...i,
     type: EB.Baker,
-    accountBaker: tJ(A.stake.stakingInfo.baker)
+    accountBaker: yJ(A.stake.stakingInfo.baker)
   } : i;
 }
-function rJ(A) {
+function LJ(A) {
   return {
-    nonce: zi(s(A.sequenceNumber)),
+    nonce: Xi(s(A.sequenceNumber)),
     allFinal: A.allFinal
   };
 }
-function LJ(A) {
+function qJ(A) {
   return {
     onChainCommitmentKey: bI(A.onChainCommitmentKey),
     bulletproofGenerators: bI(A.bulletproofGenerators),
     genesisString: A.genesisString
   };
 }
-function qJ(A) {
+function dJ(A) {
   var B, Q, E, R, D, i, a, c, M;
-  const I = AE(A), g = IE(A);
+  const I = IE(A), g = gE(A);
   return {
     ...I,
     version: 0,
@@ -18689,13 +18689,13 @@ function qJ(A) {
     }
   };
 }
-function dJ(A) {
+function pJ(A) {
   var B, Q, E, R, D, i, a, c, M, e, F, K, n, q, l, t, d, O, y, v, W, IA, _, T, wA, Z, m, X, DA;
-  const I = AE(A), g = IE(A);
+  const I = IE(A), g = gE(A);
   return {
     ...I,
     version: 1,
-    level2Keys: gE(s(A.level2Keys)),
+    level2Keys: BE(s(A.level2Keys)),
     electionDifficulty: nA((B = A.electionDifficulty) == null ? void 0 : B.value),
     rewardPeriodLength: s((R = (E = (Q = A.timeParameters) == null ? void 0 : Q.rewardPeriodLength) == null ? void 0 : E.value) == null ? void 0 : R.value),
     mintPerPayday: nQ((D = A.timeParameters) == null ? void 0 : D.mintPerPayday),
@@ -18704,9 +18704,9 @@ function dJ(A) {
     passiveFinalizationCommission: nA((e = A.poolParameters) == null ? void 0 : e.passiveFinalizationCommission),
     passiveBakingCommission: nA((F = A.poolParameters) == null ? void 0 : F.passiveBakingCommission),
     passiveTransactionCommission: nA((K = A.poolParameters) == null ? void 0 : K.passiveTransactionCommission),
-    finalizationCommissionRange: Hg((q = (n = A.poolParameters) == null ? void 0 : n.commissionBounds) == null ? void 0 : q.finalization),
-    bakingCommissionRange: Hg((t = (l = A.poolParameters) == null ? void 0 : l.commissionBounds) == null ? void 0 : t.baking),
-    transactionCommissionRange: Hg((O = (d = A.poolParameters) == null ? void 0 : d.commissionBounds) == null ? void 0 : O.transaction),
+    finalizationCommissionRange: ng((q = (n = A.poolParameters) == null ? void 0 : n.commissionBounds) == null ? void 0 : q.finalization),
+    bakingCommissionRange: ng((t = (l = A.poolParameters) == null ? void 0 : l.commissionBounds) == null ? void 0 : t.baking),
+    transactionCommissionRange: ng((O = (d = A.poolParameters) == null ? void 0 : d.commissionBounds) == null ? void 0 : O.transaction),
     minimumEquityCapital: SA(s((y = A.poolParameters) == null ? void 0 : y.minimumEquityCapital)),
     capitalBound: nA((W = (v = A.poolParameters) == null ? void 0 : v.capitalBound) == null ? void 0 : W.value),
     leverageBound: s((_ = (IA = A.poolParameters) == null ? void 0 : IA.leverageBound) == null ? void 0 : _.value),
@@ -18728,13 +18728,13 @@ function dJ(A) {
     }
   };
 }
-function _o(A) {
+function Aw(A) {
   var B, Q, E, R, D, i, a, c, M, e, F, K, n, q, l, t, d, O, y, v, W, IA, _, T, wA, Z, m, X, DA, EA, CA, GA, u, aA, RA, MA, eA, iA;
-  const I = AE(A), g = IE(A);
+  const I = IE(A), g = gE(A);
   return {
     ...I,
     version: 2,
-    level2Keys: gE(s(A.level2Keys)),
+    level2Keys: BE(s(A.level2Keys)),
     rewardPeriodLength: s((E = (Q = (B = A.timeParameters) == null ? void 0 : B.rewardPeriodLength) == null ? void 0 : Q.value) == null ? void 0 : E.value),
     mintPerPayday: nQ((R = A.timeParameters) == null ? void 0 : R.mintPerPayday),
     delegatorCooldown: s((i = (D = A.cooldownParameters) == null ? void 0 : D.delegatorCooldown) == null ? void 0 : i.value),
@@ -18742,9 +18742,9 @@ function _o(A) {
     passiveFinalizationCommission: nA((M = A.poolParameters) == null ? void 0 : M.passiveFinalizationCommission),
     passiveBakingCommission: nA((e = A.poolParameters) == null ? void 0 : e.passiveBakingCommission),
     passiveTransactionCommission: nA((F = A.poolParameters) == null ? void 0 : F.passiveTransactionCommission),
-    finalizationCommissionRange: Hg((n = (K = A.poolParameters) == null ? void 0 : K.commissionBounds) == null ? void 0 : n.finalization),
-    bakingCommissionRange: Hg((l = (q = A.poolParameters) == null ? void 0 : q.commissionBounds) == null ? void 0 : l.baking),
-    transactionCommissionRange: Hg((d = (t = A.poolParameters) == null ? void 0 : t.commissionBounds) == null ? void 0 : d.transaction),
+    finalizationCommissionRange: ng((n = (K = A.poolParameters) == null ? void 0 : K.commissionBounds) == null ? void 0 : n.finalization),
+    bakingCommissionRange: ng((l = (q = A.poolParameters) == null ? void 0 : q.commissionBounds) == null ? void 0 : l.baking),
+    transactionCommissionRange: ng((d = (t = A.poolParameters) == null ? void 0 : t.commissionBounds) == null ? void 0 : d.transaction),
     minimumEquityCapital: SA(s((O = A.poolParameters) == null ? void 0 : O.minimumEquityCapital)),
     capitalBound: nA((v = (y = A.poolParameters) == null ? void 0 : y.capitalBound) == null ? void 0 : v.value),
     leverageBound: s((IA = (W = A.poolParameters) == null ? void 0 : W.leverageBound) == null ? void 0 : IA.value),
@@ -18763,19 +18763,19 @@ function _o(A) {
         finalizationReward: nA((m = A.mintDistribution) == null ? void 0 : m.finalizationReward)
       }
     },
-    timeoutBase: Eg(s((DA = (X = A.consensusParameters) == null ? void 0 : X.timeoutParameters) == null ? void 0 : DA.timeoutBase)),
+    timeoutBase: Dg(s((DA = (X = A.consensusParameters) == null ? void 0 : X.timeoutParameters) == null ? void 0 : DA.timeoutBase)),
     timeoutDecrease: s((CA = (EA = A.consensusParameters) == null ? void 0 : EA.timeoutParameters) == null ? void 0 : CA.timeoutDecrease),
     timeoutIncrease: s((u = (GA = A.consensusParameters) == null ? void 0 : GA.timeoutParameters) == null ? void 0 : u.timeoutIncrease),
-    minBlockTime: Eg(s((aA = A.consensusParameters) == null ? void 0 : aA.minBlockTime)),
-    blockEnergyLimit: Lg(s((RA = A.consensusParameters) == null ? void 0 : RA.blockEnergyLimit)),
+    minBlockTime: Dg(s((aA = A.consensusParameters) == null ? void 0 : aA.minBlockTime)),
+    blockEnergyLimit: qg(s((RA = A.consensusParameters) == null ? void 0 : RA.blockEnergyLimit)),
     finalizerRelativeStakeThreshold: nA((MA = A.finalizationCommitteeParameters) == null ? void 0 : MA.finalizerRelativeStakeThreshold),
     minimumFinalizers: s((eA = A.finalizationCommitteeParameters) == null ? void 0 : eA.minimumFinalizers),
     maximumFinalizers: s((iA = A.finalizationCommitteeParameters) == null ? void 0 : iA.maximumFinalizers)
   };
 }
-function pJ(A) {
+function VJ(A) {
   var B;
-  const { version: I, ...g } = _o(A);
+  const { version: I, ...g } = Aw(A);
   return {
     ...g,
     version: 3,
@@ -18784,21 +18784,21 @@ function pJ(A) {
     }
   };
 }
-function VJ(A) {
+function lJ(A) {
   switch (A.parameters.oneofKind) {
     case "v3":
-      return pJ(A.parameters.v3);
+      return VJ(A.parameters.v3);
     case "v2":
-      return _o(A.parameters.v2);
+      return Aw(A.parameters.v2);
     case "v1":
-      return dJ(A.parameters.v1);
+      return pJ(A.parameters.v1);
     case "v0":
-      return qJ(A.parameters.v0);
+      return dJ(A.parameters.v0);
     case void 0:
       throw new Error("Missing chain parameters");
   }
 }
-function lJ(A) {
+function WJ(A) {
   var I;
   return {
     poolType: _B.BakerPool,
@@ -18807,14 +18807,14 @@ function lJ(A) {
     bakerEquityCapital: A.equityCapital !== void 0 ? SA(A.equityCapital) : void 0,
     delegatedCapital: A.delegatedCapital !== void 0 ? SA(A.delegatedCapital) : void 0,
     delegatedCapitalCap: A.delegatedCapitalCap !== void 0 ? SA(A.delegatedCapitalCap) : void 0,
-    poolInfo: A.poolInfo !== void 0 ? eJ(A.poolInfo) : void 0,
-    bakerStakePendingChange: yJ(A.equityPendingChange),
-    currentPaydayStatus: A.currentPaydayInfo !== void 0 ? KJ(A.currentPaydayInfo) : void 0,
+    poolInfo: A.poolInfo !== void 0 ? KJ(A.poolInfo) : void 0,
+    bakerStakePendingChange: eJ(A.equityPendingChange),
+    currentPaydayStatus: A.currentPaydayInfo !== void 0 ? HJ(A.currentPaydayInfo) : void 0,
     allPoolTotalCapital: SA(s(A.allPoolTotalCapital)),
     isSuspended: A.isSuspended ?? !1
   };
 }
-function WJ(A) {
+function mJ(A) {
   return {
     poolType: _B.PassiveDelegation,
     delegatedCapital: SA(s(A.delegatedCapital)),
@@ -18827,7 +18827,7 @@ function WJ(A) {
 function GQ(A) {
   return BigInt(A + 1);
 }
-function mJ(A) {
+function ZJ(A) {
   switch (A.tokenomics.oneofKind) {
     case "v0": {
       const I = A.tokenomics.v0;
@@ -18861,14 +18861,14 @@ function mJ(A) {
       throw new Error("Missing tokenomics info");
   }
 }
-function ZJ(A) {
+function xJ(A) {
   var B, Q, E, R, D;
   const I = {
     bestBlock: yI(s(A.bestBlock)),
     genesisBlock: yI(s(A.genesisBlock)),
     currentEraGenesisBlock: yI(s(A.currentEraGenesisBlock)),
     lastFinalizedBlock: yI(s(A.lastFinalizedBlock)),
-    epochDuration: Eg(s(A.epochDuration)),
+    epochDuration: Dg(s(A.epochDuration)),
     bestBlockHeight: s((B = A.bestBlockHeight) == null ? void 0 : B.value),
     lastFinalizedBlockHeight: s((Q = A.lastFinalizedBlockHeight) == null ? void 0 : Q.value),
     finalizationCount: BigInt(s(A.finalizationCount)),
@@ -18916,19 +18916,19 @@ function ZJ(A) {
   return A.protocolVersion < $I.PROTOCOL_VERSION_6 ? {
     ...I,
     version: 0,
-    slotDuration: Eg(s(A.slotDuration))
+    slotDuration: Dg(s(A.slotDuration))
   } : {
     ...I,
     version: 1,
     concordiumBFTStatus: {
-      currentTimeoutDuration: Eg(s(A.currentTimeoutDuration)),
+      currentTimeoutDuration: Dg(s(A.currentTimeoutDuration)),
       currentRound: s((R = A.currentRound) == null ? void 0 : R.value),
       currentEpoch: s((D = A.currentEpoch) == null ? void 0 : D.value),
       triggerBlockTime: MI(A.triggerBlockTime)
     }
   };
 }
-function $o(A) {
+function Iw(A) {
   if (A.type.oneofKind === "account")
     return {
       type: "AddressAccount",
@@ -18941,7 +18941,7 @@ function $o(A) {
     };
   throw Error("Invalid address encountered!");
 }
-function Aw(A) {
+function gw(A) {
   const I = A.element;
   switch (I.oneofKind) {
     case "updated":
@@ -18949,11 +18949,11 @@ function Aw(A) {
         tag: lA.Updated,
         contractVersion: I.updated.contractVersion,
         address: XI(s(I.updated.address)),
-        instigator: $o(s(I.updated.instigator)),
+        instigator: Iw(s(I.updated.instigator)),
         amount: SA(s(I.updated.amount)),
-        message: ri(s(I.updated.parameter)),
+        message: qi(s(I.updated.parameter)),
         receiveName: IQ(s(I.updated.receiveName)),
-        events: I.updated.events.map(jE)
+        events: I.updated.events.map(zE)
       };
     case "transferred":
       return {
@@ -18966,7 +18966,7 @@ function Aw(A) {
       return {
         tag: lA.Interrupted,
         address: XI(s(I.interrupted.address)),
-        events: I.interrupted.events.map(jE)
+        events: I.interrupted.events.map(zE)
       };
     case "resumed":
       return {
@@ -18985,7 +18985,7 @@ function Aw(A) {
       throw Error("Invalid ContractTraceElement received, not able to translate to Transaction Event!");
   }
 }
-function Xg(A, I) {
+function vg(A, I) {
   var B, Q, E, R, D, i, a, c, M, e, F, K, n, q;
   const g = A.event;
   switch (g.oneofKind) {
@@ -19045,7 +19045,7 @@ function Xg(A, I) {
       return {
         tag: lA.BakerSetOpenStatus,
         bakerId: s((i = l.bakerId) == null ? void 0 : i.value),
-        openStatus: $C(l.openStatus),
+        openStatus: AE(l.openStatus),
         account: I
       };
     }
@@ -19104,20 +19104,20 @@ function Xg(A, I) {
       throw Error("Unrecognized event type. This should be impossible.");
   }
 }
-function xJ(A) {
+function TJ(A) {
   const I = A == null ? void 0 : A.target;
   if ((I == null ? void 0 : I.oneofKind) === "baker")
     return {
-      delegateType: ig.Baker,
+      delegateType: og.Baker,
       bakerId: Number(s(I.baker.value))
     };
   if ((I == null ? void 0 : I.oneofKind) === "passive")
     return {
-      delegateType: ig.PassiveDelegation
+      delegateType: og.PassiveDelegation
     };
   throw Error("Failed translating DelegationTarget, encountered undefined");
 }
-function TJ(A, I) {
+function fJ(A, I) {
   var B, Q, E, R, D, i, a, c, M, e, F;
   const g = A.event;
   switch (g.oneofKind) {
@@ -19153,7 +19153,7 @@ function TJ(A, I) {
       return {
         tag: lA.DelegationSetDelegationTarget,
         delegatorId: s((c = (a = K.delegatorId) == null ? void 0 : a.id) == null ? void 0 : c.value),
-        delegationTarget: xJ(K.delegationTarget),
+        delegationTarget: TJ(K.delegationTarget),
         account: I
       };
     }
@@ -19178,7 +19178,7 @@ function TJ(A, I) {
       throw Error("Unrecognized event type. This should be impossible.");
   }
 }
-function Iw(A) {
+function Bw(A) {
   function I(Q) {
     return {
       tag: uB[Q]
@@ -19266,14 +19266,14 @@ function Iw(A) {
     case "invalidAccountReference":
       return {
         tag: B.InvalidAccountReference,
-        contents: eg(g.invalidAccountReference)
+        contents: Kg(g.invalidAccountReference)
       };
     case "invalidInitMethod":
       return {
         tag: B.InvalidInitMethod,
         contents: {
           moduleRef: gQ(s(g.invalidInitMethod.moduleRef)),
-          initName: HC(s(g.invalidInitMethod.initName))
+          initName: nC(s(g.invalidInitMethod.initName))
         }
       };
     case "invalidReceiveMethod":
@@ -19298,7 +19298,7 @@ function Iw(A) {
       return {
         tag: B.AmountTooLarge,
         contents: {
-          address: $o(s(g.amountTooLarge.address)),
+          address: Iw(s(g.amountTooLarge.address)),
           amount: SA(s(g.amountTooLarge.amount))
         }
       };
@@ -19313,7 +19313,7 @@ function Iw(A) {
         contractAddress: XI(s(g.rejectedReceive.contractAddress)),
         receiveName: IQ(s(g.rejectedReceive.receiveName)),
         rejectReason: s(g.rejectedReceive.rejectReason),
-        parameter: ri(s(g.rejectedReceive.parameter))
+        parameter: qi(s(g.rejectedReceive.parameter))
       };
     case "alreadyABaker":
       return {
@@ -19323,7 +19323,7 @@ function Iw(A) {
     case "notABaker":
       return {
         tag: B.NotABaker,
-        contents: eg(g.notABaker)
+        contents: Kg(g.notABaker)
       };
     case "duplicateAggregationKey":
       return {
@@ -19333,12 +19333,12 @@ function Iw(A) {
     case "encryptedAmountSelfTransfer":
       return {
         tag: B.EncryptedAmountSelfTransfer,
-        contents: eg(g.encryptedAmountSelfTransfer)
+        contents: Kg(g.encryptedAmountSelfTransfer)
       };
     case "scheduledSelfTransfer":
       return {
         tag: B.ScheduledSelfTransfer,
-        contents: eg(g.scheduledSelfTransfer)
+        contents: Kg(g.scheduledSelfTransfer)
       };
     case "duplicateCredIds":
       return {
@@ -19353,7 +19353,7 @@ function Iw(A) {
     case "notADelegator":
       return {
         tag: B.NotADelegator,
-        contents: eg(g.notADelegator)
+        contents: Kg(g.notADelegator)
       };
     case "delegationTargetNotABaker":
       return {
@@ -19367,7 +19367,7 @@ function Iw(A) {
 function nQ(A) {
   return s(A == null ? void 0 : A.mantissa) * 10 ** (-1 * s(A == null ? void 0 : A.exponent));
 }
-function gw(A) {
+function Qw(A) {
   return {
     updateType: uA.Protocol,
     update: {
@@ -19378,7 +19378,7 @@ function gw(A) {
     }
   };
 }
-function Bw(A) {
+function Cw(A) {
   return {
     updateType: uA.ElectionDifficulty,
     update: {
@@ -19386,27 +19386,27 @@ function Bw(A) {
     }
   };
 }
-function Qw(A) {
+function Ew(A) {
   return {
     updateType: uA.EuroPerEnergy,
     update: s(A.value)
   };
 }
-function Cw(A) {
+function Dw(A) {
   return {
     updateType: uA.MicroGtuPerEuro,
     update: s(A.value)
   };
 }
-function Ew(A) {
+function iw(A) {
   return {
     updateType: uA.FoundationAccount,
     update: {
-      address: eg(A)
+      address: Kg(A)
     }
   };
 }
-function Dw(A) {
+function ow(A) {
   return {
     updateType: uA.TransactionFeeDistribution,
     update: {
@@ -19415,7 +19415,7 @@ function Dw(A) {
     }
   };
 }
-function iw(A) {
+function ww(A) {
   return {
     updateType: uA.GasRewards,
     update: {
@@ -19427,7 +19427,7 @@ function iw(A) {
     }
   };
 }
-function ow(A) {
+function Rw(A) {
   return {
     updateType: uA.GasRewardsCpv2,
     update: {
@@ -19438,7 +19438,7 @@ function ow(A) {
     }
   };
 }
-function ww(A) {
+function Uw(A) {
   var I;
   return {
     updateType: uA.BakerStakeThreshold,
@@ -19447,7 +19447,7 @@ function ww(A) {
     }
   };
 }
-function Rw(A) {
+function Nw(A) {
   var I, g, B, Q, E;
   return {
     updateType: uA.PoolParameters,
@@ -19458,9 +19458,9 @@ function Rw(A) {
         finalizationCommission: nA(A.passiveFinalizationCommission)
       },
       commissionBounds: {
-        transactionFeeCommission: CC((I = A.commissionBounds) == null ? void 0 : I.transaction),
-        bakingRewardCommission: CC((g = A.commissionBounds) == null ? void 0 : g.baking),
-        finalizationRewardCommission: CC((B = A.commissionBounds) == null ? void 0 : B.finalization)
+        transactionFeeCommission: EC((I = A.commissionBounds) == null ? void 0 : I.transaction),
+        bakingRewardCommission: EC((g = A.commissionBounds) == null ? void 0 : g.baking),
+        finalizationRewardCommission: EC((B = A.commissionBounds) == null ? void 0 : B.finalization)
       },
       minimumEquityCapital: SA(s(A.minimumEquityCapital)),
       capitalBound: nA((Q = A.capitalBound) == null ? void 0 : Q.value),
@@ -19468,19 +19468,19 @@ function Rw(A) {
     }
   };
 }
-function Uw(A) {
+function aw(A) {
   return {
     updateType: uA.AddAnonymityRevoker,
-    update: Yw(A)
+    update: Jw(A)
   };
 }
-function Nw(A) {
+function Gw(A) {
   return {
     updateType: uA.AddIdentityProvider,
-    update: sw(A)
+    update: Sw(A)
   };
 }
-function aw(A) {
+function Fw(A) {
   var I, g;
   return {
     updateType: uA.CooldownParameters,
@@ -19490,7 +19490,7 @@ function aw(A) {
     }
   };
 }
-function Gw(A) {
+function kw(A) {
   var I, g;
   return {
     updateType: uA.TimeParameters,
@@ -19500,29 +19500,29 @@ function Gw(A) {
     }
   };
 }
-function Fw(A) {
+function Mw(A) {
   return {
     updateType: uA.TimeoutParameters,
     update: {
-      timeoutBase: Eg(s(A.timeoutBase)),
+      timeoutBase: Dg(s(A.timeoutBase)),
       timeoutDecrease: s(A.timeoutDecrease),
       timeoutIncrease: s(A.timeoutIncrease)
     }
   };
 }
-function kw(A) {
+function cw(A) {
   return {
     updateType: uA.MinBlockTime,
-    update: Eg(A)
+    update: Dg(A)
   };
 }
-function Mw(A) {
+function hw(A) {
   return {
     updateType: uA.BlockEnergyLimit,
-    update: Lg(A)
+    update: qg(A)
   };
 }
-function cw(A) {
+function sw(A) {
   return {
     updateType: uA.FinalizationCommitteeParameters,
     update: {
@@ -19532,7 +19532,7 @@ function cw(A) {
     }
   };
 }
-function fJ(A) {
+function OJ(A) {
   return {
     updateType: uA.MintDistribution,
     update: {
@@ -19543,7 +19543,7 @@ function fJ(A) {
     }
   };
 }
-function hC(A) {
+function sC(A) {
   return {
     updateType: uA.MintDistribution,
     update: {
@@ -19553,62 +19553,62 @@ function hC(A) {
     }
   };
 }
-function OJ(A) {
+function uJ(A) {
   return {
-    effectiveTime: dC(s(A.effectiveTime)),
-    effect: uJ(A)
+    effectiveTime: pC(s(A.effectiveTime)),
+    effect: bJ(A)
   };
 }
-function uJ(A) {
+function bJ(A) {
   var g, B;
   const I = A.effect;
   switch (I.oneofKind) {
     case "protocol":
-      return gw(I.protocol);
+      return Qw(I.protocol);
     case "electionDifficulty":
-      return Bw(I.electionDifficulty);
+      return Cw(I.electionDifficulty);
     case "euroPerEnergy":
-      return Qw(I.euroPerEnergy);
+      return Ew(I.euroPerEnergy);
     case "microCcdPerEuro":
-      return Cw(I.microCcdPerEuro);
+      return Dw(I.microCcdPerEuro);
     case "foundationAccount":
-      return Ew(I.foundationAccount);
+      return iw(I.foundationAccount);
     case "transactionFeeDistribution":
-      return Dw(I.transactionFeeDistribution);
+      return ow(I.transactionFeeDistribution);
     case "gasRewards":
-      return iw(I.gasRewards);
+      return ww(I.gasRewards);
     case "poolParametersCpv0":
-      return ww(I.poolParametersCpv0);
+      return Uw(I.poolParametersCpv0);
     case "poolParametersCpv1":
-      return Rw(I.poolParametersCpv1);
+      return Nw(I.poolParametersCpv1);
     case "addAnonymityRevoker":
-      return Uw(I.addAnonymityRevoker);
+      return aw(I.addAnonymityRevoker);
     case "addIdentityProvider":
-      return Nw(I.addIdentityProvider);
+      return Gw(I.addIdentityProvider);
     case "cooldownParameters":
-      return aw(I.cooldownParameters);
+      return Fw(I.cooldownParameters);
     case "timeParameters":
-      return Gw(I.timeParameters);
+      return kw(I.timeParameters);
     case "mintDistributionCpv0":
-      return fJ(I.mintDistributionCpv0);
+      return OJ(I.mintDistributionCpv0);
     case "mintDistributionCpv1":
-      return hC(I.mintDistributionCpv1);
+      return sC(I.mintDistributionCpv1);
     case "gasRewardsCpv2":
-      return ow(I.gasRewardsCpv2);
+      return Rw(I.gasRewardsCpv2);
     case "timeoutParameters":
-      return Fw(I.timeoutParameters);
+      return Mw(I.timeoutParameters);
     case "minBlockTime":
-      return kw(I.minBlockTime);
+      return cw(I.minBlockTime);
     case "blockEnergyLimit":
-      return Mw(I.blockEnergyLimit);
+      return hw(I.blockEnergyLimit);
     case "finalizationCommitteeParameters":
-      return cw(I.finalizationCommitteeParameters);
+      return sw(I.finalizationCommitteeParameters);
     case "rootKeys":
       return {
         updateType: uA.HigherLevelKeyUpdate,
         update: {
-          typeOfUpdate: ng.RootKeysUpdate,
-          updateKeys: I.rootKeys.keys.map(Wg),
+          typeOfUpdate: rg.RootKeysUpdate,
+          updateKeys: I.rootKeys.keys.map(mg),
           threshold: s((g = I.rootKeys.threshold) == null ? void 0 : g.value)
         }
       };
@@ -19616,8 +19616,8 @@ function uJ(A) {
       return {
         updateType: uA.HigherLevelKeyUpdate,
         update: {
-          typeOfUpdate: ng.Level1KeysUpdate,
-          updateKeys: I.level1Keys.keys.map(Wg),
+          typeOfUpdate: rg.Level1KeysUpdate,
+          updateKeys: I.level1Keys.keys.map(mg),
           threshold: s((B = I.level1Keys.threshold) == null ? void 0 : B.value)
         }
       };
@@ -19625,7 +19625,7 @@ function uJ(A) {
       return {
         updateType: uA.AuthorizationKeysUpdate,
         update: {
-          typeOfUpdate: rg.Level2KeysUpdate,
+          typeOfUpdate: Lg.Level2KeysUpdate,
           updatePayload: NB(I.level2KeysCpv0)
         }
       };
@@ -19633,8 +19633,8 @@ function uJ(A) {
       return {
         updateType: uA.AuthorizationKeysUpdate,
         update: {
-          typeOfUpdate: rg.Level2KeysUpdateV1,
-          updatePayload: gE(I.level2KeysCpv1)
+          typeOfUpdate: Lg.Level2KeysUpdateV1,
+          updatePayload: BE(I.level2KeysCpv1)
         }
       };
     case "validatorScoreParameters":
@@ -19648,58 +19648,58 @@ function uJ(A) {
       throw Error("Unexpected missing pending update");
   }
 }
-function bJ(A) {
+function jJ(A) {
   const I = A == null ? void 0 : A.payload;
   switch (I == null ? void 0 : I.oneofKind) {
     case "protocolUpdate":
-      return gw(I.protocolUpdate);
+      return Qw(I.protocolUpdate);
     case "electionDifficultyUpdate":
-      return Bw(I.electionDifficultyUpdate);
+      return Cw(I.electionDifficultyUpdate);
     case "euroPerEnergyUpdate":
-      return Qw(I.euroPerEnergyUpdate);
+      return Ew(I.euroPerEnergyUpdate);
     case "microCcdPerEuroUpdate":
-      return Cw(I.microCcdPerEuroUpdate);
+      return Dw(I.microCcdPerEuroUpdate);
     case "foundationAccountUpdate":
-      return Ew(I.foundationAccountUpdate);
+      return iw(I.foundationAccountUpdate);
     case "mintDistributionUpdate":
-      return hC(I.mintDistributionUpdate);
+      return sC(I.mintDistributionUpdate);
     case "transactionFeeDistributionUpdate":
-      return Dw(I.transactionFeeDistributionUpdate);
+      return ow(I.transactionFeeDistributionUpdate);
     case "gasRewardsUpdate":
-      return iw(I.gasRewardsUpdate);
+      return ww(I.gasRewardsUpdate);
     case "bakerStakeThresholdUpdate":
-      return ww(I.bakerStakeThresholdUpdate);
+      return Uw(I.bakerStakeThresholdUpdate);
     case "addAnonymityRevokerUpdate":
-      return Uw(I.addAnonymityRevokerUpdate);
+      return aw(I.addAnonymityRevokerUpdate);
     case "addIdentityProviderUpdate":
-      return Nw(I.addIdentityProviderUpdate);
+      return Gw(I.addIdentityProviderUpdate);
     case "cooldownParametersCpv1Update":
-      return aw(I.cooldownParametersCpv1Update);
+      return Fw(I.cooldownParametersCpv1Update);
     case "poolParametersCpv1Update":
-      return Rw(I.poolParametersCpv1Update);
+      return Nw(I.poolParametersCpv1Update);
     case "timeParametersCpv1Update":
-      return Gw(I.timeParametersCpv1Update);
+      return kw(I.timeParametersCpv1Update);
     case "mintDistributionCpv1Update":
-      return hC(I.mintDistributionCpv1Update);
+      return sC(I.mintDistributionCpv1Update);
     case "gasRewardsCpv2Update":
-      return ow(I.gasRewardsCpv2Update);
+      return Rw(I.gasRewardsCpv2Update);
     case "timeoutParametersUpdate":
-      return Fw(I.timeoutParametersUpdate);
+      return Mw(I.timeoutParametersUpdate);
     case "minBlockTimeUpdate":
-      return kw(I.minBlockTimeUpdate);
+      return cw(I.minBlockTimeUpdate);
     case "blockEnergyLimitUpdate":
-      return Mw(I.blockEnergyLimitUpdate);
+      return hw(I.blockEnergyLimitUpdate);
     case "finalizationCommitteeParametersUpdate":
-      return cw(I.finalizationCommitteeParametersUpdate);
+      return sw(I.finalizationCommitteeParametersUpdate);
     case "rootUpdate": {
-      const g = I.rootUpdate, B = OD(g);
+      const g = I.rootUpdate, B = uD(g);
       return {
         updateType: uA.Root,
         update: B
       };
     }
     case "level1Update": {
-      const g = I.level1Update, B = OD(g);
+      const g = I.level1Update, B = uD(g);
       return {
         updateType: uA.Level1,
         update: B
@@ -19716,13 +19716,13 @@ function bJ(A) {
       throw new Error("Unexpected missing update payload");
   }
 }
-function CC(A) {
+function EC(A) {
   return {
     min: nA(A == null ? void 0 : A.min),
     max: nA(A == null ? void 0 : A.max)
   };
 }
-function Wg(A) {
+function mg(A) {
   return {
     schemeId: "Ed25519",
     verifyKey: rA(A)
@@ -19735,36 +19735,36 @@ function FI(A) {
     threshold: s((I = A == null ? void 0 : A.accessThreshold) == null ? void 0 : I.value)
   };
 }
-function OD(A) {
+function uD(A) {
   var I, g;
   switch (A.updateType.oneofKind) {
     case "rootKeysUpdate": {
       const B = A.updateType.rootKeysUpdate;
       return {
-        typeOfUpdate: ng.RootKeysUpdate,
-        updateKeys: B.keys.map(Wg),
+        typeOfUpdate: rg.RootKeysUpdate,
+        updateKeys: B.keys.map(mg),
         threshold: s((I = B.threshold) == null ? void 0 : I.value)
       };
     }
     case "level1KeysUpdate": {
       const B = A.updateType.level1KeysUpdate;
       return {
-        typeOfUpdate: ng.Level1KeysUpdate,
-        updateKeys: B.keys.map(Wg),
+        typeOfUpdate: rg.Level1KeysUpdate,
+        updateKeys: B.keys.map(mg),
         threshold: s((g = B.threshold) == null ? void 0 : g.value)
       };
     }
     case "level2KeysUpdateV0": {
       const B = A.updateType.level2KeysUpdateV0;
       return {
-        typeOfUpdate: rg.Level2KeysUpdate,
+        typeOfUpdate: Lg.Level2KeysUpdate,
         updatePayload: NB(B)
       };
     }
     case "level2KeysUpdateV1": {
       const B = A.updateType.level2KeysUpdateV1, Q = s(B.v0);
       return {
-        typeOfUpdate: rg.Level2KeysUpdateV1,
+        typeOfUpdate: Lg.Level2KeysUpdateV1,
         updatePayload: {
           ...NB(Q),
           version: 1,
@@ -19780,7 +19780,7 @@ function OD(A) {
 function NB(A) {
   return {
     version: 0,
-    keys: A.keys.map(Wg),
+    keys: A.keys.map(mg),
     addIdentityProvider: FI(A.addIdentityProvider),
     addAnonymityRevoker: FI(A.addAnonymityRevoker),
     emergency: FI(A.emergency),
@@ -19795,7 +19795,7 @@ function NB(A) {
     protocol: FI(A.protocol)
   };
 }
-function gE(A) {
+function BE(A) {
   return {
     ...NB(s(A.v0)),
     version: 1,
@@ -19803,13 +19803,13 @@ function gE(A) {
     timeParameters: FI(A.parameterTime)
   };
 }
-function EC(A) {
+function DC(A) {
   return {
     tag: lA.TransferMemo,
     memo: rA(A)
   };
 }
-function jJ(A) {
+function zJ(A) {
   switch (A) {
     case BI.DEPLOY_MODULE:
       return pA.DeployModule;
@@ -19857,7 +19857,7 @@ function jJ(A) {
       return;
   }
 }
-function zJ(A, I) {
+function PJ(A, I) {
   var Q, E, R, D, i, a, c, M, e, F, K, n, q, l;
   const g = {
     ...I,
@@ -19870,8 +19870,8 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.Failed,
-        failedTransactionType: jJ(B.none.transactionType),
-        rejectReason: Iw(B.none.rejectReason)
+        failedTransactionType: zJ(B.none.transactionType),
+        rejectReason: Bw(B.none.rejectReason)
       };
     case "moduleDeployed": {
       const t = {
@@ -19889,7 +19889,7 @@ function zJ(A, I) {
         tag: lA.ContractInitialized,
         address: XI(s(t.address)),
         amount: SA(s(t.amount)),
-        initName: HC(s(t.initName)),
+        initName: nC(s(t.initName)),
         events: s(t.events.map(rA)),
         contractVersion: s(t.contractVersion),
         ref: rA(t.originRef)
@@ -19904,7 +19904,7 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.Update,
-        events: B.contractUpdateIssued.effects.map(Aw)
+        events: B.contractUpdateIssued.effects.map(gw)
       };
     case "accountTransfer": {
       const t = {
@@ -19916,7 +19916,7 @@ function zJ(A, I) {
         ...g,
         transactionType: pA.TransferWithMemo,
         transfer: t,
-        memo: EC(B.accountTransfer.memo)
+        memo: DC(B.accountTransfer.memo)
       } : {
         ...g,
         transactionType: pA.Transfer,
@@ -19927,7 +19927,7 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.AddBaker,
-        bakerAdded: Xg({
+        bakerAdded: vg({
           event: B
         }, g.sender)
       };
@@ -19935,7 +19935,7 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.RemoveBaker,
-        bakerRemoved: Xg({
+        bakerRemoved: vg({
           event: B
         }, g.sender)
       };
@@ -19943,7 +19943,7 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.UpdateBakerRestakeEarnings,
-        bakerRestakeEarningsUpdated: Xg({
+        bakerRestakeEarningsUpdated: vg({
           event: B
         }, g.sender)
       };
@@ -19951,7 +19951,7 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.UpdateBakerKeys,
-        bakerKeysUpdated: Xg({
+        bakerKeysUpdated: vg({
           event: B
         }, g.sender)
       };
@@ -19986,7 +19986,7 @@ function zJ(A, I) {
         transactionType: pA.EncryptedAmountTransferWithMemo,
         removed: d,
         added: O,
-        memo: EC(t.memo)
+        memo: DC(t.memo)
       } : {
         ...g,
         transactionType: pA.EncryptedAmountTransfer,
@@ -20030,13 +20030,13 @@ function zJ(A, I) {
       const t = B.transferredWithSchedule, d = {
         tag: lA.TransferredWithSchedule,
         to: CI(s(t.receiver)),
-        amount: t.amount.map(kJ)
+        amount: t.amount.map(MJ)
       };
       return t.memo ? {
         ...g,
         transactionType: pA.TransferWithScheduleAndMemo,
         transfer: d,
-        memo: EC(t.memo)
+        memo: DC(t.memo)
       } : {
         ...g,
         transactionType: pA.TransferWithSchedule,
@@ -20083,27 +20083,27 @@ function zJ(A, I) {
       return {
         ...g,
         transactionType: pA.ConfigureBaker,
-        events: B.bakerConfigured.events.map((t) => Xg(t, g.sender))
+        events: B.bakerConfigured.events.map((t) => vg(t, g.sender))
       };
     case "delegationConfigured":
       return {
         ...g,
         transactionType: pA.ConfigureDelegation,
-        events: B.delegationConfigured.events.map((t) => TJ(t, g.sender))
+        events: B.delegationConfigured.events.map((t) => fJ(t, g.sender))
       };
     case void 0:
       throw Error("Failed translating AccountTransactionEffects, encountered undefined value");
   }
 }
-function hw(A) {
+function Yw(A) {
   var g, B;
   const I = {
     index: s((g = A.index) == null ? void 0 : g.value),
-    energyCost: Lg(s(A.energyCost)),
-    hash: _g(s(A.hash))
+    energyCost: qg(s(A.energyCost)),
+    hash: $g(s(A.hash))
   };
   if (A.details.oneofKind === "accountTransaction")
-    return zJ(A.details.accountTransaction, I);
+    return PJ(A.details.accountTransaction, I);
   if (A.details.oneofKind === "accountCreation")
     return {
       type: wB.AccountCreation,
@@ -20117,17 +20117,17 @@ function hw(A) {
       type: wB.UpdateTransaction,
       ...I,
       effectiveTime: s((B = A.details.update.effectiveTime) == null ? void 0 : B.value),
-      payload: bJ(A.details.update.payload)
+      payload: jJ(A.details.update.payload)
     };
   throw Error("Invalid BlockItemSummary encountered!");
 }
-function uD(A) {
+function bD(A) {
   return {
     blockHash: yI(s(A.blockHash)),
-    summary: hw(s(A.outcome))
+    summary: Yw(s(A.outcome))
   };
 }
-function PJ(A) {
+function XJ(A) {
   switch (A.status.oneofKind) {
     case "received":
       return {
@@ -20136,81 +20136,81 @@ function PJ(A) {
     case "committed":
       return {
         status: BB.Committed,
-        outcomes: A.status.committed.outcomes.map(uD)
+        outcomes: A.status.committed.outcomes.map(bD)
       };
     case "finalized":
       return {
         status: BB.Finalized,
-        outcome: uD(s(A.status.finalized.outcome))
+        outcome: bD(s(A.status.finalized.outcome))
       };
     default:
       throw Error("BlockItemStatus was undefined!");
   }
 }
-function XJ(A) {
+function vJ(A) {
   switch (A.result.oneofKind) {
     case "failure":
       return {
         tag: "failure",
-        usedEnergy: Lg(s(A.result.failure.usedEnergy)),
-        reason: Iw(A.result.failure.reason),
-        returnValue: A.result.failure.returnValue === void 0 ? void 0 : MD(A.result.failure.returnValue)
+        usedEnergy: qg(s(A.result.failure.usedEnergy)),
+        reason: Bw(A.result.failure.reason),
+        returnValue: A.result.failure.returnValue === void 0 ? void 0 : cD(A.result.failure.returnValue)
       };
     case "success": {
       const I = A.result.success;
       return {
         tag: "success",
-        usedEnergy: Lg(s(I.usedEnergy)),
-        returnValue: I.returnValue === void 0 ? void 0 : MD(I.returnValue),
-        events: I.effects.map(Aw)
+        usedEnergy: qg(s(I.usedEnergy)),
+        returnValue: I.returnValue === void 0 ? void 0 : cD(I.returnValue),
+        events: I.effects.map(gw)
       };
     }
     default:
       throw Error("BlockItemStatus was undefined!");
   }
 }
-function bD(A) {
+function jD(A) {
   var I;
   return {
     amount: SA(s(A.amount)),
     sourceModule: gQ(s(A.sourceModule)),
     owner: kQ(s((I = A.owner) == null ? void 0 : I.value)),
     methods: A.methods.map(IQ),
-    name: HC(s(A.name))
+    name: nC(s(A.name))
   };
 }
-function vJ(A) {
+function _J(A) {
   var I;
   switch (A.version.oneofKind) {
     case "v0":
       return {
-        ...bD(A.version.v0),
+        ...jD(A.version.v0),
         version: 0,
         model: FA.Buffer.from(s((I = A.version.v0.model) == null ? void 0 : I.value))
       };
     case "v1":
       return {
-        ...bD(A.version.v1),
+        ...jD(A.version.v1),
         version: 1
       };
     default:
       throw Error("InstanceInfo was undefined");
   }
 }
-function jD(A) {
+function zD(A) {
   var I;
   return {
     hash: yI(s(A.hash)),
     height: s((I = A.height) == null ? void 0 : I.value)
   };
 }
-function _J(A) {
+function $J(A) {
   return {
     key: bI(A.key),
     value: bI(A.value)
   };
 }
-function sw(A) {
+function Sw(A) {
   var I;
   return {
     ipIdentity: s((I = A.identity) == null ? void 0 : I.value),
@@ -20219,7 +20219,7 @@ function sw(A) {
     ipCdiVerifyKey: rA(A.cdiVerifyKey)
   };
 }
-function Yw(A) {
+function Jw(A) {
   var I;
   return {
     arIdentity: s((I = A.identity) == null ? void 0 : I.value),
@@ -20227,7 +20227,7 @@ function Yw(A) {
     arPublicKey: rA(A.publicKey)
   };
 }
-function $J(A) {
+function At(A) {
   var B, Q, E, R, D, i, a;
   const I = {
     blockParent: yI(s(A.parentBlock)),
@@ -20242,7 +20242,7 @@ function $J(A) {
     finalized: A.finalized,
     transactionCount: BigInt(A.transactionCount),
     transactionsSize: BigInt(A.transactionsSize),
-    transactionEnergyCost: Lg(s(A.transactionsEnergyCost)),
+    transactionEnergyCost: qg(s(A.transactionsEnergyCost)),
     genesisIndex: s((E = A.genesisIndex) == null ? void 0 : E.value),
     eraBlockHeight: Number(s((R = A.eraBlockHeight) == null ? void 0 : R.value)),
     protocolVersion: GQ(A.protocolVersion)
@@ -20263,17 +20263,17 @@ function lB(A) {
     account: CI(s(A.account)),
     stake: SA(s(A.stake)),
     ...A.pendingChange && {
-      pendingChange: _C(A.pendingChange)
+      pendingChange: $C(A.pendingChange)
     }
   };
 }
-function Sw(A) {
+function tw(A) {
   return {
     blockHash: yI(s(A.blockHash)),
-    children: A.children.map(Sw)
+    children: A.children.map(tw)
   };
 }
-function At(A) {
+function It(A) {
   var I;
   return {
     baker: s((I = A.baker) == null ? void 0 : I.value),
@@ -20281,11 +20281,11 @@ function At(A) {
     lotteryPower: A.lotteryPower
   };
 }
-function It(A) {
+function gt(A) {
   var g;
   const I = {
     electionNonce: rA(A.electionNonce),
-    bakerElectionInfo: A.bakerElectionInfo.map(At)
+    bakerElectionInfo: A.bakerElectionInfo.map(It)
   };
   return A.electionDifficulty === void 0 ? {
     ...I,
@@ -20296,7 +20296,7 @@ function It(A) {
     electionDifficulty: nA((g = A.electionDifficulty) == null ? void 0 : g.value)
   };
 }
-function gt(A) {
+function Bt(A) {
   var I, g, B, Q, E, R, D, i, a, c, M, e, F, K, n, q, l, t, d, O, y;
   return {
     rootKeys: s((I = A.rootKeys) == null ? void 0 : I.value),
@@ -20323,7 +20323,7 @@ function gt(A) {
     validatorScoreParameters: ((y = A.validatorScoreParameters) == null ? void 0 : y.value) ?? 1n
   };
 }
-function Bt(A) {
+function Qt(A) {
   const I = RQ;
   switch (A) {
     case I.NOT_IN_COMMITTEE:
@@ -20334,11 +20334,11 @@ function Bt(A) {
       return AB.AddedButWrongKeys;
   }
 }
-function Qt(A) {
+function Ct(A) {
   if (A.status.oneofKind === "passiveCommitteeInfo")
     return {
       tag: "passiveCommitteeInfo",
-      passiveCommitteeInfo: Bt(A.status.passiveCommitteeInfo)
+      passiveCommitteeInfo: Qt(A.status.passiveCommitteeInfo)
     };
   if (A.status.oneofKind === "activeBakerCommitteeInfo")
     return {
@@ -20350,7 +20350,7 @@ function Qt(A) {
     };
   throw Error("Error translating NodeInfoConsensusStatus: unexpected undefined");
 }
-function Ct(A) {
+function Et(A) {
   var I;
   return {
     nodeId: s((I = A == null ? void 0 : A.nodeId) == null ? void 0 : I.value),
@@ -20360,7 +20360,7 @@ function Ct(A) {
     avgBpsOut: s(A == null ? void 0 : A.avgBpsOut)
   };
 }
-function Et(A) {
+function Dt(A) {
   var g;
   const I = A.consensusStatus;
   switch (I.oneofKind) {
@@ -20368,7 +20368,7 @@ function Et(A) {
       return {
         tag: "active",
         bakerId: s((g = I.active.bakerId) == null ? void 0 : g.value),
-        status: Qt(I.active)
+        status: Ct(I.active)
       };
     case "notRunning":
       return {
@@ -20382,7 +20382,7 @@ function Et(A) {
       throw Error("Error translating nodeinfo: unexpected undefined");
   }
 }
-function Dt(A) {
+function it(A) {
   let I;
   if (A.details.oneofKind === "bootstrapper")
     I = {
@@ -20391,19 +20391,19 @@ function Dt(A) {
   else if (A.details.oneofKind === "node")
     I = {
       tag: "node",
-      consensusStatus: Et(A.details.node)
+      consensusStatus: Dt(A.details.node)
     };
   else
     throw Error("Invalid nodeinfo");
   return {
     peerVersion: A.peerVersion,
-    localTime: dC(s(A.localTime)),
-    peerUptime: Eg(s(A.peerUptime)),
-    networkInfo: Ct(A.networkInfo),
+    localTime: pC(s(A.localTime)),
+    peerUptime: Dg(s(A.peerUptime)),
+    networkInfo: Et(A.networkInfo),
     details: I
   };
 }
-function it(A) {
+function ot(A) {
   const I = wQ;
   switch (A) {
     case I.CATCHINGUP:
@@ -20414,14 +20414,14 @@ function it(A) {
       return IB.UpToDate;
   }
 }
-function ot(A) {
+function wt(A) {
   return {
     packetsSent: s(A == null ? void 0 : A.packetsSent),
     packetsReceived: s(A == null ? void 0 : A.packetsReceived),
     latency: s(A == null ? void 0 : A.latency)
   };
 }
-function wt(A) {
+function Rt(A) {
   var g, B, Q, E, R;
   let I;
   if (A.consensusInfo.oneofKind === "bootstrapper")
@@ -20431,7 +20431,7 @@ function wt(A) {
   else if (A.consensusInfo.oneofKind === "nodeCatchupStatus")
     I = {
       tag: "nodeCatchupStatus",
-      catchupStatus: it(A.consensusInfo.nodeCatchupStatus)
+      catchupStatus: ot(A.consensusInfo.nodeCatchupStatus)
     };
   else
     throw Error("Error translating peerInfo: unexpected undefined");
@@ -20439,24 +20439,24 @@ function wt(A) {
     peerId: s((g = A.peerId) == null ? void 0 : g.value),
     ip: s((Q = (B = A.socketAddress) == null ? void 0 : B.ip) == null ? void 0 : Q.value),
     port: s((R = (E = A.socketAddress) == null ? void 0 : E.port) == null ? void 0 : R.value),
-    networkStats: ot(A.networkStats),
+    networkStats: wt(A.networkStats),
     consensusInfo: I
   };
 }
-function zD(A) {
+function PD(A) {
   return {
     account: CI(s(A.account)),
     amount: SA(s(A.amount))
   };
 }
-function Rt(A) {
+function Ut(A) {
   var g, B, Q, E, R;
   const I = A.event;
   switch (I.oneofKind) {
     case "bakingRewards":
       return {
         tag: "bakingRewards",
-        bakingRewards: s(I.bakingRewards.bakerRewards).entries.map(zD),
+        bakingRewards: s(I.bakingRewards.bakerRewards).entries.map(PD),
         remainder: SA(s(I.bakingRewards.remainder))
       };
     case "mint":
@@ -20470,7 +20470,7 @@ function Rt(A) {
     case "finalizationRewards":
       return {
         tag: "finalizationRewards",
-        finalizationRewards: (g = I.finalizationRewards.finalizationRewards) == null ? void 0 : g.entries.map(zD),
+        finalizationRewards: (g = I.finalizationRewards.finalizationRewards) == null ? void 0 : g.entries.map(PD),
         remainder: SA(s(I.finalizationRewards.remainder))
       };
     case "blockReward":
@@ -20535,7 +20535,7 @@ function Rt(A) {
       throw Error("Error translating BlockSpecialEvent: unexpected undefined");
   }
 }
-function Ut(A) {
+function Nt(A) {
   var I;
   return {
     baker: s((I = A.baker) == null ? void 0 : I.value),
@@ -20543,16 +20543,16 @@ function Ut(A) {
     signed: A.signed
   };
 }
-function Nt(A) {
+function at(A) {
   var I, g;
   return {
     block: yI(s(A.block)),
     index: s((I = A.index) == null ? void 0 : I.value),
     delay: s((g = A.delay) == null ? void 0 : g.value),
-    finalizers: A.finalizers.map(Ut)
+    finalizers: A.finalizers.map(Nt)
   };
 }
-function at(A) {
+function Gt(A) {
   const I = A.summary;
   if (I.oneofKind === "none")
     return {
@@ -20561,24 +20561,24 @@ function at(A) {
   if (I.oneofKind === "record")
     return {
       tag: "record",
-      record: Nt(I.record)
+      record: at(I.record)
     };
   throw Error("Error translating BlockFinalizationSummary: unexpected undefined");
 }
-function Gt(A) {
+function Ft(A) {
   return {
     ...A.quorumCertificate !== void 0 && {
-      quorumCertificate: sC(A.quorumCertificate)
+      quorumCertificate: YC(A.quorumCertificate)
     },
     ...A.timeoutCertificate !== void 0 && {
-      timeoutCertificate: Ft(A.timeoutCertificate)
+      timeoutCertificate: kt(A.timeoutCertificate)
     },
     ...A.epochFinalizationEntry !== void 0 && {
-      epochFinalizationEntry: kt(A.epochFinalizationEntry)
+      epochFinalizationEntry: Mt(A.epochFinalizationEntry)
     }
   };
 }
-function sC(A) {
+function YC(A) {
   var I, g;
   return {
     blockHash: rA(A.blockHash),
@@ -20588,42 +20588,42 @@ function sC(A) {
     signatories: A.signatories.map((B) => s(B.value))
   };
 }
-function Ft(A) {
+function kt(A) {
   var I, g;
   return {
     round: s((I = A.round) == null ? void 0 : I.value),
     minEpoch: s((g = A.minEpoch) == null ? void 0 : g.value),
-    qcRoundsFirstEpoch: A.qcRoundsFirstEpoch.map(PD),
-    qcRoundsSecondEpoch: A.qcRoundsSecondEpoch.map(PD),
+    qcRoundsFirstEpoch: A.qcRoundsFirstEpoch.map(XD),
+    qcRoundsSecondEpoch: A.qcRoundsSecondEpoch.map(XD),
     aggregateSignature: rA(A.aggregateSignature)
   };
 }
-function kt(A) {
+function Mt(A) {
   return {
-    finalizedQc: sC(s(A.finalizedQc)),
-    successorQc: sC(s(A.successorQc)),
+    finalizedQc: YC(s(A.finalizedQc)),
+    successorQc: YC(s(A.successorQc)),
     successorProof: rA(A.successorProof)
   };
 }
-function PD(A) {
+function XD(A) {
   var I;
   return {
     round: s((I = A.round) == null ? void 0 : I.value),
     finalizers: A.finalizers.map((g) => g.value)
   };
 }
-function Mt(A) {
+function ct(A) {
   var I, g, B;
   return {
-    baker: ct(s(A.baker)),
-    effectiveStake: Fg(s((I = A.effectiveStake) == null ? void 0 : I.value)),
+    baker: ht(s(A.baker)),
+    effectiveStake: kg(s((I = A.effectiveStake) == null ? void 0 : I.value)),
     commissionRates: yB(A.commissionRates),
-    equityCapital: Fg(s((g = A.equityCapital) == null ? void 0 : g.value)),
-    delegatedCapital: Fg(s((B = A.delegatedCapital) == null ? void 0 : B.value)),
+    equityCapital: kg(s((g = A.equityCapital) == null ? void 0 : g.value)),
+    delegatedCapital: kg(s((B = A.delegatedCapital) == null ? void 0 : B.value)),
     isFinalizer: A.isFinalizer
   };
 }
-function ct(A) {
+function ht(A) {
   var I;
   return {
     bakerId: s((I = A.bakerId) == null ? void 0 : I.value),
@@ -20632,7 +20632,7 @@ function ct(A) {
     aggregationKey: rA(A.aggregationKey)
   };
 }
-function ht(A) {
+function st(A) {
   var I, g;
   return {
     round: s((I = A.round) == null ? void 0 : I.value),
@@ -20640,16 +20640,16 @@ function ht(A) {
     present: A.present
   };
 }
-function st(A) {
+function Yt(A) {
   function I(B) {
     return { value: FA.Buffer.from(B, "hex") };
   }
   function g(B) {
-    return { signatures: Dg(B, I) };
+    return { signatures: ig(B, I) };
   }
-  return { signatures: Dg(A, g) };
+  return { signatures: ig(A, g) };
 }
-function Yt(A) {
+function St(A) {
   return typeof A == "bigint" ? {
     blocksAtHeight: {
       oneofKind: "absolute",
@@ -20666,13 +20666,13 @@ function Yt(A) {
     }
   };
 }
-class St {
+class Jt {
   /**
    * Initialize a gRPC client for a specific concordium node.
    * @param transport RpcTransport to send communication over
    */
   constructor(I) {
-    this.client = new GJ(I), this.healthClient = new $a(I);
+    this.client = new FJ(I), this.healthClient = new AG(I);
   }
   /**
    * Retrieves the next account nonce for the given account. The account nonce is
@@ -20688,7 +20688,7 @@ class St {
     const g = {
       value: fB(I)
     }, B = await this.client.getNextAccountSequenceNumber(g).response;
-    return rJ(B);
+    return LJ(B);
   }
   /**
    * Retrieves the consensus status information from the node. Note that the optional
@@ -20702,7 +20702,7 @@ class St {
    */
   async getCryptographicParameters(I) {
     const g = OA(I), B = await this.client.getCryptographicParameters(g).response;
-    return LJ(B);
+    return qJ(B);
   }
   /**
    * Retrieves the account info for the given account. If the provided block
@@ -20723,9 +20723,9 @@ class St {
   async getAccountInfo(I, g) {
     const B = {
       blockHash: OA(g),
-      accountIdentifier: Jt(I)
+      accountIdentifier: tt(I)
     }, Q = await this.client.getAccountInfo(B).response;
-    return nJ(Q);
+    return rJ(Q);
   }
   /**
    * Retrieves a status for the given transaction/block item.
@@ -20738,9 +20738,9 @@ class St {
    */
   async getBlockItemStatus(I) {
     const g = {
-      value: vN(I)
+      value: _N(I)
     }, B = await this.client.getBlockItemStatus(g).response;
-    return PJ(B);
+    return XJ(B);
   }
   /**
    * Retrieves the consensus status information from the node. Note that the optional
@@ -20751,7 +20751,7 @@ class St {
    */
   async getConsensusStatus() {
     const I = await this.client.getConsensusInfo(tA).response;
-    return ZJ(I);
+    return xJ(I);
   }
   /**
    * Retrieves the source of the given module at the provided block.
@@ -20795,7 +20795,7 @@ class St {
    */
   async getEmbeddedSchema(I, g) {
     const B = await this.getModuleSource(I, g);
-    return _N(B);
+    return $N(B);
   }
   /**
    * Retrieve information about a given smart contract instance.
@@ -20813,7 +20813,7 @@ class St {
       blockHash: OA(g),
       address: mB(I)
     }, Q = await this.client.getInstanceInfo(B).response;
-    return vJ(Q);
+    return _J(Q);
   }
   /**
    * Invokes a smart contract.
@@ -20840,14 +20840,14 @@ class St {
     var R;
     const Q = {
       blockHash: OA(g),
-      invoker: yt(I.invoker),
+      invoker: et(I.invoker),
       instance: I.contract,
       amount: { value: ((R = I.amount) == null ? void 0 : R.microCcdAmount) || 0n },
-      entrypoint: aN(I.method),
-      parameter: eU(I.parameter ?? tU()),
-      energy: zE(I.energy ?? za)
+      entrypoint: GN(I.method),
+      parameter: KU(I.parameter ?? yU()),
+      energy: PE(I.energy ?? Pa)
     }, E = await this.client.invokeInstance(Q).response;
-    return XJ(E);
+    return vJ(E);
   }
   /**
    * Serializes and sends an account transaction to the node to be
@@ -20863,7 +20863,7 @@ class St {
    * @returns The transaction hash as a hex-encoded string
    */
   async sendAccountTransaction(I, g) {
-    const B = Oi(I.type), Q = KN(I), E = B.getBaseEnergyCost(I.payload), R = yN(nR(g), BigInt(Q.length), E);
+    const B = bi(I.type), Q = HN(I), E = B.getBaseEnergyCost(I.payload), R = eN(rR(g), BigInt(Q.length), E);
     return this.sendRawAccountTransaction(I.header, R, Q, g);
   }
   /**
@@ -20883,14 +20883,14 @@ class St {
    * @returns The transaction hash as a byte array
    */
   async sendRawAccountTransaction(I, g, B, Q) {
-    const E = st(Q);
-    if (FD(I.expiry) < /* @__PURE__ */ new Date())
-      throw new Error("A transaction expiry is not allowed to be in the past: " + FD(I.expiry));
+    const E = Yt(Q);
+    if (kD(I.expiry) < /* @__PURE__ */ new Date())
+      throw new Error("A transaction expiry is not allowed to be in the past: " + kD(I.expiry));
     const R = {
-      sender: yC(I.sender),
-      sequenceNumber: ON(I.nonce),
-      energyAmount: zE(g),
-      expiry: kD(I.expiry)
+      sender: eC(I.sender),
+      sequenceNumber: uN(I.nonce),
+      energyAmount: PE(g),
+      expiry: MD(I.expiry)
     }, i = {
       blockItem: {
         oneofKind: "accountTransaction",
@@ -20903,7 +20903,7 @@ class St {
         }
       }
     }, a = await this.client.sendBlockItem(i).response;
-    return _g(a);
+    return $g(a);
   }
   /**
    * Sends a credential deployment transaction, for creating a new account,
@@ -20924,7 +20924,7 @@ class St {
       blockItem: {
         oneofKind: "credentialDeployment",
         credentialDeployment: {
-          messageExpiry: kD(g),
+          messageExpiry: MD(g),
           payload: {
             oneofKind: "rawPayload",
             rawPayload: I
@@ -20932,7 +20932,7 @@ class St {
         }
       }
     }, E = await this.client.sendBlockItem(Q).response;
-    return _g(E);
+    return $g(E);
   }
   /**
    * Sends an update instruction transaction for updating a chain parameter
@@ -20965,14 +20965,14 @@ class St {
             }
           },
           signatures: {
-            signatures: Dg(g, (D) => ({
+            signatures: ig(g, (D) => ({
               value: FA.Buffer.from(D, "hex")
             }))
           }
         }
       }
     }, R = await this.client.sendBlockItem(E).response;
-    return _g(R);
+    return $g(R);
   }
   /**
    * Retrieves the status of the block chain parameters at the given blockHash.
@@ -20984,7 +20984,7 @@ class St {
    */
   async getBlockChainParameters(I) {
     const g = OA(I), B = await this.client.getBlockChainParameters(g).response;
-    return VJ(B);
+    return lJ(B);
   }
   /**
    * Retrieves information on the baker pool of the given bakerId.
@@ -21002,7 +21002,7 @@ class St {
         value: I
       }
     }, Q = await this.client.getPoolInfo(B).response;
-    return lJ(Q);
+    return WJ(Q);
   }
   /**
    * Retrieves information on the passive delegators.
@@ -21014,7 +21014,7 @@ class St {
    */
   async getPassiveDelegationInfo(I) {
     const g = OA(I), B = await this.client.getPassiveDelegationInfo(g).response;
-    return WJ(B);
+    return mJ(B);
   }
   /**
    * Retrieves the reward status at the given blockHash
@@ -21026,7 +21026,7 @@ class St {
    */
   async getTokenomicsInfo(I) {
     const g = OA(I), B = await this.client.getTokenomicsInfo(g).response;
-    return mJ(B);
+    return ZJ(B);
   }
   /**
    * Gets a stream of finalized blocks.
@@ -21040,7 +21040,7 @@ class St {
    */
   getFinalizedBlocks(I) {
     const g = { abort: I }, B = this.client.getFinalizedBlocks(tA, g).responses;
-    return wI(B, jD);
+    return wI(B, zD);
   }
   /**
    * Gets a stream of blocks. To get a stream of only finalized blocks
@@ -21055,7 +21055,7 @@ class St {
    */
   getBlocks(I) {
     const g = { abort: I }, B = this.client.getBlocks(tA, g).responses;
-    return wI(B, jD);
+    return wI(B, zD);
   }
   /**
    * Waits until given transaction is finalized.
@@ -21151,7 +21151,7 @@ class St {
       blockHash: OA(g),
       address: mB(I)
     }, R = this.client.getInstanceState(E, Q).responses;
-    return wI(R, _J);
+    return wI(R, $J);
   }
   /**
    * Get the value at a specific key of a contract state. In contrast to
@@ -21166,7 +21166,7 @@ class St {
    * @returns the state of the contract at the given key as a hex string.
    */
   async instanceStateLookup(I, g, B) {
-    et(g);
+    Kt(g);
     const Q = {
       address: mB(I),
       key: FA.Buffer.from(g, "hex"),
@@ -21187,7 +21187,7 @@ class St {
    */
   getIdentityProviders(I, g) {
     const B = { abort: g }, Q = OA(I), E = this.client.getIdentityProviders(Q, B).responses;
-    return wI(E, sw);
+    return wI(E, Sw);
   }
   /**
    * Get the anonymity revokers registered as of the end of a given block.
@@ -21202,7 +21202,7 @@ class St {
    */
   getAnonymityRevokers(I, g) {
     const B = { abort: g }, Q = OA(I), E = this.client.getAnonymityRevokers(Q, B).responses;
-    return wI(E, Yw);
+    return wI(E, Jw);
   }
   /**
    * Get a list of live blocks at a given height.
@@ -21213,7 +21213,7 @@ class St {
    * @returns A list of block hashes as hex strings
    */
   async getBlocksAtHeight(I) {
-    const g = Yt(I);
+    const g = St(I);
     return (await this.client.getBlocksAtHeight(g).response).blocks.map(yI);
   }
   /**
@@ -21226,7 +21226,7 @@ class St {
    */
   async getBlockInfo(I) {
     const g = OA(I), B = await this.client.getBlockInfo(g).response;
-    return $J(B);
+    return At(B);
   }
   /**
    * Get all the bakers at the end of the given block.
@@ -21334,7 +21334,7 @@ class St {
    */
   async getBranches() {
     const I = await this.client.getBranches(tA).response;
-    return Sw(I);
+    return tw(I);
   }
   /**
    * Get information related to the baker election for a particular block.
@@ -21344,7 +21344,7 @@ class St {
    */
   async getElectionInfo(I) {
     const g = OA(I), B = await this.client.getElectionInfo(g).response;
-    return It(B);
+    return gt(B);
   }
   /**
    * Get a list of non-finalized transaction hashes for a given account. This
@@ -21359,7 +21359,7 @@ class St {
    */
   getAccountNonFinalizedTransactions(I, g) {
     const B = this.client.getAccountNonFinalizedTransactions({ value: fB(I) }, { abort: g }).responses;
-    return wI(B, _g);
+    return wI(B, $g);
   }
   /**
    * Get a list of transaction events in a given block.
@@ -21375,7 +21375,7 @@ class St {
     const B = this.client.getBlockTransactionEvents(OA(I), {
       abort: g
     }).responses;
-    return wI(B, hw);
+    return wI(B, Yw);
   }
   /**
    * Get next available sequence numbers for updating chain parameters after a given block.
@@ -21387,7 +21387,7 @@ class St {
    */
   async getNextUpdateSequenceNumbers(I) {
     const g = await this.client.getNextUpdateSequenceNumbers(OA(I)).response;
-    return gt(g);
+    return Bt(g);
   }
   /**
    * Shut down the node.
@@ -21412,7 +21412,7 @@ class St {
    * @param port The port to connect to. Must be between 0 and 65535.
    */
   async peerConnect(I, g) {
-    WB(I), vD(g);
+    WB(I), _D(g);
     const B = {
       ip: { value: I },
       port: { value: g }
@@ -21430,7 +21430,7 @@ class St {
    * @param port The port to connect to. Must be between 0 and 65535.
    */
   async peerDisconnect(I, g) {
-    WB(I), vD(g);
+    WB(I), _D(g);
     const B = {
       ip: { value: I },
       port: { value: g }
@@ -21522,7 +21522,7 @@ class St {
    */
   async getNodeInfo() {
     const I = await this.client.getNodeInfo(tA).response;
-    return Dt(I);
+    return it(I);
   }
   /**
    * Get a list of the peers that the node is connected to
@@ -21533,7 +21533,7 @@ class St {
    * @returns a list containing info on each peer of the node.
    */
   async getPeersInfo() {
-    return (await this.client.getPeersInfo(tA).response).peers.map(wt);
+    return (await this.client.getPeersInfo(tA).response).peers.map(Rt);
   }
   /**
    * Get a list of special events in a given block. These are events generated
@@ -21551,7 +21551,7 @@ class St {
     const B = this.client.getBlockSpecialEvents(OA(I), {
       abort: g
     }).responses;
-    return wI(B, Rt);
+    return wI(B, Ut);
   }
   /**
    * Get the pending updates to chain parameters at the end of a given block.
@@ -21567,7 +21567,7 @@ class St {
     const B = this.client.getBlockPendingUpdates(OA(I), {
       abort: g
     }).responses;
-    return wI(B, OJ);
+    return wI(B, uJ);
   }
   /**
    * Get the summary of the finalization data in a given block.
@@ -21579,7 +21579,7 @@ class St {
    */
   async getBlockFinalizationSummary(I) {
     const g = await this.client.getBlockFinalizationSummary(OA(I)).response;
-    return at(g);
+    return Gt(g);
   }
   getFinalizedBlocksFrom(I = 0n, g) {
     let B = I, Q;
@@ -21655,7 +21655,7 @@ class St {
         const R = await this.getInstanceInfo(I, Q);
         return { hash: Q, height: E, instanceInfo: R };
       } catch (R) {
-        if (NU(R) && R.code === "NOT_FOUND")
+        if (aU(R) && R.code === "NOT_FOUND")
           return;
         throw R;
       }
@@ -21700,7 +21700,7 @@ class St {
     const g = {
       value: I
     }, B = await this.client.getBakerEarliestWinTime(g).response;
-    return Pi(B.value);
+    return vi(B.value);
   }
   /**
    * For a non-genesis block, this returns the quorum certificate, a timeout
@@ -21715,7 +21715,7 @@ class St {
    */
   async getBlockCertificates(I) {
     const g = OA(I), B = await this.client.getBlockCertificates(g).response;
-    return Gt(B);
+    return Ft(B);
   }
   /**
    * Get all bakers in the reward period of a block.
@@ -21729,7 +21729,7 @@ class St {
    */
   getBakersRewardPeriod(I) {
     const g = OA(I), B = this.client.getBakersRewardPeriod(g).responses;
-    return wI(B, Mt);
+    return wI(B, ct);
   }
   /**
    * Get the list of bakers that won the lottery in a particular historical epoch (i.e. the
@@ -21751,8 +21751,8 @@ class St {
    * @returns {v1.WinningBaker} A stream of winning bakers for a given epoch.
    */
   getWinningBakersEpoch(I) {
-    const g = XD(I), B = this.client.getWinningBakersEpoch(g).responses;
-    return wI(B, ht);
+    const g = vD(I), B = this.client.getWinningBakersEpoch(g).responses;
+    return wI(B, st);
   }
   /**
    * Get the block hash of the first finalized block in a specified epoch.
@@ -21769,7 +21769,7 @@ class St {
    * @returns {HexString} The block hash as a hex encoded string.
    */
   async getFirstBlockEpoch(I) {
-    const g = XD(I), B = await this.client.getFirstBlockEpoch(g).response;
+    const g = vD(I), B = await this.client.getFirstBlockEpoch(g).response;
     return yI(B);
   }
   async getConsensusHeight() {
@@ -21794,7 +21794,7 @@ function OA(A) {
   return A ? {
     blockHashInput: {
       oneofKind: "given",
-      given: BR(A)
+      given: QR(A)
     }
   } : {
     blockHashInput: {
@@ -21803,18 +21803,18 @@ function OA(A) {
     }
   };
 }
-function Jt(A) {
+function tt(A) {
   let I;
-  if (Ii(A))
+  if (Bi(A))
     I = {
       oneofKind: "address",
-      address: yC(A)
+      address: eC(A)
     };
-  else if (LU(A))
+  else if (qU(A))
     I = {
       oneofKind: "credId",
       credId: {
-        value: qU(A)
+        value: dU(A)
       }
     };
   else if (typeof A == "bigint")
@@ -21826,25 +21826,25 @@ function Jt(A) {
     throw new Error(`Unsupported account identifier: ${A}.`);
   return { accountIdentifierInput: I };
 }
-class tt extends St {
+class yt extends Jt {
   constructor(I, g, B) {
-    const Q = new ja({
+    const Q = new za({
       baseUrl: `${I}:${g}`,
       ...B
     });
     super(Q);
   }
 }
-function yt(A) {
+function et(A) {
   if (A) {
-    if (Ii(A))
+    if (Bi(A))
       return {
         type: {
           oneofKind: "account",
-          account: yC(A)
+          account: eC(A)
         }
       };
-    if (FR(A))
+    if (kR(A))
       return {
         type: {
           oneofKind: "contract",
@@ -21854,8 +21854,8 @@ function yt(A) {
     throw new Error("Unexpected input to build invoker");
   } else return;
 }
-function XD(A) {
-  return IR(A) || typeof A > "u" ? {
+function vD(A) {
+  return gR(A) || typeof A > "u" ? {
     epochRequestInput: {
       oneofKind: "blockHash",
       blockHash: OA(A)
@@ -21871,15 +21871,15 @@ function XD(A) {
   };
 }
 function WB(A) {
-  if (!HR(A))
+  if (!nR(A))
     throw new Error("The input was not a valid ip: " + A);
 }
-function vD(A) {
+function _D(A) {
   if (A > 65535 || A < 0)
     throw new Error("The input was not a valid port, must be between 0 and 65535: " + A);
 }
-function et(A) {
-  if (!Ri(A))
+function Kt(A) {
+  if (!Ni(A))
     throw new Error("The input was not a valid hex: " + A);
 }
 const FQ = class FQ {
@@ -21891,7 +21891,7 @@ const FQ = class FQ {
    * @returns
    */
   static generateAccountWithSeedPhrase(I, g, B = 0) {
-    if (!oo(I, wo))
+    if (!Ro(I, Uo))
       throw new Error("Invalid seed phrase");
     const Q = oQ.fromSeedPhrase(I, g), E = Q.getAccountPublicKey(0, 0, B).toString("hex"), R = Q.getAccountSigningKey(0, 0, B).toString("hex");
     return {
@@ -21917,9 +21917,9 @@ const FQ = class FQ {
    */
   static deserializeCredentialDeploymentTransaction(I) {
     const g = {};
-    return g.unsignedCdi = oi.parse(
+    return g.unsignedCdi = Ri.parse(
       I.unsignedCdiStr
-    ), g.expiry = dN(
+    ), g.expiry = pN(
       I.expiry
     ), g.randomness = I.randomness, g;
   }
@@ -21932,7 +21932,7 @@ const FQ = class FQ {
   static async signCredentialTransaction(I, g) {
     const B = FQ.deserializeCredentialDeploymentTransaction(
       I
-    ), Q = await Za(
+    ), Q = await xa(
       B,
       g
     );
@@ -21949,15 +21949,15 @@ const FQ = class FQ {
    * @returns Transaction hash of the submitted transaction
    */
   static async submitCCDTransaction(I, g, B) {
-    const Q = Ia(
+    const Q = ga(
       [g],
       I
-    ), E = dw(B);
-    return (await new tt(
+    ), E = pw(B);
+    return (await new yt(
       E.grpcUrl,
       E.grpcPort,
       {
-        timeout: Lw
+        timeout: dw
       }
     ).sendCredentialDeploymentTransaction(
       Q,
@@ -21976,9 +21976,9 @@ const FQ = class FQ {
     };
   }
 };
-BE(FQ, "chainId", "concordium:919");
-let _D = FQ;
-class $g {
+LQ(FQ, "chainId", "concordium:919");
+let $D = FQ;
+const Eg = class Eg {
   static injectPopupStyles() {
     if (document.getElementById("sdk-popup-styles")) return;
     const I = document.createElement("style");
@@ -22107,11 +22107,11 @@ class $g {
       throw new Error("ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment");
     if (!I)
       throw new Error("ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri");
-    $g.injectPopupStyles();
-    const g = `${qw.mobile}wallet-connect?encodedUri=${I}`;
+    Eg.injectPopupStyles();
+    const g = `${QE.mobile}wallet-connect?encodedUri=${I}`, B = `${QE.web}wallet-connect?encodedUri=${I}`;
     console.log("Inside invokeOpenIDappPopup");
-    const B = document.createElement("div");
-    if (B.id = "sdk-popup-wrapper", B.innerHTML = `
+    const Q = document.createElement("div");
+    if (Q.id = "sdk-popup-wrapper", Q.innerHTML = `
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
        <!-- close icon -->
@@ -22144,26 +22144,26 @@ class $g {
       </div>
     </div>
   `, !document.getElementById("qrcode-lib")) {
-      const D = document.createElement("script");
-      D.id = "qrcode-lib", D.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js", document.head.appendChild(D);
+      const i = document.createElement("script");
+      i.id = "qrcode-lib", i.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js", document.head.appendChild(i);
     }
-    const Q = () => {
-      const D = document.getElementById("sdk-qr-code");
-      D && window.QRCode ? (D.style = "display: flex;justify-content: center;margin: 1.0rem 0;", new window.QRCode(D, {
+    const E = () => {
+      const i = document.getElementById("sdk-qr-code");
+      i && window.QRCode ? (i.style = "display: flex;justify-content: center;margin: 1.0rem 0;", new window.QRCode(i, {
         text: g,
         width: 160,
         height: 160,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: window.QRCode.CorrectLevel.H
-      })) : setTimeout(Q, 100);
-    }, E = B.querySelector("#open-idapp-btn"), R = B.querySelector(".sdk-close-btn");
-    document.body.appendChild(B), Q(), R.addEventListener("click", () => $g.closePopup()), E == null || E.addEventListener("click", async () => {
+      })) : setTimeout(E, 100);
+    }, R = Q.querySelector("#open-idapp-btn"), D = Q.querySelector(".sdk-close-btn");
+    document.body.appendChild(Q), E(), D.addEventListener("click", () => Eg.closePopup()), R == null || R.addEventListener("click", async () => {
       console.log("Create ID Clicked");
       try {
-        window.location.href = g;
-      } catch (D) {
-        console.log(D);
+        Eg.openIdapp({ wallectConnectMobileUrl: g, walletConnectDesktopUrl: B });
+      } catch (i) {
+        console.log(i);
       }
     });
   }
@@ -22178,7 +22178,7 @@ class $g {
   }) {
     if (!I && !g)
       throw new Error("Atleast one of the handlers must be provided");
-    $g.injectPopupStyles();
+    Eg.injectPopupStyles();
     const B = document.createElement("div");
     B.id = "sdk-popup-wrapper", B.innerHTML = `
     <div class="sdk-popup-overlay">
@@ -22206,7 +22206,7 @@ class $g {
         </div>
       </div>
     </div>
-  `, document.body.appendChild(B), B.querySelector(".sdk-close-btn").addEventListener("click", () => $g.closePopup());
+  `, document.body.appendChild(B), B.querySelector(".sdk-close-btn").addEventListener("click", () => Eg.closePopup());
     const E = B.querySelector("#create-id-btn");
     I ? E.addEventListener("click", async () => {
       E.textContent = "Loading...";
@@ -22221,17 +22221,27 @@ class $g {
       R.textContent = "Loading...", await g();
     }) : R.style.display = "none";
   }
-}
+};
+LQ(Eg, "openIdapp", ({ wallectConnectMobileUrl: I, walletConnectDesktopUrl: g }) => {
+  if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))
+    console.log("Opening Idapp on mobile..."), window.location.href = I;
+  else {
+    console.log("Opening Idapp on desktop...");
+    const B = 400, Q = 700, E = 0, R = window.screen.availWidth - B;
+    window.open(g, "Idapp", `width=${B},height=${Q},top=${E},left=${R}`);
+  }
+});
+let Ai = Eg;
 export {
-  $g as ConcordiumIDAppPoup,
-  _D as ConcordiumIDAppSDK,
-  Lw as GRPCTIMEOUT,
-  qw as IDAPP_HOSTS,
-  Hw as IDAppErrorCode,
-  Ht as IDAppSdkWallectConnectMethods,
-  Kw as Status,
-  dw as getNetworkConfiguration,
-  nw as mainnet,
-  nt as stagenet,
-  rw as testnet
+  Ai as ConcordiumIDAppPoup,
+  $D as ConcordiumIDAppSDK,
+  dw as GRPCTIMEOUT,
+  QE as IDAPP_HOSTS,
+  rw as IDAppErrorCode,
+  nt as IDAppSdkWallectConnectMethods,
+  nw as Status,
+  pw as getNetworkConfiguration,
+  Lw as mainnet,
+  rt as stagenet,
+  qw as testnet
 };
