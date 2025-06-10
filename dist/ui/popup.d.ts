@@ -9,8 +9,8 @@ export declare class ConcordiumIDAppPoup {
      * This function creates a popup that prompts the user to open the ID App for account activation.
      * @param param0
      */
-    static invokeIdAppDeepLinkPopup({ onIdAppPopup }: {
-        onIdAppPopup: Function;
+    static invokeIdAppDeepLinkPopup({ walletConnectUri }: {
+        walletConnectUri: string;
     }): Promise<void>;
     /**
      * Injects the styles for the popup into the document.
