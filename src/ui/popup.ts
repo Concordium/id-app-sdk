@@ -1,3 +1,5 @@
+import { IDAPP_HOSTS } from "../core";
+
 export class ConcordiumIDAppPoup {
   private static injectPopupStyles() {
     if (document.getElementById("sdk-popup-styles")) return;
@@ -108,6 +110,12 @@ export class ConcordiumIDAppPoup {
       height: 36px;
       display: block;
     }
+
+    .sdk-qr-code {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
   `;
     document.head.appendChild(style);
   }
@@ -128,8 +136,20 @@ export class ConcordiumIDAppPoup {
    * This function creates a popup that prompts the user to open the ID App for account activation.
    * @param param0 
    */
-  static async invokeIdAppDeepLinkPopup({ onIdAppPopup }: { onIdAppPopup: Function }) {
+  static async invokeIdAppDeepLinkPopup({ walletConnectUri }: { walletConnectUri: string }) {
+
+    if (!navigator && !window) {
+      throw new Error('ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment');
+    }
+
+    if (!walletConnectUri) {
+      throw new Error('ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri');
+    }
+
     ConcordiumIDAppPoup.injectPopupStyles();
+
+    const wallectConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
+    // const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
 
     console.log('Inside invokeOpenIDappPopup')
     const wrapper = document.createElement('div');
@@ -147,6 +167,7 @@ export class ConcordiumIDAppPoup {
             To activate a Concordium account<br/>
             please complete ID verification.
           </p>
+          <div id="sdk-qr-code"></div>
           <div class="sdk-btns">
             <button id="open-idapp-btn" class="sdk-btn sdk-btn--primary">
               Open {IDApp}
@@ -167,22 +188,42 @@ export class ConcordiumIDAppPoup {
       </div>
     </div>
   `;
+
+    if (!document.getElementById("qrcode-lib")) {
+      const script = document.createElement("script");
+      script.id = "qrcode-lib";
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+      document.head.appendChild(script);
+    }
+
+    const renderQRCode = () => {
+      const qrContainer = document.getElementById("sdk-qr-code");
+      if (qrContainer && (window as any).QRCode) {
+        new (window as any).QRCode(qrContainer, {
+          text: wallectConnectMobileUrl,
+          width: 160,
+          height: 160,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: (window as any).QRCode.CorrectLevel.H,
+        });
+      } else {
+        setTimeout(renderQRCode, 100); // wait for script to load
+      }
+    };
+
     const openAppBtn =
       wrapper.querySelector<HTMLButtonElement>("#open-idapp-btn")!;
     const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
     document.body.appendChild(wrapper);
+    renderQRCode();
+    
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     openAppBtn?.addEventListener('click', async () => {
       console.log('Create ID Clicked');
       try {
-        openAppBtn.innerText = "Loading...."
-        const create_acc_resp = await onIdAppPopup();
-        console.log(create_acc_resp)
-        openAppBtn.innerText = "Open {IDApp}"
-        // closePopup()
-        // finish loader
-        // emit event that this process is finisshed
+        window.location.href = wallectConnectMobileUrl;
       } catch (e) {
         // emit error event 
         console.log(e)
@@ -276,5 +317,7 @@ export class ConcordiumIDAppPoup {
       recoverBtn.style.display = "none";
     }
   }
+
+
 
 }
