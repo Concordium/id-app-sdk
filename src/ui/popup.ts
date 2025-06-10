@@ -110,12 +110,6 @@ export class ConcordiumIDAppPoup {
       height: 36px;
       display: block;
     }
-
-    .sdk-qr-code {
-      display: flex;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
   `;
     document.head.appendChild(style);
   }
@@ -199,6 +193,9 @@ export class ConcordiumIDAppPoup {
     const renderQRCode = () => {
       const qrContainer = document.getElementById("sdk-qr-code");
       if (qrContainer && (window as any).QRCode) {
+        qrContainer.style.display = "flex";
+        qrContainer.style.justifyContent = "center";
+        qrContainer.style.alignItems = "center";
         new (window as any).QRCode(qrContainer, {
           text: wallectConnectMobileUrl,
           width: 160,
@@ -217,7 +214,7 @@ export class ConcordiumIDAppPoup {
     const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
     document.body.appendChild(wrapper);
     renderQRCode();
-    
+
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     openAppBtn?.addEventListener('click', async () => {
