@@ -2166,12 +2166,6 @@ zoo`.split(`
       height: 36px;
       display: block;
     }
-
-    .sdk-qr-code {
-      display: flex;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
   `,document.head.appendChild(I)}static closePopup(){const I=document.getElementById("sdk-popup-wrapper");I&&I.remove();const g=document.getElementById("sdk-popup-styles");g&&g.remove()}static async invokeIdAppDeepLinkPopup({walletConnectUri:I}){if(!navigator&&!window)throw new Error("ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment");if(!I)throw new Error("ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri");Pg.injectPopupStyles();const g=`${RE.mobile}wallet-connect?encodedUri=${I}`;console.log("Inside invokeOpenIDappPopup");const B=document.createElement("div");if(B.id="sdk-popup-wrapper",B.innerHTML=`
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
@@ -2204,7 +2198,7 @@ zoo`.split(`
           </div>
       </div>
     </div>
-  `,!document.getElementById("qrcode-lib")){const D=document.createElement("script");D.id="qrcode-lib",D.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js",document.head.appendChild(D)}const Q=()=>{const D=document.getElementById("sdk-qr-code");D&&window.QRCode?new window.QRCode(D,{text:g,width:160,height:160,colorDark:"#000000",colorLight:"#ffffff",correctLevel:window.QRCode.CorrectLevel.H}):setTimeout(Q,100)},E=B.querySelector("#open-idapp-btn"),R=B.querySelector(".sdk-close-btn");document.body.appendChild(B),Q(),R.addEventListener("click",()=>Pg.closePopup()),E==null||E.addEventListener("click",async()=>{console.log("Create ID Clicked");try{window.location.href=g}catch(D){console.log(D)}})}static async invokeIdAppActionsPopup({onCreateAccount:I,onRecoverAccount:g}){if(!I&&!g)throw new Error("Atleast one of the handlers must be provided");Pg.injectPopupStyles();const B=document.createElement("div");B.id="sdk-popup-wrapper",B.innerHTML=`
+  `,!document.getElementById("qrcode-lib")){const D=document.createElement("script");D.id="qrcode-lib",D.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js",document.head.appendChild(D)}const Q=()=>{const D=document.getElementById("sdk-qr-code");D&&window.QRCode?(D.style="display: flex;justify-content: center;margin: 1.0rem 0;",new window.QRCode(D,{text:g,width:160,height:160,colorDark:"#000000",colorLight:"#ffffff",correctLevel:window.QRCode.CorrectLevel.H})):setTimeout(Q,100)},E=B.querySelector("#open-idapp-btn"),R=B.querySelector(".sdk-close-btn");document.body.appendChild(B),Q(),R.addEventListener("click",()=>Pg.closePopup()),E==null||E.addEventListener("click",async()=>{console.log("Create ID Clicked");try{window.location.href=g}catch(D){console.log(D)}})}static async invokeIdAppActionsPopup({onCreateAccount:I,onRecoverAccount:g}){if(!I&&!g)throw new Error("Atleast one of the handlers must be provided");Pg.injectPopupStyles();const B=document.createElement("div");B.id="sdk-popup-wrapper",B.innerHTML=`
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
 

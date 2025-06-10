@@ -22086,12 +22086,6 @@ class $g {
       height: 36px;
       display: block;
     }
-
-    .sdk-qr-code {
-      display: flex;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
   `, document.head.appendChild(I);
   }
   /**
@@ -22155,14 +22149,14 @@ class $g {
     }
     const Q = () => {
       const D = document.getElementById("sdk-qr-code");
-      D && window.QRCode ? new window.QRCode(D, {
+      D && window.QRCode ? (D.style = "display: flex;justify-content: center;margin: 1.0rem 0;", new window.QRCode(D, {
         text: g,
         width: 160,
         height: 160,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: window.QRCode.CorrectLevel.H
-      }) : setTimeout(Q, 100);
+      })) : setTimeout(Q, 100);
     }, E = B.querySelector("#open-idapp-btn"), R = B.querySelector(".sdk-close-btn");
     document.body.appendChild(B), Q(), R.addEventListener("click", () => $g.closePopup()), E == null || E.addEventListener("click", async () => {
       console.log("Create ID Clicked");
