@@ -33,5 +33,4 @@ export const GRPCTIMEOUT = 15000;
 
 export const IDAPP_HOSTS = {
   mobile: "concordiumidapp://",
-  web: "http://localhost:5173/",
 }
