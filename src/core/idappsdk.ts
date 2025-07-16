@@ -122,7 +122,7 @@ export class ConcordiumIDAppSDK {
    * @returns Transaction hash of the submitted transaction
    */
   public static async submitCCDTransaction(
-    credentialDeploymentTransaction: CredentialDeploymentTransaction,
+    credentialDeploymentTransaction: any,
     signature: HexString,
     network: Network,
   ): Promise<string> {

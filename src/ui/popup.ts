@@ -150,7 +150,6 @@ export class ConcordiumIDAppPoup {
    * @param param0 
    */
   static async invokeIdAppDeepLinkPopup({ walletConnectUri }: { walletConnectUri: string }) {
-
     if (!navigator && !window) {
       throw new Error('ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment');
     }
@@ -306,7 +305,8 @@ export class ConcordiumIDAppPoup {
     const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
     if (onCreateAccount) {
       createBtn.addEventListener("click", async () => {
-        createBtn.textContent = "Loading...";
+        console.log('OnCreateeAccout:  ⏳ Please wait')
+        createBtn.textContent = "⏳ Please wait";
         try {
           await onCreateAccount();
           // ConcordiumIDAppPoup.closePopup()
@@ -324,7 +324,8 @@ export class ConcordiumIDAppPoup {
     const recoverBtn = wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
     if (onRecoverAccount) {
       recoverBtn.addEventListener("click", async () => {
-        recoverBtn.textContent = "Loading...";
+        console.log('OnRecoverAccout:  ⏳ Please wait')
+        recoverBtn.textContent = "⏳ Please wait";
         await onRecoverAccount();
         // ConcordiumIDAppPoup.closePopup()
       });
