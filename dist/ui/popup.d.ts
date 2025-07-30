@@ -21,8 +21,9 @@ export declare class ConcordiumIDAppPoup {
      * This method is called to ensure that the popup has the necessary styles applied.
      * @param param0
      */
-    static invokeIdAppActionsPopup({ onCreateAccount, onRecoverAccount, }: {
+    static invokeIdAppActionsPopup({ onCreateAccount, onRecoverAccount, walletConnectSessionTopic }: {
         onCreateAccount?: () => Promise<any>;
         onRecoverAccount?: () => Promise<any>;
+        walletConnectSessionTopic?: string;
     }): Promise<void>;
 }
