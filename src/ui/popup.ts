@@ -7,6 +7,20 @@ export class ConcordiumIDAppPoup {
     const style = document.createElement("style");
     style.id = "sdk-popup-styles";
     style.innerHTML = `
+    .authCode {
+      margin: 16px auto; 
+      width: 80px;
+      height: 80px;
+      border: 2px solid #0047ab; /* Deep blue border */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: #0047ab;
+      background: radial-gradient(circle, #f7f7f7 0%, #ffffff 100%);
+    }
     .sdk-popup-overlay {
       position: fixed;
       inset: 0;
@@ -109,6 +123,13 @@ export class ConcordiumIDAppPoup {
     .sdk-store-links img {
       height: 36px;
       display: block;
+    }
+
+    .wc-session {
+      max-width: 95%;
+      word-wrap: break-word;
+      color: grey;
+      display: none
     }
   `;
     document.head.appendChild(style);
@@ -253,9 +274,11 @@ export class ConcordiumIDAppPoup {
   static async invokeIdAppActionsPopup({
     onCreateAccount,
     onRecoverAccount,
+    walletConnectSessionTopic
   }: {
     onCreateAccount?: () => Promise<any>;
     onRecoverAccount?: () => Promise<any>;
+    walletConnectSessionTopic?: string; 
   }) {
 
     // Check if atleast one of the handlers is provided
@@ -280,8 +303,7 @@ export class ConcordiumIDAppPoup {
           <img src="data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMTYzIiBoZWlnaHQ9IjI5IiB2aWV3Qm94PSIwIDAgMTYzIDI5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bWFzayBpZD0ibWFzazBfMTE4MV81ODM1IiBzdHlsZT0ibWFzay10eXBlOmx1bWluYW5jZSIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MyIgaGVpZ2h0PSIyOSI+CjxwYXRoIGQ9Ik0xNjMgMEgwVjI5SDE2M1YwWiIgZmlsbD0id2hpdGUiLz4KPC9tYXNrPgo8ZyBtYXNrPSJ1cmwoI21hc2swXzExODFfNTgzNSkiPgo8cGF0aCBkPSJNMjguMzk2NyAyMC40MjIySDIzLjE5MjdDMjQuNTEzMyAxOC43ODE2IDI1LjMwODcgMTYuNzMxNiAyNS4zMDg3IDE0LjQ5ODNDMjUuMzA4NyAxMi4yNjUzIDI0LjUxMDcgMTAuMjEwNCAyMy4xODc2IDguNTY5ODdIMjguMzk0MkMyOS4yNzU0IDEwLjM2OTQgMjkuNzcyOCAxMi4zNzg0IDI5Ljc3MjggMTQuNDk4M0MyOS43NzI4IDE2LjYxODQgMjkuMjc3OSAxOC42MjI3IDI4LjM5NjcgMjAuNDIyMlpNMTUuMTU1NyAyMC40MjIyQzExLjczNDMgMjAuNDIyMiA4Ljk2MTkzIDE3Ljc2OTkgOC45NjE5MyAxNC40OTZDOC45NjE5MyAxMS4yMjIyIDExLjczNDMgOC41Njk4NyAxNS4xNTU3IDguNTY5ODdDMTguNTc3IDguNTY5ODcgMjEuMzQ5NSAxMS4yMjQ2IDIxLjM0OTUgMTQuNDk2QzIxLjM0OTUgMTcuNzY3NSAxOC41NzcgMjAuNDIyMiAxNS4xNTU3IDIwLjQyMjJaTTQuOTk3NzEgMTQuNDk4M0M0Ljk5NzcxIDE5Ljg2NTYgOS41NDI2OCAyNC4yMTg4IDE1LjE1MzIgMjQuMjE4OEMxNi42NTgxIDI0LjIxODggMTguMDgyMiAyMy44OTYgMTkuMzY3NCAyMy4zMzQ2VjI3Ljg5MjZDMTguMDM0MiAyOC4yNzU2IDE2LjYyMDIgMjguNDg1MiAxNS4xNTU3IDI4LjQ4NTJDNy4wODU4NSAyOC40ODUyIDAuNTQzNjQgMjIuMjI0MSAwLjU0MzY0IDE0LjQ5ODNDMC41NDM2NCA2Ljc3Mjc0IDcuMDg1ODcgMC41MTE3MTkgMTUuMTU4MiAwLjUxMTcxOUMxNi42MjI3IDAuNTExNzE5IDE4LjAzNDIgMC43MjEzMDMgMTkuMzY5OSAxLjEwNDM0VjUuNjYyMTlDMTguMDg0NyA1LjEwMDg5IDE2LjY2MDYgNC43NzgwOCAxNS4xNTU3IDQuNzc4MDhDOS41NDc3MiA0Ljc3ODA4IDUuMDAwMjMgOS4xMjg3NyA1LjAwMDIzIDE0LjQ5ODNINC45OTc3MVoiIGZpbGw9IiMwRDEyMUMiLz4KPHBhdGggZD0iTTQ0LjU5NDkgMTcuNzEzMkM0NS44MDk0IDE3LjcxMzIgNDYuNzk2NyAxNy4yNDM0IDQ3LjM4NzUgMTYuNjMxNVYyMC4wMzMxQzQ2LjUzNDEgMjAuNDA4OSA0NS41MzE1IDIwLjU5NjggNDQuNTI5MiAyMC41OTY4QzQwLjkxNiAyMC41OTY4IDM4LjAwNzIgMTcuODUyOSAzOC4wMDcyIDE0LjQ5OTVDMzguMDA3MiAxMS4xNDYyIDQwLjkxNiA4LjQwMjM0IDQ0LjUyOTIgOC40MDIzNEM0NS41MzE1IDguNDAyMzQgNDYuNTM0MSA4LjYwNzExIDQ3LjM4NzUgOC45NjYwNFYxMi4zNjc2QzQ2Ljc5NjcgMTEuNzU1NyA0NS44MDk0IDExLjI4NTkgNDQuNTk0OSAxMS4yODU5QzQyLjY0MDUgMTEuMjg1OSA0MS4yMjY1IDEyLjY0OTMgNDEuMjI2NSAxNC40OTk1QzQxLjIyNjUgMTYuMzQ5NyA0Mi42NDA1IDE3LjcxMzIgNDQuNTk0OSAxNy43MTMyWk01NS41NTA4IDguNDAyMzRDNTkuMTE2IDguNDAyMzQgNjEuOTU2NSAxMS4xNDYyIDYxLjk1NjUgMTQuNDk5NUM2MS45NTY1IDE3Ljg1MjkgNTkuMTEzNiAyMC41OTY4IDU1LjU1MDggMjAuNTk2OEM1MS45ODgxIDIwLjU5NjggNDkuMTQ0OSAxNy44NTI5IDQ5LjE0NDkgMTQuNDk5NUM0OS4xNDQ5IDExLjE0NjIgNTIuMDAzMSA4LjQwMjM0IDU1LjU1MDggOC40MDIzNFpNNTUuNTUwOCAxMS4yNTQ2QzUzLjc5MzQgMTEuMjU0NiA1Mi4zNjQxIDEyLjU4NjggNTIuMzY0MSAxNC40OTk1QzUyLjM2NDEgMTYuNDEyMyA1My43OTM0IDE3Ljc0NDUgNTUuNTUwOCAxNy43NDQ1QzU3LjMwODIgMTcuNzQ0NSA1OC43MzczIDE2LjQxMjMgNTguNzM3MyAxNC40OTk1QzU4LjczNzMgMTIuNTg2OCA1Ny4zMDgyIDExLjI1NDYgNTUuNTUwOCAxMS4yNTQ2Wk02Ni45ODMyIDguNTkwMjVMNzIuMjQwMiAxNS40ODcyVjguNTkwMjVINzUuMzI4M1YyMC40MDg5SDcyLjU4MzZMNjcuMTQ0OCAxMy40MDM1VjIwLjQwODlINjQuMDU2N1Y4LjU5MDI1SDY2Ljk4MDdINjYuOTgzMlpNODQuMTgzNSAxNy43MTMyQzg1LjM5NzkgMTcuNzEzMiA4Ni4zODUyIDE3LjI0MzQgODYuOTc2IDE2LjYzMTVWMjAuMDMzMUM4Ni4xMjI3IDIwLjQwODkgODUuMTIwMSAyMC41OTY4IDg0LjExNzggMjAuNTk2OEM4MC41MDQ2IDIwLjU5NjggNzcuNTk1OCAxNy44NTI5IDc3LjU5NTggMTQuNDk5NUM3Ny41OTU4IDExLjE0NjIgODAuNTA0NiA4LjQwMjM0IDg0LjExNzggOC40MDIzNEM4NS4xMjAxIDguNDAyMzQgODYuMTIyNyA4LjYwNzExIDg2Ljk3NiA4Ljk2NjA0VjEyLjM2NzZDODYuMzg1MiAxMS43NTU3IDg1LjM5NzkgMTEuMjg1OSA4NC4xODM1IDExLjI4NTlDODIuMjI5MSAxMS4yODU5IDgwLjgxNSAxMi42NDkzIDgwLjgxNSAxNC40OTk1QzgwLjgxNSAxNi4zNDk3IDgyLjIyOTEgMTcuNzEzMiA4NC4xODM1IDE3LjcxMzJaTTk1LjEzOTMgOC40MDIzNEM5OC43MDQ1IDguNDAyMzQgMTAxLjU0NSAxMS4xNDYyIDEwMS41NDUgMTQuNDk5NUMxMDEuNTQ1IDE3Ljg1MjkgOTguNzAyIDIwLjU5NjggOTUuMTM5MyAyMC41OTY4QzkxLjU3NjUgMjAuNTk2OCA4OC43MzM0IDE3Ljg1MjkgODguNzMzNCAxNC40OTk1Qzg4LjczMzQgMTEuMTQ2MiA5MS41OTE3IDguNDAyMzQgOTUuMTM5MyA4LjQwMjM0Wk05NS4xMzkzIDExLjI1NDZDOTMuMzgxOSAxMS4yNTQ2IDkxLjk1MjcgMTIuNTg2OCA5MS45NTI3IDE0LjQ5OTVDOTEuOTUyNyAxNi40MTIzIDkzLjM4MTkgMTcuNzQ0NSA5NS4xMzkzIDE3Ljc0NDVDOTYuODk2NyAxNy43NDQ1IDk4LjMyNTkgMTYuNDEyMyA5OC4zMjU5IDE0LjQ5OTVDOTguMzI1OSAxMi41ODY4IDk2Ljg5NjcgMTEuMjU0NiA5NS4xMzkzIDExLjI1NDZaTTEwNi45OTkgMTYuMTc2MlYyMC40MDg5SDEwMy44MTNWOC41OTAyNUgxMDcuOTAzQzExMC44NDUgOC41OTAyNSAxMTIuODY0IDkuOTcwNiAxMTIuODY0IDEyLjM4NDRDMTEyLjg2NCAxMy45NjcyIDExMS44NjIgMTUuMTI4MiAxMTAuMzIgMTUuNzIzM0wxMTQuMjY0IDIwLjQwODlIMTEwLjM4NUwxMDcuMDAxIDE2LjE3NjJIMTA2Ljk5OVpNMTA2Ljk5OSAxMy44ODc2SDEwNy44ODVDMTA4Ljk1MyAxMy44ODc2IDEwOS41OTUgMTMuMzM4NSAxMDkuNTk1IDEyLjQ3NTlDMTA5LjU5NSAxMS42MTM2IDEwOC45NTMgMTEuMDgxMiAxMDcuODg1IDExLjA4MTJIMTA2Ljk5OVYxMy44ODc2Wk0xMjAuMTc0IDguNTkwMjVDMTIzLjcyMiA4LjU5MDI1IDEyNi41ODEgMTEuMTI5MyAxMjYuNTgxIDE0LjQ5OTVDMTI2LjU4MSAxNy44Njk4IDEyMy43MjIgMjAuNDA4OSAxMjAuMTc0IDIwLjQwODlIMTE1LjY5VjguNTkwMjVIMTIwLjE3NFpNMTE5Ljk1OSAxMS4xMTQ5SDExOC45MVYxNy44ODY2SDExOS45MjdDMTIyLjAxMyAxNy44ODY2IDEyMy4zNjEgMTYuMzE4NCAxMjMuMzYxIDE0LjUwMkMxMjMuMzYxIDEyLjY4NTYgMTIyLjAxMyAxMS4xMTczIDExOS45NTkgMTEuMTE3M1YxMS4xMTQ5Wk0xMzIuMDY4IDIwLjQwODlIMTI4Ljg0OFY4LjU5MDI1SDEzMi4wNjhWMjAuNDA4OVpNMTQxLjk5MSAxNS42NjA4VjguNTkyNjZIMTQ1LjIxVjE1LjY0NjNDMTQ1LjIxIDE4Ljc5NzIgMTQyLjk2IDIwLjU5OTIgMTQwLjAwMSAyMC41OTkyQzEzNy4wNDIgMjAuNTk5MiAxMzQuNzkxIDE4Ljc5NzIgMTM0Ljc5MSAxNS42NDYzVjguNTkyNjZIMTM4LjAxMVYxNS42NjA4QzEzOC4wMTEgMTcuMTQ5NSAxMzguOCAxNy44ODY2IDEzOS45OTggMTcuODg2NkMxNDEuMTk3IDE3Ljg4NjYgMTQxLjk4NiAxNy4xNDk1IDE0MS45ODYgMTUuNjYwOEgxNDEuOTkxWiIgZmlsbD0iIzBEMTIxQyIvPgo8cGF0aCBkPSJNMTUxLjA5MyAxMi41MDkzSDE1MC45OTlWMjAuNDA4NEgxNDguMDMyVjguNTg5ODRIMTUyLjc1OUwxNTUuMDk5IDE1LjI5ODlMMTU3LjY4NSA4LjU4OTg0SDE2Mi4wNzFWMjAuNDA4NEgxNTkuMTA0VjEyLjUwOTNIMTU5LjAxMUwxNTYuMDI0IDIwLjQwODRIMTU0LjA4TDE1MS4wOTMgMTIuNTA5M1oiIGZpbGw9IiMwRDEyMUMiLz4KPC9nPgo8L3N2Zz4K" alt="Concordium" class="sdk-logo" />
         
           <p class="sdk-copy">
-            To activate a Concordium account<br/>
-            please complete ID verification.
+            Only once you have completed the ID verification in [ID App], Choose your next step.
           </p>
           <div class="sdk-btns">
             <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
@@ -291,15 +313,28 @@ export class ConcordiumIDAppPoup {
               Recover Account
             </button>
           </div>
+          <div  class="wc-session">
+              Open the ID App and complete the verification by matching the number below
+              <div class="authCode" id="wallet-connect-session-topic"></div>
+          </div>
         </div>
       </div>
     </div>
   `;
     document.body.appendChild(wrapper);
 
+
+    const allButtons = wrapper.querySelector<HTMLButtonElement>(".sdk-btns")!;
+    const walletConnectSessionTopicCode = wrapper.querySelector<HTMLButtonElement>(".wc-session")!;
+    const sdkCopyDiv = wrapper.querySelector<HTMLButtonElement>(".sdk-copy")!;
+    
     // Element refs
     const closeBtn = wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
+
+    
+    
+    
 
     // Step switch: Create New Account → Step 2
     const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
@@ -307,6 +342,15 @@ export class ConcordiumIDAppPoup {
       createBtn.addEventListener("click", async () => {
         console.log('OnCreateeAccout:  ⏳ Please wait')
         createBtn.textContent = "⏳ Please wait";
+        allButtons.style.display = "none"
+        sdkCopyDiv.style.display = "none"
+        const walletConnectSessionTopicDiv = wrapper.querySelector<HTMLButtonElement>("#wallet-connect-session-topic")!;
+        if(walletConnectSessionTopic){
+          walletConnectSessionTopicCode.style.display = 'block'
+          walletConnectSessionTopicDiv.innerText = `${walletConnectSessionTopic.substr(0,4).toUpperCase()}`
+        } else {
+          walletConnectSessionTopicDiv.style.display = 'none'
+        }
         try {
           await onCreateAccount();
           // ConcordiumIDAppPoup.closePopup()
