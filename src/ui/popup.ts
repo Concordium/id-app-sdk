@@ -424,15 +424,18 @@ export class ConcordiumIDAppPoup {
   }: {
     onCreateAccount?: () => Promise<any>;
     onRecoverAccount?: () => Promise<any>;
-    walletConnectSessionTopic?: string;
+    walletConnectSessionTopic: string;
   }) {
     // Check if atleast one of the handlers is provided
     if (!onCreateAccount && !onRecoverAccount) {
       throw new Error("Atleast one of the handlers must be provided");
     }
 
-    ConcordiumIDAppPoup.injectPopupStyles();
+    if (!walletConnectSessionTopic) {
+      throw new Error("Wallet Connect's session.topic is required");
+    }
 
+    ConcordiumIDAppPoup.injectPopupStyles();
     // Build the wrapper
     const wrapper = document.createElement("div");
     wrapper.id = "sdk-popup-wrapper";
@@ -532,12 +535,6 @@ export class ConcordiumIDAppPoup {
     </div>
   `;
     document.body.appendChild(wrapper);
-
-    // const allButtons = wrapper.querySelector<HTMLButtonElement>(".sdk-btns")!;
-    // const walletConnectSessionTopicCode = wrapper.querySelector<HTMLButtonElement>(".wc-session")!;
-    // const sdkCopyDiv = wrapper.querySelector<HTMLButtonElement>(".sdk-copy")!;
-    // const createWrap = wrapper.querySelector<HTMLButtonElement>(".create__wrap")!;
-
     // Element refs
     const closeBtn =
       wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
@@ -546,23 +543,10 @@ export class ConcordiumIDAppPoup {
     // Step switch: Create New Account → Step 2
     const createBtn =
       wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
-    if (onCreateAccount) {
+      if (onCreateAccount) {
       createBtn.addEventListener("click", async () => {
         console.log("OnCreateeAccout:  ⏳ Please wait");
         createBtn.textContent = "⏳ Please wait";
-        // allButtons.style.display = "none";
-        // sdkCopyDiv.style.display = "none";
-        // createWrap.style.display = "none";
-        // const walletConnectSessionTopicDiv =
-        //   wrapper.querySelector<HTMLDivElement>(
-        //     "#wallet-connect-session-topic"
-        //   )!;
-        // if (walletConnectSessionTopic) {
-        //   walletConnectSessionTopicCode.style.display = "block";
-        //   walletConnectSessionTopicDiv.innerText = `${walletConnectSessionTopic.substr(0, 4).toUpperCase()}`;
-        // } else {
-        //   walletConnectSessionTopicDiv.style.display = "none";
-        // }
         try {
           await onCreateAccount();
           // ConcordiumIDAppPoup.closePopup()
