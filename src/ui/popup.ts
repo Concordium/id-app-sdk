@@ -464,7 +464,7 @@ export class ConcordiumIDAppPoup {
                 ><span class="line-no-fill"></span>
               </div>
               <div class="Rtable-cell" style="order: 1;">
-                <div class="text">
+                <div class="text active">
                   Complete ID <br>Verification
                 </div>
               </div>
