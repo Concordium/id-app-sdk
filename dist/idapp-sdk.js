@@ -22056,7 +22056,6 @@ const $D = "data:image/svg+xml,%3csvg%20width='163'%20height='29'%20viewBox='0%2
     .sdk-copy {
       color: #0D121C;
       text-align: center;
-      font-family: "Work Sans";
       font-size: 16px;
       font-style: normal;
       font-weight: 600;
@@ -22359,7 +22358,7 @@ const $D = "data:image/svg+xml,%3csvg%20width='163'%20height='29'%20viewBox='0%2
                 ><span class="line-no-fill"></span>
               </div>
               <div class="Rtable-cell" style="order: 1;">
-                <div class="text">
+                <div class="text active">
                   Complete ID <br>Verification
                 </div>
               </div>
