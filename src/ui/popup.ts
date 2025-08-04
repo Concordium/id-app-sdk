@@ -84,7 +84,6 @@ export class ConcordiumIDAppPoup {
     .sdk-copy {
       color: #0D121C;
       text-align: center;
-      font-family: "Work Sans";
       font-size: 16px;
       font-style: normal;
       font-weight: 600;
