@@ -426,12 +426,13 @@ export class ConcordiumIDAppPoup {
     onRecoverAccount?: () => Promise<any>;
     walletConnectSessionTopic: string;
   }) {
+    console.log(onCreateAccount, onRecoverAccount, walletConnectSessionTopic);
     // Check if atleast one of the handlers is provided
     if (!onCreateAccount && !onRecoverAccount) {
       throw new Error("Atleast one of the handlers must be provided");
     }
 
-    if (!walletConnectSessionTopic) {
+    if (onCreateAccount && !walletConnectSessionTopic) {
       throw new Error("Wallet Connect's session.topic is required");
     }
 
@@ -481,9 +482,12 @@ export class ConcordiumIDAppPoup {
             </div>
             <div class="hr-line"> <hr></div>
           </div>
-          <div class="authCode" id="wallet-connect-session-topic">
-          ${walletConnectSessionTopic?.substr(0, 4).toUpperCase()}
-          </div>
+          ${walletConnectSessionTopic
+            ? `<div class="authCode" id="wallet-connect-session-topic">
+                ${walletConnectSessionTopic.substr(0, 4).toUpperCase()}
+              </div>`
+            : ""
+          }
           <p class="sdk-copy">
             Only once you have completed the ID verification in [ID App], Choose your next step.
           </p>
