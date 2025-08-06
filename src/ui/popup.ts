@@ -12,17 +12,18 @@ export class ConcordiumIDAppPoup {
     style.innerHTML = `
     .authCode {
       margin: 16px auto; 
-      width: 80px;
-      height: 80px;
-      border: 2px solid #0047ab; /* Deep blue border */
-      border-radius: 50%;
+      width: 86px;
+      height: 86px;
+      border: 2px solid #0047ab; 
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: Arial, sans-serif;
       font-size: 20px;
       color: #0047ab;
-      background: radial-gradient(circle, #f7f7f7 0%, #ffffff 100%);
+      border-radius: 100%;
+      border: 2.15px solid #1143A7;
+      background: linear-gradient(180deg, #FFF 0%, #EEE 100%);
     }
     .sdk-popup-overlay {
       position: fixed;
@@ -46,11 +47,11 @@ export class ConcordiumIDAppPoup {
     }
 
     .app-message {
-      padding: 2rem 1.5rem 0 1.5rem;
+      padding: 1.5rem 2rem;
     }
 
     .no-app-msg{
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 2rem;
       background: #F2F1F1;
       border-radius: 0 0 12px 12px;
      }
@@ -70,7 +71,7 @@ export class ConcordiumIDAppPoup {
     /* Hide both steps by default */
     .sdk-step { display: block; }
     /* Only show step 1 initially */
-    .sdk-step--1 { display: block; padding: 2rem 1.5rem; }
+    .sdk-step--1 { display: block;}
     .sdk-step--2 { display: block; }
 
     /* Logo */
@@ -97,7 +98,7 @@ export class ConcordiumIDAppPoup {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      margin: 32px 0 24px 0;
+      margin: 32px 0 0 0;
     }
 
     .sdk-btn {
@@ -123,9 +124,14 @@ export class ConcordiumIDAppPoup {
 
     /* Install copy (only step 1) */
     .sdk-install {
-      font-size: 0.85rem;
-      color: #555;
-      margin: 0 0 1rem;
+      color: #0D121C;
+      text-align: center;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%; /* 16.9px */
+      letter-spacing: -0.25px;
+      margin: 0 0 20px 0;
     }
 
     /* Store badges */
@@ -222,6 +228,30 @@ export class ConcordiumIDAppPoup {
 
     .hr-line{
       margin: 16px 0;
+    }
+    .recover-action{
+      color: #0D121C;
+      text-align: center;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+      letter-spacing: -0.25px;
+    }
+    .recover-link {
+      color: #1143A7;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+      letter-spacing: -0.25px;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+      cursor: pointer;
     }
   `;
     document.head.appendChild(style);
@@ -348,7 +378,7 @@ export class ConcordiumIDAppPoup {
         </div>
         </div>
         <div class="no-app-msg">
-       <p class="sdk-install">
+          <p class="sdk-install">
             If you don’t have ID App, install it then return here to continue.
           </p>
           <div class="sdk-store-links">
@@ -426,7 +456,7 @@ export class ConcordiumIDAppPoup {
     onRecoverAccount?: () => Promise<any>;
     walletConnectSessionTopic: string;
   }) {
-    console.log(onCreateAccount, onRecoverAccount, walletConnectSessionTopic);
+    console.log('clicked... invokeIdAppActionsPopup');
     // Check if atleast one of the handlers is provided
     if (!onCreateAccount && !onRecoverAccount) {
       throw new Error("Atleast one of the handlers must be provided");
@@ -435,6 +465,13 @@ export class ConcordiumIDAppPoup {
     if (onCreateAccount && !walletConnectSessionTopic) {
       throw new Error("Wallet Connect's session.topic is required");
     }
+    
+    // Remove any existing popup wrapper
+    const existingWrapper = document.getElementById("sdk-popup-wrapper");
+    if (existingWrapper) {
+      existingWrapper.remove();
+    }
+
 
     ConcordiumIDAppPoup.injectPopupStyles();
     // Build the wrapper
@@ -443,7 +480,7 @@ export class ConcordiumIDAppPoup {
     wrapper.innerHTML = `
     <div class="sdk-popup-overlay">
       <div class="sdk-popup-box">
-
+      <div class="app-message">
         <!-- close icon -->
         <button class="sdk-close-btn" aria-label="Close">&times;</button>
 
@@ -482,59 +519,32 @@ export class ConcordiumIDAppPoup {
             </div>
             <div class="hr-line"> <hr></div>
           </div>
+           <p class="sdk-copy">
+            Only once you’ve completed the ID Verification, choose your next step.
+          </p>
+
+          <div class="sdk-btns">
+            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
+              Create New Account
+            </button>
+            <div class="recover-action">Already have an account? 
+            <a id="recover-id-btn" class="recover-link">Recover</a></div>
+          </div>
+        </div>
+        </div>
+        <div class="no-app-msg">
+          <p class="sdk-install">
+           To Create an Account, match the code below in the [ID App]
+          </p>
+          
           ${walletConnectSessionTopic
             ? `<div class="authCode" id="wallet-connect-session-topic">
                 ${walletConnectSessionTopic.substr(0, 4).toUpperCase()}
               </div>`
             : ""
           }
-          <p class="sdk-copy">
-            Only once you have completed the ID verification in [ID App], Choose your next step.
-          </p>
-          <div class="sdk-btns">
-            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
-              Create New Account
-            </button>
-            <button id="recover-id-btn" class="sdk-btn sdk-btn--secondary">
-              Recover Account
-            </button>
-          </div>
-
-          <div class="wc-session">
-            <div class="Rtable Rtable--3cols mb-5 w-100">
-            <div class="Rtable-cell" style="order: 0;">
-              <span class="dot"></span
-              ><span class="line-no-fill"></span>
-            </div>
-            <div class="Rtable-cell" style="order: 1;">
-              <div class="text active">
-               Connect / <br> Pair Apps 
-              </div>
-            </div>
-            <div class="Rtable-cell" style="order: 0;">
-              <span class="dot"></span
-              ><span class="line-no-fill"></span>
-            </div>
-            <div class="Rtable-cell" style="order: 1;">
-              <div class="text active">
-                Complete ID <br>Verification
-              </div>
-            </div>
-            <div class="Rtable-cell" style="order: 0;">
-              <span class="dot-no-fill"></span>
-            </div>
-            <div class="Rtable-cell" style="order: 1;">
-              <div class="text">
-               Create / Recover<br> Account
-              </div>
-            </div>
-          </div>
-
-          <div class="hr-line"> <hr></div>
-              <p class="sdk-copy">Open the ID App and complete the verification by matching the number below</p>
-              <div class="authCode" id="wallet-connect-session-topic"></div>
-          </div>
-        </div>
+         
+       </div>
       </div>
     </div>
   `;
@@ -545,23 +555,26 @@ export class ConcordiumIDAppPoup {
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     // Step switch: Create New Account → Step 2
-    const createBtn =
-      wrapper.querySelector<HTMLButtonElement>("#create-id-btn")!;
-      if (onCreateAccount) {
-      createBtn.addEventListener("click", async () => {
-        console.log("OnCreateeAccout:  ⏳ Please wait");
-        createBtn.textContent = "⏳ Please wait";
-        try {
-          await onCreateAccount();
-          // ConcordiumIDAppPoup.closePopup()
-        } catch (err) {
-          console.error(err);
-          createBtn.textContent = "Create New Account";
+    requestAnimationFrame(() => {
+      const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn");
+        if (onCreateAccount && createBtn) {
+          createBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            console.log("OnCreateAccount:...  ⏳ Please wait");
+            createBtn.disabled = true;
+            createBtn.textContent = "⏳ Please wait";
+            try {
+              await onCreateAccount();
+            } catch (err) {
+              console.error(err);
+              createBtn.textContent = "Create New Account";
+              createBtn.disabled = false;
+            }
+          });
+        } else if (createBtn) {
+          createBtn.style.display = "none";
         }
-      });
-    } else {
-      createBtn.style.display = "none";
-    }
+    });
 
     // Recover flow
     const recoverBtn =
