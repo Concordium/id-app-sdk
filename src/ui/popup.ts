@@ -472,6 +472,61 @@ export class ConcordiumIDAppPoup {
       existingWrapper.remove();
     }
 
+    //this helper function to get the stepper name 
+    const getActionText = () => {
+     if (onCreateAccount && !onRecoverAccount) {
+        return 'Create<br> Account';
+      } else if (onRecoverAccount && !onCreateAccount) {
+        return 'Recover<br> Account';
+      } else if (onCreateAccount && onRecoverAccount) {
+        return 'Create / Recover<br> Account';
+      } else {
+        return 'Create / Recover<br> Account';
+      }
+    };
+
+    // this helper function to get the action buttons
+    const getActionsButtonsHTML = () => {
+      if (onCreateAccount && !onRecoverAccount) {
+        return `
+          <div class="sdk-btns">
+            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
+              Create New Account
+            </button>
+          </div>
+        `;
+      } else if (onRecoverAccount && !onCreateAccount) {
+        return `
+          <div class="sdk-btns">
+            <button id="recover-id-btn" class="sdk-btn sdk-btn--secondary">
+              Recover Account
+            </button>
+          </div>
+        `;
+      }  else if (onCreateAccount && onRecoverAccount) {
+          return `
+            <div class="sdk-btns">
+              <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
+                Create New Account
+              </button>
+              <div class="recover-action">Already have an account? 
+                <a id="recover-id-btn" class="recover-link">Recover</a>
+              </div>
+            </div>
+          `;
+      } else {
+        return `
+          <div class="sdk-btns">
+            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
+              Create New Account
+            </button>
+            <div class="recover-action">Already have an account? 
+              <a id="recover-id-btn" class="recover-link">Recover</a>
+            </div>
+          </div>
+        `;
+      } 
+    };
 
     ConcordiumIDAppPoup.injectPopupStyles();
     // Build the wrapper
@@ -513,7 +568,7 @@ export class ConcordiumIDAppPoup {
               </div>
               <div class="Rtable-cell" style="order: 1;">
                 <div class="text">
-                 Create / Recover<br> Account
+                 ${getActionText()}
                 </div>
               </div>
             </div>
@@ -523,28 +578,20 @@ export class ConcordiumIDAppPoup {
             Only once you’ve completed the ID Verification, choose your next step.
           </p>
 
-          <div class="sdk-btns">
-            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
-              Create New Account
-            </button>
-            <div class="recover-action">Already have an account? 
-            <a id="recover-id-btn" class="recover-link">Recover</a></div>
-          </div>
+          ${getActionsButtonsHTML()}
         </div>
         </div>
-        <div class="no-app-msg">
+         ${walletConnectSessionTopic
+            ? `<div class="no-app-msg">
           <p class="sdk-install">
            To Create an Account, match the code below in the [ID App]
           </p>
-          
-          ${walletConnectSessionTopic
-            ? `<div class="authCode" id="wallet-connect-session-topic">
-                ${walletConnectSessionTopic.substr(0, 4).toUpperCase()}
-              </div>`
+          <div class="authCode" id="wallet-connect-session-topic">
+              ${walletConnectSessionTopic.substr(0, 4).toUpperCase()}
+            </div>
+          </div>`
             : ""
-          }
-         
-       </div>
+        }
       </div>
     </div>
   `;
