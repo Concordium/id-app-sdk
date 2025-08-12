@@ -451,7 +451,7 @@ export class ConcordiumIDAppPoup {
   }: {
     onCreateAccount?: () => Promise<any>;
     onRecoverAccount?: () => Promise<any>;
-    walletConnectSessionTopic: string;
+    walletConnectSessionTopic?: string;
   }) {
     // Check if atleast one of the handlers is provided
     if (!onCreateAccount && !onRecoverAccount) {

@@ -24,6 +24,6 @@ export declare class ConcordiumIDAppPoup {
     static invokeIdAppActionsPopup({ onCreateAccount, onRecoverAccount, walletConnectSessionTopic, }: {
         onCreateAccount?: () => Promise<any>;
         onRecoverAccount?: () => Promise<any>;
-        walletConnectSessionTopic: string;
+        walletConnectSessionTopic?: string;
     }): Promise<void>;
 }
