@@ -39,7 +39,7 @@ export class ConcordiumIDAppSDK {
       throw new Error("Invalid seed phrase");
     }
     const wallet = ConcordiumHdWallet.fromSeedPhrase(seed, network);
-    // Identity Provider Index is set to 0 and Identity Index is set to 0 because identity is being manged by the Ipapp
+    // Identity Provider Index is set to 0 and Identity Index is set to 0 because identity is being manged by the IdApp
     const publicKey = wallet
       .getAccountPublicKey(0, 0, accountIndex)
       .toString("hex");
@@ -96,8 +96,6 @@ export class ConcordiumIDAppSDK {
     serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails,
     signingKey: HexString,
   ): Promise<SignedCredentialDeploymentTransaction> {
-    // Deserialize the credential deployment transaction
-
     const credentialDeploymentTransaction: CredentialDeploymentTransaction =
       ConcordiumIDAppSDK.deserializeCredentialDeploymentTransaction(
         serializedCredentialDeploymentTransaction,

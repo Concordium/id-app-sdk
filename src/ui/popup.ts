@@ -277,7 +277,6 @@ export class ConcordiumIDAppPoup {
   }) => {
     // On mobile, hand off to the native app:
     if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      console.log("Opening Idapp on mobile...");
       window.location.href = wallectConnectMobileUrl;
     } else {
       // Desktop fallback: show instructions or open a popup for testing
@@ -322,7 +321,6 @@ export class ConcordiumIDAppPoup {
     const wallectConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
     // const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
 
-    console.log("Inside invokeOpenIDappPopup");
     const wrapper = document.createElement("div");
 
     wrapper.id = "sdk-popup-wrapper";
@@ -431,7 +429,6 @@ export class ConcordiumIDAppPoup {
     closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
 
     openAppBtn?.addEventListener("click", async () => {
-      console.log("Create ID Clicked");
       try {
         // window.location.href = wallectConnectMobileUrl;
         ConcordiumIDAppPoup.openIdapp({ wallectConnectMobileUrl });
@@ -456,7 +453,6 @@ export class ConcordiumIDAppPoup {
     onRecoverAccount?: () => Promise<any>;
     walletConnectSessionTopic: string;
   }) {
-    console.log('clicked... invokeIdAppActionsPopup');
     // Check if atleast one of the handlers is provided
     if (!onCreateAccount && !onRecoverAccount) {
       throw new Error("Atleast one of the handlers must be provided");
@@ -607,7 +603,6 @@ export class ConcordiumIDAppPoup {
         if (onCreateAccount && createBtn) {
           createBtn.addEventListener("click", async (e) => {
             e.preventDefault();
-            console.log("OnCreateAccount:...  ⏳ Please wait");
             createBtn.disabled = true;
             createBtn.textContent = "⏳ Please wait";
             try {
@@ -628,7 +623,6 @@ export class ConcordiumIDAppPoup {
       wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
     if (onRecoverAccount) {
       recoverBtn.addEventListener("click", async () => {
-        console.log("OnRecoverAccout:  ⏳ Please wait");
         recoverBtn.textContent = "⏳ Please wait";
         await onRecoverAccount();
         // ConcordiumIDAppPoup.closePopup()
