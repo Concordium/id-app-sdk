@@ -624,10 +624,15 @@ export class ConcordiumIDAppPoup {
     if (onRecoverAccount) {
       recoverBtn.addEventListener("click", async () => {
         recoverBtn.textContent = "⏳ Please wait";
-        await onRecoverAccount();
-        // ConcordiumIDAppPoup.closePopup()
+        try {
+          await onRecoverAccount();
+        } catch (err) {
+          console.error(err);
+          recoverBtn.textContent = "Recover Account";
+          recoverBtn.disabled = false;
+        }
       });
-    } else {
+    } else if (recoverBtn) {
       recoverBtn.style.display = "none";
     }
   }

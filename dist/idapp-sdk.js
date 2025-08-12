@@ -22465,8 +22465,13 @@ const $D = "data:image/svg+xml,%3csvg%20width='163'%20height='29'%20viewBox='0%2
     });
     const N = D.querySelector("#recover-id-btn");
     g ? N.addEventListener("click", async () => {
-      N.textContent = "⏳ Please wait", await g();
-    }) : N.style.display = "none";
+      N.textContent = "⏳ Please wait";
+      try {
+        await g();
+      } catch (c) {
+        console.error(c), N.textContent = "Recover Account", N.disabled = !1;
+      }
+    }) : N && (N.style.display = "none");
   }
 };
 qQ(Eg, "openIdapp", ({
