@@ -1,4 +1,4 @@
-import { IDAPP_HOSTS } from "../core";
+import { CLOUD_FLARE_CDN_FOR_QRCODE, IDAPP_HOSTS } from "../core";
 import concordiumLogo from "../../public/concordium_logo.svg";
 import appStoreLogo from "../../public/app_store.svg";
 import playStoreLogo from "../../public/play_store.svg";
@@ -401,8 +401,7 @@ export class ConcordiumIDAppPoup {
     if (!document.getElementById("qrcode-lib")) {
       const script = document.createElement("script");
       script.id = "qrcode-lib";
-      script.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+      script.src = CLOUD_FLARE_CDN_FOR_QRCODE;
       document.head.appendChild(script);
     }
 
