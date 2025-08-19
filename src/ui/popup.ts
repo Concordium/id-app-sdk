@@ -268,6 +268,11 @@ export class ConcordiumIDAppPoup {
     if (style) style.remove();
   }
 
+  /**
+   * Opens the ID App using a deep link.
+   * This method is used to redirect the user to the ID App on mobile devices or open on desktop.
+   * @param param0 
+   */
   static openIdapp = ({
     wallectConnectMobileUrl,
     walletConnectDesktopUrl,
