@@ -4,6 +4,11 @@ export declare class ConcordiumIDAppPoup {
      * Closes the popup and removes styles.
      */
     static closePopup(): void;
+    /**
+     * Opens the ID App using a deep link.
+     * This method is used to redirect the user to the ID App on mobile devices or open on desktop.
+     * @param param0
+     */
     static openIdapp: ({ wallectConnectMobileUrl, walletConnectDesktopUrl, }: {
         wallectConnectMobileUrl: string;
         walletConnectDesktopUrl?: string;
@@ -22,8 +27,8 @@ export declare class ConcordiumIDAppPoup {
      * @param param0
      */
     static invokeIdAppActionsPopup({ onCreateAccount, onRecoverAccount, walletConnectSessionTopic, }: {
-        onCreateAccount?: () => Promise<any>;
-        onRecoverAccount?: () => Promise<any>;
+        onCreateAccount?: () => Promise<unknown>;
+        onRecoverAccount?: () => Promise<unknown>;
         walletConnectSessionTopic?: string;
     }): Promise<void>;
 }
