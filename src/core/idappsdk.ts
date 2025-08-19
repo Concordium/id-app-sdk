@@ -122,7 +122,8 @@ export class ConcordiumIDAppSDK {
    * @returns Transaction hash of the submitted transaction
    */
   public static async submitCCDTransaction(
-    credentialDeploymentTransaction: CredentialDeploymentTransaction,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    credentialDeploymentTransaction: any,
     signature: HexString,
     network: Network,
   ): Promise<string> {
