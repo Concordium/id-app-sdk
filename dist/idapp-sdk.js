@@ -22497,7 +22497,7 @@ jI(Dg, "openIdapp", ({
 });
 let oi = Dg;
 export {
-  jw as CLOUD_FLARE_CDN_FOR_QRCODE,
+  jw as CLOUDFLARE_CDN_FOR_QRCODE,
   oi as ConcordiumIDAppPoup,
   Di as ConcordiumIDAppSDK,
   bw as GRPCTIMEOUT,

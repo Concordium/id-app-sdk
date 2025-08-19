@@ -35,5 +35,5 @@ export const IDAPP_HOSTS = {
   mobile: "concordiumidapp://",
 };
 
-export const CLOUD_FLARE_CDN_FOR_QRCODE =
+export const CLOUDFLARE_CDN_FOR_QRCODE =
   "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
