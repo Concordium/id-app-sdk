@@ -42,7 +42,7 @@ jobs:
       - name: Determine npm tag
         id: determine_npm_tag
         run: |
-          version=$(jq -r ".version" package.json)
+          version=$(jq -r ".version" ./package.json)
           if [[ "$version" == *-* ]]; then
             npm_tag=$(echo "$version" | cut -d'-' -f2 | cut -d'.' -f1)
           else
