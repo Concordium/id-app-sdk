@@ -4,8 +4,6 @@ import type {
   HexString,
 } from "@concordium/web-sdk";
 
-
-
 export interface CreateAccountResponseMsgType {
   serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails;
   accountAddress: string;
@@ -78,7 +76,7 @@ export interface NetworkConfiguration {
 export interface SerializedCredentialDeploymentDetails {
   expiry: number;
   unsignedCdiStr: string;
-  randomness: CommitmentsRandomness
+  randomness: CommitmentsRandomness;
 }
 
 export enum IDAppErrorCode {
@@ -90,5 +88,5 @@ export enum IDAppErrorCode {
   Timeout = 6,
   DuplicateAccountCreationRequest = 7,
   RequestRejected = 8,
-  UnknownError = 99
+  UnknownError = 99,
 }

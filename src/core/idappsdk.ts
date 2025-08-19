@@ -22,7 +22,7 @@ import { GRPCTIMEOUT } from "./constants";
 import JSONbig from "json-bigint";
 
 export class ConcordiumIDAppSDK {
-  public static chainId = "concordium:919"
+  public static chainId = "concordium:919";
   /**
    *
    * @param seed Seed phrase to generate the account
@@ -75,14 +75,16 @@ export class ConcordiumIDAppSDK {
   private static deserializeCredentialDeploymentTransaction(
     serializedCredentialDeploymentTransaction: SerializedCredentialDeploymentDetails,
   ): CredentialDeploymentTransaction {
-    const credentialDeploymentTransaction = {} as CredentialDeploymentTransaction;
+    const credentialDeploymentTransaction =
+      {} as CredentialDeploymentTransaction;
     credentialDeploymentTransaction.unsignedCdi = JSONbig.parse(
       serializedCredentialDeploymentTransaction.unsignedCdiStr,
     );
     credentialDeploymentTransaction.expiry = TransactionExpiry.fromEpochSeconds(
       serializedCredentialDeploymentTransaction.expiry,
     );
-    credentialDeploymentTransaction.randomness = serializedCredentialDeploymentTransaction.randomness
+    credentialDeploymentTransaction.randomness =
+      serializedCredentialDeploymentTransaction.randomness;
     return credentialDeploymentTransaction;
   }
 
@@ -120,7 +122,7 @@ export class ConcordiumIDAppSDK {
    * @returns Transaction hash of the submitted transaction
    */
   public static async submitCCDTransaction(
-    credentialDeploymentTransaction: any,
+    credentialDeploymentTransaction: CredentialDeploymentTransaction,
     signature: HexString,
     network: Network,
   ): Promise<string> {
@@ -140,7 +142,7 @@ export class ConcordiumIDAppSDK {
       payload,
       credentialDeploymentTransaction.expiry,
     );
-    return tx.toString()
+    return tx.toString();
   }
 
   /**

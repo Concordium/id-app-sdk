@@ -271,7 +271,7 @@ export class ConcordiumIDAppPoup {
   /**
    * Opens the ID App using a deep link.
    * This method is used to redirect the user to the ID App on mobile devices or open on desktop.
-   * @param param0 
+   * @param param0
    */
   static openIdapp = ({
     wallectConnectMobileUrl,
@@ -293,7 +293,7 @@ export class ConcordiumIDAppPoup {
         window.open(
           walletConnectDesktopUrl,
           "Idapp",
-          `width=${width},height=${height},top=${top},left=${left}`
+          `width=${width},height=${height},top=${top},left=${left}`,
         );
       }
     }
@@ -311,13 +311,13 @@ export class ConcordiumIDAppPoup {
   }) {
     if (!navigator && !window) {
       throw new Error(
-        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment"
+        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment",
       );
     }
 
     if (!walletConnectUri) {
       throw new Error(
-        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri"
+        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri",
       );
     }
 
@@ -407,15 +407,18 @@ export class ConcordiumIDAppPoup {
 
     const renderQRCode = () => {
       const qrContainer = document.getElementById("sdk-qr-code");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (qrContainer && (window as any).QRCode) {
         qrContainer.style =
           "display: flex;justify-content: center;margin: 1.0rem 0;";
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         new (window as any).QRCode(qrContainer, {
           text: wallectConnectMobileUrl,
           width: 160,
           height: 160,
           colorDark: "#000000",
           colorLight: "#ffffff",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           correctLevel: (window as any).QRCode.CorrectLevel.H,
         });
       } else {
@@ -453,8 +456,8 @@ export class ConcordiumIDAppPoup {
     onRecoverAccount,
     walletConnectSessionTopic,
   }: {
-    onCreateAccount?: () => Promise<any>;
-    onRecoverAccount?: () => Promise<any>;
+    onCreateAccount?: () => Promise<unknown>;
+    onRecoverAccount?: () => Promise<unknown>;
     walletConnectSessionTopic?: string;
   }) {
     // Check if atleast one of the handlers is provided
@@ -465,23 +468,23 @@ export class ConcordiumIDAppPoup {
     if (onCreateAccount && !walletConnectSessionTopic) {
       throw new Error("Wallet Connect's session.topic is required");
     }
-    
+
     // Remove any existing popup wrapper
     const existingWrapper = document.getElementById("sdk-popup-wrapper");
     if (existingWrapper) {
       existingWrapper.remove();
     }
 
-    //this helper function to get the stepper name 
+    //this helper function to get the stepper name
     const getActionText = () => {
-     if (onCreateAccount && !onRecoverAccount) {
-        return 'Create<br> Account';
+      if (onCreateAccount && !onRecoverAccount) {
+        return "Create<br> Account";
       } else if (onRecoverAccount && !onCreateAccount) {
-        return 'Recover<br> Account';
+        return "Recover<br> Account";
       } else if (onCreateAccount && onRecoverAccount) {
-        return 'Create / Recover<br> Account';
+        return "Create / Recover<br> Account";
       } else {
-        return 'Create / Recover<br> Account';
+        return "Create / Recover<br> Account";
       }
     };
 
@@ -503,8 +506,8 @@ export class ConcordiumIDAppPoup {
             </button>
           </div>
         `;
-      }  else if (onCreateAccount && onRecoverAccount) {
-          return `
+      } else if (onCreateAccount && onRecoverAccount) {
+        return `
             <div class="sdk-btns">
               <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
                 Create New Account
@@ -525,7 +528,7 @@ export class ConcordiumIDAppPoup {
             </div>
           </div>
         `;
-      } 
+      }
     };
 
     ConcordiumIDAppPoup.injectPopupStyles();
@@ -581,8 +584,9 @@ export class ConcordiumIDAppPoup {
           ${getActionsButtonsHTML()}
         </div>
         </div>
-         ${walletConnectSessionTopic
-            ? `<div class="no-app-msg">
+         ${
+           walletConnectSessionTopic
+             ? `<div class="no-app-msg">
           <p class="sdk-install">
            To Create an Account, match the code below in the [ID App]
           </p>
@@ -590,8 +594,8 @@ export class ConcordiumIDAppPoup {
               ${walletConnectSessionTopic.substr(0, 4).toUpperCase()}
             </div>
           </div>`
-            : ""
-        }
+             : ""
+         }
       </div>
     </div>
   `;
@@ -603,23 +607,24 @@ export class ConcordiumIDAppPoup {
 
     // Step switch: Create New Account → Step 2
     requestAnimationFrame(() => {
-      const createBtn = wrapper.querySelector<HTMLButtonElement>("#create-id-btn");
-        if (onCreateAccount && createBtn) {
-          createBtn.addEventListener("click", async (e) => {
-            e.preventDefault();
-            createBtn.disabled = true;
-            createBtn.textContent = "⏳ Please wait";
-            try {
-              await onCreateAccount();
-            } catch (err) {
-              console.error(err);
-              createBtn.textContent = "Create New Account";
-              createBtn.disabled = false;
-            }
-          });
-        } else if (createBtn) {
-          createBtn.style.display = "none";
-        }
+      const createBtn =
+        wrapper.querySelector<HTMLButtonElement>("#create-id-btn");
+      if (onCreateAccount && createBtn) {
+        createBtn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          createBtn.disabled = true;
+          createBtn.textContent = "⏳ Please wait";
+          try {
+            await onCreateAccount();
+          } catch (err) {
+            console.error(err);
+            createBtn.textContent = "Create New Account";
+            createBtn.disabled = false;
+          }
+        });
+      } else if (createBtn) {
+        createBtn.style.display = "none";
+      }
     });
 
     // Recover flow

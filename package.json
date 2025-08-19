@@ -7,9 +7,8 @@
   "module": "./dist/idapp-sdk.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
@@ -22,10 +21,13 @@
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.5.3",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
   },
   "dependencies": {
-    "@concordium/web-sdk": "^9.1.0",
-    "vite-plugin-dts": "^4.5.4"
+    "@concordium/web-sdk": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
