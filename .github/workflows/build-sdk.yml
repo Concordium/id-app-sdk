@@ -1,0 +1,37 @@
+name: Format, Lint and Build SDK
+
+on:
+  push:
+    branches: [main, release**, feature**]
+  pull_request:
+    branches: ['**']
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Linting
+        run: npm run lint
+  
+      - name: Build SDK
+        run: npm run build
