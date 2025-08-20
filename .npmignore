@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+*.log
+*.lock
+
+# Build artifacts
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Source maps (optional)
+*.map
+
+# Tests
+__tests__/
+test/
+tests/
+*.spec.js
+*.test.js
+*.spec.ts
+*.test.ts
+
+# IDE / Editor stuff
+.vscode/
+.idea/
+.DS_Store
+
+# Config / Local
+.env
+*.local
+*.secret
+*.cache
+
+# CI / GitHub
+.github/
+.gitlab/
+.gitattributes
+.gitignore
+.npmignore
