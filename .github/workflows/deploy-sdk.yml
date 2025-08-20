@@ -1,0 +1,69 @@
+name: Deploy SDK
+
+on:
+    # Run automatically on tag push
+    push:
+        tags:
+            - 'releases/*/*.*.*-*'
+            - 'releases/*/*.*.*'
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+env:
+  NODE_VERSION: 20.10.0
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org/'
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build:all
+
+      - name: Extract tag name
+        id: get_tag
+        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+       
+      - name: Test that tag version matches package.json version
+        run: |
+          tag="${{ steps.get_tag.outputs.tag }}"
+          tag="${tag##*/}"  
+          echo "Comparing tag $tag with package.json version $(jq -r '.version' ./package.json)"
+          test "$tag" = "$(jq -r '.version' ./package.json)" || exit 1
+          
+      - name: Determine npm tag
+        id: determine_npm_tag
+        run: |
+          version=$(jq -r ".version" ./package.json)
+          if [[ "$version" == *-* ]]; then
+            npm_tag=$(echo "$version" | cut -d'-' -f2 | cut -d'.' -f1)
+          else
+            npm_tag="latest"
+          fi
+          echo "npm_tag=$npm_tag" >> $GITHUB_OUTPUT
+
+      - name: Publish to NPM
+        run: npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }} --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.get_tag.outputs.tag }}
+          name: ${{ steps.get_tag.outputs.tag }}
+          draft: false
