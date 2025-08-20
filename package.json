@@ -6,11 +6,12 @@
   "main": "./dist/idapp-sdk.js",
   "module": "./dist/idapp-sdk.js",
   "types": "./dist/index.d.ts",
+  "license": "Apache-2.0",
   "author": {
-        "name": "Concordium Software",
-        "email": "support@concordium.software",
-        "url": "https://concordium.com"
-    },
+    "name": "Concordium Software",
+    "email": "support@concordium.software",
+    "url": "https://concordium.com"
+  },
   "scripts": {
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
     "build": "vite build",
