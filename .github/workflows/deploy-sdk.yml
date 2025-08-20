@@ -4,7 +4,7 @@ on:
     # Run automatically on tag push
     push:
         tags:
-            - '*'
+            - 'v*'
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
@@ -37,8 +37,12 @@ jobs:
         run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
        
       - name: Test that tag version matches package.json version
-        run: test "${{ steps.get_tag.outputs.tag }}" = "$(jq -r ".version" ./package.json)" || exit 1
-
+        run: |
+          tag="${{ steps.get_tag.outputs.tag }}"
+          tag="${tag#v}"
+          echo "Comparing tag $tag with package.json version $(jq -r '.version' ./package.json)"
+          test "$tag" = "$(jq -r '.version' ./package.json)" || exit 1
+          
       - name: Determine npm tag
         id: determine_npm_tag
         run: |
@@ -53,7 +57,7 @@ jobs:
       - name: Publish to NPM
         run: |
             yarn config set npmAuthToken $NPM_AUTH_TOKEN
-            npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }}
+            npm publish --tag v${{ steps.determine_npm_tag.outputs.npm_tag }}
         env:
             NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
