@@ -1,7 +1,7 @@
 {
   "name": "@concordium/id-app-sdk",
   "private": false,
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.1",
   "type": "module",
   "main": "./dist/idapp-sdk.js",
   "module": "./dist/idapp-sdk.js",
