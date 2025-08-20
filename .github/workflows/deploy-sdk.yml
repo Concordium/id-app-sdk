@@ -4,7 +4,7 @@ on:
     # Run automatically on tag push
     push:
         tags:
-            - 'v*'
+            - 'releases/*/*.*.*-*'
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
@@ -14,6 +14,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: release
 
     steps:
       - name: Checkout repository
@@ -39,7 +40,7 @@ jobs:
       - name: Test that tag version matches package.json version
         run: |
           tag="${{ steps.get_tag.outputs.tag }}"
-          tag="${tag#v}"
+          tag="${tag##*/}"  
           echo "Comparing tag $tag with package.json version $(jq -r '.version' ./package.json)"
           test "$tag" = "$(jq -r '.version' ./package.json)" || exit 1
           
