@@ -4,7 +4,7 @@ on:
     # Run automatically on tag push
     push:
         tags:
-            - 'releases/*/*.*.*-*'
+            - 'releases/*/*.*.*'
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
@@ -64,5 +64,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.get_tag.outputs.tag }}
-          name: SDK Release ${{ steps.get_tag.outputs.tag }}
-          draft: true
+          name: ${{ steps.get_tag.outputs.tag }}
+          draft: false
