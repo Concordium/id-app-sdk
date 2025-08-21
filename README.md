@@ -63,7 +63,7 @@ yarn lint
 yarn lint:fix
 ```
 
-**Prettfier**
+**Prettifier**
 
 ```bash
 yarn format
@@ -82,9 +82,9 @@ When releasing a new version of the SDK:
 ```bash
 yarn build:all
 ```
-2. Update the version in `package.json`
+2. Update the version in [package.json](/package.json)
 
-3. Update the `CHANGELOG.md`
+3. Update the [CHANGELOG.md](/CHANGELOG.md)
 
 Document notable changes since the last release.
 
