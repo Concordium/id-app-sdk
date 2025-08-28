@@ -1,0 +1,37 @@
+name: Format, Lint and Build SDK
+
+on:
+  push:
+    branches: [main, release**, feature**]
+  pull_request:
+    branches: ['**']
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check formatting
+        run: yarn format
+
+      - name: Type check
+        run: yarn typecheck
+
+      - name: Linting
+        run: yarn lint
+  
+      - name: Build SDK
+        run: yarn build

@@ -1,0 +1,40 @@
+{
+  "name": "@concordium/id-app-sdk",
+  "private": false,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/idapp-sdk.js",
+  "module": "./dist/idapp-sdk.js",
+  "types": "./dist/index.d.ts",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Concordium Software",
+    "email": "support@concordium.software",
+    "url": "https://concordium.com"
+  },
+  "scripts": {
+    "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
+    "build": "vite build",
+    "build:all": "yarn format && yarn lint && yarn typecheck && yarn build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
+  },
+  "devDependencies": {
+    "@types/json-bigint": "^1.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.5.3",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "dependencies": {
+    "@concordium/web-sdk": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
