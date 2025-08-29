@@ -3,8 +3,10 @@ node_modules
 *.log
 *.lock
 
+# Explicitly include dist/ for npm
+!dist
+
 # Build artifacts
-dist/
 build/
 coverage/
 .nyc_output/

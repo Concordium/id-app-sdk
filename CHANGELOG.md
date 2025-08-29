@@ -14,4 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Features: Create account, Recover account
 ---
 
+## [0.1.2] - 2025-08-29
+### Fixed
+- Fixed missing `dist/` directory in published npm package by updating `.npmignore`/`files` configuration. 
 
