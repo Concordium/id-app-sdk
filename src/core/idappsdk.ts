@@ -17,12 +17,16 @@ import type {
 } from "./types";
 import { validateMnemonic } from "@scure/bip39";
 import { wordlist } from "@scure/bip39/wordlists/english";
-import { getNetworkConfiguration } from "./utils";
-import { GRPCTIMEOUT } from "./constants";
+import { formatChainId, getNetworkConfiguration } from "./utils";
+import { GRPCTIMEOUT, mainnet, testnet } from "./constants";
 import JSONbig from "json-bigint";
 
 export class ConcordiumIDAppSDK {
-  public static chainId = "concordium:919";
+  // public static chainId = "concordium: ";
+  public static chainId = {
+    Mainnet: formatChainId(mainnet.genesisHash),
+    Testnet: formatChainId(testnet.genesisHash)
+  };
   /**
    *
    * @param seed Seed phrase to generate the account

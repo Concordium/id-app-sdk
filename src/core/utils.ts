@@ -12,3 +12,8 @@ export const getNetworkConfiguration = (net: Network): NetworkConfiguration => {
       throw new Error("Invalid network");
   }
 };
+
+// References: https://namespaces.chainagnostic.org/ccd/caip2
+export const formatChainId = (genesisHash: string): string => {
+  return `ccd:${genesisHash.slice(0, 32)}`;
+}
