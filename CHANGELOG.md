@@ -18,3 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed missing `dist/` directory in published npm package by updating `.npmignore`/`files` configuration. 
 
+---
+## [0.1.3] - 2025-09-11
+### Added
+- Implemented `chainId` based on CAIP-2 specification for mainnet and testnet both
