@@ -25,7 +25,7 @@ export class ConcordiumIDAppSDK {
   // public static chainId = "concordium: ";
   public static chainId = {
     Mainnet: formatChainId(mainnet.genesisHash),
-    Testnet: formatChainId(testnet.genesisHash)
+    Testnet: formatChainId(testnet.genesisHash),
   };
   /**
    *
