@@ -22,3 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.3] - 2025-09-11
 ### Added
 - Implemented `chainId` based on CAIP-2 specification for mainnet and testnet both
+
+---
+## [0.1.4] - 2025-09-23
+### Added
+- Attached integration guide v1.1 
+
