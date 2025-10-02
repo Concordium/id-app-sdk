@@ -38,7 +38,7 @@ import {
   type RecoverAccountCreationRequestMessage,
   type RecoverAccountResponse,
   type RecoverAccountMsgType,
-} from "@concoridum/id-app-sdk";
+} from "@concordium/id-app-sdk";
 ```
 
 > 📘 See the [Concordium IDApp SDK v0.4 Integration Guide](/docs/IdApp-SDK-Integration-Guide-v1.1.pdf) for detailed integration instructions.
