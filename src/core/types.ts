@@ -90,3 +90,17 @@ export enum IDAppErrorCode {
   RequestRejected = 8,
   UnknownError = 99,
 }
+
+
+export interface KeyAccountPublicKey {
+   schemeId: string;
+   verifyKey: string 
+}
+
+export interface KeyAccount {
+  address: string;
+  credential_index: number; 
+  is_simple_account: boolean;
+  public_key: KeyAccountPublicKey
+}
+
