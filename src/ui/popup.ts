@@ -229,30 +229,6 @@ export class ConcordiumIDAppPoup {
     .hr-line{
       margin: 16px 0;
     }
-    .recover-action{
-      color: #0D121C;
-      text-align: center;
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 130%;
-      letter-spacing: -0.25px;
-    }
-    .recover-link {
-      color: #1143A7;
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 130%;
-      letter-spacing: -0.25px;
-      text-decoration-line: underline;
-      text-decoration-style: solid;
-      text-decoration-skip-ink: none;
-      text-decoration-thickness: auto;
-      text-underline-offset: auto;
-      text-underline-position: from-font;
-      cursor: pointer;
-    }
   `;
     document.head.appendChild(style);
   }
@@ -363,7 +339,7 @@ export class ConcordiumIDAppPoup {
             </div>
             <div class="Rtable-cell" style="order: 1;">
               <div class="text">
-               Create / Recover<br> Account
+               Create <br> Account
               </div>
             </div>
           </div>
@@ -453,19 +429,17 @@ export class ConcordiumIDAppPoup {
    */
   static async invokeIdAppActionsPopup({
     onCreateAccount,
-    onRecoverAccount,
     walletConnectSessionTopic,
   }: {
     onCreateAccount?: () => Promise<unknown>;
-    onRecoverAccount?: () => Promise<unknown>;
     walletConnectSessionTopic?: string;
   }) {
     // Check if atleast one of the handlers is provided
-    if (!onCreateAccount && !onRecoverAccount) {
+    if (!onCreateAccount) {
       throw new Error("Atleast one of the handlers must be provided");
     }
 
-    if (onCreateAccount && !walletConnectSessionTopic) {
+    if (!walletConnectSessionTopic) {
       throw new Error("Wallet Connect's session.topic is required");
     }
 
@@ -477,58 +451,18 @@ export class ConcordiumIDAppPoup {
 
     //this helper function to get the stepper name
     const getActionText = () => {
-      if (onCreateAccount && !onRecoverAccount) {
-        return "Create<br> Account";
-      } else if (onRecoverAccount && !onCreateAccount) {
-        return "Recover<br> Account";
-      } else if (onCreateAccount && onRecoverAccount) {
-        return "Create / Recover<br> Account";
-      } else {
-        return "Create / Recover<br> Account";
-      }
+      return "Create <br> Account";
     };
 
     // this helper function to get the action buttons
     const getActionsButtonsHTML = () => {
-      if (onCreateAccount && !onRecoverAccount) {
-        return `
-          <div class="sdk-btns">
-            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
-              Create New Account
-            </button>
-          </div>
-        `;
-      } else if (onRecoverAccount && !onCreateAccount) {
-        return `
-          <div class="sdk-btns">
-            <button id="recover-id-btn" class="sdk-btn sdk-btn--secondary">
-              Recover Account
-            </button>
-          </div>
-        `;
-      } else if (onCreateAccount && onRecoverAccount) {
-        return `
-            <div class="sdk-btns">
-              <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
-                Create New Account
-              </button>
-              <div class="recover-action">Already have an account? 
-                <a id="recover-id-btn" class="recover-link">Recover</a>
-              </div>
-            </div>
-          `;
-      } else {
-        return `
-          <div class="sdk-btns">
-            <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
-              Create New Account
-            </button>
-            <div class="recover-action">Already have an account? 
-              <a id="recover-id-btn" class="recover-link">Recover</a>
-            </div>
-          </div>
-        `;
-      }
+      return `
+        <div class="sdk-btns">
+          <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
+            Create New Account
+          </button>
+        </div>
+      `;
     };
 
     ConcordiumIDAppPoup.injectPopupStyles();
@@ -626,23 +560,5 @@ export class ConcordiumIDAppPoup {
         createBtn.style.display = "none";
       }
     });
-
-    // Recover flow
-    const recoverBtn =
-      wrapper.querySelector<HTMLButtonElement>("#recover-id-btn")!;
-    if (onRecoverAccount) {
-      recoverBtn.addEventListener("click", async () => {
-        recoverBtn.textContent = "⏳ Please wait";
-        try {
-          await onRecoverAccount();
-        } catch (err) {
-          console.error(err);
-          recoverBtn.textContent = "Recover Account";
-          recoverBtn.disabled = false;
-        }
-      });
-    } else if (recoverBtn) {
-      recoverBtn.style.display = "none";
-    }
   }
 }
