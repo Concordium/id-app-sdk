@@ -12,7 +12,6 @@ import type {
   CCDAccountKeyPair,
   CreateAccountCreationRequestMessage,
   KeyAccount,
-  RecoverAccountRequestMessage,
   SerializedCredentialDeploymentDetails,
   SignedCredentialDeploymentTransaction,
 } from "./types";
@@ -151,20 +150,6 @@ export class ConcordiumIDAppSDK {
     return tx.toString();
   }
 
-  /**
-   *
-   * @param publicKey Public key to use for the account
-   * @param description Description of the use of this public key
-   */
-  public static getRecoverAccountRecoveryRequest(
-    publicKey: string,
-    description: string = "Account Wallet is requesting the account address to recover",
-  ): RecoverAccountRequestMessage {
-    return {
-      publicKey,
-      description,
-    };
-  }
 
   /**
    * Fetches all Concordium key accounts associated with a given public key
