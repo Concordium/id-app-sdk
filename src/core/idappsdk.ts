@@ -11,6 +11,7 @@ import {
 import type {
   CCDAccountKeyPair,
   CreateAccountCreationRequestMessage,
+  KeyAccount,
   RecoverAccountRequestMessage,
   SerializedCredentialDeploymentDetails,
   SignedCredentialDeploymentTransaction,
@@ -163,5 +164,53 @@ export class ConcordiumIDAppSDK {
       publicKey,
       description,
     };
+  }
+
+  /**
+   * Fetches all Concordium key accounts associated with a given public key
+   * from the wallet-proxy service for the specified network.
+   *
+   * This function calls:
+   *   GET <explorerUrl>/v0/keyAccounts/<publicKey>
+   *
+   * It automatically selects the correct explorer URL based on whether the
+   * network is "Mainnet" or "Testnet", validates the API response, and returns
+   * the list of matching key accounts.
+   */
+  public static async getKeyAccounts(
+    publicKey: string,
+    network: Network
+  ): Promise<KeyAccount[]> {
+    if (!publicKey) {
+      throw new Error("Public key is required.");
+    }
+
+    const config = network === "Mainnet" ? mainnet : testnet;
+
+    const url = `${config.explorerUrl}/v0/keyAccounts/${encodeURIComponent(
+      publicKey
+    )}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      // API error format:
+      // { error: 1, errorMessage: "..." }
+      if (!response.ok || data?.error === 1) {
+        throw new Error(data?.errorMessage || "Unknown API error");
+      }
+
+      if (!Array.isArray(data)) {
+        throw new Error("Unexpected API response format.");
+      }
+
+      return data as KeyAccount[];
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        throw new Error(err.message);
+      }
+      throw new Error("Failed to fetch key accounts.");
+    }
   }
 }
