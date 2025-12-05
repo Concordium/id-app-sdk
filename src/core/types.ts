@@ -18,19 +18,6 @@ export interface IDAppError {
   details?: string;
 }
 
-export interface RecoverAccountMsgType {
-  accountAddress: string;
-}
-
-export interface RecoverAccountResponse {
-  status: Status;
-  message: RecoverAccountMsgType | IDAppError;
-}
-
-export interface RecoverAccountCreationRequestMessage {
-  publicKey: string;
-}
-
 export interface CreateAccountCreationResponse {
   status: Status;
   message: CreateAccountResponseMsgType | IDAppError;
@@ -41,14 +28,9 @@ export interface CreateAccountCreationRequestMessage {
   reason: string;
 }
 
-export interface RecoverAccountRequestMessage {
-  publicKey: string;
-  description: string;
-}
 
 export const IDAppSdkWallectConnectMethods = {
   CREATE_ACCOUNT: "create_account",
-  RECOVER_ACCOUNT: "recover_account",
 } as const;
 
 export type IDAppSdkWallectConnectMethods =
@@ -90,3 +72,17 @@ export enum IDAppErrorCode {
   RequestRejected = 8,
   UnknownError = 99,
 }
+
+
+export interface KeyAccountPublicKey {
+   schemeId: string;
+   verifyKey: string 
+}
+
+export interface KeyAccount {
+  address: string;
+  credential_index: number; 
+  is_simple_account: boolean;
+  public_key: KeyAccountPublicKey
+}
+

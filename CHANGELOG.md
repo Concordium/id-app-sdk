@@ -28,3 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Attached integration guide v1.1 
 
+---
+## [0.1.5] - 2025-12-05
+### Added
+- Implemented `getKeyAccounts()` method to resolve a public key to wallet address(s)
+
+### Fixed
+- Removed all old recovery code and UI elements
