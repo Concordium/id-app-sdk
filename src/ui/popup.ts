@@ -438,14 +438,14 @@ export class ConcordiumIDAppPoup {
   static async invokeIdAppActionsPopup({
     onCreateAccount,
     walletConnectSessionTopic,
-    generateProof,
+    onGenerateProof,
   }: {
     onCreateAccount?: () => Promise<unknown>;
     walletConnectSessionTopic?: string;
-    generateProof?: () => Promise<unknown>;
+    onGenerateProof?: () => Promise<unknown>;
   }) {
     // Check if atleast one of the handlers is provided
-    if (!onCreateAccount && !generateProof) {
+    if (!onCreateAccount && !onGenerateProof) {
       throw new Error("Atleast one of the handlers must be provided");
     }
 
@@ -461,7 +461,7 @@ export class ConcordiumIDAppPoup {
 
     //this helper function to get the stepper name
     const getActionText = () => {
-      if (generateProof) {
+      if (onGenerateProof) {
         return "Generate <br> Proof";
       }
       return "Create <br> Account";
@@ -469,7 +469,7 @@ export class ConcordiumIDAppPoup {
 
     // this helper function to get the action buttons
     const getActionsButtonsHTML = () => {
-      if (generateProof) {
+      if (onGenerateProof) {
         return `
           <div class="sdk-btns">
             <button id="generate-proof-btn" class="sdk-btn sdk-btn--primary">
@@ -541,7 +541,7 @@ export class ConcordiumIDAppPoup {
         </div>
         </div>
          ${
-           walletConnectSessionTopic
+           walletConnectSessionTopic && onCreateAccount
              ? `<div class="no-app-msg">
           <p class="sdk-install">
            To Create an Account, match the code below in the [ID App]
@@ -584,13 +584,13 @@ export class ConcordiumIDAppPoup {
 
       const generateProofBtn =
         wrapper.querySelector<HTMLButtonElement>("#generate-proof-btn");
-      if (generateProof && generateProofBtn) {
+      if (onGenerateProof && generateProofBtn) {
         generateProofBtn.addEventListener("click", async (e) => {
           e.preventDefault();
           generateProofBtn.disabled = true;
           generateProofBtn.textContent = "⏳ Please wait";
           try {
-            await generateProof();
+            await onGenerateProof();
           } catch (err) {
             console.error(err);
             generateProofBtn.textContent = "Generate proof";
