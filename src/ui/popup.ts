@@ -282,8 +282,10 @@ export class ConcordiumIDAppPoup {
    */
   static async invokeIdAppDeepLinkPopup({
     walletConnectUri,
+    actionType = "create-account",
   }: {
     walletConnectUri: string;
+    actionType?: "create-account" | "generate-proof";
   }) {
     if (!navigator && !window) {
       throw new Error(
@@ -301,6 +303,12 @@ export class ConcordiumIDAppPoup {
 
     const wallectConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
     // const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
+
+    const isGenerateProof = actionType === "generate-proof";
+    const lastStepText = isGenerateProof ? "Generate <br> Proof" : "Create <br> Account";
+    const copyText = isGenerateProof
+      ? "Please follow and complete the <br> proof generation in [ID App]."
+      : "Please follow and complete the <br> account setup in [ID App].";
 
     const wrapper = document.createElement("div");
 
@@ -339,14 +347,14 @@ export class ConcordiumIDAppPoup {
             </div>
             <div class="Rtable-cell" style="order: 1;">
               <div class="text">
-               Create <br> Account
+               ${lastStepText}
               </div>
             </div>
           </div>
 
           <div class="hr-line"> <hr></div>
           <p class="sdk-copy">
-            Please follow and complete the <br> account setup in [ID App].
+            ${copyText}
           </p>
           <div id="sdk-qr-code"></div>
           <div class="sdk-btns">
@@ -430,12 +438,14 @@ export class ConcordiumIDAppPoup {
   static async invokeIdAppActionsPopup({
     onCreateAccount,
     walletConnectSessionTopic,
+    onGenerateProof,
   }: {
     onCreateAccount?: () => Promise<unknown>;
     walletConnectSessionTopic?: string;
+    onGenerateProof?: () => Promise<unknown>;
   }) {
     // Check if atleast one of the handlers is provided
-    if (!onCreateAccount) {
+    if (!onCreateAccount && !onGenerateProof) {
       throw new Error("Atleast one of the handlers must be provided");
     }
 
@@ -451,11 +461,23 @@ export class ConcordiumIDAppPoup {
 
     //this helper function to get the stepper name
     const getActionText = () => {
+      if (onGenerateProof) {
+        return "Generate <br> Proof";
+      }
       return "Create <br> Account";
     };
 
     // this helper function to get the action buttons
     const getActionsButtonsHTML = () => {
+      if (onGenerateProof) {
+        return `
+          <div class="sdk-btns">
+            <button id="generate-proof-btn" class="sdk-btn sdk-btn--primary">
+              Generate proof
+            </button>
+          </div>
+        `;
+      }
       return `
         <div class="sdk-btns">
           <button id="create-id-btn" class="sdk-btn sdk-btn--primary">
@@ -519,7 +541,7 @@ export class ConcordiumIDAppPoup {
         </div>
         </div>
          ${
-           walletConnectSessionTopic
+           walletConnectSessionTopic && onCreateAccount
              ? `<div class="no-app-msg">
           <p class="sdk-install">
            To Create an Account, match the code below in the [ID App]
@@ -558,6 +580,23 @@ export class ConcordiumIDAppPoup {
         });
       } else if (createBtn) {
         createBtn.style.display = "none";
+      }
+
+      const generateProofBtn =
+        wrapper.querySelector<HTMLButtonElement>("#generate-proof-btn");
+      if (onGenerateProof && generateProofBtn) {
+        generateProofBtn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          generateProofBtn.disabled = true;
+          generateProofBtn.textContent = "⏳ Please Wait";
+          try {
+            await onGenerateProof();
+          } catch (err) {
+            console.error(err);
+            generateProofBtn.textContent = "Generate Proof";
+            generateProofBtn.disabled = false;
+          }
+        });
       }
     });
   }
