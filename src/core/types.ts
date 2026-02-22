@@ -31,6 +31,7 @@ export interface CreateAccountCreationRequestMessage {
 
 export const IDAppSdkWallectConnectMethods = {
   CREATE_ACCOUNT: "create_account",
+  REQUEST_VP_V1: "request_verifiable_presentation_v1"
 } as const;
 
 export type IDAppSdkWallectConnectMethods =
