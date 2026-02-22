@@ -588,12 +588,12 @@ export class ConcordiumIDAppPoup {
         generateProofBtn.addEventListener("click", async (e) => {
           e.preventDefault();
           generateProofBtn.disabled = true;
-          generateProofBtn.textContent = "⏳ Please wait";
+          generateProofBtn.textContent = "⏳ Please Wait";
           try {
             await onGenerateProof();
           } catch (err) {
             console.error(err);
-            generateProofBtn.textContent = "Generate proof";
+            generateProofBtn.textContent = "Generate Proof";
             generateProofBtn.disabled = false;
           }
         });
