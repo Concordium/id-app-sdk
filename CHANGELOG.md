@@ -35,3 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Removed all old recovery code and UI elements
+
+---
+## [0.1.6] - 2026-02-23
+### Added
+- Implemented `ZKP verfication flow` between 3rd party wallets and ID app 
