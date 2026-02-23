@@ -45,7 +45,10 @@ import {
 
 
 ## 🛠 Development
-
+Install the dependencies:
+```bash
+yarn install
+```
 **Build**
 ```bash
 yarn build
