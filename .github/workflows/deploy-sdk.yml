@@ -15,6 +15,8 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     environment: release
 
     steps:
@@ -57,9 +59,7 @@ jobs:
           echo "npm_tag=$npm_tag" >> $GITHUB_OUTPUT
 
       - name: Publish to NPM
-        run: npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }} --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        run: NPM_AUTH_TOKEN="" npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }} --access public --provenance
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
