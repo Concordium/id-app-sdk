@@ -41,7 +41,7 @@ import {
 } from "@concordium/id-app-sdk";
 ```
 
-> 📘 See the [Concordium IDApp SDK v1.2 Integration Guide](/docs/Concordium IDApp SDK v1.2 Integration Guide.pdf) for detailed integration instructions.
+> 📘 See the [Concordium IDApp SDK v1.2 Integration Guide](/docs/Concordium-IDApp-SDK-v1.2-Integration-Guide.pdf) for detailed integration instructions.
 
 
 ## 🛠 Development
