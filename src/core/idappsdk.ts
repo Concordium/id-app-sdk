@@ -43,7 +43,7 @@ export class ConcordiumIDAppSDK {
       throw new Error("Invalid seed phrase");
     }
     const wallet = ConcordiumHdWallet.fromSeedPhrase(seed, network);
-    // Identity Provider Index is set to 0 and Identity Index is set to 0 because identity is being manged by the IdApp
+    // Identity Provider Index is set to 0 and Identity Index is set to 0 because identity is being managed by the ID App
     const publicKey = wallet
       .getAccountPublicKey(0, 0, accountIndex)
       .toString("hex");
@@ -63,7 +63,7 @@ export class ConcordiumIDAppSDK {
    */
   public static getCreateAccountCreationRequest(
     publicKey: string,
-    reason: string = "The account wallet is requesting and Identity to create an account",
+    reason: string = "The account wallet is requesting an identity to create an account",
   ): CreateAccountCreationRequestMessage {
     return {
       publicKey,
@@ -150,7 +150,6 @@ export class ConcordiumIDAppSDK {
     return tx.toString();
   }
 
-
   /**
    * Fetches all Concordium key accounts associated with a given public key
    * from the wallet-proxy service for the specified network.
@@ -164,7 +163,7 @@ export class ConcordiumIDAppSDK {
    */
   public static async getKeyAccounts(
     publicKey: string,
-    network: Network
+    network: Network,
   ): Promise<KeyAccount[]> {
     if (!publicKey) {
       throw new Error("Public key is required.");
@@ -173,7 +172,7 @@ export class ConcordiumIDAppSDK {
     const config = network === "Mainnet" ? mainnet : testnet;
 
     const url = `${config.explorerUrl}/v0/keyAccounts/${encodeURIComponent(
-      publicKey
+      publicKey,
     )}`;
 
     try {

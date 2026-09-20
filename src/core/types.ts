@@ -28,14 +28,23 @@ export interface CreateAccountCreationRequestMessage {
   reason: string;
 }
 
-
-export const IDAppSdkWallectConnectMethods = {
+export const IDAppSdkWalletConnectMethods = {
   CREATE_ACCOUNT: "create_account",
-  REQUEST_VP_V1: "request_verifiable_presentation_v1"
+  REQUEST_VP_V1: "request_verifiable_presentation_v1",
 } as const;
 
-export type IDAppSdkWallectConnectMethods =
-  (typeof IDAppSdkWallectConnectMethods)[keyof typeof IDAppSdkWallectConnectMethods];
+export type IDAppSdkWalletConnectMethods =
+  (typeof IDAppSdkWalletConnectMethods)[keyof typeof IDAppSdkWalletConnectMethods];
+
+/**
+ * @deprecated Use IDAppSdkWalletConnectMethods instead.
+ */
+export const IDAppSdkWallectConnectMethods = IDAppSdkWalletConnectMethods;
+
+/**
+ * @deprecated Use IDAppSdkWalletConnectMethods instead.
+ */
+export type IDAppSdkWallectConnectMethods = IDAppSdkWalletConnectMethods;
 
 export interface CCDAccountKeyPair {
   publicKey: string;
@@ -74,16 +83,14 @@ export enum IDAppErrorCode {
   UnknownError = 99,
 }
 
-
 export interface KeyAccountPublicKey {
-   schemeId: string;
-   verifyKey: string 
+  schemeId: string;
+  verifyKey: string;
 }
 
 export interface KeyAccount {
   address: string;
-  credential_index: number; 
+  credential_index: number;
   is_simple_account: boolean;
-  public_key: KeyAccountPublicKey
+  public_key: KeyAccountPublicKey;
 }
-
