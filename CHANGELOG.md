@@ -40,3 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.6] - 2026-02-23
 ### Added
 - Implemented `ZKP verfication flow` between 3rd party wallets and ID app 
+
+---
+## [0.1.7] - 2026-09-20
+### Fixed
+- Corrected Wallet Connect and ID App popup typoed exports while retaining deprecated aliases for backwards compatibility.

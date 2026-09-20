@@ -31,7 +31,7 @@ npm install @concordium/id-app-sdk
 import {
   ConcordiumIDAppSDK,
   type CreateAccountCreationRequestMessage,
-  IDAppSdkWallectConnectMethods,
+  IDAppSdkWalletConnectMethods,
   type CreateAccountCreationResponse,
   type CreateAccountResponseMsgType,
   type SignedCredentialDeploymentTransaction,
@@ -42,7 +42,6 @@ import {
 ```
 
 > 📘 See the [Concordium IDApp SDK v1.2 Integration Guide](/docs/Concordium-IDApp-SDK-v1.2-Integration-Guide.pdf) for detailed integration instructions.
-
 
 ## 🛠 Development
 Install the dependencies:

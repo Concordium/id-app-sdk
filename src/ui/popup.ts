@@ -3,7 +3,7 @@ import concordiumLogo from "../../public/concordium_logo.svg";
 import appStoreLogo from "../../public/app_store.svg";
 import playStoreLogo from "../../public/play_store.svg";
 
-export class ConcordiumIDAppPoup {
+export class ConcordiumIDAppPopup {
   private static injectPopupStyles() {
     if (document.getElementById("sdk-popup-styles")) return;
 
@@ -250,15 +250,26 @@ export class ConcordiumIDAppPoup {
    * @param param0
    */
   static openIdapp = ({
+    walletConnectMobileUrl,
     wallectConnectMobileUrl,
     walletConnectDesktopUrl,
   }: {
-    wallectConnectMobileUrl: string;
+    walletConnectMobileUrl?: string;
+    /**
+     * @deprecated Use walletConnectMobileUrl instead.
+     */
+    wallectConnectMobileUrl?: string;
     walletConnectDesktopUrl?: string;
   }) => {
+    const mobileUrl = walletConnectMobileUrl ?? wallectConnectMobileUrl;
+
+    if (!mobileUrl) {
+      throw new Error("walletConnectMobileUrl is required");
+    }
+
     // On mobile, hand off to the native app:
     if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      window.location.href = wallectConnectMobileUrl;
+      window.location.href = mobileUrl;
     } else {
       // Desktop fallback: show instructions or open a popup for testing
       if (walletConnectDesktopUrl) {
@@ -268,7 +279,7 @@ export class ConcordiumIDAppPoup {
         const left = window.screen.availWidth - width;
         window.open(
           walletConnectDesktopUrl,
-          "Idapp",
+          "IDApp",
           `width=${width},height=${height},top=${top},left=${left}`,
         );
       }
@@ -289,23 +300,25 @@ export class ConcordiumIDAppPoup {
   }) {
     if (!navigator && !window) {
       throw new Error(
-        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a browser environment",
+        "ConcordiumIDAppPopup.invokeIdAppDeepLinkPopup() requires a browser environment",
       );
     }
 
     if (!walletConnectUri) {
       throw new Error(
-        "ConcordiumIDAppPoup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri",
+        "ConcordiumIDAppPopup.invokeIdAppDeepLinkPopup() requires a valid walletConnectUri",
       );
     }
 
-    ConcordiumIDAppPoup.injectPopupStyles();
+    ConcordiumIDAppPopup.injectPopupStyles();
 
-    const wallectConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
+    const walletConnectMobileUrl = `${IDAPP_HOSTS.mobile}wallet-connect?encodedUri=${walletConnectUri}`;
     // const walletConnectDesktopUrl = `${IDAPP_HOSTS.web}wallet-connect?encodedUri=${walletConnectUri}`;
 
     const isGenerateProof = actionType === "generate-proof";
-    const lastStepText = isGenerateProof ? "Generate <br> Proof" : "Create <br> Account";
+    const lastStepText = isGenerateProof
+      ? "Generate <br> Proof"
+      : "Create <br> Account";
     const copyText = isGenerateProof
       ? "Please follow and complete the <br> proof generation in [ID App]."
       : "Please follow and complete the <br> account setup in [ID App].";
@@ -397,7 +410,7 @@ export class ConcordiumIDAppPoup {
           "display: flex;justify-content: center;margin: 1.0rem 0;";
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         new (window as any).QRCode(qrContainer, {
-          text: wallectConnectMobileUrl,
+          text: walletConnectMobileUrl,
           width: 160,
           height: 160,
           colorDark: "#000000",
@@ -417,12 +430,12 @@ export class ConcordiumIDAppPoup {
     document.body.appendChild(wrapper);
     renderQRCode();
 
-    closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
+    closeBtn.addEventListener("click", () => ConcordiumIDAppPopup.closePopup());
 
     openAppBtn?.addEventListener("click", async () => {
       try {
-        // window.location.href = wallectConnectMobileUrl;
-        ConcordiumIDAppPoup.openIdapp({ wallectConnectMobileUrl });
+        // window.location.href = walletConnectMobileUrl;
+        ConcordiumIDAppPopup.openIdapp({ walletConnectMobileUrl });
       } catch (e) {
         // emit error event
         console.log(e);
@@ -444,9 +457,9 @@ export class ConcordiumIDAppPoup {
     walletConnectSessionTopic?: string;
     onGenerateProof?: () => Promise<unknown>;
   }) {
-    // Check if atleast one of the handlers is provided
+    // Check if at least one of the handlers is provided
     if (!onCreateAccount && !onGenerateProof) {
-      throw new Error("Atleast one of the handlers must be provided");
+      throw new Error("At least one of the handlers must be provided");
     }
 
     if (!walletConnectSessionTopic) {
@@ -487,7 +500,7 @@ export class ConcordiumIDAppPoup {
       `;
     };
 
-    ConcordiumIDAppPoup.injectPopupStyles();
+    ConcordiumIDAppPopup.injectPopupStyles();
     // Build the wrapper
     const wrapper = document.createElement("div");
     wrapper.id = "sdk-popup-wrapper";
@@ -559,7 +572,7 @@ export class ConcordiumIDAppPoup {
     // Element refs
     const closeBtn =
       wrapper.querySelector<HTMLButtonElement>(".sdk-close-btn")!;
-    closeBtn.addEventListener("click", () => ConcordiumIDAppPoup.closePopup());
+    closeBtn.addEventListener("click", () => ConcordiumIDAppPopup.closePopup());
 
     // Step switch: Create New Account → Step 2
     requestAnimationFrame(() => {
@@ -582,8 +595,9 @@ export class ConcordiumIDAppPoup {
         createBtn.style.display = "none";
       }
 
-      const generateProofBtn =
-        wrapper.querySelector<HTMLButtonElement>("#generate-proof-btn");
+      const generateProofBtn = wrapper.querySelector<HTMLButtonElement>(
+        "#generate-proof-btn",
+      );
       if (onGenerateProof && generateProofBtn) {
         generateProofBtn.addEventListener("click", async (e) => {
           e.preventDefault();
@@ -601,3 +615,8 @@ export class ConcordiumIDAppPoup {
     });
   }
 }
+
+/**
+ * @deprecated Use ConcordiumIDAppPopup instead.
+ */
+export const ConcordiumIDAppPoup = ConcordiumIDAppPopup;
