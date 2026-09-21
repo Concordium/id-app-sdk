@@ -9,9 +9,6 @@ on:
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
-env:
-  NODE_VERSION: 20.10.0
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,12 +18,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org/'
           cache: yarn
 
@@ -59,7 +56,7 @@ jobs:
           echo "npm_tag=$npm_tag" >> $GITHUB_OUTPUT
 
       - name: Publish to NPM
-        run: NPM_AUTH_TOKEN="" npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }} --access public --provenance
+        run: npm publish --tag ${{ steps.determine_npm_tag.outputs.npm_tag }} --access public --provenance
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
